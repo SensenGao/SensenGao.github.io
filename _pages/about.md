@@ -23,7 +23,7 @@ My research interest includes computer vision, AI security.
 
 
 # 🔥 News
-- *2024.025: &nbsp;🎉🎉 One paper is accepted by DIS2024.
+- *2024.05*: &nbsp;🎉🎉 One paper is accepted by DIS2024.
 
 # 📝 Publications 
 
@@ -37,4 +37,4 @@ My research interest includes computer vision, AI security.
 # 💬 Invited Talks
 # 💻 Internships
 - *2023.09-Now*, [Centre for Frontier AI Research(CFAR)](https://www.a-star.edu.sg/cfar), [A*STAR](https://www.a-star.edu.sg/), Singapore.
-- *2023.05-2023.09*, [The Hong kong University of Science and Technology]([Home | The Hong Kong University of Science and Technology (hkust.edu.hk)](https://hkust.edu.hk/)), Hong Kong, China.
+- *2023.05-2023.09*, [The Hong kong University of Science and Technology](https://hkust.edu.hk/), Hong Kong, China.
