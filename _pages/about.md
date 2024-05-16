@@ -28,8 +28,8 @@ My research interest includes computer vision, AI security.
 # 📝 Publications 
 
 # 🎖 Honors and Awards
-- *2023.10* Singapore International Pre-Graduaute Award
-- *2022.10*  Nankai University Academic Merit Scholarship
+- *2023.10*  Singapore International Pre-Graduaute Award.
+- *2022.10*  Nankai University Academic Merit Scholarship.
 
 # 📖 Educations
 - *2019.06 - Now*, B.Eng student majoring in computer science and technology at Nankai University.
