@@ -27,12 +27,16 @@ My research interest includes computer vision, AI security.
 
 # 📝 Publications 
 
+## Pre-Print
+
+Boosting Transferability in Vision-Language Attacks via Diversification along the Intersection Region of Adversarial Trajectory. [[Paper](https://arxiv.org/abs/2403.12445)]
+
 # 🎖 Honors and Awards
-- *2023.10*  Singapore International Pre-Graduaute Award.
-- *2022.10*  Nankai University Academic Merit Scholarship.
+- *2023.10:*  Singapore International Pre-Graduaute Award.
+- *2022.10:*  Nankai University Academic Merit Scholarship.
 
 # 📖 Educations
-- *2019.06 - Now*, B.Eng student majoring in computer science and technology at Nankai University.
+- *2020.09 - Now*, B.Eng student majoring in computer science and technology at Nankai University.
 
 # 💬 Invited Talks
 # 💻 Internships
