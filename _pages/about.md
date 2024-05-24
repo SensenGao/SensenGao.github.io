@@ -29,6 +29,8 @@ My research interest includes computer vision, AI security.
 
 ## Pre-Print
 
+Towards Transferable Attacks Against Vision-LLMs in Autonomous Driving with Typography.[[Paper](https://arxiv.org/abs/2405.14169)]
+
 Boosting Transferability in Vision-Language Attacks via Diversification along the Intersection Region of Adversarial Trajectory. [[Paper](https://arxiv.org/abs/2403.12445)]
 
 # 🎖 Honors and Awards
