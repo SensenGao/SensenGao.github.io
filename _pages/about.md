@@ -23,13 +23,14 @@ My research interest includes computer vision, AI security.
 
 
 # 🔥 News
+- *2024.07*: &nbsp;🎉🎉 One paper is accepted by ECCV2024.
 - *2024.05*: &nbsp;🎉🎉 One paper is accepted by DIS2024.
 
 # 📝 Publications 
 
 ## Pre-Print
 
-Towards Transferable Attacks Against Vision-LLMs in Autonomous Driving with Typography.[[Paper](https://arxiv.org/abs/2405.14169)]
+Towards Transferable Attacks Against Vision-LLMs in Autonomous Driving with Typography. [[Paper](https://arxiv.org/abs/2405.14169)]
 
 Boosting Transferability in Vision-Language Attacks via Diversification along the Intersection Region of Adversarial Trajectory. [[Paper](https://arxiv.org/abs/2403.12445)]
 
