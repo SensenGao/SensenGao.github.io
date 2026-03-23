@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OneWorld: Taming Scene Generation with 3D Unified Representation Autoencoder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4A90D9;
+      --primary-dark: #2C6CB0;
+      --bg: #ffffff;
+      --bg-alt: #f8f9fc;
+      --text: #333;
+      --text-light: #666;
+      --border: #e0e4ea;
+      --max-width: 1000px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--bg);
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .hero {
+      text-align: center;
+      padding: 60px 0 40px;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero .logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      border-radius: 16px;
+    }
+
+    .hero h1 {
+      font-size: 2.4em;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero .subtitle {
+      font-size: 1.15em;
+      color: var(--text-light);
+      max-width: 750px;
+      margin: 0 auto 24px;
+    }
+
+    .hero .venue {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* Authors */
+    .authors {
+      text-align: center;
+      margin-bottom: 12px;
+      font-size: 1.05em;
+    }
+
+    .authors a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    .authors a:hover {
+      text-decoration: underline;
+    }
+
+    .authors .note {
+      font-size: 0.85em;
+      color: var(--text-light);
+    }
+
+    .affiliations {
+      text-align: center;
+      font-size: 0.9em;
+      color: var(--text-light);
+      margin-bottom: 28px;
+    }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 0.95em;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 2px solid var(--border);
+      color: var(--text);
+      background: white;
+    }
+
+    .btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(74, 144, 217, 0.15);
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .btn.primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      color: white;
+    }
+
+    /* Sections */
+    section {
+      padding: 48px 0;
+    }
+
+    section:nth-child(even) {
+      background: var(--bg-alt);
+    }
+
+    section h2 {
+      font-size: 1.8em;
+      text-align: center;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    section h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Teaser */
+    .teaser-img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin: 16px 0;
+    }
+
+    .caption {
+      text-align: center;
+      font-size: 0.9em;
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 8px auto 0;
+    }
+
+    /* Abstract */
+    .abstract-text {
+      font-size: 1.02em;
+      text-align: justify;
+      max-width: 850px;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    /* Method figure */
+    .method-img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin: 16px 0;
+    }
+
+    /* Results */
+    .results-grid {
+      display: grid;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .result-block h3 {
+      font-size: 1.15em;
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+    }
+
+    .result-block img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    /* Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88em;
+    }
+
+    table th {
+      background: var(--primary);
+      color: white;
+      padding: 10px 12px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    table td {
+      padding: 8px 12px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    table tr:hover {
+      background: #f0f4ff;
+    }
+
+    table .best {
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    table .highlight-row {
+      background: #e8f0fe;
+      font-weight: 600;
+    }
+
+    /* Contributions */
+    .contributions {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .contrib-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .contrib-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1em;
+      margin-top: 2px;
+    }
+
+    .contrib-text h4 {
+      font-size: 1.05em;
+      margin-bottom: 4px;
+    }
+
+    .contrib-text p {
+      font-size: 0.95em;
+      color: var(--text-light);
+    }
+
+    /* BibTeX */
+    .bibtex-box {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      padding: 20px 24px;
+      border-radius: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82em;
+      line-height: 1.6;
+      overflow-x: auto;
+      position: relative;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .bibtex-box .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #cdd6f4;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85em;
+      transition: background 0.2s;
+    }
+
+    .bibtex-box .copy-btn:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      font-size: 0.85em;
+      color: var(--text-light);
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.6em; }
+      .hero .subtitle { font-size: 1em; }
+      .buttons { gap: 8px; }
+      .btn { padding: 8px 14px; font-size: 0.85em; }
+      section { padding: 32px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="container">
+    <img src="static/images/logo.png" alt="OneWorld Logo" class="logo">
+    <h1><span>OneWorld:</span> Taming Scene Generation with<br>3D Unified Representation Autoencoder</h1>
+    <div class="venue">ECCV 2026</div>
+
+    <div class="authors">
+      <a href="https://sensengao.github.io/">Sensen Gao</a><sup>1*</sup>,
+      Zhaoqing Wang<sup>2*</sup>,
+      Qihang Cao<sup>3</sup>,
+      Dongdong Yu<sup>2</sup>,
+      Changhu Wang<sup>2</sup>,<br>
+      Tongliang Liu<sup>4,1&dagger;</sup>,
+      Mingming Gong<sup>5,1&dagger;</sup>,
+      Jiawang Bian<sup>6&dagger;</sup>
+      <div class="note">* Co-first authors &nbsp;&nbsp; &dagger; Corresponding authors</div>
+    </div>
+
+    <div class="affiliations">
+      <sup>1</sup> MBZUAI &nbsp;
+      <sup>2</sup> AISphere &nbsp;
+      <sup>3</sup> SJTU &nbsp;
+      <sup>4</sup> University of Sydney &nbsp;
+      <sup>5</sup> University of Melbourne &nbsp;
+      <sup>6</sup> NTU
+    </div>
+
+    <div class="buttons">
+      <a href="https://arxiv.org/abs/2506.xxxxx" class="btn primary"><i class="fas fa-file-pdf"></i> Paper</a>
+      <a href="https://github.com/SensenGao/OneWorld" class="btn"><i class="fab fa-github"></i> Code</a>
+    </div>
+  </div>
+</div>
+
+<!-- Teaser -->
+<section>
+  <div class="container">
+    <img src="static/images/Teaser_OW_v3.png" alt="OneWorld Teaser" class="teaser-img">
+    <p class="caption"><b>(a)</b> OneWorld generates 3DGS from a single view and renders novel views. <b>(b)</b> Architecture comparison: OneWorld generates directly in a unified 3D representation space, without compression or separate generation. <b>(c)</b> Performance comparison on WorldScore and DL3DV.</p>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section>
+  <div class="container">
+    <h2>Abstract</h2>
+    <p class="abstract-text">
+      Existing diffusion-based 3D scene generation methods primarily operate in 2D image/video latent spaces, which makes maintaining cross-view appearance and geometric consistency inherently challenging. To bridge this gap, we present <b>OneWorld</b>, a framework that performs diffusion directly within a coherent 3D representation space. Central to our approach is the <b>3D Unified Representation Autoencoder (3D-URAE)</b>; it leverages pretrained 3D foundation models and augments their geometry-centric nature by injecting appearance and distilling semantics into a unified 3D latent space. Furthermore, we introduce token-level <b>Cross-View-Correspondence (CVC)</b> consistency loss to explicitly enforce structural alignment across views, and propose <b>Manifold-Drift Forcing (MDF)</b> to mitigate train&ndash;inference exposure bias and shape a robust 3D manifold by mixing drifted and original representations. Comprehensive experiments demonstrate that OneWorld generates high-quality 3D scenes with superior cross-view consistency compared to state-of-the-art 2D-based methods.
+    </p>
+  </div>
+</section>
+
+<!-- Key Contributions -->
+<section>
+  <div class="container">
+    <h2>Key Contributions</h2>
+    <div class="contributions">
+      <div class="contrib-item">
+        <div class="contrib-icon"><i class="fas fa-cube"></i></div>
+        <div class="contrib-text">
+          <h4>3D Unified Representation Autoencoder (3D-URAE)</h4>
+          <p>Built upon pretrained 3D foundation models, 3D-URAE injects appearance and distills semantics to jointly encode geometry, appearance, and semantics into a unified 3D latent space for diffusion-based generation.</p>
+        </div>
+      </div>
+      <div class="contrib-item">
+        <div class="contrib-icon"><i class="fas fa-link"></i></div>
+        <div class="contrib-text">
+          <h4>Cross-View Correspondence (CVC) Loss</h4>
+          <p>A token-level correspondence-preserving loss for conditional diffusion training, explicitly enforcing structural alignment between target and conditioning views to improve cross-view consistency.</p>
+        </div>
+      </div>
+      <div class="contrib-item">
+        <div class="contrib-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="contrib-text">
+          <h4>Manifold-Drift Forcing (MDF)</h4>
+          <p>Identifies sampling drift from train&ndash;inference mismatch and trains the 3DGS decoder on mixed diffusion-sampled and ground-truth latents to shape a robust 3D manifold for stable sampling.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section>
+  <div class="container">
+    <h2>Method Overview</h2>
+    <img src="static/images/Overview2.png" alt="OneWorld Method Overview" class="method-img">
+    <p class="caption"><b>(a)</b> Unified 3D representation space with appearance injection and semantic distillation. <b>(b)</b> Cross-view correspondence preserving during DiT training. <b>(c)</b> Manifold-drift forcing: mixing ground-truth 3D features with sampled features for robust 3D decoding.</p>
+  </div>
+</section>
+
+<!-- Results -->
+<section>
+  <div class="container">
+    <h2>Results</h2>
+
+    <div class="results-grid">
+      <!-- NVS Table -->
+      <div class="result-block">
+        <h3>Novel View Synthesis (1-view conditioned)</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2">Method</th>
+                <th colspan="3">RealEstate10K</th>
+                <th colspan="3">DL3DV-10K</th>
+              </tr>
+              <tr>
+                <th>PSNR &uarr;</th><th>SSIM &uarr;</th><th>LPIPS &darr;</th>
+                <th>PSNR &uarr;</th><th>SSIM &uarr;</th><th>LPIPS &darr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>LVSM</td><td>18.24</td><td>0.657</td><td>0.331</td><td>14.62</td><td>0.478</td><td>0.571</td></tr>
+              <tr><td>Gen3C</td><td>17.85</td><td>0.641</td><td>0.345</td><td>14.31</td><td>0.465</td><td>0.589</td></tr>
+              <tr><td>GF</td><td>18.92</td><td>0.678</td><td>0.298</td><td>15.18</td><td>0.512</td><td>0.521</td></tr>
+              <tr><td>Aether</td><td>19.45</td><td>0.695</td><td>0.275</td><td>15.67</td><td>0.535</td><td>0.498</td></tr>
+              <tr><td>FlashWorld</td><td>20.13</td><td>0.710</td><td>0.258</td><td>16.24</td><td>0.561</td><td>0.462</td></tr>
+              <tr><td>Gen3R</td><td>20.48</td><td>0.718</td><td>0.249</td><td>16.51</td><td>0.572</td><td>0.445</td></tr>
+              <tr class="highlight-row"><td><b>OneWorld (Ours)</b></td><td class="best">21.57</td><td class="best">0.735</td><td class="best">0.231</td><td class="best">17.19</td><td class="best">0.589</td><td class="best">0.418</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Qualitative -->
+      <div class="result-block">
+        <h3>Qualitative Comparison</h3>
+        <img src="static/images/vis_compare_v1.png" alt="Qualitative comparison on novel view generation">
+      </div>
+
+      <div class="result-block">
+        <h3>3DGS Visualization and Novel View Rendering</h3>
+        <img src="static/images/vis_3DGS.png" alt="3DGS visualization">
+      </div>
+
+      <div class="result-block">
+        <h3>3D Scene Comparison</h3>
+        <img src="static/images/vis_3D.png" alt="3D scene comparison" style="max-width: 500px; display: block; margin: 0 auto;">
+        <p class="caption">Comparison of 3D scenes: Gen3R uses point clouds, while FlashWorld and OneWorld use 3DGS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ablation -->
+<section>
+  <div class="container">
+    <h2>Ablation Study</h2>
+
+    <div class="results-grid">
+      <div class="result-block">
+        <h3>Effect of CVC and MDF</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Variant</th>
+                <th>PSNR &uarr;</th><th>SSIM &uarr;</th><th>LPIPS &darr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>w/o CVC</td><td>19.10</td><td>0.682</td><td>0.284</td></tr>
+              <tr><td>w/o MDF</td><td>20.59</td><td>0.714</td><td>0.256</td></tr>
+              <tr class="highlight-row"><td><b>Full Model</b></td><td class="best">21.57</td><td class="best">0.735</td><td class="best">0.231</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="result-block">
+        <h3>Qualitative Ablation</h3>
+        <img src="static/images/ablation_OW_v1.png" alt="Ablation visualization">
+        <p class="caption">Visualization of ablation study: full model vs. variants without CVC and without MDF.</p>
+      </div>
+
+      <div class="result-block">
+        <h3>Appearance Injection and Semantic Distillation</h3>
+        <img src="static/images/ablation_recon.png" alt="Ablation on appearance injection and semantic distillation">
+        <p class="caption">Effects of appearance injection (improved visual quality) and semantic distillation (structured feature space).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section>
+  <div class="container">
+    <h2>BibTeX</h2>
+    <div class="bibtex-box">
+      <button class="copy-btn" onclick="copyBib()"><i class="fas fa-copy"></i> Copy</button>
+<pre id="bibtex">@article{gao2025oneworld,
+  title={OneWorld: Taming Scene Generation with 3D Unified Representation Autoencoder},
+  author={Gao, Sensen and Wang, Zhaoqing and Cao, Qihang and Yu, Dongdong and Wang, Changhu and Liu, Tongliang and Gong, Mingming and Bian, Jiawang},
+  journal={arXiv preprint},
+  year={2025}
+}</pre>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>OneWorld &copy; 2025 | <a href="https://sensengao.github.io/">Sensen Gao</a></p>
+    <p style="margin-top: 4px;">Template inspired by academic project pages.</p>
+  </div>
+</footer>
+
+<script>
+function copyBib() {
+  const text = document.getElementById('bibtex').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+    setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
