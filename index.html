@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensen Gao - MBZUAI</title>
+  <meta name="description" content="Sensen Gao - MS student at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <style>
+    :root {
+      --primary: #4A90D9;
+      --primary-dark: #2C6CB0;
+      --bg: #ffffff;
+      --bg-alt: #f8f9fc;
+      --text: #333;
+      --text-light: #666;
+      --border: #e0e4ea;
+      --sidebar-width: 260px;
+      --max-width: 1100px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--bg);
+    }
+
+    /* ===== Navigation ===== */
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .topnav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .topnav .site-title {
+      font-weight: 700;
+      font-size: 1.15em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .topnav nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: 600;
+      margin-left: 24px;
+      transition: color 0.2s;
+    }
+    .topnav nav a:hover { color: var(--primary); }
+    .menu-toggle { display: none; background: none; border: none; font-size: 1.3em; cursor: pointer; color: var(--text); }
+
+    /* ===== Layout ===== */
+    .wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      gap: 48px;
+      padding: 40px 24px;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      flex-shrink: 0;
+      width: var(--sidebar-width);
+      position: sticky;
+      top: 96px;
+      align-self: flex-start;
+    }
+    .profile-card {
+      text-align: center;
+    }
+    .profile-card img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--bg-alt);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 16px;
+    }
+    .profile-card h2 {
+      font-size: 1.3em;
+      margin-bottom: 4px;
+    }
+    .profile-card .affiliation {
+      color: var(--text-light);
+      font-size: 0.95em;
+      margin-bottom: 4px;
+    }
+    .profile-card .location {
+      color: var(--text-light);
+      font-size: 0.85em;
+      margin-bottom: 16px;
+    }
+    .profile-card .location i { margin-right: 4px; }
+    .social-links {
+      list-style: none;
+      text-align: left;
+      font-size: 0.9em;
+    }
+    .social-links li {
+      margin-bottom: 8px;
+    }
+    .social-links li a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .social-links li a:hover { color: var(--primary); }
+    .social-links li i {
+      width: 20px;
+      text-align: center;
+      margin-right: 8px;
+      color: var(--text-light);
+    }
+
+    /* ===== Main Content ===== */
+    .main-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .main-content section {
+      margin-bottom: 40px;
+    }
+
+    .main-content h1 {
+      font-size: 1.5em;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--bg-alt);
+    }
+
+    .main-content p {
+      margin-bottom: 12px;
+    }
+
+    .main-content a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+    .main-content a:hover { text-decoration: underline; }
+
+    /* ===== News ===== */
+    .news-list {
+      list-style: none;
+    }
+    .news-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--bg-alt);
+      font-size: 0.95em;
+    }
+    .news-list .date {
+      color: var(--text-light);
+      font-style: italic;
+      margin-right: 8px;
+    }
+
+    /* ===== Publications ===== */
+    .pub-section-title {
+      font-size: 1.15em;
+      color: var(--primary-dark);
+      margin: 24px 0 12px;
+      font-weight: 700;
+    }
+    .pub-section-title:first-of-type { margin-top: 8px; }
+
+    .pub-item {
+      padding: 16px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: box-shadow 0.2s;
+    }
+    .pub-item:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .pub-item .pub-title {
+      font-weight: 700;
+      font-size: 1em;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .pub-item .pub-authors {
+      font-size: 0.9em;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+    .pub-item .pub-authors .me {
+      font-weight: 700;
+      color: var(--text);
+    }
+    .pub-item .pub-venue {
+      font-size: 0.88em;
+      margin-bottom: 6px;
+    }
+    .pub-item .pub-venue .venue-name {
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .pub-item .pub-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.82em;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      margin-right: 6px;
+      transition: all 0.2s;
+    }
+    .pub-item .pub-links a:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ===== Awards / Education / Internships ===== */
+    .timeline-list {
+      list-style: none;
+    }
+    .timeline-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--bg-alt);
+      font-size: 0.95em;
+    }
+    .timeline-list .time {
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85em;
+      color: var(--text-light);
+      margin-top: 40px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .topnav nav { display: none; position: absolute; top: 56px; left: 0; right: 0; background: white; border-bottom: 1px solid var(--border); padding: 12px 24px; flex-direction: column; }
+      .topnav nav.show { display: flex; }
+      .topnav nav a { margin: 8px 0; margin-left: 0; }
+      .menu-toggle { display: block; }
+      .wrapper { flex-direction: column; gap: 24px; padding: 24px 16px; }
+      .sidebar { width: 100%; position: static; }
+      .profile-card img { width: 140px; height: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<div class="topnav">
+  <div class="topnav-inner">
+    <a href="/" class="site-title">Sensen Gao</a>
+    <button class="menu-toggle" onclick="document.querySelector('.topnav nav').classList.toggle('show')">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#awards">Awards</a>
+      <a href="#education">Education</a>
+      <a href="#internships">Internships</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrapper">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="profile-card">
+      <img src="images/sensengao.jpg" alt="Sensen Gao">
+      <h2>Sensen Gao</h2>
+      <p class="affiliation">MBZUAI</p>
+      <p class="location"><i class="fas fa-map-marker-alt"></i> Abu Dhabi, UAE</p>
+    </div>
+    <ul class="social-links">
+      <li><a href="mailto:sensen.gao@mbzuai.ac.ae"><i class="fas fa-envelope"></i> Email</a></li>
+      <li><a href="https://scholar.google.com/citations?user=-UkpA7oAAAAJ"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
+      <li><a href="https://github.com/SensenGao"><i class="fab fa-github"></i> GitHub</a></li>
+      <li><a href="https://dblp.org/pid/372/4489.html"><i class="ai ai-dblp"></i> DBLP</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- About -->
+    <section id="about">
+      <h1>About Me</h1>
+      <p>
+        I'm a Master's student at <a href="https://mbzuai.ac.ae/">Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)</a>,
+        advised by <a href="https://jwbian.net/">Prof. Jia-Wang Bian</a> and <a href="https://mingming-gong.github.io/">Prof. Mingming Gong</a>.
+        I received my B.Eng. degree in Computer Science and Technology from <a href="https://www.nankai.edu.cn/">Nankai University</a> in 2024.
+      </p>
+      <p>
+        My research interests include <strong>computer vision</strong>, <strong>multimodal generation</strong>, <strong>multimodal LLMs</strong>, and <strong>AI security</strong>.
+      </p>
+    </section>
+
+    <!-- News -->
+    <section id="news">
+      <h1>News</h1>
+      <ul class="news-list">
+        <li><span class="date">2025.06</span> One paper is accepted by <strong>IEEE TPAMI</strong>.</li>
+        <li><span class="date">2024.07</span> One paper is accepted by <strong>ECCV 2024</strong>.</li>
+        <li><span class="date">2024.05</span> One paper is accepted by <strong>DIS 2024</strong>.</li>
+      </ul>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h1>Publications</h1>
+
+      <div class="pub-section-title">Conference & Journal Papers</div>
+
+      <div class="pub-item">
+        <div class="pub-title">Semantic-Aligned Adversarial Evolution Triangle for High-Transferability Vision-Language Attack</div>
+        <div class="pub-authors">Xiaojun Jia, <span class="me">Sensen Gao</span>, Qing Guo, Simeng Qin, Ke Ma, Yihao Huang, Yang Liu, Ivor W. Tsang, Xiaochun Cao</div>
+        <div class="pub-venue"><span class="venue-name">IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</span>, 2025</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2411.02669"><i class="fas fa-file-pdf"></i> Paper</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Boosting Transferability in Vision-Language Attacks via Diversification along the Intersection Region of Adversarial Trajectory</div>
+        <div class="pub-authors"><span class="me">Sensen Gao</span>, Xiaojun Jia, Xuhong Ren, Ivor W. Tsang, Qing Guo</div>
+        <div class="pub-venue"><span class="venue-name">European Conference on Computer Vision (ECCV)</span>, 2024</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2403.12445"><i class="fas fa-file-pdf"></i> Paper</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Exploring Scaffolding Techniques for Agent-Administered Brief Cognitive Screening in Hospital Settings</div>
+        <div class="pub-authors">Dingdong Liu, <span class="me">Sensen Gao</span>, Zixin Chen, Yifan Shen, Chuhan Shi, Bertram E. Shi, Xiaojuan Ma</div>
+        <div class="pub-venue"><span class="venue-name">ACM Conference on Designing Interactive Systems (DIS)</span>, 2024</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1145/3656156.3663697"><i class="fas fa-file-pdf"></i> Paper</a>
+        </div>
+      </div>
+
+      <div class="pub-section-title">Preprints</div>
+
+      <div class="pub-item">
+        <div class="pub-title">OneWorld: Taming Scene Generation with 3D Unified Representation Autoencoder</div>
+        <div class="pub-authors"><span class="me">Sensen Gao</span>, Zhaoqing Wang, Qihang Cao, Dongdong Yu, Changhu Wang, Tongliang Liu, Mingming Gong, Jia-Wang Bian</div>
+        <div class="pub-venue">arXiv, 2026</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2603.16099"><i class="fas fa-file-pdf"></i> Paper</a>
+          <a href="/OneWorld/"><i class="fas fa-globe"></i> Project</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Scaling Beyond Context: A Survey of Multimodal Retrieval-Augmented Generation for Document Understanding</div>
+        <div class="pub-authors"><span class="me">Sensen Gao</span>, Shanshan Zhao, Xu Jiang, Lunhao Duan, Yong Xien Chng, Qing-Guo Chen, Weihua Luo, Kaifu Zhang, Jia-Wang Bian, Mingming Gong</div>
+        <div class="pub-venue">arXiv, 2025</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2510.15253"><i class="fas fa-file-pdf"></i> Paper</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Ovis2.5 Technical Report</div>
+        <div class="pub-authors">Shiyin Lu, Yang Li, ..., <span class="me">Sensen Gao</span>, ..., Kaifu Zhang</div>
+        <div class="pub-venue">arXiv, 2025</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2508.11737"><i class="fas fa-file-pdf"></i> Paper</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Adversarial Attacks against Closed-Source MLLMs via Feature Optimal Alignment</div>
+        <div class="pub-authors">Xiaojun Jia, <span class="me">Sensen Gao</span>, Simeng Qin, Tianyu Pang, Chao Du, Yihao Huang, Xinfeng Li, Yiming Li, Bo Li, Yang Liu</div>
+        <div class="pub-venue">arXiv, 2025</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2505.21494"><i class="fas fa-file-pdf"></i> Paper</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Evolution-based Region Adversarial Prompt Learning for Robustness Enhancement in Vision-Language Models</div>
+        <div class="pub-authors">Xiaojun Jia, <span class="me">Sensen Gao</span>, Simeng Qin, Ke Ma, Xinfeng Li, Yihao Huang, Wei Dong, Yang Liu, Xiaochun Cao</div>
+        <div class="pub-venue">arXiv, 2025</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2503.12874"><i class="fas fa-file-pdf"></i> Paper</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Hyper3D: Efficient 3D Representation via Hybrid Triplane and Octree Feature for Enhanced 3D Shape Variational Auto-Encoders</div>
+        <div class="pub-authors">Jingyu Guo, <span class="me">Sensen Gao</span>, Jia-Wang Bian, Wanhu Sun, Heliang Zheng, Rongfei Jia, Mingming Gong</div>
+        <div class="pub-venue">arXiv, 2025</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2503.10403"><i class="fas fa-file-pdf"></i> Paper</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">HTS-Attack: Heuristic Token Search for Jailbreaking Text-to-Image Models</div>
+        <div class="pub-authors"><span class="me">Sensen Gao</span>, Xiaojun Jia, Yihao Huang, Ranjie Duan, Jindong Gu, Yang Bai, Yang Liu, Qing Guo</div>
+        <div class="pub-venue">arXiv, 2024</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2408.13896"><i class="fas fa-file-pdf"></i> Paper</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Towards Transferable Attacks Against Vision-LLMs in Autonomous Driving with Typography</div>
+        <div class="pub-authors">Nhat Chung, <span class="me">Sensen Gao</span>, Tuan-Anh Vu, Jie Zhang, Aishan Liu, Yun Lin, J. Dong, Qi Guo</div>
+        <div class="pub-venue">arXiv, 2024</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2405.14169"><i class="fas fa-file-pdf"></i> Paper</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards">
+      <h1>Honors and Awards</h1>
+      <ul class="timeline-list">
+        <li><span class="time">2023.10</span> &mdash; Singapore International Pre-Graduate Award (SIPGA)</li>
+        <li><span class="time">2022.10</span> &mdash; Nankai University Academic Merit Scholarship</li>
+      </ul>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h1>Education</h1>
+      <ul class="timeline-list">
+        <li><span class="time">2024.09 &ndash; Now</span> &mdash; M.S. in Computer Vision, <a href="https://mbzuai.ac.ae/">MBZUAI</a>, Abu Dhabi, UAE</li>
+        <li><span class="time">2020.09 &ndash; 2024.06</span> &mdash; B.Eng. in Computer Science and Technology, <a href="https://www.nankai.edu.cn/">Nankai University</a>, Tianjin, China</li>
+      </ul>
+    </section>
+
+    <!-- Internships -->
+    <section id="internships">
+      <h1>Internships</h1>
+      <ul class="timeline-list">
+        <li><span class="time">2023.09 &ndash; 2024.08</span> &mdash; <a href="https://www.a-star.edu.sg/cfar">Centre for Frontier AI Research (CFAR)</a>, <a href="https://www.a-star.edu.sg/">A*STAR</a>, Singapore</li>
+        <li><span class="time">2023.05 &ndash; 2023.09</span> &mdash; <a href="https://hkust.edu.hk/">The Hong Kong University of Science and Technology</a>, Hong Kong, China</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <p>&copy; 2025 Sensen Gao. Hosted on <a href="https://github.com/SensenGao/sensengao.github.io">GitHub Pages</a>.</p>
+</footer>
+
+</body>
+</html>
