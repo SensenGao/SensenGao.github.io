@@ -161,12 +161,28 @@
     .main-content a:hover { text-decoration: underline; }
 
     /* ===== News ===== */
+    .news-scroll {
+      max-height: 180px;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      background: var(--bg-alt);
+    }
+    .news-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .news-scroll::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 3px;
+    }
     .news-list {
       list-style: disc;
       padding-left: 20px;
+      margin: 0;
     }
     .news-list li {
-      padding: 6px 0;
+      padding: 4px 0;
       font-size: 0.95em;
     }
     .news-list .date {
@@ -329,12 +345,14 @@
     <!-- News -->
     <section id="news">
       <h1>News</h1>
-      <ul class="news-list">
-        <li><span class="date">2025.09</span> One paper is accepted by <strong>NeurIPS 2025</strong>.</li>
-        <li><span class="date">2025.06</span> One paper is accepted by <strong>IEEE TPAMI</strong>.</li>
-        <li><span class="date">2024.07</span> One paper is accepted by <strong>ECCV 2024</strong>.</li>
-        <li><span class="date">2024.05</span> One paper is accepted by <strong>DIS 2024</strong>.</li>
-      </ul>
+      <div class="news-scroll">
+        <ul class="news-list">
+          <li><span class="date">2025.09</span> One paper is accepted by <strong>NeurIPS 2025</strong>.</li>
+          <li><span class="date">2025.06</span> One paper is accepted by <strong>IEEE TPAMI</strong>.</li>
+          <li><span class="date">2024.07</span> One paper is accepted by <strong>ECCV 2024</strong>.</li>
+          <li><span class="date">2024.05</span> One paper is accepted by <strong>DIS 2024</strong>.</li>
+        </ul>
+      </div>
     </section>
 
     <!-- Publications -->
