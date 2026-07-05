@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multimodal RAG Survey · ACL 2026</title>
+  <meta name="description" content="Scaling Beyond Context: A Survey of Multimodal Retrieval-Augmented Generation for Document Understanding — ACL 2026. Interactive taxonomy, 48 methods, datasets and benchmarks.">
+  <meta property="og:title" content="Scaling Beyond Context: A Survey of Multimodal RAG for Document Understanding">
+  <meta property="og:description" content="ACL 2026 survey of Multimodal Retrieval-Augmented Generation for document understanding — taxonomy, 48 methods, datasets & benchmarks.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <style>
+    :root {
+      --bg: #0B0F1A;
+      --bg-alt: #0E1424;
+      --surface: rgba(22,28,45,0.55);
+      --surface-solid: #161C2D;
+      --surface-elev: #1A2238;
+      --glass-border: rgba(255,255,255,0.10);
+      --hairline: rgba(255,255,255,0.08);
+      --text: #E8ECF6;
+      --text-muted: #9AA6C2;
+      --text-faint: #A1AECB;
+      --inner-panel: #FFFFFF;
+      --inner-panel-soft: rgba(255,255,255,0.95);
+
+      --accent-violet: #7C5CFF;
+      --accent-cyan: #22D3EE;
+      --accent-teal: #2DD4A7;
+      --grad-primary: linear-gradient(100deg,#22D3EE 0%,#7C5CFF 100%);
+      --grad-tri: linear-gradient(120deg,#22D3EE 0%,#7C5CFF 50%,#2DD4A7 100%);
+      --glow-violet: 0 8px 30px rgba(124,92,255,0.35);
+
+      --cat-domain: #5AA9FF;
+      --cat-modality: #22D3EE;
+      --cat-granularity: #7C5CFF;
+      --cat-training: #F4B740;
+      --cat-graph: #2DD4A7;
+      --cat-agent: #F472B6;
+
+      --max-width: 1120px;
+      --radius: 16px;
+
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      line-height: 1.75;
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--accent-cyan); }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    ::selection { background: rgba(124,92,255,0.35); color: #fff; }
+
+    /* ---------- Scroll progress + top nav ---------- */
+    .progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 100%;
+      transform: scaleX(0); transform-origin: 0 50%;
+      background: var(--grad-primary); z-index: 200;
+      box-shadow: 0 0 12px rgba(124,92,255,0.6);
+    }
+
+    .topnav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 150;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 12px 24px;
+      background: rgba(11,15,26,0.72);
+      border-bottom: 1px solid var(--hairline);
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+      transform: translateY(-110%);
+      transition: transform .4s cubic-bezier(.22,1,.36,1);
+    }
+    @supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+      .topnav { background: #0d1220; }
+    }
+    .topnav.show { transform: translateY(0); }
+    .topnav .brand {
+      font-family: var(--font-display); font-weight: 700; font-size: .95rem;
+      letter-spacing: -.01em; white-space: nowrap;
+    }
+    .topnav .brand .dot { color: var(--accent-cyan); }
+    .topnav .nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
+    .topnav .nav-links a {
+      font-size: .82rem; font-weight: 500; color: var(--text-muted);
+      text-decoration: none; padding: 6px 12px; border-radius: 8px;
+      transition: color .2s, background .2s; white-space: nowrap;
+    }
+    .topnav .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+    .topnav .nav-links a.active {
+      color: #fff;
+      background: linear-gradient(100deg, rgba(34,211,238,0.18), rgba(124,92,255,0.18));
+    }
+    .topnav .nav-cta { display: flex; gap: 8px; }
+    .topnav .nav-cta a {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .8rem; font-weight: 600; text-decoration: none;
+      padding: 7px 14px; border-radius: 9px; border: 1px solid var(--glass-border);
+      color: var(--text); transition: all .2s; white-space: nowrap;
+    }
+    .topnav .nav-cta a.primary { background: var(--grad-primary); color: #07111a; border: none; }
+    .topnav .nav-cta a:hover { transform: translateY(-1px); border-color: var(--accent-cyan); }
+    .topnav .nav-cta a.primary:hover { box-shadow: var(--glow-violet); }
+    @media (max-width: 880px) { .topnav .nav-links { display: none; } }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative; min-height: 94vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+      padding: 90px 0 60px;
+    }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .aurora {
+      position: absolute; width: 62vw; height: 62vw; border-radius: 50%;
+      filter: blur(80px); opacity: .55; mix-blend-mode: screen; will-change: transform;
+    }
+    .aurora.a { background: radial-gradient(circle, #7C5CFF, transparent 60%); top: -10%; left: -8%; animation: drift1 26s ease-in-out infinite alternate; }
+    .aurora.b { background: radial-gradient(circle, #22D3EE, transparent 60%); top: -18%; right: -12%; animation: drift2 30s ease-in-out infinite alternate; }
+    .aurora.c { background: radial-gradient(circle, #2DD4A7, transparent 60%); bottom: -22%; left: 18%; animation: drift3 24s ease-in-out infinite alternate; }
+    @keyframes drift1 { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(8vw,6vh,0) scale(1.15); } }
+    @keyframes drift2 { from { transform: translate3d(0,0,0) scale(1.05); } to { transform: translate3d(-7vw,8vh,0) scale(.9); } }
+    @keyframes drift3 { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(6vw,-6vh,0) scale(1.2); } }
+    .dotgrid {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 26px 26px;
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 38%, transparent 82%);
+      mask-image: radial-gradient(ellipse at center, #000 38%, transparent 82%);
+    }
+    .hero-scrim {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11,15,26,0.25) 0%, rgba(11,15,26,0) 30%, rgba(11,15,26,0) 60%, var(--bg) 100%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+    .venue-chip {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: var(--font-mono); font-size: .74rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted);
+      padding: 7px 16px; border-radius: 999px;
+      background: var(--surface); border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      margin-bottom: 26px;
+    }
+    .venue-chip .live {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--accent-cyan);
+      box-shadow: 0 0 0 0 rgba(34,211,238,0.7); animation: pulse 2.2s ease-out infinite;
+    }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34,211,238,0.55); } 70% { box-shadow: 0 0 0 8px rgba(34,211,238,0); } 100% { box-shadow: 0 0 0 0 rgba(34,211,238,0); } }
+
+    .hero h1 {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(2.05rem, 5vw, 3.35rem); line-height: 1.13;
+      letter-spacing: -.02em; margin-bottom: 18px;
+    }
+    .hero h1 .grad {
+      background: var(--grad-primary); -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: var(--accent-cyan);
+      background-size: 200% auto; animation: shimmer 9s ease-in-out infinite;
+      filter: drop-shadow(0 0 26px rgba(124,92,255,0.22));
+    }
+    @keyframes shimmer { 0%,100% { background-position: 0% center; } 50% { background-position: 100% center; } }
+    .hero .subtitle { font-size: clamp(1rem,1.6vw,1.18rem); color: var(--text-muted); max-width: 680px; margin: 0 auto 26px; }
+
+    .authors { font-size: 1rem; line-height: 1.9; max-width: 820px; margin: 0 auto 8px; color: var(--text); }
+    .authors a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+    .authors a:hover { color: var(--accent-cyan); border-bottom-color: var(--accent-cyan); }
+    .authors sup { color: var(--text-faint); font-size: .72em; }
+    .authors .note { font-size: .82rem; color: var(--text-faint); margin-top: 6px; }
+
+    .affiliations { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 16px auto 30px; max-width: 780px; }
+    .affiliations span {
+      font-size: .78rem; color: var(--text-muted);
+      padding: 4px 12px; border-radius: 999px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--hairline);
+    }
+    .affiliations sup { color: var(--accent-cyan); font-weight: 600; margin-right: 3px; }
+
+    .buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 14px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: var(--font-body); font-size: .92rem; font-weight: 600;
+      padding: 11px 22px; border-radius: 11px; text-decoration: none;
+      border: 1px solid var(--glass-border); color: var(--text);
+      background: var(--surface); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      transition: transform .2s, box-shadow .2s, border-color .2s, background .2s; cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent-cyan); color: #fff; }
+    .btn.primary { background: var(--grad-primary); color: #07111a; border: none; }
+    .btn.primary:hover { box-shadow: var(--glow-violet); color: #07111a; }
+    .quick-jumps { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+    .chip-jump {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .82rem; font-weight: 500; color: var(--text-muted); cursor: pointer;
+      padding: 7px 15px; border-radius: 999px; background: transparent;
+      border: 1px solid var(--hairline); transition: all .2s; text-decoration: none;
+    }
+    .chip-jump:hover { color: var(--text); border-color: var(--accent-violet); background: rgba(124,92,255,0.08); }
+
+    .statbar { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 40px; }
+    .stat {
+      min-width: 132px; padding: 16px 22px; border-radius: 14px;
+      background: var(--surface); border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    }
+    .stat .num {
+      font-family: var(--font-display); font-weight: 700; font-size: 2rem; line-height: 1;
+      font-variant-numeric: tabular-nums;
+      background: var(--grad-primary); -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: var(--accent-cyan);
+    }
+    .stat .label { font-size: .76rem; color: var(--text-muted); margin-top: 7px; letter-spacing: .02em; }
+
+    .scroll-hint {
+      position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%);
+      color: var(--text-faint); font-size: 1.1rem; z-index: 2; animation: bob 2.2s ease-in-out infinite;
+    }
+    @keyframes bob { 0%,100% { transform: translate(-50%,0); } 50% { transform: translate(-50%,8px); } }
+
+    /* ---------- Sections ---------- */
+    section { padding: 84px 0; position: relative; }
+    section.alt { background: var(--bg-alt); }
+    .eyebrow {
+      font-family: var(--font-mono); font-size: .76rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--accent-cyan);
+      display: block; text-align: center; margin-bottom: 10px;
+    }
+    section > .container > h2 {
+      font-family: var(--font-display); font-weight: 600;
+      font-size: clamp(1.5rem,3vw,2.1rem); text-align: center; line-height: 1.2;
+      margin-bottom: 12px; letter-spacing: -.01em;
+    }
+    .section-sub { text-align: center; color: var(--text-muted); max-width: 620px; margin: 0 auto 40px; font-size: .96rem; }
+
+    .glass {
+      background: var(--surface); border: 1px solid var(--glass-border); border-radius: var(--radius);
+      backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%);
+    }
+    @supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+      .glass, .venue-chip, .btn, .stat { background: var(--surface-solid); }
+    }
+
+    /* ---------- Intro band (teaser) ---------- */
+    .intro-grid { display: grid; grid-template-columns: minmax(0,0.82fr) 1fr; gap: clamp(24px,4vw,52px); align-items: center; }
+    .teaser-frame { position: relative; padding: 20px; }
+    .teaser-panel {
+      background: var(--inner-panel-soft); border-radius: 14px; padding: 14px;
+      box-shadow: 0 0 0 1px rgba(124,92,255,0.30), 0 0 28px rgba(34,211,238,0.12), 0 18px 50px rgba(0,0,0,0.5);
+    }
+    .teaser-panel img {
+      display: block; margin: 0 auto; width: auto; max-width: 100%;
+      max-height: clamp(340px, 56vh, 540px); object-fit: contain; border-radius: 6px;
+    }
+    .expand-btn {
+      position: absolute; top: 30px; right: 30px; z-index: 3;
+      width: 38px; height: 38px; border-radius: 10px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(11,15,26,0.66); color: #fff; border: 1px solid var(--glass-border);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: all .2s;
+    }
+    .expand-btn:hover { background: var(--accent-violet); transform: scale(1.06); }
+    .intro-copy h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 12px; line-height: 1.25; }
+    .intro-copy p { color: var(--text-muted); margin-bottom: 14px; }
+    .intro-copy .legend { font-size: .9rem; }
+    .intro-copy .legend b { color: var(--text); }
+    .intro-stats { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
+    .intro-stats .stat { background: rgba(255,255,255,0.03); }
+    .intro-stats .stat .num { font-size: 1.7rem; }
+
+    /* ---------- Abstract ---------- */
+    .abstract-card { max-width: 880px; margin: 0 auto; padding: 38px 42px; position: relative; }
+    .abstract-card::before {
+      content: ''; position: absolute; left: 0; top: 28px; bottom: 28px; width: 3px;
+      background: var(--grad-tri); border-radius: 3px;
+    }
+    .abstract-card p { font-size: 1.04rem; line-height: 1.9; color: var(--text); text-align: justify; }
+    .abstract-card p .lead { font-size: 1.12em; }
+    .abstract-card .hl { color: var(--accent-cyan); font-weight: 600; }
+
+    /* ---------- Contributions ---------- */
+    .contrib-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 940px; margin: 0 auto; }
+    .contrib-card { padding: 26px; transition: transform .25s, box-shadow .25s, border-color .25s; }
+    .contrib-card:hover { transform: translateY(-4px); border-color: var(--accent-violet); box-shadow: var(--glow-violet); }
+    .contrib-icon {
+      width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: #07111a; background: var(--grad-primary); margin-bottom: 16px;
+    }
+    .contrib-card h4 { font-family: var(--font-display); font-size: 1.08rem; font-weight: 600; margin-bottom: 8px; }
+    .contrib-card p { font-size: .92rem; color: var(--text-muted); }
+
+    /* ---------- Taxonomy ---------- */
+    .tax-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 18px; max-width: 1000px; margin: 0 auto; }
+    .tax-card { padding: 22px; transition: transform .25s, box-shadow .25s, border-color .25s; }
+    .tax-card:hover { transform: translateY(-4px); }
+    .tax-card .tax-head { display: flex; align-items: center; gap: 11px; margin-bottom: 9px; }
+    .tax-card .tax-ico { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: .95rem; }
+    .tax-card h4 { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; }
+    .tax-card p { font-size: .9rem; color: var(--text-muted); }
+    .tax-card[data-cat="domain"]:hover { border-color: var(--cat-domain); box-shadow: 0 8px 30px rgba(90,169,255,0.25); }
+    .tax-card[data-cat="modality"]:hover { border-color: var(--cat-modality); box-shadow: 0 8px 30px rgba(34,211,238,0.25); }
+    .tax-card[data-cat="granularity"]:hover { border-color: var(--cat-granularity); box-shadow: 0 8px 30px rgba(124,92,255,0.25); }
+    .tax-card[data-cat="graph"]:hover { border-color: var(--cat-graph); box-shadow: 0 8px 30px rgba(45,212,167,0.25); }
+    .tax-card[data-cat="agent"]:hover { border-color: var(--cat-agent); box-shadow: 0 8px 30px rgba(244,114,182,0.25); }
+    .tax-card[data-cat="hybrid"]:hover { border-color: var(--accent-violet); box-shadow: var(--glow-violet); }
+    .ico-domain { background: rgba(90,169,255,0.14); color: var(--cat-domain); }
+    .ico-modality { background: rgba(34,211,238,0.14); color: var(--cat-modality); }
+    .ico-granularity { background: rgba(124,92,255,0.14); color: var(--cat-granularity); }
+    .ico-graph { background: rgba(45,212,167,0.14); color: var(--cat-graph); }
+    .ico-agent { background: rgba(244,114,182,0.14); color: var(--cat-agent); }
+    .ico-hybrid { background: rgba(124,92,255,0.14); color: var(--accent-violet); }
+
+    /* ---------- Shared segmented tabs + ink-bar ---------- */
+    .seg {
+      position: relative; display: flex; flex-wrap: wrap; gap: 2px;
+      padding: 5px; border-radius: 13px; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--hairline);
+    }
+    .seg button {
+      position: relative; z-index: 2; flex: 1 1 auto;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--font-display); font-size: .86rem; font-weight: 500;
+      color: var(--text-muted); background: transparent; border: none; cursor: pointer;
+      padding: 9px 14px; border-radius: 9px; white-space: nowrap; transition: color .2s;
+    }
+    .seg button .cnt { font-family: var(--font-mono); font-size: .74em; opacity: .7; }
+    .seg button[aria-selected="true"] { color: #07111a; }
+    .seg .ink {
+      position: absolute; z-index: 1; top: 5px; bottom: 5px; left: 0; width: 0;
+      border-radius: 9px; background: var(--grad-primary);
+      transition: transform .28s cubic-bezier(.4,0,.2,1), width .28s cubic-bezier(.4,0,.2,1);
+      will-change: transform, width;
+    }
+
+    /* ---------- Figure viewer ---------- */
+    .figviewer { max-width: 940px; margin: 0 auto; padding: 22px; }
+    .figviewer .seg { margin-bottom: 18px; }
+    .fig-stage {
+      position: relative; display: grid; place-items: center;
+      min-height: 360px; max-height: 64vh; padding: 16px; border-radius: 14px;
+      background: rgba(0,0,0,0.25); overflow: hidden;
+    }
+    .fig-panel {
+      grid-area: 1 / 1; width: auto; max-width: 100%; justify-self: center; align-self: center;
+      background: var(--inner-panel-soft); border-radius: 12px; padding: 14px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 1px rgba(124,92,255,0.30), 0 0 28px rgba(34,211,238,0.12), 0 14px 40px rgba(0,0,0,0.5);
+      opacity: 0; transform: translateY(8px); pointer-events: none;
+      transition: opacity .35s ease, transform .35s ease;
+    }
+    .fig-panel.is-active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .fig-panel img { display: block; max-width: 100%; max-height: calc(64vh - 80px); width: auto; object-fit: contain; border-radius: 4px; }
+    .fig-stage .expand-btn { top: 28px; right: 28px; }
+    .fig-caption { color: var(--text-muted); font-size: .9rem; text-align: center; margin-top: 16px; max-width: 760px; margin-left: auto; margin-right: auto; min-height: 2.4em; }
+    .fig-caption b { color: var(--text); }
+
+    /* ---------- Resources console ---------- */
+    .console { max-width: 1080px; margin: 0 auto; padding: 22px; }
+    .console .seg { margin-bottom: 16px; }
+    .console-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .search-box { position: relative; flex: 1 1 230px; min-width: 200px; }
+    .search-box i { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: var(--text-faint); font-size: .85rem; }
+    .search-box input {
+      width: 100%; font-family: var(--font-body); font-size: .9rem; color: var(--text);
+      padding: 10px 14px 10px 36px; border-radius: 10px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .search-box input::placeholder { color: var(--text-faint); }
+    .search-box input:focus { border-color: var(--accent-cyan); box-shadow: 0 0 0 3px rgba(34,211,238,0.15); }
+
+    .filters { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; }
+    .filter-group { display: flex; gap: 6px; align-items: center; }
+    .filter-group .glabel { font-family: var(--font-mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-right: 2px; }
+    .fchip {
+      font-family: var(--font-body); font-size: .76rem; font-weight: 500; cursor: pointer;
+      padding: 5px 12px; border-radius: 999px; color: var(--text-muted);
+      background: rgba(255,255,255,0.03); border: 1px solid var(--hairline); transition: all .18s;
+      user-select: none;
+    }
+    .fchip:hover { color: var(--text); }
+    .fchip[aria-pressed="true"] { color: #fff; }
+    .fchip.c-modality[aria-pressed="true"] { background: rgba(34,211,238,0.18); border-color: var(--cat-modality); color: var(--cat-modality); }
+    .fchip.c-granularity[aria-pressed="true"] { background: rgba(124,92,255,0.18); border-color: var(--cat-granularity); color: #B4A6FF; }
+    .fchip.c-training[aria-pressed="true"] { background: rgba(244,183,64,0.18); border-color: var(--cat-training); color: var(--cat-training); }
+    .fchip.reset { color: var(--text-faint); }
+    .fchip.reset:hover { color: var(--cat-agent); border-color: var(--cat-agent); }
+    .result-count { font-family: var(--font-mono); font-size: .78rem; color: var(--text-muted); margin-left: auto; white-space: nowrap; }
+    .result-count b { color: var(--accent-cyan); }
+
+    .table-wrap {
+      position: relative; max-height: 580px; overflow: auto; border-radius: 12px;
+      border: 1px solid var(--hairline);
+    }
+    .table-wrap::-webkit-scrollbar { width: 9px; height: 9px; }
+    .table-wrap::-webkit-scrollbar-track { background: transparent; }
+    .table-wrap::-webkit-scrollbar-thumb { background: linear-gradient(var(--accent-cyan), var(--accent-violet)); border-radius: 9px; }
+    .dtable { width: 100%; border-collapse: collapse; font-size: .86rem; }
+    .dtable thead th {
+      position: sticky; top: 0; z-index: 5;
+      background: var(--surface-elev); color: var(--text-muted);
+      font-family: var(--font-display); font-weight: 600; font-size: .76rem;
+      text-transform: uppercase; letter-spacing: .04em; text-align: left;
+      padding: 12px 14px; border-bottom: 1px solid var(--glass-border); white-space: nowrap;
+    }
+    .dtable thead th.sortable { cursor: pointer; user-select: none; }
+    .dtable thead th.sortable:hover { color: var(--text); }
+    .dtable thead th .caret { margin-left: 6px; opacity: .5; font-size: .8em; transition: opacity .2s; }
+    .dtable thead th[aria-sort="ascending"] .caret, .dtable thead th[aria-sort="descending"] .caret { opacity: 1; color: var(--accent-cyan); }
+    .dtable tbody td { padding: 11px 14px; border-bottom: 1px solid var(--hairline); color: var(--text); vertical-align: top; line-height: 1.5; }
+    .dtable tbody tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .dtable tbody tr { position: relative; transition: background .15s; }
+    .dtable tbody tr:hover td { background: rgba(124,92,255,0.07); }
+    .dtable tbody tr::after {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      background: var(--grad-primary); transform: scaleY(0); transform-origin: top; transition: transform .16s;
+    }
+    .dtable tbody tr:hover::after { transform: scaleY(1); }
+    .dtable td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .dtable td.col-name { font-weight: 600; white-space: nowrap; }
+    .dtable td.col-idea { color: var(--text-muted); min-width: 320px; font-size: .85rem; }
+    .dtable mark { background: rgba(34,211,238,0.28); color: #fff; border-radius: 3px; padding: 0 2px; }
+
+    .badge {
+      display: inline-block; font-family: var(--font-mono); font-size: .7rem; font-weight: 500;
+      letter-spacing: .02em; padding: 3px 9px; border-radius: 7px; white-space: nowrap;
+    }
+    .b-modality { color: var(--cat-modality); background: rgba(34,211,238,0.12); border: 1px solid rgba(34,211,238,0.30); }
+    .b-granularity { color: #B4A6FF; background: rgba(124,92,255,0.12); border: 1px solid rgba(124,92,255,0.30); }
+    .b-train-yes { color: var(--cat-training); background: rgba(244,183,64,0.12); border: 1px solid rgba(244,183,64,0.30); }
+    .b-train-no { color: var(--accent-teal); background: rgba(45,212,167,0.12); border: 1px solid rgba(45,212,167,0.30); }
+    .b-venue { color: var(--text-muted); background: rgba(255,255,255,0.05); border: 1px solid var(--hairline); }
+    .ctag { display: inline-block; font-family: var(--font-mono); font-size: .68rem; padding: 2px 7px; border-radius: 6px; margin: 1px 2px 1px 0; }
+    .ct-text { color: var(--text-muted); background: rgba(154,166,194,0.12); }
+    .ct-table { color: var(--cat-modality); background: rgba(34,211,238,0.12); }
+    .ct-chart { color: #B4A6FF; background: rgba(124,92,255,0.12); }
+    .ct-slide { color: var(--cat-training); background: rgba(244,183,64,0.12); }
+    .ct-image { color: var(--cat-agent); background: rgba(244,114,182,0.12); }
+    .paper-link { color: var(--text-muted); font-size: 1rem; text-decoration: none; transition: color .2s, transform .2s; display: inline-block; }
+    .paper-link:hover { color: var(--accent-cyan); transform: translateY(-1px); filter: drop-shadow(0 0 6px rgba(34,211,238,0.6)); }
+
+    .empty-state { text-align: center; padding: 50px 20px; color: var(--text-muted); }
+    .empty-state i { font-size: 1.8rem; color: var(--text-faint); margin-bottom: 12px; display: block; }
+    .empty-state button { margin-top: 12px; }
+    .noscript-note { text-align:center; color: var(--cat-training); background: rgba(244,183,64,0.1); border:1px solid rgba(244,183,64,0.3); padding: 14px; border-radius: 10px; max-width: 760px; margin: 0 auto; }
+
+    /* ---------- BibTeX ---------- */
+    .bibtex-box { position: relative; max-width: 880px; margin: 0 auto; padding: 24px 26px; background: #0a0e18; border: 1px solid var(--glass-border); border-radius: 14px; }
+    .bibtex-box pre { font-family: var(--font-mono); font-size: .8rem; line-height: 1.65; color: #cdd6f4; overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
+    .copy-btn {
+      position: absolute; top: 14px; right: 14px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-body); font-size: .8rem; font-weight: 600; color: var(--text);
+      background: rgba(255,255,255,0.08); border: 1px solid var(--glass-border); border-radius: 8px; padding: 6px 12px; transition: all .2s;
+    }
+    .copy-btn:hover { background: var(--accent-violet); border-color: var(--accent-violet); color: #fff; }
+    .copy-btn.done { background: var(--accent-teal); border-color: var(--accent-teal); color: #07111a; }
+
+    /* ---------- Footer ---------- */
+    footer { border-top: 1px solid var(--hairline); padding: 36px 0; text-align: center; color: var(--text-muted); font-size: .86rem; }
+    footer .flinks { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-bottom: 12px; }
+    footer .flinks a { color: var(--text-muted); text-decoration: none; transition: color .2s; }
+    footer .flinks a:hover { color: var(--accent-cyan); }
+    footer .built { color: var(--text-faint); font-size: .78rem; margin-top: 6px; }
+
+    /* ---------- Lightbox ---------- */
+    .lightbox { position: fixed; inset: 0; z-index: 300; display: none; align-items: center; justify-content: center; padding: 40px; background: rgba(6,9,16,0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .lightbox.open { display: flex; }
+    .lightbox .lb-inner { position: relative; max-width: 92vw; max-height: 88vh; }
+    .lightbox img { max-width: 90vw; max-height: 78vh; object-fit: contain; background: #fff; border-radius: 10px; padding: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.6); animation: lbpop .2s ease; }
+    @keyframes lbpop { from { transform: scale(.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .lightbox .lb-cap { text-align: center; color: var(--text-muted); font-size: .85rem; margin-top: 12px; max-width: 760px; margin-left: auto; margin-right: auto; }
+    .lb-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); color: #fff; font-size: 1.1rem; transition: background .2s; }
+    .lb-btn:hover { background: var(--accent-violet); }
+    .lb-prev { left: -8px; } .lb-next { right: -8px; }
+    .lb-close { position: absolute; top: -46px; right: 0; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); color: #fff; font-size: 1rem; }
+    .lb-close:hover { background: var(--cat-agent); }
+
+    /* ---------- Reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 880px) {
+      .intro-grid { grid-template-columns: 1fr; }
+      .teaser-panel img { max-height: 44vh; }
+      .contrib-grid { grid-template-columns: 1fr; }
+      .abstract-card { padding: 28px 24px; }
+      .lb-prev { left: 4px; } .lb-next { right: 4px; }
+    }
+    @media (max-width: 720px) {
+      section { padding: 60px 0; }
+      .result-count { margin-left: 0; width: 100%; }
+      /* Tables collapse to cards */
+      .dtable, .dtable tbody, .dtable tr, .dtable td { display: block; width: 100%; }
+      .dtable thead { display: none; }
+      .table-wrap { max-height: none; }
+      .dtable tbody tr { margin: 0 0 12px; padding: 6px 0; border: 1px solid var(--hairline); border-radius: 12px; background: rgba(255,255,255,0.02); }
+      .dtable tbody tr:nth-child(even) td { background: transparent; }
+      .dtable tbody td { border: none; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 14px; }
+      .dtable tbody td::before { content: attr(data-label); font-family: var(--font-mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); }
+      .dtable td.col-name { font-size: 1.05rem; font-weight: 700; border-bottom: 1px solid var(--hairline); padding-bottom: 9px; margin-bottom: 4px; }
+      .dtable td.col-name::before { display: none; }
+      .dtable td.col-idea { text-align: left; }
+      .dtable tbody tr::after { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- Sticky nav -->
+<nav class="topnav" id="topnav">
+  <span class="brand">Multimodal RAG <span class="dot">·</span> Survey</span>
+  <div class="nav-links" id="navLinks">
+    <a href="#abstract">Abstract</a>
+    <a href="#taxonomy">Taxonomy</a>
+    <a href="#figures">Figures</a>
+    <a href="#resources">Resources</a>
+    <a href="#cite">Cite</a>
+  </div>
+  <div class="nav-cta">
+    <a class="primary" href="https://arxiv.org/abs/2510.15253"><i class="fas fa-file-pdf"></i> Paper</a>
+    <a href="https://github.com/SensenGao/Multimodal-RAG-Survey-For-Document"><i class="fab fa-github"></i> Code</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-bg">
+    <div class="aurora a"></div>
+    <div class="aurora b"></div>
+    <div class="aurora c"></div>
+    <div class="dotgrid"></div>
+    <div class="hero-scrim"></div>
+  </div>
+  <div class="hero-content">
+    <div class="venue-chip"><span class="live"></span> Survey · ACL 2026 Main Conference</div>
+    <h1><span class="grad">Scaling Beyond Context:</span> A Survey of Multimodal Retrieval-Augmented Generation for Document Understanding</h1>
+    <p class="subtitle">Holistic retrieval and reasoning across text, tables, charts, and layout — a roadmap for document intelligence.</p>
+
+    <div class="authors">
+      <a href="https://sensengao.github.io/">Sensen Gao</a><sup>1*</sup>,
+      <a href="mailto:sshan.zhao00@gmail.com">Shanshan Zhao</a><sup>2&dagger;</sup>,
+      Xu Jiang<sup>3</sup>,
+      Lunhao Duan<sup>4*</sup>,
+      Yong Xien Chng<sup>3*</sup>,
+      <br>
+      Qing-Guo Chen<sup>2</sup>,
+      Weihua Luo<sup>2</sup>,
+      Kaifu Zhang<sup>2</sup>,
+      <a href="https://jwbian.net/">Jia-Wang Bian</a><sup>1</sup>,
+      <a href="https://mingming-gong.github.io/">Mingming Gong</a><sup>1,5&dagger;</sup>
+      <div class="note">* Work done during an internship at Alibaba International Digital Commerce Group &nbsp; &dagger; Corresponding authors</div>
+    </div>
+
+    <div class="affiliations">
+      <span><sup>1</sup>MBZUAI</span>
+      <span><sup>2</sup>Alibaba International Digital Commerce Group</span>
+      <span><sup>3</sup>Tsinghua University</span>
+      <span><sup>4</sup>Wuhan University</span>
+      <span><sup>5</sup>University of Melbourne</span>
+    </div>
+
+    <div class="buttons">
+      <a href="https://arxiv.org/abs/2510.15253" class="btn primary"><i class="fas fa-file-pdf"></i> Paper · arXiv 2510.15253</a>
+      <a href="https://arxiv.org/abs/2510.15253" class="btn"><i class="ai ai-arxiv"></i> arXiv</a>
+      <a href="https://github.com/SensenGao/Multimodal-RAG-Survey-For-Document" class="btn"><i class="fab fa-github"></i> GitHub</a>
+      <a href="#cite" class="btn"><i class="fas fa-quote-right"></i> BibTeX</a>
+    </div>
+    <div class="quick-jumps">
+      <a class="chip-jump" href="#resources" data-scope="all"><i class="fas fa-layer-group"></i> Browse 48 Methods</a>
+      <a class="chip-jump" href="#resources" data-scope="datasets"><i class="fas fa-database"></i> Datasets &amp; Benchmarks</a>
+    </div>
+
+    <div class="statbar reveal">
+      <div class="stat"><div class="num" data-target="48">0</div><div class="label">Methods Surveyed</div></div>
+      <div class="stat"><div class="num" data-target="16">0</div><div class="label">Datasets</div></div>
+      <div class="stat"><div class="num" data-target="8">0</div><div class="label">Benchmarks</div></div>
+      <div class="stat"><div class="num" data-target="5">0</div><div class="label">Taxonomy Axes</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><i class="fas fa-chevron-down"></i></div>
+</header>
+
+<!-- Intro band: constrained teaser -->
+<section id="intro" class="alt">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="teaser-frame reveal">
+        <button class="expand-btn" data-lb="0" aria-label="Expand figure"><i class="fas fa-expand"></i></button>
+        <div class="teaser-panel">
+          <img src="static/images/home.png" alt="MLLMs with and without Multimodal RAG, and growth in related publications" loading="lazy">
+        </div>
+      </div>
+      <div class="intro-copy reveal">
+        <span class="eyebrow" style="text-align:left">Why Multimodal RAG</span>
+        <h3>From context overflow to grounded document intelligence</h3>
+        <p>Large documents — 1000+ pages of interleaved text, tables, and charts — overwhelm a model's context window. <b style="color:var(--text)">Multimodal RAG</b> retrieves only the evidence that matters, enabling reasoning that native MLLMs cannot reach alone.</p>
+        <p class="legend"><b>(a)</b> MLLMs with vs. without Multimodal RAG for large-document comprehension. &nbsp; <b>(b)</b> Explosive growth in related publications from 2024 to 2025.</p>
+        <div class="intro-stats">
+          <div class="stat"><div class="num" data-target="41" data-suffix="">0</div><div class="label">Papers in 2025</div></div>
+          <div class="stat"><div class="num" data-target="6" data-prefix="≈" data-suffix="×">0</div><div class="label">Growth vs. 2024</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section id="abstract">
+  <div class="container">
+    <span class="eyebrow">Abstract</span>
+    <h2>What This Survey Covers</h2>
+    <div class="glass abstract-card reveal">
+      <p><span class="lead">Document understanding is critical for applications from financial analysis to scientific discovery.</span> Current approaches, whether OCR-based pipelines feeding Large Language Models (LLMs) or native Multimodal LLMs (MLLMs), face key limitations: the former loses structural detail, while the latter struggles with context modeling. Retrieval-Augmented Generation (RAG) helps ground models in external data, but documents' multimodal nature &mdash; combining text, tables, charts, and layout &mdash; demands a more advanced paradigm: <span class="hl">Multimodal RAG</span>. This approach enables holistic retrieval and reasoning across all modalities, unlocking comprehensive document intelligence. Recognizing its importance, this paper presents a systematic survey of Multimodal RAG for document understanding. We propose a taxonomy based on domain, retrieval modality, and granularity, and review advances involving graph structures and agentic frameworks. We also summarize key datasets, benchmarks, applications and industry deployment, and highlight open challenges in efficiency, fine-grained representation, and robustness, providing a roadmap for future progress in document AI.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Key Contributions -->
+<section id="contributions" class="alt">
+  <div class="container">
+    <span class="eyebrow">Highlights</span>
+    <h2>Key Contributions</h2>
+    <div class="contrib-grid">
+      <div class="glass contrib-card reveal">
+        <div class="contrib-icon"><i class="fas fa-sitemap"></i></div>
+        <h4>Comprehensive Taxonomy</h4>
+        <p>The first survey that explicitly bridges multimodal RAG and document understanding, with a taxonomy spanning domain (open/closed), retrieval modality (image/text/hybrid), granularity (page/element), and hybrid enhancements (graph- and agent-based).</p>
+      </div>
+      <div class="glass contrib-card reveal">
+        <div class="contrib-icon"><i class="fas fa-database"></i></div>
+        <h4>Datasets, Benchmarks &amp; Evaluation</h4>
+        <p>A broad collection of multimodal RAG datasets, benchmarks, and comparative results for systematic evaluation, covering metrics for both retrieval-oriented and generation-oriented assessment.</p>
+      </div>
+      <div class="glass contrib-card reveal">
+        <div class="contrib-icon"><i class="fas fa-industry"></i></div>
+        <h4>Applications &amp; Industry Deployment</h4>
+        <p>Practical applications spanning finance, scientific literature, and social analysis, alongside industrial deployment considerations and real-world usage patterns.</p>
+      </div>
+      <div class="glass contrib-card reveal">
+        <div class="contrib-icon"><i class="fas fa-road"></i></div>
+        <h4>Challenges &amp; Future Directions</h4>
+        <p>Open challenges in efficiency, fine-grained multimodal representation, and robustness — a concrete roadmap for future progress in document AI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Taxonomy -->
+<section id="taxonomy">
+  <div class="container">
+    <span class="eyebrow">The Map</span>
+    <h2>Taxonomy Overview</h2>
+    <p class="section-sub">One color system runs through the whole page — learn it once, then scan it across the figures and tables below.</p>
+    <div class="tax-grid">
+      <div class="glass tax-card reveal" data-cat="domain">
+        <div class="tax-head"><div class="tax-ico ico-domain"><i class="fas fa-globe"></i></div><h4>Open vs. Closed Domain</h4></div>
+        <p>Open-domain RAG retrieves from large corpora; closed-domain RAG focuses on a single document, selecting only the most relevant pages to cut context length and hallucination.</p>
+      </div>
+      <div class="glass tax-card reveal" data-cat="modality">
+        <div class="tax-head"><div class="tax-ico ico-modality"><i class="fas fa-images"></i></div><h4>Retrieval Modality</h4></div>
+        <p>Image-based retrieval encodes pages as images via VLMs; image+text retrieval combines visual features with OCR or MLLM-generated captions for richer cross-modal representations.</p>
+      </div>
+      <div class="glass tax-card reveal" data-cat="granularity">
+        <div class="tax-head"><div class="tax-ico ico-granularity"><i class="fas fa-search-plus"></i></div><h4>Retrieval Granularity</h4></div>
+        <p>From page-level retrieval (whole pages as units) to element-level retrieval (tables, charts, images, text blocks) for finer-grained evidence localization and grounding.</p>
+      </div>
+      <div class="glass tax-card reveal" data-cat="graph">
+        <div class="tax-head"><div class="tax-ico ico-graph"><i class="fas fa-project-diagram"></i></div><h4>Graph-based RAG</h4></div>
+        <p>Multimodal content as graphs where nodes are content units and edges encode semantic, spatial, and contextual relations for structured retrieval and reasoning.</p>
+      </div>
+      <div class="glass tax-card reveal" data-cat="agent">
+        <div class="tax-head"><div class="tax-ico ico-agent"><i class="fas fa-robot"></i></div><h4>Agent-based RAG</h4></div>
+        <p>Autonomous agents formulate queries, select retrieval strategies, and adaptively fuse information across modalities with iterative reasoning and verification.</p>
+      </div>
+      <div class="glass tax-card reveal" data-cat="hybrid">
+        <div class="tax-head"><div class="tax-ico ico-hybrid"><i class="fas fa-layer-group"></i></div><h4>Hybrid Enhancements</h4></div>
+        <p>Combining graph-based indexing with agent-based orchestration for more flexible, interpretable, and robust multimodal RAG systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Figures: merged tabbed viewer -->
+<section id="figures" class="alt">
+  <div class="container">
+    <span class="eyebrow">One Figure, Four Views</span>
+    <h2>Method Illustrations</h2>
+    <p class="section-sub">Switch axes with the tabs (or ← → keys); click the figure to view it full-size.</p>
+    <div class="glass figviewer reveal">
+      <div class="seg" id="figTabs" role="tablist" aria-label="Method illustration axes">
+        <button role="tab" aria-selected="true" aria-controls="figStage" data-i="0"><i class="fas fa-globe" style="color:var(--cat-domain)"></i> Domain</button>
+        <button role="tab" aria-selected="false" aria-controls="figStage" data-i="1"><i class="fas fa-images" style="color:var(--cat-modality)"></i> Modality</button>
+        <button role="tab" aria-selected="false" aria-controls="figStage" data-i="2"><i class="fas fa-search-plus" style="color:var(--cat-granularity)"></i> Granularity</button>
+        <button role="tab" aria-selected="false" aria-controls="figStage" data-i="3"><i class="fas fa-project-diagram" style="color:var(--cat-graph)"></i> Graph &amp; Agent</button>
+        <span class="ink" id="figInk"></span>
+      </div>
+      <div class="fig-stage" id="figStage" role="tabpanel" aria-label="Selected method illustration">
+        <button class="expand-btn" id="figExpand" aria-label="View figure full-size"><i class="fas fa-expand"></i></button>
+        <div class="fig-panel is-active"><img src="static/images/domain.png" alt="Open vs closed domain multimodal RAG" loading="eager"></div>
+        <div class="fig-panel"><img src="static/images/mode.png" alt="Retrieval modality comparison" loading="lazy"></div>
+        <div class="fig-panel"><img src="static/images/ret_level.png" alt="Retrieval granularity comparison" loading="lazy"></div>
+        <div class="fig-panel"><img src="static/images/Graph_Agent.png" alt="Graph-based and agent-based multimodal RAG" loading="lazy"></div>
+      </div>
+      <p class="fig-caption" id="figCaption"></p>
+    </div>
+  </div>
+</section>
+
+<!-- Resources console -->
+<section id="resources">
+  <div class="container">
+    <span class="eyebrow">Explore the Survey</span>
+    <h2>Methods, Datasets &amp; Benchmarks</h2>
+    <p class="section-sub">A live, searchable index of every method, dataset, and benchmark in the survey. Search, filter by tag, and sort any column.</p>
+    <div class="glass console reveal">
+      <div class="seg" id="scopeTabs" role="tablist" aria-label="Resource scope">
+        <button role="tab" aria-selected="true" aria-controls="resourcesPanel" data-scope="all">All Methods <span class="cnt">48</span></button>
+        <button role="tab" aria-selected="false" aria-controls="resourcesPanel" data-scope="open">Open-Domain <span class="cnt">39</span></button>
+        <button role="tab" aria-selected="false" aria-controls="resourcesPanel" data-scope="closed">Closed-Domain <span class="cnt">9</span></button>
+        <button role="tab" aria-selected="false" aria-controls="resourcesPanel" data-scope="graph">Graph-based <span class="cnt">7</span></button>
+        <button role="tab" aria-selected="false" aria-controls="resourcesPanel" data-scope="agent">Agent-based <span class="cnt">5</span></button>
+        <button role="tab" aria-selected="false" aria-controls="resourcesPanel" data-scope="datasets">Datasets <span class="cnt">16</span></button>
+        <button role="tab" aria-selected="false" aria-controls="resourcesPanel" data-scope="benchmarks">Benchmarks <span class="cnt">8</span></button>
+        <span class="ink" id="scopeInk"></span>
+      </div>
+
+      <div class="console-toolbar">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="search" id="search" placeholder="Search by name, venue, idea…" aria-label="Search resources" autocomplete="off">
+        </div>
+        <div class="filters" id="filters">
+          <div class="filter-group" data-group="modality">
+            <span class="glabel">Modality</span>
+            <button class="fchip c-modality" data-group="modality" data-val="Image" aria-pressed="false">Image</button>
+            <button class="fchip c-modality" data-group="modality" data-val="Image+Text" aria-pressed="false">Image+Text</button>
+          </div>
+          <div class="filter-group" data-group="gran">
+            <span class="glabel">Granularity</span>
+            <button class="fchip c-granularity" data-group="gran" data-val="Page" aria-pressed="false">Page</button>
+            <button class="fchip c-granularity" data-group="gran" data-val="Element" aria-pressed="false">Element</button>
+          </div>
+          <div class="filter-group" data-group="training">
+            <span class="glabel">Training</span>
+            <button class="fchip c-training" data-group="training" data-val="Yes" aria-pressed="false">Trained</button>
+            <button class="fchip c-training" data-group="training" data-val="No" aria-pressed="false">Training-free</button>
+          </div>
+          <button class="fchip reset" id="resetFilters"><i class="fas fa-rotate-left"></i> Reset</button>
+        </div>
+        <div class="result-count" id="resultCount" aria-live="polite"></div>
+      </div>
+
+      <div class="table-wrap" id="resourcesPanel" role="tabpanel" aria-label="Resource table">
+        <table class="dtable">
+          <thead id="dthead"></thead>
+          <tbody id="dtbody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState" hidden>
+          <i class="fas fa-magnifying-glass"></i>
+          No results match your search and filters.
+          <br><button class="btn" id="emptyReset">Reset filters</button>
+        </div>
+      </div>
+      <noscript><p class="noscript-note" style="margin-top:16px">Enable JavaScript to browse the interactive tables, or view the full lists on the <a href="https://github.com/SensenGao/Multimodal-RAG-Survey-For-Document">GitHub repository</a>.</p></noscript>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section id="cite" class="alt">
+  <div class="container">
+    <span class="eyebrow">Reference</span>
+    <h2>BibTeX</h2>
+    <div class="bibtex-box reveal">
+      <button class="copy-btn" id="copyBtn"><i class="fas fa-copy"></i> Copy</button>
+<pre id="bibtex">@article{gao2025scaling,
+  title={Scaling Beyond Context: A Survey of Multimodal Retrieval-Augmented Generation for Document Understanding},
+  author={Sensen Gao and Shanshan Zhao and Xu Jiang and Lunhao Duan and Yong Xien Chng and Qing-Guo Chen and Weihua Luo and Kaifu Zhang and Jia-Wang Bian and Mingming Gong},
+  year={2025},
+  eprint={2510.15253},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2510.15253},
+}</pre>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="flinks">
+      <a href="https://arxiv.org/abs/2510.15253"><i class="ai ai-arxiv"></i> arXiv</a>
+      <a href="https://github.com/SensenGao/Multimodal-RAG-Survey-For-Document"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://sensengao.github.io/"><i class="fas fa-user"></i> Sensen Gao</a>
+    </div>
+    <p>Multimodal RAG Survey &copy; 2025 · ACL 2026 Main Conference</p>
+    <p class="built">Built with vanilla HTML / CSS / JS.</p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Figure viewer">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose" aria-label="Close"><i class="fas fa-xmark"></i></button>
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous figure"><i class="fas fa-chevron-left"></i></button>
+    <img id="lbImg" src="" alt="">
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Next figure"><i class="fas fa-chevron-right"></i></button>
+    <p class="lb-cap" id="lbCap"></p>
+  </div>
+</div>
+
+<script>
+/* ============ DATA (sourced from the survey GitHub repo) ============ */
+const METHODS = [
+  {n:'DSE',v:'EMNLP 2024',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2406.11251',s:'open'},
+  {n:'ColPali',v:'ICLR 2025',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2407.01449',s:'open'},
+  {n:'ColQwen2',v:'ICLR 2025',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2407.01449',s:'open'},
+  {n:'VisRAG',v:'ICLR 2025',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2410.10594',s:'open'},
+  {n:'M3DocRAG',v:'Preprint',m:'Image',g:'Page',t:'No',u:'https://arxiv.org/abs/2411.04952',s:'open'},
+  {n:'VisDoMRAG',v:'NAACL 2025',m:'Image+Text',g:'Page',t:'No',u:'https://arxiv.org/abs/2412.10704',s:'open'},
+  {n:'GME',v:'CVPR 2025',m:'Image+Text',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2412.16855',s:'open'},
+  {n:'ViDoRAG',v:'EMNLP 2025',m:'Image+Text',g:'Page',t:'No',u:'https://arxiv.org/abs/2502.18017',s:'open'},
+  {n:'HM-RAG',v:'ACM MM 2025',m:'Image+Text',g:'Page',t:'No',u:'https://arxiv.org/abs/2504.12330',s:'open'},
+  {n:'VDocRAG',v:'CVPR 2025',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2504.09795',s:'open'},
+  {n:'VRAG-RL',v:'Preprint',m:'Image',g:'Element',t:'Yes',u:'https://arxiv.org/abs/2505.22019',s:'open'},
+  {n:'CoRe-MMRAG',v:'ACL 2025',m:'Image+Text',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2506.02544',s:'open'},
+  {n:'Light-ColPali',v:'ACL 2025',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2506.04997',s:'open'},
+  {n:'MM-R5',v:'Preprint',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2506.12364',s:'open'},
+  {n:'SimpleDoc',v:'Preprint',m:'Image+Text',g:'Page',t:'No',u:'https://arxiv.org/abs/2506.14035',s:'open'},
+  {n:'DocVQA-RAP',v:'ICIC 2025',m:'Image',g:'Element',t:'No',u:'https://link.springer.com/chapter/10.1007/978-981-96-9921-6_31',s:'open'},
+  {n:'RL-QR',v:'Preprint',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2507.23242',s:'open'},
+  {n:'Patho-AgenticRAG',v:'Preprint',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2508.02258',s:'open'},
+  {n:'M2IO-R1',v:'Preprint',m:'Image+Text',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2508.06328',s:'open'},
+  {n:'mKG-RAG',v:'Preprint',m:'Image+Text',g:'Element',t:'Yes',u:'https://arxiv.org/abs/2508.05318',s:'open'},
+  {n:'DB3Team-RAG',v:'Preprint',m:'Image+Text',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2509.09681',s:'open'},
+  {n:'PREMIR',v:'EMNLP 2025',m:'Image+Text',g:'Element',t:'No',u:'https://arxiv.org/abs/2508.17079',s:'open'},
+  {n:'CMRAG',v:'Preprint',m:'Image+Text',g:'Page',t:'No',u:'https://arxiv.org/abs/2509.02123',s:'open'},
+  {n:'MoLoRAG',v:'EMNLP 2025',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2509.07666',s:'open'},
+  {n:'SERVAL',v:'Preprint',m:'Image',g:'Page',t:'No',u:'https://arxiv.org/abs/2509.15432',s:'open'},
+  {n:'MetaEmbed',v:'Preprint',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2509.18095',s:'open'},
+  {n:'DocPruner',v:'Preprint',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2509.23883',s:'open'},
+  {n:'RECON',v:'Preprint',m:'Image+Text',g:'Element',t:'No',u:'https://openreview.net/forum?id=nbjsM4zFPG',s:'open'},
+  {n:'LAD-RAG',v:'Preprint',m:'Image+Text',g:'Element',t:'No',u:'https://arxiv.org/abs/2510.07233',s:'open'},
+  {n:'HEAVEN',v:'Preprint',m:'Image',g:'Page',t:'No',u:'https://arxiv.org/abs/2510.22215',s:'open'},
+  {n:'MARA',v:'ACM MM 2025',m:'Image',g:'Element',t:'Yes',u:'https://arxiv.org/abs/2604.16313',s:'open'},
+  {n:'HPC-ColPali',v:'Preprint',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2506.21601',s:'open'},
+  {n:'RegionRAG',v:'Preprint',m:'Image',g:'Element',t:'Yes',u:'https://arxiv.org/abs/2510.27261',s:'open'},
+  {n:'IndustryRAG',v:'EMNLP Industry 2025',m:'Image',g:'Page',t:'No',u:'https://aclanthology.org/2025.emnlp-industry.173/',s:'open'},
+  {n:'COLMATE',v:'EMNLP Industry 2025',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2511.00903',s:'open'},
+  {n:'LILaC',v:'EMNLP 2025',m:'Image',g:'Element',t:'No',u:'https://arxiv.org/abs/2602.04263',s:'open'},
+  {n:'HKRAG',v:'Preprint',m:'Image',g:'Element',t:'Yes',u:'https://arxiv.org/abs/2511.20227',s:'open'},
+  {n:'SLEUTH',v:'Preprint',m:'Image',g:'Page',t:'No',u:'https://arxiv.org/abs/2511.22850',s:'open'},
+  {n:'Snappy',v:'Preprint',m:'Image',g:'Element',t:'No',u:'https://arxiv.org/abs/2512.02660',s:'open'},
+  {n:'CREAM',v:'ACM MM 2024',m:'Image+Text',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2403.00816',s:'closed'},
+  {n:'SV-RAG',v:'ICLR 2025',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2411.01106',s:'closed'},
+  {n:'FRAG',v:'Preprint',m:'Image',g:'Page',t:'No',u:'https://arxiv.org/abs/2504.17447',s:'closed'},
+  {n:'MG-RAG',v:'Preprint',m:'Image+Text',g:'Element',t:'No',u:'https://arxiv.org/abs/2505.01457',s:'closed'},
+  {n:'VisChunk',v:'Preprint',m:'Image+Text',g:'Page',t:'No',u:'https://arxiv.org/abs/2506.16035',s:'closed'},
+  {n:'MMRAG-DocQA',v:'Preprint',m:'Image+Text',g:'Element',t:'No',u:'https://arxiv.org/abs/2508.00579',s:'closed'},
+  {n:'ReDocRAG',v:'ICDAR WML 2025',m:'Image',g:'Page',t:'Yes',u:'https://arxiv.org/abs/2508.18984',s:'closed'},
+  {n:'DREAM',v:'ACM MM 2025',m:'Image',g:'Page',t:'Yes',u:'https://dl.acm.org/doi/10.1145/3746027.3755357',s:'closed'},
+  {n:'HEAR',v:'ACM MMW 2025',m:'Image+Text',g:'Page',t:'No',u:'https://dl.acm.org/doi/10.1145/3746027.3761999',s:'closed'},
+];
+const GRAPH = [
+  {n:'HM-RAG',v:'ACM MM 2025',k:'Hierarchical multi-agent framework with graph databases for structured relation capture',u:'https://arxiv.org/abs/2504.12330'},
+  {n:'mKG-RAG',v:'Preprint',k:'Multimodal knowledge graphs aligning entities across vision and text',u:'https://arxiv.org/abs/2508.05318'},
+  {n:'DB3Team-RAG',v:'Preprint',k:'Image-indexed knowledge graphs for domain-specific retrieval',u:'https://arxiv.org/abs/2509.09681'},
+  {n:'MoLoRAG',v:'EMNLP 2025',k:'Page graphs encoding logical connections via graph traversal',u:'https://arxiv.org/abs/2509.07666'},
+  {n:'RECON',v:'Preprint',k:'Global multimodal document graph linking intra-page and inter-page relations',u:'https://openreview.net/forum?id=nbjsM4zFPG'},
+  {n:'LAD-RAG',v:'Preprint',k:'Layout-aware component graphs with dynamic traversal',u:'https://arxiv.org/abs/2510.07233'},
+  {n:'LILaC',v:'EMNLP 2025',k:'Layered component graph with late interaction subgraph retrieval',u:'https://arxiv.org/abs/2602.04263'},
+];
+const AGENT = [
+  {n:'ViDoRAG',v:'EMNLP 2025',k:'Iterative agent workflow with exploration, summarization, and reflection',u:'https://arxiv.org/abs/2502.18017'},
+  {n:'HM-RAG',v:'ACM MM 2025',k:'Hierarchical multi-agent with query decomposition and consistency voting',u:'https://arxiv.org/abs/2504.12330'},
+  {n:'Patho-AgenticRAG',v:'Preprint',k:'Task decomposition and multi-turn search for pathology textbooks',u:'https://arxiv.org/abs/2508.02258'},
+  {n:'HEAR',v:'ACM MMW 2025',k:'Closed-loop multi-agent reasoning with VLM-based document parsing',u:'https://dl.acm.org/doi/10.1145/3746027.3761999'},
+  {n:'SLEUTH',v:'Preprint',k:'Coarse-to-fine agent filtering and distilling salient evidence',u:'https://arxiv.org/abs/2511.22850'},
+];
+const DATASETS = [
+  {n:'TabFQuAD',q:'210',d:'210 (I)',c:'Table',u:'https://huggingface.co/datasets/vidore/tabfquad_test_subsampled'},
+  {n:'PlotQA',q:'28.9M',d:'224K (I)',c:'Chart',u:'https://arxiv.org/abs/1909.00997'},
+  {n:'DocVQA',q:'50K',d:'12,767 (I)',c:'Text, Table, Chart',u:'https://arxiv.org/abs/2007.00398'},
+  {n:'VisualMRC',q:'30,562',d:'10,197 (I)',c:'Text, Table, Chart',u:'https://arxiv.org/abs/2101.11272'},
+  {n:'TAT-DQA',q:'16,558',d:'2,758 (D)',c:'Text, Table, Chart',u:'https://arxiv.org/abs/2207.11871'},
+  {n:'InfoVQA',q:'30K',d:'5.4K (I)',c:'Text, Table, Chart',u:'https://arxiv.org/abs/2104.12756'},
+  {n:'ChartQA',q:'23.1K',d:'17.1K (I)',c:'Chart',u:'https://arxiv.org/abs/2203.10244'},
+  {n:'ScienceQA',q:'21K',d:'7,803 (I)',c:'Text, Table, Chart',u:'https://arxiv.org/abs/2209.09513'},
+  {n:'DUDE',q:'41,491',d:'4,974 (D)',c:'Text, Table, Chart',u:'https://arxiv.org/abs/2305.08455'},
+  {n:'SlideVQA',q:'52K',d:'14.5K (I)',c:'Slide',u:'https://arxiv.org/abs/2301.04883'},
+  {n:'ArXivQA',q:'100K',d:'16.6K (D)',c:'Text, Table, Chart',u:'https://arxiv.org/abs/2403.00231'},
+  {n:'MMLongBench-Doc',q:'1,062',d:'130 (D)',c:'Text, Table, Chart, Slide',u:'https://arxiv.org/abs/2407.01523'},
+  {n:'PaperTab',q:'393',d:'307 (D)',c:'Text, Table',u:'https://arxiv.org/abs/2406.15187'},
+  {n:'FetaTab',q:'1,023',d:'878 (D)',c:'Table',u:'https://arxiv.org/abs/2406.15187'},
+  {n:'SPIQA',q:'27K',d:'25.5K (D)',c:'Table, Chart',u:'https://arxiv.org/abs/2407.09413'},
+  {n:'LongDocURL',q:'2,325',d:'396 (D)',c:'Text, Table, Chart',u:'https://arxiv.org/abs/2412.18424'},
+];
+const BENCH = [
+  {n:'ViDoRe',q:'3.8K',d:'8.3K (D)',c:'Text, Table, Chart',b:'ColPali',u:'https://arxiv.org/abs/2407.01449'},
+  {n:'VisR-Bench',q:'471',d:'226 (D)',c:'Text, Table, Chart, Slide',b:'VisR-Bench',u:'https://arxiv.org/abs/2508.07493'},
+  {n:'M3DocVQA',q:'2,441',d:'3,368 (D)',c:'Text, Table, Chart',b:'M3DocRAG',u:'https://arxiv.org/abs/2411.04952'},
+  {n:'VisDoMBench',q:'2,271',d:'1,277 (D)',c:'Text, Table, Chart, Slide',b:'VisDoMRAG',u:'https://arxiv.org/abs/2412.10704'},
+  {n:'ViDoSeek',q:'1,142',d:'300 (D)',c:'Text, Table, Chart',b:'ViDoRAG',u:'https://arxiv.org/abs/2502.18017'},
+  {n:'OpenDocVQA',q:'206K',d:'43K (I)',c:'Text, Table, Chart',b:'VDocRAG',u:'https://arxiv.org/abs/2504.09795'},
+  {n:'UniDoc-Bench',q:'1.6K',d:'70K (I)',c:'Text, Table, Chart',b:'UniDoc',u:'https://arxiv.org/abs/2510.03663'},
+  {n:'BBox-DocVQA',q:'32K',d:'4.4K (D)',c:'Text, Table, Chart',b:'BBox-DocVQA',u:'https://arxiv.org/abs/2511.15090'},
+];
+
+/* ============ Helpers ============ */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function hl(text, q) {
+  const t = esc(text);
+  if (!q) return t;
+  try {
+    const re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'ig');
+    return t.replace(re, '<mark>$1</mark>');
+  } catch (e) { return t; }
+}
+function parseNum(s) {
+  if (s == null) return -Infinity;
+  const str = String(s).replace(/,/g,'').trim();
+  const m = str.match(/([\d.]+)\s*([KMB]?)/i);
+  if (!m) return -Infinity;
+  let v = parseFloat(m[1]);
+  const suf = m[2].toUpperCase();
+  if (suf === 'K') v *= 1e3; else if (suf === 'M') v *= 1e6; else if (suf === 'B') v *= 1e9;
+  return v;
+}
+const arxivId = u => { const m = u.match(/arxiv\.org\/abs\/([\d.]+)/); return m ? m[1] : null; };
+function paperLink(u) {
+  const isArxiv = u.includes('arxiv.org');
+  const icon = isArxiv ? 'ai ai-arxiv' : 'fas fa-up-right-from-square';
+  const id = arxivId(u);
+  const label = isArxiv ? ('arXiv ' + (id||'')) : 'Open paper';
+  return '<a class="paper-link" href="' + esc(u) + '" target="_blank" rel="noopener" aria-label="' + esc(label) + '" title="' + esc(label) + '"><i class="' + icon + '"></i></a>';
+}
+function venueChip(v, q) { return '<span class="badge b-venue">' + hl(v, q) + '</span>'; }
+function modBadge(m, q) { return '<span class="badge b-modality">' + hl(m, q) + '</span>'; }
+function granBadge(g, q) { return '<span class="badge b-granularity">' + hl(g, q) + '</span>'; }
+function trainBadge(t) { return t === 'Yes' ? '<span class="badge b-train-yes">Trained</span>' : '<span class="badge b-train-no">Training-free</span>'; }
+function contentTags(c, q) {
+  const map = {Text:'ct-text', Table:'ct-table', Chart:'ct-chart', Slide:'ct-slide', Image:'ct-image'};
+  return c.split(',').map(x => x.trim()).map(x => '<span class="ctag ' + (map[x]||'ct-text') + '">' + hl(x, q) + '</span>').join('');
+}
+
+/* ============ Console state + columns ============ */
+const SCOPE_COLS = {
+  methods: [
+    {key:'n', label:'Method', sortable:true, cls:'col-name'},
+    {key:'v', label:'Venue', sortable:true},
+    {key:'m', label:'Modality', sortable:true},
+    {key:'g', label:'Granularity', sortable:true},
+    {key:'t', label:'Training', sortable:true},
+    {key:'u', label:'Paper', sortable:false},
+  ],
+  ideas: [
+    {key:'n', label:'Method', sortable:true, cls:'col-name'},
+    {key:'v', label:'Venue', sortable:true},
+    {key:'k', label:'Key Idea', sortable:false, cls:'col-idea'},
+    {key:'u', label:'Paper', sortable:false},
+  ],
+  datasets: [
+    {key:'n', label:'Dataset', sortable:true, cls:'col-name'},
+    {key:'q', label:'#Queries', sortable:true, num:true},
+    {key:'d', label:'#Docs / Images', sortable:false},
+    {key:'c', label:'Content', sortable:false},
+    {key:'u', label:'Source', sortable:false},
+  ],
+  benchmarks: [
+    {key:'n', label:'Benchmark', sortable:true, cls:'col-name'},
+    {key:'q', label:'#Queries', sortable:true, num:true},
+    {key:'d', label:'#Docs / Images', sortable:false},
+    {key:'c', label:'Content', sortable:false},
+    {key:'b', label:'Introduced By', sortable:true},
+    {key:'u', label:'Paper', sortable:false},
+  ],
+};
+function scopeKind(scope) {
+  if (scope === 'datasets') return 'datasets';
+  if (scope === 'benchmarks') return 'benchmarks';
+  if (scope === 'graph' || scope === 'agent') return 'ideas';
+  return 'methods';
+}
+function baseData(scope) {
+  if (scope === 'all') return METHODS;
+  if (scope === 'open') return METHODS.filter(x => x.s === 'open');
+  if (scope === 'closed') return METHODS.filter(x => x.s === 'closed');
+  if (scope === 'graph') return GRAPH;
+  if (scope === 'agent') return AGENT;
+  if (scope === 'datasets') return DATASETS;
+  if (scope === 'benchmarks') return BENCH;
+  return [];
+}
+
+const state = { scope: 'all', q: '', filters: {modality:new Set(), gran:new Set(), training:new Set()}, sortKey: null, sortDir: 1 };
+
+function cellHTML(col, row, q) {
+  const val = row[col.key];
+  if (col.key === 'u') return paperLink(val);
+  if (col.key === 'v') return venueChip(val, q);
+  if (col.key === 'm') return modBadge(val, q);
+  if (col.key === 'g') return granBadge(val, q);
+  if (col.key === 't') return trainBadge(val);
+  if (col.key === 'c') return contentTags(val, q);
+  return hl(val, q);
+}
+
+function applyFilters(rows, kind) {
+  const q = state.q.trim().toLowerCase();
+  return rows.filter(row => {
+    if (kind === 'methods') {
+      if (state.filters.modality.size && !state.filters.modality.has(row.m)) return false;
+      if (state.filters.gran.size && !state.filters.gran.has(row.g)) return false;
+      if (state.filters.training.size && !state.filters.training.has(row.t)) return false;
+    }
+    if (q) {
+      const hay = Object.values(row).join(' ').toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function render() {
+  const scope = state.scope;
+  const kind = scopeKind(scope);
+  const cols = scope === 'datasets' ? SCOPE_COLS.datasets
+            : scope === 'benchmarks' ? SCOPE_COLS.benchmarks
+            : kind === 'ideas' ? SCOPE_COLS.ideas : SCOPE_COLS.methods;
+
+  // Filters only relevant for method scopes
+  $('#filters').style.display = (kind === 'methods') ? 'flex' : 'none';
+
+  let rows = applyFilters(baseData(scope).slice(), kind);
+
+  if (state.sortKey) {
+    const col = cols.find(c => c.key === state.sortKey);
+    rows.sort((a, b) => {
+      let av = a[state.sortKey], bv = b[state.sortKey];
+      let cmp;
+      if (col && col.num) cmp = parseNum(av) - parseNum(bv);
+      else cmp = String(av).localeCompare(String(bv), undefined, {sensitivity:'base'});
+      return cmp * state.sortDir;
+    });
+  }
+
+  // Head
+  const thead = '<tr>' + cols.map(c => {
+    const sortable = c.sortable ? ' sortable' : '';
+    let aria = '', caret = '';
+    if (c.sortable) {
+      const active = state.sortKey === c.key;
+      aria = ' role="button" tabindex="0" aria-sort="' + (active ? (state.sortDir===1?'ascending':'descending') : 'none') + '" data-key="' + c.key + '"';
+      const ic = active ? (state.sortDir===1?'fa-sort-up':'fa-sort-down') : 'fa-sort';
+      caret = ' <i class="caret fas ' + ic + '"></i>';
+    }
+    return '<th class="th' + sortable + '"' + aria + '>' + c.label + caret + '</th>';
+  }).join('') + '</tr>';
+  $('#dthead').innerHTML = thead;
+
+  // Body
+  const q = state.q.trim();
+  const body = rows.map(row => '<tr>' + cols.map(c => {
+    const cls = c.cls ? (' class="' + c.cls + (c.num?' num':'') + '"') : (c.num ? ' class="num"' : '');
+    return '<td' + cls + ' data-label="' + esc(c.label) + '">' + cellHTML(c, row, q) + '</td>';
+  }).join('') + '</tr>').join('');
+  $('#dtbody').innerHTML = body;
+
+  // Empty state + counter
+  const total = baseData(scope).length;
+  const NOUNS = {all:'methods', open:'open-domain methods', closed:'closed-domain methods', graph:'graph-based methods', agent:'agent-based methods', datasets:'datasets', benchmarks:'benchmarks'};
+  const noun = NOUNS[scope] || 'entries';
+  $('#emptyState').hidden = rows.length !== 0;
+  $('#resultCount').innerHTML = 'Showing <b>' + rows.length + '</b> of ' + total + ' ' + noun;
+}
+
+/* ============ Tabs + ink-bar (shared) ============ */
+function moveInk(ink, btn) {
+  if (!btn) return;
+  ink.style.width = btn.offsetWidth + 'px';
+  ink.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+}
+function setupSeg(tabsEl, inkEl, onSelect) {
+  const btns = $$('button', tabsEl);
+  function select(btn, focus) {
+    btns.forEach(b => { const on = b === btn; b.setAttribute('aria-selected', on ? 'true' : 'false'); b.tabIndex = on ? 0 : -1; });
+    moveInk(inkEl, btn);
+    if (focus) btn.focus();
+    onSelect(btn);
+  }
+  tabsEl.addEventListener('click', e => { const b = e.target.closest('button'); if (b) select(b); });
+  tabsEl.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    e.preventDefault();
+    const cur = btns.findIndex(b => b.getAttribute('aria-selected') === 'true');
+    const next = e.key === 'ArrowRight' ? (cur+1)%btns.length : (cur-1+btns.length)%btns.length;
+    select(btns[next], true);
+  });
+  // init
+  const initial = btns.find(b => b.getAttribute('aria-selected') === 'true') || btns[0];
+  btns.forEach(b => b.tabIndex = b === initial ? 0 : -1);
+  requestAnimationFrame(() => moveInk(inkEl, initial));
+  return { select: (i) => select(btns[i]), btns };
+}
+
+/* ============ Figure viewer ============ */
+const FIG_CAPTIONS = [
+  '<b>Open-domain vs. closed-domain multimodal RAG.</b> (a) Closed-domain: in-document retrieval from a single document. (b) Open-domain: cross-document retrieval from multiple documents.',
+  '<b>Retrieval modality comparison.</b> (a) Image-based RAG retrieves from page images. (b) Image+Text-based RAG integrates OCR/annotations with visual features for richer retrieval.',
+  '<b>Retrieval granularity.</b> (a) Page-level: entire pages encoded and ranked as units. (b) Element-level: pages decomposed into tables, charts, images, and text blocks for fine-grained retrieval.',
+  '<b>Hybrid enhancements.</b> (a) Graph-based: documents form a graph index with graph traversal retrieval. (b) Agent-based: an LLM agent decomposes queries, orchestrates retrieval, verifies evidence, and synthesizes answers.'
+];
+const figPanels = $$('.fig-panel', $('#figStage'));
+let figIndex = 0;
+function showFig(i) {
+  figIndex = i;
+  figPanels.forEach((p, idx) => p.classList.toggle('is-active', idx === i));
+  $('#figCaption').innerHTML = FIG_CAPTIONS[i];
+}
+const figSeg = setupSeg($('#figTabs'), $('#figInk'), btn => showFig(+btn.dataset.i));
+showFig(0);
+// swipe
+let touchX = null;
+$('#figStage').addEventListener('touchstart', e => touchX = e.changedTouches[0].clientX, {passive:true});
+$('#figStage').addEventListener('touchend', e => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX; touchX = null;
+  if (Math.abs(dx) < 50) return;
+  const next = dx < 0 ? (figIndex+1)%4 : (figIndex-1+4)%4;
+  figSeg.select(next);
+});
+
+/* ============ Lightbox ============ */
+const LB_IMAGES = [
+  {src:'static/images/home.png', cap:'(a) MLLMs with vs. without Multimodal RAG for large-document comprehension. (b) Growth in related publications, 2024–2025.'},
+  {src:'static/images/domain.png', cap:'Open-domain vs. closed-domain multimodal RAG.'},
+  {src:'static/images/mode.png', cap:'Retrieval modality: image-based vs. image+text-based.'},
+  {src:'static/images/ret_level.png', cap:'Retrieval granularity: page-level vs. element-level.'},
+  {src:'static/images/Graph_Agent.png', cap:'Hybrid enhancements: graph-based and agent-based multimodal RAG.'},
+];
+let lbIndex = 0;
+const lightbox = $('#lightbox');
+let lastFocused = null;
+function openLB(i) {
+  lbIndex = (i + LB_IMAGES.length) % LB_IMAGES.length;
+  $('#lbImg').src = LB_IMAGES[lbIndex].src;
+  $('#lbImg').alt = LB_IMAGES[lbIndex].cap;
+  $('#lbCap').textContent = LB_IMAGES[lbIndex].cap;
+  lightbox.classList.add('open');
+  lastFocused = document.activeElement;
+  $('#lbClose').focus();
+}
+function closeLB() { lightbox.classList.remove('open'); if (lastFocused) lastFocused.focus(); }
+$('#lbClose').addEventListener('click', closeLB);
+$('#lbPrev').addEventListener('click', () => openLB(lbIndex - 1));
+$('#lbNext').addEventListener('click', () => openLB(lbIndex + 1));
+lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target.classList.contains('lb-inner')) closeLB(); });
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') { closeLB(); return; }
+  if (e.key === 'ArrowLeft') { openLB(lbIndex - 1); return; }
+  if (e.key === 'ArrowRight') { openLB(lbIndex + 1); return; }
+  if (e.key === 'Tab') { // focus trap: cycle among lightbox controls
+    const f = $$('button', lightbox);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    else if (!lightbox.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+  }
+});
+$('.teaser-frame .expand-btn').addEventListener('click', () => openLB(0));
+$('#figExpand').addEventListener('click', () => openLB(figIndex + 1));
+
+/* ============ Console interactions ============ */
+const scopeSeg = setupSeg($('#scopeTabs'), $('#scopeInk'), btn => {
+  state.scope = btn.dataset.scope;
+  state.sortKey = null;
+  render();
+});
+// search (debounced)
+let sTimer;
+$('#search').addEventListener('input', e => {
+  clearTimeout(sTimer);
+  sTimer = setTimeout(() => { state.q = e.target.value; render(); }, 120);
+});
+// filter chips
+$$('.fchip[data-group]').forEach(chip => chip.addEventListener('click', () => {
+  const g = chip.dataset.group, v = chip.dataset.val;
+  const set = state.filters[g];
+  const pressed = chip.getAttribute('aria-pressed') === 'true';
+  chip.setAttribute('aria-pressed', String(!pressed));
+  if (pressed) set.delete(v); else set.add(v);
+  render();
+}));
+function resetFilters() {
+  Object.values(state.filters).forEach(s => s.clear());
+  $$('.fchip[data-group]').forEach(c => c.setAttribute('aria-pressed', 'false'));
+  state.q = ''; $('#search').value = '';
+  render();
+}
+$('#resetFilters').addEventListener('click', resetFilters);
+$('#emptyReset').addEventListener('click', resetFilters);
+// sort (delegated on thead)
+$('#dthead').addEventListener('click', e => {
+  const th = e.target.closest('th[data-key]'); if (!th) return;
+  const key = th.dataset.key;
+  if (state.sortKey === key) state.sortDir *= -1; else { state.sortKey = key; state.sortDir = 1; }
+  render();
+});
+$('#dthead').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const th = e.target.closest('th[data-key]'); if (!th) return;
+  e.preventDefault(); th.click();
+});
+// quick-jumps set scope
+$$('.chip-jump[data-scope]').forEach(j => j.addEventListener('click', () => {
+  const idx = scopeSeg.btns.findIndex(b => b.dataset.scope === j.dataset.scope);
+  if (idx >= 0) scopeSeg.select(idx);
+}));
+render();
+
+/* ============ Copy BibTeX ============ */
+$('#copyBtn').addEventListener('click', () => {
+  const text = $('#bibtex').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = $('#copyBtn');
+    btn.classList.add('done');
+    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+    setTimeout(() => { btn.classList.remove('done'); btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+  });
+});
+
+/* ============ Scroll: progress + nav reveal + spy ============ */
+const progress = $('#progress'), topnav = $('#topnav');
+let ticking = false;
+function onScroll() { if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; } }
+function updateScroll() {
+  const sc = window.scrollY || document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.transform = 'scaleX(' + (h > 0 ? Math.min(sc/h, 1) : 0) + ')';
+  topnav.classList.toggle('show', sc > 600);
+  ticking = false;
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+window.addEventListener('resize', () => { moveInk($('#figInk'), $('#figTabs button[aria-selected="true"]')); moveInk($('#scopeInk'), $('#scopeTabs button[aria-selected="true"]')); });
+updateScroll();
+
+// Scroll-spy
+const navMap = {};
+$$('#navLinks a').forEach(a => navMap[a.getAttribute('href').slice(1)] = a);
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      $$('#navLinks a').forEach(a => a.classList.remove('active'));
+      const link = navMap[en.target.id];
+      if (link) link.classList.add('active');
+    }
+  });
+}, {rootMargin: '-45% 0px -50% 0px'});
+['abstract','taxonomy','figures','resources','cite'].forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+
+/* ============ Reveal + count-up ============ */
+function countUp(el) {
+  const target = parseFloat(el.dataset.target);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const dur = 1300, t0 = performance.now();
+  function step(now) {
+    const p = Math.min((now - t0) / dur, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = prefix + Math.round(eased * target) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io = new IntersectionObserver((entries, obs) => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    en.target.classList.add('in');
+    $$('.num[data-target]', en.target).forEach(n => {
+      if (reduceMotion) { n.textContent = (n.dataset.prefix||'') + n.dataset.target + (n.dataset.suffix||''); }
+      else countUp(n);
+    });
+    obs.unobserve(en.target);
+  });
+}, {threshold: 0.18});
+$$('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OneWorld · 3D Unified Representation Autoencoder</title>
+  <meta name="description" content="OneWorld: Taming Scene Generation with 3D Unified Representation Autoencoder — diffusion directly in a coherent 3D representation space for high-quality, cross-view-consistent 3D scenes.">
+  <meta property="og:title" content="OneWorld: Taming Scene Generation with 3D Unified Representation Autoencoder">
+  <meta property="og:description" content="Diffusion in a coherent 3D representation space — 3D-URAE, Cross-View Correspondence, and Manifold-Drift Forcing for consistent 3D scene generation.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <style>
+    :root {
+      --bg: #0B0F1A;
+      --bg-alt: #0E1424;
+      --surface: rgba(22,28,45,0.55);
+      --surface-solid: #161C2D;
+      --surface-elev: #1A2238;
+      --glass-border: rgba(255,255,255,0.10);
+      --hairline: rgba(255,255,255,0.08);
+      --text: #E8ECF6;
+      --text-muted: #9AA6C2;
+      --text-faint: #A1AECB;
+      --inner-panel: #FFFFFF;
+      --inner-panel-soft: rgba(255,255,255,0.95);
+
+      --accent-violet: #7C5CFF;
+      --accent-cyan: #22D3EE;
+      --accent-teal: #2DD4A7;
+      --grad-primary: linear-gradient(100deg,#22D3EE 0%,#7C5CFF 100%);
+      --grad-tri: linear-gradient(120deg,#22D3EE 0%,#7C5CFF 50%,#2DD4A7 100%);
+      --glow-violet: 0 8px 30px rgba(124,92,255,0.35);
+
+      --max-width: 1120px;
+      --radius: 16px;
+
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: var(--font-body); color: var(--text); line-height: 1.75;
+      background: var(--bg); -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    a { color: var(--accent-cyan); }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+    ::selection { background: rgba(124,92,255,0.35); color: #fff; }
+
+    /* Scroll progress + nav */
+    .progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; transform: scaleX(0); transform-origin: 0 50%; background: var(--grad-primary); z-index: 200; box-shadow: 0 0 12px rgba(124,92,255,0.6); }
+    .topnav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 150;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 24px;
+      background: rgba(11,15,26,0.72); border-bottom: 1px solid var(--hairline);
+      backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%);
+      transform: translateY(-110%); transition: transform .4s cubic-bezier(.22,1,.36,1);
+    }
+    @supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) { .topnav { background: #0d1220; } }
+    .topnav.show { transform: translateY(0); }
+    .topnav .brand { font-family: var(--font-display); font-weight: 700; font-size: .95rem; letter-spacing: -.01em; white-space: nowrap; }
+    .topnav .brand .dot { color: var(--accent-cyan); }
+    .topnav .nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
+    .topnav .nav-links a { font-size: .82rem; font-weight: 500; color: var(--text-muted); text-decoration: none; padding: 6px 12px; border-radius: 8px; transition: color .2s, background .2s; white-space: nowrap; }
+    .topnav .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+    .topnav .nav-links a.active { color: #fff; background: linear-gradient(100deg, rgba(34,211,238,0.18), rgba(124,92,255,0.18)); }
+    .topnav .nav-cta { display: flex; gap: 8px; }
+    .topnav .nav-cta a { display: inline-flex; align-items: center; gap: 6px; font-size: .8rem; font-weight: 600; text-decoration: none; padding: 7px 14px; border-radius: 9px; border: 1px solid var(--glass-border); color: var(--text); transition: all .2s; white-space: nowrap; }
+    .topnav .nav-cta a.primary { background: var(--grad-primary); color: #07111a; border: none; }
+    .topnav .nav-cta a:hover { transform: translateY(-1px); border-color: var(--accent-cyan); }
+    .topnav .nav-cta a.primary:hover { box-shadow: var(--glow-violet); }
+    @media (max-width: 880px) { .topnav .nav-links { display: none; } }
+
+    /* Hero */
+    .hero { position: relative; min-height: 94vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 90px 0 60px; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .aurora { position: absolute; width: 62vw; height: 62vw; border-radius: 50%; filter: blur(80px); opacity: .55; mix-blend-mode: screen; will-change: transform; }
+    .aurora.a { background: radial-gradient(circle, #7C5CFF, transparent 60%); top: -10%; left: -8%; animation: drift1 26s ease-in-out infinite alternate; }
+    .aurora.b { background: radial-gradient(circle, #22D3EE, transparent 60%); top: -18%; right: -12%; animation: drift2 30s ease-in-out infinite alternate; }
+    .aurora.c { background: radial-gradient(circle, #2DD4A7, transparent 60%); bottom: -22%; left: 18%; animation: drift3 24s ease-in-out infinite alternate; }
+    @keyframes drift1 { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(8vw,6vh,0) scale(1.15); } }
+    @keyframes drift2 { from { transform: translate3d(0,0,0) scale(1.05); } to { transform: translate3d(-7vw,8vh,0) scale(.9); } }
+    @keyframes drift3 { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(6vw,-6vh,0) scale(1.2); } }
+    .dotgrid { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 26px 26px; -webkit-mask-image: radial-gradient(ellipse at center, #000 38%, transparent 82%); mask-image: radial-gradient(ellipse at center, #000 38%, transparent 82%); }
+    .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,15,26,0.25) 0%, rgba(11,15,26,0) 30%, rgba(11,15,26,0) 60%, var(--bg) 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+    .hero-logo { width: 84px; height: 84px; object-fit: contain; border-radius: 18px; margin: 0 auto 18px; display: block; background: rgba(255,255,255,0.92); padding: 8px; box-shadow: 0 0 0 1px rgba(124,92,255,0.30), 0 0 30px rgba(34,211,238,0.18); }
+    .venue-chip { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: .74rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); padding: 7px 16px; border-radius: 999px; background: var(--surface); border: 1px solid var(--glass-border); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); margin-bottom: 22px; }
+    .venue-chip .live { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-cyan); box-shadow: 0 0 0 0 rgba(34,211,238,0.7); animation: pulse 2.2s ease-out infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34,211,238,0.55); } 70% { box-shadow: 0 0 0 8px rgba(34,211,238,0); } 100% { box-shadow: 0 0 0 0 rgba(34,211,238,0); } }
+
+    .hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.05rem, 5vw, 3.35rem); line-height: 1.13; letter-spacing: -.02em; margin-bottom: 18px; }
+    .hero h1 .grad { background: var(--grad-primary); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: var(--accent-cyan); background-size: 200% auto; animation: shimmer 9s ease-in-out infinite; filter: drop-shadow(0 0 26px rgba(124,92,255,0.22)); }
+    @keyframes shimmer { 0%,100% { background-position: 0% center; } 50% { background-position: 100% center; } }
+    .hero .subtitle { font-size: clamp(1rem,1.6vw,1.18rem); color: var(--text-muted); max-width: 700px; margin: 0 auto 26px; }
+
+    .authors { font-size: 1rem; line-height: 1.9; max-width: 820px; margin: 0 auto 8px; color: var(--text); }
+    .authors a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+    .authors a:hover { color: var(--accent-cyan); border-bottom-color: var(--accent-cyan); }
+    .authors sup { color: var(--text-faint); font-size: .72em; }
+    .authors .note { font-size: .82rem; color: var(--text-faint); margin-top: 6px; }
+    .affiliations { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 16px auto 30px; max-width: 820px; }
+    .affiliations span { font-size: .78rem; color: var(--text-muted); padding: 4px 12px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid var(--hairline); }
+    .affiliations sup { color: var(--accent-cyan); font-weight: 600; margin-right: 3px; }
+
+    .buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 14px; }
+    .btn { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-body); font-size: .92rem; font-weight: 600; padding: 11px 22px; border-radius: 11px; text-decoration: none; border: 1px solid var(--glass-border); color: var(--text); background: var(--surface); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: transform .2s, box-shadow .2s, border-color .2s, background .2s; cursor: pointer; }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent-cyan); color: #fff; }
+    .btn.primary { background: var(--grad-primary); color: #07111a; border: none; }
+    .btn.primary:hover { box-shadow: var(--glow-violet); color: #07111a; }
+    .quick-jumps { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+    .chip-jump { display: inline-flex; align-items: center; gap: 7px; font-size: .82rem; font-weight: 500; color: var(--text-muted); cursor: pointer; padding: 7px 15px; border-radius: 999px; background: transparent; border: 1px solid var(--hairline); transition: all .2s; text-decoration: none; }
+    .chip-jump:hover { color: var(--text); border-color: var(--accent-violet); background: rgba(124,92,255,0.08); }
+
+    .statbar { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 40px; }
+    .stat { min-width: 138px; padding: 16px 22px; border-radius: 14px; background: var(--surface); border: 1px solid var(--glass-border); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .stat .num { font-family: var(--font-display); font-weight: 700; font-size: 2rem; line-height: 1; font-variant-numeric: tabular-nums; background: var(--grad-primary); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: var(--accent-cyan); }
+    .stat .label { font-size: .76rem; color: var(--text-muted); margin-top: 7px; letter-spacing: .02em; }
+    .scroll-hint { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); color: var(--text-faint); font-size: 1.1rem; z-index: 2; animation: bob 2.2s ease-in-out infinite; }
+    @keyframes bob { 0%,100% { transform: translate(-50%,0); } 50% { transform: translate(-50%,8px); } }
+
+    /* Sections */
+    section { padding: 84px 0; position: relative; }
+    section.alt { background: var(--bg-alt); }
+    .eyebrow { font-family: var(--font-mono); font-size: .76rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-cyan); display: block; text-align: center; margin-bottom: 10px; }
+    section > .container > h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.5rem,3vw,2.1rem); text-align: center; line-height: 1.2; margin-bottom: 12px; letter-spacing: -.01em; }
+    .section-sub { text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 40px; font-size: .96rem; }
+    .glass { background: var(--surface); border: 1px solid var(--glass-border); border-radius: var(--radius); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%); }
+    @supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) { .glass, .venue-chip, .btn, .stat { background: var(--surface-solid); } }
+
+    /* Framed figure (light panel for white-bg figures) */
+    .figframe { position: relative; padding: 18px; }
+    .figpanel { background: var(--inner-panel-soft); border-radius: 14px; padding: 14px; box-shadow: 0 0 0 1px rgba(124,92,255,0.30), 0 0 28px rgba(34,211,238,0.12), 0 18px 50px rgba(0,0,0,0.5); }
+    .figpanel img { display: block; margin: 0 auto; width: auto; max-width: 100%; object-fit: contain; border-radius: 6px; }
+    .figpanel.teaser img { max-height: clamp(360px, 64vh, 660px); }
+    .figpanel.method img { max-height: clamp(340px, 60vh, 580px); }
+    .expand-btn { position: absolute; top: 28px; right: 28px; z-index: 3; width: 38px; height: 38px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; background: rgba(11,15,26,0.66); color: #fff; border: 1px solid var(--glass-border); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: all .2s; }
+    .expand-btn:hover { background: var(--accent-violet); transform: scale(1.06); }
+    .caption { color: var(--text-muted); font-size: .9rem; text-align: center; max-width: 880px; margin: 16px auto 0; }
+    .caption b { color: var(--text); }
+
+    /* Abstract */
+    .abstract-card { max-width: 880px; margin: 0 auto; padding: 38px 42px; position: relative; }
+    .abstract-card::before { content: ''; position: absolute; left: 0; top: 28px; bottom: 28px; width: 3px; background: var(--grad-tri); border-radius: 3px; }
+    .abstract-card p { font-size: 1.04rem; line-height: 1.9; color: var(--text); text-align: justify; }
+    .abstract-card p .lead { font-size: 1.12em; }
+    .abstract-card .hl { color: var(--accent-cyan); font-weight: 600; }
+
+    /* Contributions */
+    .contrib-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+    .contrib-card { padding: 26px; transition: transform .25s, box-shadow .25s, border-color .25s; }
+    .contrib-card:hover { transform: translateY(-4px); border-color: var(--accent-violet); box-shadow: var(--glow-violet); }
+    .contrib-icon { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #07111a; background: var(--grad-primary); margin-bottom: 16px; }
+    .contrib-tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-cyan); margin-bottom: 6px; }
+    .contrib-card h4 { font-family: var(--font-display); font-size: 1.08rem; font-weight: 600; margin-bottom: 8px; }
+    .contrib-card p { font-size: .92rem; color: var(--text-muted); }
+
+    /* Shared segmented tabs + ink-bar */
+    .seg { position: relative; display: flex; flex-wrap: wrap; gap: 2px; padding: 5px; border-radius: 13px; background: rgba(255,255,255,0.04); border: 1px solid var(--hairline); margin-bottom: 18px; }
+    .seg button { position: relative; z-index: 2; flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-display); font-size: .86rem; font-weight: 500; color: var(--text-muted); background: transparent; border: none; cursor: pointer; padding: 9px 14px; border-radius: 9px; white-space: nowrap; transition: color .2s; }
+    .seg button[aria-selected="true"] { color: #07111a; }
+    .seg .ink { position: absolute; z-index: 1; top: 5px; bottom: 5px; left: 0; width: 0; border-radius: 9px; background: var(--grad-primary); transition: transform .28s cubic-bezier(.4,0,.2,1), width .28s cubic-bezier(.4,0,.2,1); will-change: transform, width; }
+
+    /* Figure viewer */
+    .figviewer { max-width: 1000px; margin: 0 auto; padding: 22px; }
+    .fig-stage { position: relative; display: grid; place-items: center; min-height: 340px; max-height: 70vh; padding: 16px; border-radius: 14px; background: rgba(0,0,0,0.25); overflow: hidden; }
+    .fig-panel { grid-area: 1 / 1; width: auto; max-width: 100%; justify-self: center; align-self: center; background: var(--inner-panel-soft); border-radius: 12px; padding: 14px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 1px rgba(124,92,255,0.30), 0 0 28px rgba(34,211,238,0.12), 0 14px 40px rgba(0,0,0,0.5); opacity: 0; transform: translateY(8px); pointer-events: none; transition: opacity .35s ease, transform .35s ease; }
+    .fig-panel.is-active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .fig-panel img { display: block; max-width: 100%; max-height: calc(70vh - 80px); width: auto; object-fit: contain; border-radius: 4px; }
+    .fig-stage .expand-btn { top: 28px; right: 28px; }
+    .fig-caption { color: var(--text-muted); font-size: .9rem; text-align: center; margin: 16px auto 0; max-width: 820px; min-height: 2.4em; }
+    .fig-caption b { color: var(--text); }
+
+    /* Results tables */
+    .table-wrap { position: relative; overflow-x: auto; border-radius: 12px; border: 1px solid var(--hairline); }
+    .table-wrap::-webkit-scrollbar { height: 9px; }
+    .table-wrap::-webkit-scrollbar-thumb { background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet)); border-radius: 9px; }
+    .rtable { width: 100%; border-collapse: collapse; font-size: .88rem; min-width: 560px; }
+    .rtable thead th { background: var(--surface-elev); color: var(--text-muted); font-family: var(--font-display); font-weight: 600; font-size: .74rem; text-transform: uppercase; letter-spacing: .03em; padding: 11px 14px; border-bottom: 1px solid var(--glass-border); text-align: center; white-space: nowrap; }
+    .rtable thead th.grp { border-left: 1px solid var(--hairline); color: var(--accent-cyan); }
+    .rtable tbody td { padding: 10px 14px; text-align: center; border-bottom: 1px solid var(--hairline); font-variant-numeric: tabular-nums; color: var(--text); white-space: nowrap; }
+    .rtable tbody td:first-child { text-align: left; font-weight: 500; }
+    .rtable tbody tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .rtable tbody tr:hover td { background: rgba(124,92,255,0.07); }
+    .rtable tbody tr.ours { position: relative; }
+    .rtable tbody tr.ours td { background: linear-gradient(100deg, rgba(34,211,238,0.12), rgba(124,92,255,0.12)); font-weight: 600; }
+    .rtable tbody tr.ours td:first-child { color: #fff; }
+    .rtable .best { color: var(--accent-cyan); font-weight: 700; }
+    .result-block { margin-bottom: 28px; }
+    .result-block h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .result-block h3::before { content: ''; width: 4px; height: 18px; border-radius: 2px; background: var(--grad-primary); }
+
+    /* BibTeX */
+    .bibtex-box { position: relative; max-width: 880px; margin: 0 auto; padding: 24px 26px; background: #0a0e18; border: 1px solid var(--glass-border); border-radius: 14px; }
+    .bibtex-box pre { font-family: var(--font-mono); font-size: .8rem; line-height: 1.65; color: #cdd6f4; overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
+    .copy-btn { position: absolute; top: 14px; right: 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: .8rem; font-weight: 600; color: var(--text); background: rgba(255,255,255,0.08); border: 1px solid var(--glass-border); border-radius: 8px; padding: 6px 12px; transition: all .2s; }
+    .copy-btn:hover { background: var(--accent-violet); border-color: var(--accent-violet); color: #fff; }
+    .copy-btn.done { background: var(--accent-teal); border-color: var(--accent-teal); color: #07111a; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--hairline); padding: 36px 0; text-align: center; color: var(--text-muted); font-size: .86rem; }
+    footer .flinks { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-bottom: 12px; }
+    footer .flinks a { color: var(--text-muted); text-decoration: none; transition: color .2s; }
+    footer .flinks a:hover { color: var(--accent-cyan); }
+    footer .built { color: var(--text-faint); font-size: .78rem; margin-top: 6px; }
+
+    /* Lightbox */
+    .lightbox { position: fixed; inset: 0; z-index: 300; display: none; align-items: center; justify-content: center; padding: 40px; background: rgba(6,9,16,0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .lightbox.open { display: flex; }
+    .lightbox .lb-inner { position: relative; max-width: 92vw; max-height: 88vh; }
+    .lightbox img { max-width: 90vw; max-height: 78vh; object-fit: contain; background: #fff; border-radius: 10px; padding: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.6); animation: lbpop .2s ease; }
+    @keyframes lbpop { from { transform: scale(.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .lightbox .lb-cap { text-align: center; color: var(--text-muted); font-size: .85rem; margin-top: 12px; max-width: 800px; margin-left: auto; margin-right: auto; }
+    .lb-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); color: #fff; font-size: 1.1rem; transition: background .2s; }
+    .lb-btn:hover { background: var(--accent-violet); }
+    .lb-prev { left: -8px; } .lb-next { right: -8px; }
+    .lb-close { position: absolute; top: -46px; right: 0; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); color: #fff; font-size: 1rem; }
+    .lb-close:hover { background: var(--accent-violet); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (max-width: 880px) {
+      .figpanel.teaser img, .figpanel.method img { max-height: 52vh; }
+      .lb-prev { left: 4px; } .lb-next { right: 4px; }
+    }
+    @media (max-width: 720px) { section { padding: 60px 0; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="topnav" id="topnav">
+  <span class="brand">OneWorld <span class="dot">·</span> 3D-URAE</span>
+  <div class="nav-links" id="navLinks">
+    <a href="#abstract">Abstract</a>
+    <a href="#method">Method</a>
+    <a href="#results">Results</a>
+    <a href="#ablation">Ablation</a>
+    <a href="#cite">Cite</a>
+  </div>
+  <div class="nav-cta">
+    <a class="primary" href="https://arxiv.org/abs/2603.16099"><i class="fas fa-file-pdf"></i> Paper</a>
+    <a href="https://github.com/SensenGao/OneWorld"><i class="fab fa-github"></i> Code</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-bg">
+    <div class="aurora a"></div>
+    <div class="aurora b"></div>
+    <div class="aurora c"></div>
+    <div class="dotgrid"></div>
+    <div class="hero-scrim"></div>
+  </div>
+  <div class="hero-content">
+    <img src="static/images/logo.png" alt="OneWorld logo" class="hero-logo">
+    <div class="venue-chip"><span class="live"></span> arXiv 2026 · cs.CV</div>
+    <h1><span class="grad">OneWorld:</span> Taming Scene Generation with 3D Unified Representation Autoencoder</h1>
+    <p class="subtitle">Diffusion directly within a coherent 3D representation space — high-quality 3D scenes with superior cross-view consistency.</p>
+
+    <div class="authors">
+      <a href="https://sensengao.github.io/">Sensen Gao</a><sup>1*</sup>,
+      <a href="https://derrickwang005.github.io/">Zhaoqing Wang</a><sup>2*</sup>,
+      <a href="https://scholar.google.com/citations?user=oegbT6AAAAAJ&hl=zh-CN">Qihang Cao</a><sup>3</sup>,
+      <a href="https://scholar.google.com/citations?user=B2RmjSYAAAAJ&hl=zh-CN">Dongdong Yu</a><sup>2</sup>,
+      <a href="https://scholar.google.com/citations?user=DsVZkjAAAAAJ&hl=en">Changhu Wang</a><sup>2</sup>,
+      <br>
+      <a href="https://tongliang-liu.github.io/">Tongliang Liu</a><sup>4,1&dagger;</sup>,
+      <a href="https://mingming-gong.github.io/">Mingming Gong</a><sup>5,1&dagger;</sup>,
+      <a href="https://jwbian.net/">Jiawang Bian</a><sup>6&dagger;</sup>
+      <div class="note">* Co-first authors &nbsp; &dagger; Corresponding authors</div>
+    </div>
+
+    <div class="affiliations">
+      <span><sup>1</sup>MBZUAI</span>
+      <span><sup>2</sup>AISphere</span>
+      <span><sup>3</sup>SJTU</span>
+      <span><sup>4</sup>University of Sydney</span>
+      <span><sup>5</sup>University of Melbourne</span>
+      <span><sup>6</sup>NTU</span>
+    </div>
+
+    <div class="buttons">
+      <a href="https://arxiv.org/abs/2603.16099" class="btn primary"><i class="fas fa-file-pdf"></i> Paper · arXiv 2603.16099</a>
+      <a href="https://arxiv.org/abs/2603.16099" class="btn"><i class="ai ai-arxiv"></i> arXiv</a>
+      <a href="https://github.com/SensenGao/OneWorld" class="btn"><i class="fab fa-github"></i> Code</a>
+      <a href="#cite" class="btn"><i class="fas fa-quote-right"></i> BibTeX</a>
+    </div>
+    <div class="quick-jumps">
+      <a class="chip-jump" href="#method"><i class="fas fa-cube"></i> See the Method</a>
+      <a class="chip-jump" href="#results"><i class="fas fa-chart-line"></i> Results</a>
+    </div>
+
+    <div class="statbar reveal">
+      <div class="stat"><div class="num" data-target="21.57" data-decimals="2">0</div><div class="label">PSNR · RealEstate10K</div></div>
+      <div class="stat"><div class="num" data-target="0.735" data-decimals="3">0</div><div class="label">SSIM (best)</div></div>
+      <div class="stat"><div class="num" data-target="6" data-suffix="+">0</div><div class="label">SOTA Baselines Surpassed</div></div>
+      <div class="stat"><div class="num" data-target="3">0</div><div class="label">Core Innovations</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><i class="fas fa-chevron-down"></i></div>
+</header>
+
+<!-- Teaser -->
+<section id="teaser" class="alt">
+  <div class="container">
+    <div class="figframe reveal">
+      <button class="expand-btn" data-lb="0" aria-label="Expand teaser figure"><i class="fas fa-expand"></i></button>
+      <div class="figpanel teaser"><img src="static/images/Teaser_OW_v3.png" alt="OneWorld teaser: generation results, architecture comparison, performance comparison" loading="lazy"></div>
+    </div>
+    <p class="caption"><b>(a)</b> OneWorld generates 3DGS from a single view and renders novel views. <b>(b)</b> Architecture comparison: OneWorld generates directly in a unified 3D representation space, without compression or separate generation. <b>(c)</b> Performance comparison on WorldScore and DL3DV.</p>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section id="abstract">
+  <div class="container">
+    <span class="eyebrow">Abstract</span>
+    <h2>Diffusion in a Coherent 3D Space</h2>
+    <div class="glass abstract-card reveal">
+      <p><span class="lead">Existing diffusion-based 3D scene generation methods primarily operate in 2D image/video latent spaces, which makes maintaining cross-view appearance and geometric consistency inherently challenging.</span> To bridge this gap, we present <span class="hl">OneWorld</span>, a framework that performs diffusion directly within a coherent 3D representation space. Central to our approach is the <span class="hl">3D Unified Representation Autoencoder (3D-URAE)</span>; it leverages pretrained 3D foundation models and augments their geometry-centric nature by injecting appearance and distilling semantics into a unified 3D latent space. Furthermore, we introduce token-level <span class="hl">Cross-View-Correspondence (CVC)</span> consistency loss to explicitly enforce structural alignment across views, and propose <span class="hl">Manifold-Drift Forcing (MDF)</span> to mitigate train&ndash;inference exposure bias and shape a robust 3D manifold by mixing drifted and original representations. Comprehensive experiments demonstrate that OneWorld generates high-quality 3D scenes with superior cross-view consistency compared to state-of-the-art 2D-based methods.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Key Contributions -->
+<section id="contributions" class="alt">
+  <div class="container">
+    <span class="eyebrow">What's New</span>
+    <h2>Key Contributions</h2>
+    <div class="contrib-grid">
+      <div class="glass contrib-card reveal">
+        <div class="contrib-icon"><i class="fas fa-cube"></i></div>
+        <div class="contrib-tag">3D-URAE</div>
+        <h4>Unified Representation Autoencoder</h4>
+        <p>Built upon pretrained 3D foundation models, 3D-URAE injects appearance and distills semantics to jointly encode geometry, appearance, and semantics into a unified 3D latent space for diffusion-based generation.</p>
+      </div>
+      <div class="glass contrib-card reveal">
+        <div class="contrib-icon"><i class="fas fa-link"></i></div>
+        <div class="contrib-tag">CVC Loss</div>
+        <h4>Cross-View Correspondence</h4>
+        <p>A token-level correspondence-preserving loss for conditional diffusion training, explicitly enforcing structural alignment between target and conditioning views to improve cross-view consistency.</p>
+      </div>
+      <div class="glass contrib-card reveal">
+        <div class="contrib-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="contrib-tag">MDF</div>
+        <h4>Manifold-Drift Forcing</h4>
+        <p>Identifies sampling drift from train&ndash;inference mismatch and trains the 3DGS decoder on mixed diffusion-sampled and ground-truth latents to shape a robust 3D manifold for stable sampling.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section id="method">
+  <div class="container">
+    <span class="eyebrow">How It Works</span>
+    <h2>Method Overview</h2>
+    <div class="figframe reveal">
+      <button class="expand-btn" data-lb="1" aria-label="Expand method figure"><i class="fas fa-expand"></i></button>
+      <div class="figpanel method"><img src="static/images/Overview2.png" alt="OneWorld method overview: 3D-URAE, cross-view correspondence, manifold-drift forcing" loading="lazy"></div>
+    </div>
+    <p class="caption"><b>(a)</b> Unified 3D representation space with appearance injection and semantic distillation. <b>(b)</b> Cross-view correspondence preserving during DiT training. <b>(c)</b> Manifold-drift forcing: mixing ground-truth 3D features with sampled features for robust 3D decoding.</p>
+  </div>
+</section>
+
+<!-- Results -->
+<section id="results" class="alt">
+  <div class="container">
+    <span class="eyebrow">Experiments</span>
+    <h2>Results</h2>
+    <p class="section-sub">OneWorld surpasses recent state-of-the-art 2D-based generators on novel view synthesis across both benchmarks.</p>
+
+    <div class="result-block reveal">
+      <h3>Novel View Synthesis (1-view conditioned)</h3>
+      <div class="table-wrap">
+        <table class="rtable">
+          <thead>
+            <tr>
+              <th rowspan="2">Method</th>
+              <th colspan="3" class="grp">RealEstate10K</th>
+              <th colspan="3" class="grp">DL3DV-10K</th>
+            </tr>
+            <tr>
+              <th class="grp">PSNR &uarr;</th><th>SSIM &uarr;</th><th>LPIPS &darr;</th>
+              <th class="grp">PSNR &uarr;</th><th>SSIM &uarr;</th><th>LPIPS &darr;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>LVSM</td><td>18.24</td><td>0.657</td><td>0.331</td><td>14.62</td><td>0.478</td><td>0.571</td></tr>
+            <tr><td>Gen3C</td><td>17.85</td><td>0.641</td><td>0.345</td><td>14.31</td><td>0.465</td><td>0.589</td></tr>
+            <tr><td>GF</td><td>18.92</td><td>0.678</td><td>0.298</td><td>15.18</td><td>0.512</td><td>0.521</td></tr>
+            <tr><td>Aether</td><td>19.45</td><td>0.695</td><td>0.275</td><td>15.67</td><td>0.535</td><td>0.498</td></tr>
+            <tr><td>FlashWorld</td><td>20.13</td><td>0.710</td><td>0.258</td><td>16.24</td><td>0.561</td><td>0.462</td></tr>
+            <tr><td>Gen3R</td><td>20.48</td><td>0.718</td><td>0.249</td><td>16.51</td><td>0.572</td><td>0.445</td></tr>
+            <tr class="ours"><td>OneWorld (Ours)</td><td class="best">21.57</td><td class="best">0.735</td><td class="best">0.231</td><td class="best">17.19</td><td class="best">0.589</td><td class="best">0.418</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin:8px auto 14px;display:flex;align-items:center;gap:10px;max-width:1000px;"><span style="width:4px;height:18px;border-radius:2px;background:var(--grad-primary);display:inline-block;"></span>Qualitative Results</h3>
+      <div class="glass figviewer">
+        <div class="seg" id="resTabs" role="tablist" aria-label="Qualitative result views">
+          <button role="tab" aria-selected="true" aria-controls="resStage" data-i="0"><i class="fas fa-images" style="color:var(--accent-cyan)"></i> Comparison</button>
+          <button role="tab" aria-selected="false" aria-controls="resStage" data-i="1"><i class="fas fa-cubes" style="color:var(--accent-violet)"></i> 3DGS &amp; Novel Views</button>
+          <button role="tab" aria-selected="false" aria-controls="resStage" data-i="2"><i class="fas fa-shapes" style="color:var(--accent-teal)"></i> 3D Scene</button>
+          <span class="ink" id="resInk"></span>
+        </div>
+        <div class="fig-stage" id="resStage" role="tabpanel" aria-label="Selected qualitative result">
+          <button class="expand-btn" id="resExpand" aria-label="View result full-size"><i class="fas fa-expand"></i></button>
+          <div class="fig-panel is-active"><img src="static/images/vis_compare_v1.png" alt="Qualitative comparison on novel view generation" loading="eager"></div>
+          <div class="fig-panel"><img src="static/images/vis_3DGS.png" alt="3DGS visualization and novel view rendering" loading="lazy"></div>
+          <div class="fig-panel"><img src="static/images/vis_3D.png" alt="3D scene comparison" loading="lazy"></div>
+        </div>
+        <p class="fig-caption" id="resCaption"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ablation -->
+<section id="ablation">
+  <div class="container">
+    <span class="eyebrow">Analysis</span>
+    <h2>Ablation Study</h2>
+    <p class="section-sub">Both Cross-View Correspondence and Manifold-Drift Forcing contribute measurable gains.</p>
+
+    <div class="result-block reveal" style="max-width:640px;margin:0 auto 28px;">
+      <h3>Effect of CVC and MDF (RealEstate10K)</h3>
+      <div class="table-wrap">
+        <table class="rtable" style="min-width:0;">
+          <thead>
+            <tr><th>Variant</th><th class="grp">PSNR &uarr;</th><th>SSIM &uarr;</th><th>LPIPS &darr;</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>w/o CVC</td><td>19.10</td><td>0.682</td><td>0.284</td></tr>
+            <tr><td>w/o MDF</td><td>20.59</td><td>0.714</td><td>0.256</td></tr>
+            <tr class="ours"><td>Full Model</td><td class="best">21.57</td><td class="best">0.735</td><td class="best">0.231</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin:8px auto 14px;display:flex;align-items:center;gap:10px;max-width:1000px;"><span style="width:4px;height:18px;border-radius:2px;background:var(--grad-primary);display:inline-block;"></span>Qualitative Ablation</h3>
+      <div class="glass figviewer">
+        <div class="seg" id="ablTabs" role="tablist" aria-label="Ablation views">
+          <button role="tab" aria-selected="true" aria-controls="ablStage" data-i="0"><i class="fas fa-link" style="color:var(--accent-cyan)"></i> CVC &amp; MDF</button>
+          <button role="tab" aria-selected="false" aria-controls="ablStage" data-i="1"><i class="fas fa-palette" style="color:var(--accent-violet)"></i> Appearance &amp; Semantics</button>
+          <span class="ink" id="ablInk"></span>
+        </div>
+        <div class="fig-stage" id="ablStage" role="tabpanel" aria-label="Selected ablation result">
+          <button class="expand-btn" id="ablExpand" aria-label="View ablation full-size"><i class="fas fa-expand"></i></button>
+          <div class="fig-panel is-active"><img src="static/images/ablation_OW_v1.png" alt="Ablation: full model vs without CVC and without MDF" loading="lazy"></div>
+          <div class="fig-panel"><img src="static/images/ablation_recon.png" alt="Ablation on appearance injection and semantic distillation" loading="lazy"></div>
+        </div>
+        <p class="fig-caption" id="ablCaption"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section id="cite" class="alt">
+  <div class="container">
+    <span class="eyebrow">Reference</span>
+    <h2>BibTeX</h2>
+    <div class="bibtex-box reveal">
+      <button class="copy-btn" id="copyBtn"><i class="fas fa-copy"></i> Copy</button>
+<pre id="bibtex">@misc{gao2026OneWorld,
+  title={OneWorld: Taming Scene Generation with 3D Unified Representation Autoencoder},
+  author={Sensen Gao and Zhaoqing Wang and Qihang Cao and Dongdong Yu and Changhu Wang and Tongliang Liu and Mingming Gong and Jiawang Bian},
+  year={2026},
+  eprint={2603.16099},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2603.16099},
+}</pre>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="flinks">
+      <a href="https://arxiv.org/abs/2603.16099"><i class="ai ai-arxiv"></i> arXiv</a>
+      <a href="https://github.com/SensenGao/OneWorld"><i class="fab fa-github"></i> Code</a>
+      <a href="https://sensengao.github.io/"><i class="fas fa-user"></i> Sensen Gao</a>
+    </div>
+    <p>OneWorld &copy; 2026 · Sensen Gao</p>
+    <p class="built">Built with vanilla HTML / CSS / JS.</p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Figure viewer">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose" aria-label="Close"><i class="fas fa-xmark"></i></button>
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous figure"><i class="fas fa-chevron-left"></i></button>
+    <img id="lbImg" src="" alt="">
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Next figure"><i class="fas fa-chevron-right"></i></button>
+    <p class="lb-cap" id="lbCap"></p>
+  </div>
+</div>
+
+<script>
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+
+/* ===== Shared tabs + ink-bar ===== */
+function moveInk(ink, btn) { if (!btn) return; ink.style.width = btn.offsetWidth + 'px'; ink.style.transform = 'translateX(' + btn.offsetLeft + 'px)'; }
+function setupSeg(tabsEl, inkEl, onSelect) {
+  const btns = $$('button', tabsEl);
+  function select(btn, focus) {
+    btns.forEach(b => { const on = b === btn; b.setAttribute('aria-selected', on ? 'true' : 'false'); b.tabIndex = on ? 0 : -1; });
+    moveInk(inkEl, btn);
+    if (focus) btn.focus();
+    onSelect(btn);
+  }
+  tabsEl.addEventListener('click', e => { const b = e.target.closest('button'); if (b) select(b); });
+  tabsEl.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    e.preventDefault();
+    const cur = btns.findIndex(b => b.getAttribute('aria-selected') === 'true');
+    const next = e.key === 'ArrowRight' ? (cur+1)%btns.length : (cur-1+btns.length)%btns.length;
+    select(btns[next], true);
+  });
+  const initial = btns.find(b => b.getAttribute('aria-selected') === 'true') || btns[0];
+  btns.forEach(b => b.tabIndex = b === initial ? 0 : -1);
+  requestAnimationFrame(() => moveInk(inkEl, initial));
+  return { select: (i) => select(btns[i]), btns };
+}
+
+/* ===== Figure viewers ===== */
+function buildViewer(tabsId, inkId, stageId, captionId, captions) {
+  const stage = $('#' + stageId);
+  const panels = $$('.fig-panel', stage);
+  let index = 0;
+  function show(i) { index = i; panels.forEach((p, k) => p.classList.toggle('is-active', k === i)); $('#' + captionId).innerHTML = captions[i]; }
+  const seg = setupSeg($('#' + tabsId), $('#' + inkId), btn => show(+btn.dataset.i));
+  show(0);
+  let touchX = null;
+  stage.addEventListener('touchstart', e => touchX = e.changedTouches[0].clientX, {passive:true});
+  stage.addEventListener('touchend', e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX; touchX = null;
+    if (Math.abs(dx) < 50) return;
+    const n = panels.length;
+    seg.select(dx < 0 ? (index+1)%n : (index-1+n)%n);
+  });
+  return { get index() { return index; }, seg };
+}
+
+const RES_CAPTIONS = [
+  '<b>Qualitative comparison</b> on novel-view generation against recent baselines.',
+  '<b>3DGS visualization and novel-view rendering.</b> Input · 3DGS · Novel Views 1&ndash;4.',
+  '<b>3D scene comparison.</b> Gen3R uses point clouds, while FlashWorld and OneWorld use 3DGS.'
+];
+const ABL_CAPTIONS = [
+  '<b>Ablation:</b> full model vs. variants without CVC and without MDF.',
+  '<b>Appearance injection</b> (improved visual quality) and <b>semantic distillation</b> (structured feature space).'
+];
+const resViewer = buildViewer('resTabs', 'resInk', 'resStage', 'resCaption', RES_CAPTIONS);
+const ablViewer = buildViewer('ablTabs', 'ablInk', 'ablStage', 'ablCaption', ABL_CAPTIONS);
+
+/* ===== Lightbox ===== */
+const LB_IMAGES = [
+  {src:'static/images/Teaser_OW_v3.png', cap:'OneWorld teaser: generation results, architecture comparison, and performance comparison.'},
+  {src:'static/images/Overview2.png', cap:'Method overview: 3D-URAE, cross-view correspondence, and manifold-drift forcing.'},
+  {src:'static/images/vis_compare_v1.png', cap:'Qualitative comparison on novel-view generation.'},
+  {src:'static/images/vis_3DGS.png', cap:'3DGS visualization and novel-view rendering (Input · 3DGS · Novel Views 1–4).'},
+  {src:'static/images/vis_3D.png', cap:'3D scene comparison: Gen3R uses point clouds; FlashWorld and OneWorld use 3DGS.'},
+  {src:'static/images/ablation_OW_v1.png', cap:'Ablation: full model vs. variants without CVC and without MDF.'},
+  {src:'static/images/ablation_recon.png', cap:'Effects of appearance injection and semantic distillation.'},
+];
+let lbIndex = 0;
+const lightbox = $('#lightbox');
+let lastFocused = null;
+function openLB(i) {
+  lbIndex = (i + LB_IMAGES.length) % LB_IMAGES.length;
+  $('#lbImg').src = LB_IMAGES[lbIndex].src;
+  $('#lbImg').alt = LB_IMAGES[lbIndex].cap;
+  $('#lbCap').textContent = LB_IMAGES[lbIndex].cap;
+  lightbox.classList.add('open');
+  lastFocused = document.activeElement;
+  $('#lbClose').focus();
+}
+function closeLB() { lightbox.classList.remove('open'); if (lastFocused) lastFocused.focus(); }
+$('#lbClose').addEventListener('click', closeLB);
+$('#lbPrev').addEventListener('click', () => openLB(lbIndex - 1));
+$('#lbNext').addEventListener('click', () => openLB(lbIndex + 1));
+lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target.classList.contains('lb-inner')) closeLB(); });
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') { closeLB(); return; }
+  if (e.key === 'ArrowLeft') { openLB(lbIndex - 1); return; }
+  if (e.key === 'ArrowRight') { openLB(lbIndex + 1); return; }
+  if (e.key === 'Tab') {
+    const f = $$('button', lightbox); if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    else if (!lightbox.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+  }
+});
+$$('.figframe .expand-btn[data-lb]').forEach(b => b.addEventListener('click', () => openLB(+b.dataset.lb)));
+$('#resExpand').addEventListener('click', () => openLB(2 + resViewer.index));
+$('#ablExpand').addEventListener('click', () => openLB(5 + ablViewer.index));
+
+/* ===== Copy BibTeX ===== */
+$('#copyBtn').addEventListener('click', () => {
+  const text = $('#bibtex').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = $('#copyBtn');
+    btn.classList.add('done');
+    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+    setTimeout(() => { btn.classList.remove('done'); btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+  });
+});
+
+/* ===== Scroll: progress + nav reveal ===== */
+const progress = $('#progress'), topnav = $('#topnav');
+let ticking = false;
+function onScroll() { if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; } }
+function updateScroll() {
+  const sc = window.scrollY || document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.transform = 'scaleX(' + (h > 0 ? Math.min(sc/h, 1) : 0) + ')';
+  topnav.classList.toggle('show', sc > 600);
+  ticking = false;
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+window.addEventListener('resize', () => {
+  moveInk($('#resInk'), $('#resTabs button[aria-selected="true"]'));
+  moveInk($('#ablInk'), $('#ablTabs button[aria-selected="true"]'));
+});
+updateScroll();
+
+/* ===== Scroll-spy ===== */
+const navMap = {};
+$$('#navLinks a').forEach(a => navMap[a.getAttribute('href').slice(1)] = a);
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      $$('#navLinks a').forEach(a => a.classList.remove('active'));
+      const link = navMap[en.target.id];
+      if (link) link.classList.add('active');
+    }
+  });
+}, {rootMargin: '-45% 0px -50% 0px'});
+['abstract','method','results','ablation','cite'].forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+
+/* ===== Reveal + count-up ===== */
+function countUp(el) {
+  const target = parseFloat(el.dataset.target);
+  const dec = parseInt(el.dataset.decimals || '0', 10);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const dur = 1300, t0 = performance.now();
+  function step(now) {
+    const p = Math.min((now - t0) / dur, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = prefix + (eased * target).toFixed(dec) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io = new IntersectionObserver((entries, obs) => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    en.target.classList.add('in');
+    $$('.num[data-target]', en.target).forEach(n => {
+      const dec = parseInt(n.dataset.decimals || '0', 10);
+      if (reduceMotion) n.textContent = (n.dataset.prefix||'') + parseFloat(n.dataset.target).toFixed(dec) + (n.dataset.suffix||'');
+      else countUp(n);
+    });
+    obs.unobserve(en.target);
+  });
+}, {threshold: 0.18});
+$$('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

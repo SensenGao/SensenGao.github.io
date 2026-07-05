@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixWorld</title>
+    <meta name="description" content="PixWorld: a single end-to-end pixel-space diffusion model that unifies 3D scene generation and reconstruction.">
+    <meta property="og:title" content="PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space">
+    <meta property="og:description" content="One pixel-space diffusion model for both 3D reconstruction and generation. No latent autoencoder; diffusion supervised directly on rendered images, plus a geometry perception loss.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sensengao.github.io/PixWorld/">
+    <link rel="icon" type="image/png" href="static/images/favicon_planet.png">
+    <link rel="apple-touch-icon" href="static/images/favicon_planet.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+            min-height: 100vh;
+        }
+
+        @media (prefers-color-scheme: light) {
+            body { color: #555; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f1f3f4 100%); }
+        }
+
+        .container { max-width: 1800px; margin: 0 auto; padding: 0 20px; }
+
+        header { text-align: center; padding: 40px 0 0 0; color: #ffffff; }
+
+        h1 {
+            font-size: 4rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.02em;
+            text-shadow: 0 0 24px rgba(100, 200, 255, 0.3);
+            background: linear-gradient(45deg, #64b5f6, #42a5f5, #2196f3, #1e88e5);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        h1.site-logo { display: inline-block; width: min(340px, 62%); margin: 6px auto 8px; line-height: 0; background: none;
+            filter: drop-shadow(0 0 26px rgba(38, 210, 175, 0.30)); }
+        @media (prefers-color-scheme: light) { h1.site-logo { filter: drop-shadow(0 3px 10px rgba(0,0,0,0.14)); } }
+        h1.site-logo img { width: 100%; height: auto; display: block; }
+
+        .paper-title {
+            font-size: 2.2rem; font-weight: 700; color: #ffffff; text-align: center;
+            margin-top: 16px; margin-bottom: 10px; line-height: 1.35; text-wrap: balance;
+        }
+        @media (prefers-color-scheme: light) { .paper-title { color: #222; } }
+        @media (max-width: 768px) { .paper-title { font-size: 1.6rem; } h1 { font-size: 2.6rem; } }
+
+        .paper-venue { font-size: 18px; text-align: center; margin-top: 6px; color: #90caf9; font-weight: 600; }
+        @media (prefers-color-scheme: light) { .paper-venue { color: #1565c0; } }
+
+        .authors { margin-top: 26px; text-align: center; max-width: 960px; margin-left: auto; margin-right: auto; padding: 10px 30px; }
+        .author-line { margin-bottom: 0.5em; font-size: 1.05rem; line-height: 1.5; }
+        .author-name { font-weight: 700; color: #e0e0e0; white-space: nowrap; }
+        .author-name a { color: #26c6a0; text-decoration: none; }
+        @media (prefers-color-scheme: light) { .author-name a { color: #1f9e7f; } }
+        .author-name a:hover { text-decoration: underline; }
+        @media (prefers-color-scheme: light) { .author-name { color: #555; } }
+        .author-note { font-size: 0.85rem; color: #9e9e9e; margin-top: 4px; }
+        .author-affiliation { font-size: 1rem; margin-top: 0.8em; color: #b0b0b0; font-weight: 600; }
+        .author-affiliation sup { color: #64b5f6; }
+        @media (prefers-color-scheme: light) { .author-affiliation { color: #777; } }
+
+        .badges { display: flex; justify-content: center; gap: 14px; margin-top: 22px; flex-wrap: wrap; }
+        .badge {
+            display: inline-flex; align-items: center; padding: 8px 16px; background: transparent;
+            border: 1px solid #90caf9; border-radius: 22px; text-decoration: none; color: #d0d0d0;
+            font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease;
+        }
+        .badge:hover { transform: translateY(-1px); border-color: #64b5f6; color: #64b5f6; background: rgba(100, 181, 246, 0.1); }
+        .badge.paper { border-color: #b0b0b0; }
+        .badge.paper:hover { border-color: #757575; color: #9e9e9e; background: rgba(120,120,120,0.1); }
+        .badge.demo { border-color: #7bd389; }
+        .badge.demo:hover { border-color: #2e7d32; color: #43a047; background: rgba(56, 142, 60, 0.1); }
+        .badge.dataset { border-color: #b388ff; }
+        .badge.dataset:hover { border-color: #7c4dff; color: #b388ff; background: rgba(124, 77, 255, 0.12); }
+        .badge-icon { margin-right: 7px; display: inline-flex; }
+        .badge-icon svg { width: 16px; height: 16px; }
+        .badge[aria-disabled="true"] { opacity: 0.7; pointer-events: none; }
+        @media (prefers-color-scheme: light) { .badge { color: #555; border-color: #1976d2; } .badge.demo { border-color: #2e7d32; } .badge.paper { border-color: #9e9e9e; } }
+
+        .subtitle {
+            font-size: 1.02rem; line-height: 1.8; color: #eeeeee; text-align: left; max-width: 760px;
+            margin: 30px auto 0; padding: 26px 32px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+        }
+        @media (prefers-color-scheme: light) { .subtitle { color: #555; background: linear-gradient(145deg, rgba(0,0,0,0.02), rgba(0,0,0,0.05)); border: 1px solid rgba(0,0,0,0.1); } }
+        .abstract-title { display: inline-block; width: 100%; font-size: x-large; font-weight: 700; text-align: center; margin-bottom: 6px; color:#fff; }
+        @media (prefers-color-scheme: light) { .abstract-title { color:#333; } }
+        .subtitle strong { color: #90caf9; }
+        @media (prefers-color-scheme: light) { .subtitle strong { color: #1565c0; } }
+
+        .section {
+            background: linear-gradient(145deg, #1e1e1e, #2a2a2a); margin: 40px 0; border-radius: 20px;
+            padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 1px solid #333; border-top: 3px solid #64b5f6;
+        }
+        @media (prefers-color-scheme: light) { .section { background: linear-gradient(160deg, #ffffff, #eef3fb); box-shadow: 0 20px 44px rgba(30,80,160,0.10); border: 1px solid #e4ebf5; border-top: 3px solid #64b5f6; } }
+        .section.acc-teal   { border-top-color: #26c6a0; }
+        .section.acc-pink   { border-top-color: #f06292; }
+        .section.acc-amber  { border-top-color: #ff9e40; }
+        .section.acc-purple { border-top-color: #7c4dff; }
+
+        .section-title { font-size: 2.0rem; font-weight: 700; margin-bottom: 18px; color: #ffffff; text-align: center; text-shadow: 0 0 10px rgba(255,255,255,0.1); }
+        @media (prefers-color-scheme: light) { .section-title { color: #1976d2; } }
+        .title-tag { display: block; font-size: 1.02rem; font-weight: 600; color: #26c6a0; margin-top: 7px; letter-spacing: .04em; text-shadow: none; }
+        @media (prefers-color-scheme: light) { .title-tag { color: #1f9e7f; } }
+        .section-description { text-align: center; font-size: 1.08rem; color: #b0b0b0; margin: 0 auto 30px; max-width: 1100px; }
+        .section-description img { max-width: 100%; height: auto; }
+        @media (prefers-color-scheme: light) { .section-description { color: #777; } }
+
+        /* Inference speed chart */
+        .speed-chart { max-width: 880px; margin: 6px auto 0; display: flex; flex-direction: column; gap: 15px; }
+        .speed-row { display: grid; grid-template-columns: 210px 1fr 96px; align-items: center; gap: 16px; }
+        .speed-name { font-weight: 700; font-size: 1rem; text-align: right; }
+        .speed-track { position: relative; height: 22px; border-radius: 11px; background: rgba(255,255,255,0.07); }
+        @media (prefers-color-scheme: light) { .speed-track { background: rgba(0,0,0,0.06); } }
+        .speed-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 11px; min-width: 10px; box-shadow: 0 0 16px currentColor; }
+        .speed-val { font-weight: 700; font-size: 1rem; font-variant-numeric: tabular-nums; }
+        .speed-row.ours { background: rgba(38,198,160,0.10); border: 1px solid rgba(38,198,160,0.42); border-radius: 13px; padding: 9px 13px; margin: 4px -13px 0; }
+        .speed-row.ours .speed-track { background: rgba(38,198,160,0.14); }
+        .speed-note { text-align: center; color: #9e9e9e; font-size: 0.92rem; margin-top: 20px; }
+        .speed-note strong { color: #26c6a0; }
+        @media (prefers-color-scheme: light) { .speed-name, .speed-val { filter: brightness(0.62) saturate(1.35); } .speed-fill { box-shadow: 0 1px 6px rgba(0,0,0,0.12); } .speed-note { color: #667; } }
+        @media (max-width: 640px) { .speed-row { grid-template-columns: 116px 1fr 64px; gap: 9px; } .speed-name { font-size: 0.8rem; } .speed-val { font-size: 0.85rem; } }
+
+        /* Gallery category titles */
+        .cat-title { text-align: center; color: #ff9e40; font-size: 1.5rem; font-weight: 700; letter-spacing: .05em; margin: 32px 0 8px; }
+        @media (prefers-color-scheme: light) { .cat-title { color: #e65100; } }
+
+        /* Stats */
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 10px; }
+        .stat-item { text-align: center; padding: 24px 18px; background: linear-gradient(145deg, #2a2a2a, #1e1e1e); border-radius: 12px; border: 1px solid #444; }
+        @media (prefers-color-scheme: light) { .stat-item { background: linear-gradient(145deg, #ffffff, #f8f9fa); border: 1px solid #e9ecef; } }
+        .stat-number { font-size: 2.15rem; font-weight: 800; color: #26c6a0; margin-bottom: 6px; text-shadow: 0 0 14px rgba(38, 198, 160, 0.35); }
+        @media (prefers-color-scheme: light) { .stat-number { color: #1f9e7f; text-shadow: none; } }
+        .stat-label { color: #b0b0b0; font-size: 0.9rem; }
+
+        /* Single centered media (demo / figures) */
+        .media-center { max-width: 1200px; margin: 0 auto; border-radius: 15px; overflow: hidden; border: 1px solid #444; box-shadow: 0 10px 20px rgba(0,0,0,0.3); background:#000; }
+        .media-center video, .media-center img { width: 100%; display: block; }
+        .figure-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1300px; margin: 0 auto 24px; align-items: center; }
+        @media (max-width: 900px) { .figure-row { grid-template-columns: 1fr; } }
+        .figure-row img { width: 100%; border-radius: 12px; border: 1px solid #444; background:#fff; }
+        .fig-caption { text-align:center; color:#9e9e9e; font-size:0.9rem; margin-top:10px; }
+
+        /* Video grid */
+        .video-grid { display: grid; grid-template-columns: 1fr; gap: 26px; margin-top: 12px; }
+        @media (min-width: 760px) { .video-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1100px) { .video-grid { grid-template-columns: repeat(3, 1fr); } }
+        .video-item {
+            background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+            border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border: 1px solid #444;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        @media (prefers-color-scheme: light) { .video-item { background: linear-gradient(145deg, #ffffff, #f8f9fa); border: 1px solid #e9ecef; } }
+        .video-item:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(100, 181, 246, 0.2); border-color: #64b5f6; }
+        .video-placeholder { width: 100%; position: relative; overflow: hidden; background: #000; }
+        .video-player { width: 100%; height: auto; display: block; cursor: pointer; }
+        .video-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+        .video-placeholder:hover .video-overlay { opacity: 1; }
+        .video-info { padding: 14px 18px; }
+        .video-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; color: #ffb74d; }
+        @media (prefers-color-scheme: light) { .video-title { color: #f57c00; } }
+        .video-description { color: #b0b0b0; font-size: 0.92rem; line-height: 1.5; }
+        @media (prefers-color-scheme: light) { .video-description { color: #777; } }
+
+        /* Comparison grid: one scene per row, N methods side by side */
+        .comparison-grid { column-count: 1; margin-top: 10px; }
+        .comparison-item {
+            break-inside: avoid; margin-bottom: 30px; background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+            border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border: 1px solid #444;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        @media (prefers-color-scheme: light) { .comparison-item { background: linear-gradient(145deg, #ffffff, #f8f9fa); border: 1px solid #e9ecef; } }
+        .comparison-item:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(100, 181, 246, 0.2); border-color: #64b5f6; }
+        .comparison-videos { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 12px; }
+        .comparison-videos > .comparison-video-container { flex: 0 0 calc((100% - 20px) / 3); }
+        @media (max-width: 760px) { .comparison-videos > .comparison-video-container { flex: 0 0 calc((100% - 10px) / 2); } }
+        .comparison-video-container { position: relative; border-radius: 10px; overflow: hidden; background: #000; }
+        .comparison-video-container.is-ours { box-shadow: 0 0 0 2px #26c6a0, 0 0 18px rgba(38,198,160,0.5); }
+        .mb-type { font-weight: 600; opacity: 0.82; margin-left: 5px; padding-left: 5px; border-left: 1px solid rgba(255,255,255,0.4); font-size: 0.92em; }
+        .model-badge.model-ours .mb-type { border-left-color: rgba(4,35,28,0.35); }
+        .comparison-video, .comparison-image { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
+        .comparison-video-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+        .comparison-video-container:hover .comparison-video-overlay { opacity: 1; }
+        .model-badge { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.8); color: white; padding: 4px 9px; border-radius: 5px; font-size: 0.72rem; font-weight: 700; z-index: 10; letter-spacing: .01em; text-shadow: 0 1px 2px rgba(0,0,0,0.55); }
+        .model-badge.model-ours { background: rgba(38, 198, 160, 0.96); color:#04231c; text-shadow: none; }
+        .model-badge.model-input { background: rgba(120, 130, 150, 0.92); }
+        .model-badge.model-a { background: rgba(66, 165, 245, 0.95); }   /* Gen3C — blue */
+        .model-badge.model-b { background: rgba(124, 77, 255, 0.95); }   /* Gen3R — purple */
+        .model-badge.model-c { background: rgba(255, 152, 50, 0.95); }   /* FantasyWorld — orange */
+        .model-badge.model-d { background: rgba(240, 98, 146, 0.95); }   /* FlashWorld — pink */
+        .play-button { width: 54px; height: 54px; background: rgba(38, 198, 160, 0.92); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #fff; box-shadow: 0 0 20px rgba(38,198,160,0.5); }
+
+        /* Quantitative tables */
+        .table-wrap { overflow-x: auto; margin: 0 auto 10px; max-width: 1100px; }
+        table.rtable { border-collapse: collapse; width: 100%; font-size: 0.9rem; color: #d8d8d8; }
+        table.rtable th, table.rtable td { padding: 8px 12px; text-align: center; border-bottom: 1px solid #3a3a3a; white-space: nowrap; }
+        table.rtable thead th { color: #90caf9; font-weight: 700; border-bottom: 2px solid #4a4a4a; }
+        table.rtable td:first-child, table.rtable th:first-child { text-align: left; }
+        table.rtable tr.ours { background: rgba(38, 198, 160, 0.10); }
+        table.rtable tr.ours td { font-weight: 700; color: #eafff8; }
+        table.rtable td.best { color: #26c6a0; font-weight: 700; }
+        .tbl-note { text-align: center; color: #9e9e9e; font-size: 0.85rem; margin-top: 8px; }
+
+        /* Fullscreen modal */
+        .fullscreen-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: flex; justify-content: center; align-items: center; z-index: 1000; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .fullscreen-modal.active { opacity: 1; visibility: visible; }
+        .fullscreen-content { display: flex; flex-direction: column; align-items: center; max-width: 92%; max-height: 92%; transform: scale(0.9); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease; }
+        .fullscreen-modal.active .fullscreen-content { transform: scale(1); opacity: 1; }
+        .fullscreen-video-container { position: relative; display: inline-block; }
+        .fullscreen-video { width: 100%; max-width: min(92vw, var(--video-width, 900px)); height: auto; aspect-ratio: var(--video-aspect-ratio, 16/9); max-height: calc(72vh - 60px); object-fit: contain; border-radius: 10px; box-shadow: 0 0 50px rgba(255,255,255,0.1); background:#000; }
+        .fullscreen-model-badge { position: absolute; top: 14px; left: 14px; background: rgba(0,0,0,0.8); color: #fff; padding: 8px 12px; border-radius: 6px; font-size: 0.95rem; font-weight: 700; z-index: 10; }
+        .fullscreen-prompt { margin-top: 14px; padding: 14px 24px; background: linear-gradient(145deg, #2a2a2a, #1e1e1e); border-radius: 15px; border: 1px solid #444; text-align: center; width: 100%; max-width: min(92vw, var(--video-width, 900px)); box-sizing: border-box; }
+        .fullscreen-prompt-title { color: #ffb74d; font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; }
+        .fullscreen-prompt-description { color: #b0b0b0; font-size: 0.98rem; line-height: 1.5; }
+        .close-button { position: absolute; top: 20px; right: 30px; color: white; font-size: 2rem; cursor: pointer; background: rgba(0,0,0,0.5); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .close-button:hover { background: rgba(255, 107, 107, 0.8); }
+
+        /* Citation */
+        .citation-block-wrap { position: relative; cursor: pointer; user-select: none; max-width: 1100px; margin: 0 auto; }
+        .citation-block { background: rgba(30, 30, 30, 0.8); padding: 16px 20px; border-radius: 8px; font-size: 0.85rem; line-height: 1.6; overflow-x: auto; border: 1px solid #444; transition: background 0.2s, border-color 0.2s; color:#cfcfcf; }
+        .citation-block-wrap:hover .citation-block { background: rgba(40, 40, 40, 0.9); border-color: #64b5f6; }
+        .citation-copy-hint { font-size: 0.8rem; color: #888; margin-top: 8px; text-align:center; }
+        .citation-block-wrap.copied .citation-copy-hint { color: #66bb6a; }
+
+        footer { text-align: center; padding: 40px 0; color: #b0b0b0; opacity: 0.8; }
+
+        @media (max-width: 768px) { .section { padding: 22px; margin: 22px 0; } .section-title { font-size: 1.9rem; } .model-badge { font-size: 0.6rem; padding: 3px 6px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="site-logo"><img src="static/images/logo.png" alt="PixWorld"></h1>
+            <h2 class="paper-title">Unifying 3D Scene Generation and Reconstruction in Pixel Space</h2>
+            <p class="paper-venue">arXiv 2607.05373</p>
+            <div class="authors">
+                <div class="author-line">
+                    <span class="author-name"><a href="https://sensengao.github.io/" target="_blank">Sensen Gao</a><sup>1*</sup></span>,&nbsp;&nbsp;
+                    <span class="author-name"><a href="https://derrickwang005.github.io/" target="_blank">Zhaoqing Wang</a><sup>2*</sup></span>,&nbsp;&nbsp;
+                    <span class="author-name"><a href="https://scholar.google.com/citations?user=oegbT6AAAAAJ&hl=zh-CN" target="_blank">Qihang Cao</a><sup>1</sup></span>,&nbsp;&nbsp;
+                    <span class="author-name"><a href="https://scholar.google.com/citations?user=B2RmjSYAAAAJ&hl=zh-CN" target="_blank">Dongdong Yu</a><sup>2</sup></span>,&nbsp;&nbsp;
+                    <span class="author-name"><a href="https://scholar.google.com/citations?user=DsVZkjAAAAAJ&hl=en" target="_blank">Changhu Wang</a><sup>2</sup></span>,&nbsp;&nbsp;
+                    <span class="author-name"><a href="https://jwbian.net/" target="_blank">Jia-Wang Bian</a><sup>1&dagger;</sup></span>
+                </div>
+                <div class="author-note">* Equal contribution &nbsp;&nbsp; &dagger; Corresponding author</div>
+                <div class="author-affiliation">
+                    <sup>1</sup><strong>Nanyang Technological University</strong>&nbsp;&nbsp;&nbsp;
+                    <sup>2</sup><strong>AISphere</strong>
+                </div>
+                <div class="badges">
+                    <a href="https://sensengao.github.io/PixWorld/" class="badge"><span class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.5 6 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-6-3.5-9s1-6.5 3.5-9z"/></svg></span> Project Page</a>
+                    <a href="https://arxiv.org/abs/2607.05373" target="_blank" class="badge paper"><span class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span> Paper</a>
+                    <a href="https://github.com/SensenGao/PixWorld" target="_blank" class="badge demo"><span class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 17l-5-5 5-5M16 7l5 5-5 5M14 4l-4 16"/></svg></span> Code</a>
+                    <a href="https://modelscope.cn/datasets/SensenGao/NVS-Refined" target="_blank" class="badge dataset"><span class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg></span> Dataset</a>
+                </div>
+            </div>
+            <p class="subtitle">
+                <span class="abstract-title">Abstract</span>
+                <strong>PixWorld</strong> is a single end-to-end <strong>pixel-space diffusion model</strong> that unifies 3D scene generation and reconstruction.
+                It partitions posed multi-view inputs into a <strong>clean</strong> subset (reconstruction) and a <strong>noisy</strong> subset (generation), processes both with a <strong>two-stream diffusion transformer</strong>, and decodes a <strong>pixel-aligned 3D Gaussian</strong> representation in a single forward pass.
+                A <strong>pixel-space flow-matching loss</strong> is imposed directly on the rendered multi-view images — so optimization is aligned with 3D scene fidelity instead of an intermediate latent target, with <strong>no VAE/RAE</strong>.
+                A <strong>geometry perception loss</strong> aligns rendered views with ground truth in the feature space of a frozen 3D foundation model (π³ / VGGT), supplying 3D structural supervision beyond 2D photometric and perceptual losses.
+                After distillation, the <strong>4-step</strong> model generates a scene in <strong>~0.6 s</strong> — up to <strong>~1000×</strong> faster than diffusion-based world generators.
+            </p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Stats -->
+        <section class="section">
+            <h2 class="section-title">Highlights</h2>
+            <div class="stats">
+                <div class="stat-item"><div class="stat-number">~0.6 s</div><div class="stat-label">Per scene · 4-step distilled (480P)</div></div>
+                <div class="stat-item"><div class="stat-number">~1000×</div><div class="stat-label">Peak speedup vs diffusion generators</div></div>
+                <div class="stat-item"><div class="stat-number">71.04</div><div class="stat-label">WorldScore average</div></div>
+                <div class="stat-item"><div class="stat-number">26.21 dB</div><div class="stat-label">PSNR · RealEstate10K 4-view recon</div></div>
+            </div>
+        </section>
+
+        <!-- Demo -->
+        <section class="section">
+            <h2 class="section-title">Demo Video</h2>
+            <div class="media-center">
+                <video controls autoplay muted loop playsinline preload="metadata" poster="static/images/demo_v32_poster.png">
+                    <source src="static/videos/demo_v32.hevc.mp4" type='video/mp4; codecs="hvc1"'>
+                    <source src="static/videos/demo_v32.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- Method -->
+        <section class="section">
+            <h2 class="section-title">Method</h2>
+            <div class="media-center">
+                <video controls autoplay muted loop playsinline preload="metadata" poster="static/images/method.png">
+                    <source src="static/videos/method_v32.hevc.mp4" type='video/mp4; codecs="hvc1"'>
+                    <source src="static/videos/method_v32.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <!-- Reconstruction -->
+        <section class="section acc-teal">
+            <h2 class="section-title">3D Reconstruction</h2>
+            <div class="video-grid" id="recon-grid"></div>
+        </section>
+
+        <!-- Image to 3D -->
+        <section class="section acc-pink">
+            <h2 class="section-title">Image → 3D Generation</h2>
+            <div class="video-grid" id="img2-grid"></div>
+        </section>
+
+        <!-- Text to 3D -->
+        <section class="section acc-purple">
+            <h2 class="section-title">Text → 3D Generation</h2>
+            <div class="video-grid" id="txt2-grid"></div>
+        </section>
+
+        <!-- Comparison -->
+        <section class="section acc-teal">
+            <h2 class="section-title">Comparison with Baselines</h2>
+            <div class="comparison-grid" id="comparison-grid"></div>
+        </section>
+
+        <!-- Scene categories -->
+        <section class="section acc-amber">
+            <h2 class="section-title">Scene Gallery</h2>
+            <h3 class="cat-title">Indoor</h3>
+            <div class="video-grid" id="cat-indoor-grid"></div>
+            <h3 class="cat-title">Outdoor</h3>
+            <div class="video-grid" id="cat-outdoor-grid"></div>
+            <h3 class="cat-title">Stylized</h3>
+            <div class="video-grid" id="cat-style-grid"></div>
+            <h3 class="cat-title">3DGS-Rendered Depth (RGB-D)</h3>
+            <div class="video-grid" id="cat-depth-grid"></div>
+        </section>
+
+        <!-- Speed -->
+        <section class="section acc-teal">
+            <h2 class="section-title">Inference Speed</h2>
+            <div class="speed-chart" id="speed-chart"></div>
+        </section>
+
+        <!-- Citation -->
+        <section class="section citation-section">
+            <h2 class="section-title">Citation</h2>
+            <div class="citation-block-wrap" id="citation-block-wrap" title="Click to copy">
+                <pre class="citation-block" id="citation-bibtex">@misc{gao2026pixworld,
+    title={PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space},
+    author={Sensen Gao and Zhaoqing Wang and Qihang Cao and Dongdong Yu and Changhu Wang and Jia-Wang Bian},
+    year={2026},
+    eprint={2607.05373},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV},
+    url={https://arxiv.org/abs/2607.05373}
+}</pre>
+                <p class="citation-copy-hint" id="citation-copy-hint">Click to copy</p>
+            </div>
+        </section>
+    </div>
+
+    <footer><div class="container"><p>© 2026 PixWorld. Page template inspired by SANA-Video.</p></div></footer>
+
+    <!-- Fullscreen modal -->
+    <div class="fullscreen-modal" id="fullscreen-modal" onclick="if(event.target===this) closeFullscreen()">
+        <div class="close-button" onclick="closeFullscreen()">×</div>
+        <div class="fullscreen-content">
+            <div class="fullscreen-video-container">
+                <video class="fullscreen-video" id="fullscreen-video" controls loop autoplay playsinline>
+                    <source src="" type="video/mp4">
+                </video>
+                <div class="fullscreen-model-badge" id="fullscreen-model-badge" style="display:none;"></div>
+            </div>
+            <div class="fullscreen-prompt" id="fullscreen-prompt">
+                <div class="fullscreen-prompt-title" id="fullscreen-prompt-title"></div>
+                <div class="fullscreen-prompt-description" id="fullscreen-prompt-description"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    /* ===== PixWorld data ===== */
+    const METHODS = [
+        { key:'ours',         model:'Ours',         type:'3DGS',  cls:'model-ours' },
+        { key:'gen3c',        model:'Gen3C',        type:'Video', cls:'model-a' },
+        { key:'gen3r',        model:'Gen3R',        type:'Video', cls:'model-b' },
+        { key:'fantasyworld', model:'FantasyWorld', type:'Video', cls:'model-c' },
+        { key:'flashworld',   model:'FlashWorld',   type:'3DGS',  cls:'model-d' },
+    ];
+    const COMPARISON = [
+        { tag:'com_1', title:'Seaside Sunset', desc:'' },
+        { tag:'com_2', title:'Living Room', desc:'' },
+        { tag:'com_3', title:'Open Interior', desc:'' },
+        { tag:'com_4', title:'Home Office', desc:'' },
+        { tag:'com_5', title:'Modern Kitchen', desc:'' },
+    ];
+    const SHOWCASE = {
+          recon: [
+        { tag:'recon_1', title:'Kitchen', desc:'' },
+        { tag:'recon_2', title:'Deck', desc:'' },
+        { tag:'recon_3', title:'Hallway', desc:'' },
+        { tag:'recon_4', title:'Bedroom', desc:'' },
+        { tag:'recon_5', title:'Hallway', desc:'' },
+        { tag:'recon_6', title:'Room', desc:'' },
+        { tag:'recon_7', title:'Hallway', desc:'' },
+        { tag:'recon_8', title:'Kitchen', desc:'' },
+        { tag:'recon_9', title:'Kitchen', desc:'' }
+      ],
+          img2: [
+        { tag:'image2d_1', title:'Castle Overlook', desc:'' },
+        { tag:'image2d_2', title:'Suburb', desc:'' },
+        { tag:'image2d_3', title:'Modern Office', desc:'' },
+        { tag:'image2d_4', title:'Misty Mountains', desc:'' },
+        { tag:'image2d_5', title:'Sunlit Loft', desc:'' },
+        { tag:'image2d_6', title:'Mountain Lake', desc:'' },
+        { tag:'image2d_7', title:'Living Room', desc:'' },
+        { tag:'image2d_8', title:'Seaside Sunset', desc:'' },
+        { tag:'image2d_9', title:'Mountains', desc:'' }
+      ],
+          txt2_3d: [
+        { tag:'text2d_1', title:'Modern Bedroom', desc:'' },
+        { tag:'text2d_2', title:'Snowy Mountains', desc:'' },
+        { tag:'text2d_3', title:'Living Room', desc:'' },
+        { tag:'text2d_4', title:'Mountain Lake', desc:'' },
+        { tag:'text2d_5', title:'Modern Kitchen', desc:'' },
+        { tag:'text2d_6', title:'Countryside', desc:'' },
+        { tag:'text2d_7', title:'Modern Home', desc:'' },
+        { tag:'text2d_8', title:'Island View', desc:'' },
+        { tag:'text2d_9', title:'Mountain Valley', desc:'' }
+      ],
+        };
+    const CATEGORY = {
+          indoor: [
+        { tag:'indoor_1', title:'Modern Office', desc:'' },
+        { tag:'indoor_2', title:'Sunlit Corridor', desc:'' },
+        { tag:'indoor_3', title:'Living Room', desc:'' },
+        { tag:'indoor_4', title:'Modern Room', desc:'' },
+        { tag:'indoor_5', title:'Sunlit Loft', desc:'' },
+        { tag:'indoor_6', title:'Cozy Bedroom', desc:'' }
+      ],
+          outdoor: [
+        { tag:'outdoor_1', title:'Campus', desc:'' },
+        { tag:'outdoor_2', title:'Mountain Lake', desc:'' },
+        { tag:'outdoor_3', title:'Coastal View', desc:'' },
+        { tag:'outdoor_4', title:'Suburban Street', desc:'' },
+        { tag:'outdoor_5', title:'Suburbs', desc:'' },
+        { tag:'outdoor_6', title:'Castle', desc:'' }
+      ],
+          style: [
+        { tag:'style_1', title:'Voxel Mountains', desc:'' },
+        { tag:'style_2', title:'Cyberpunk Desert', desc:'' },
+        { tag:'style_3', title:'Classical Gallery', desc:'' },
+        { tag:'style_4', title:'Illustrated Lobby', desc:'' },
+        { tag:'style_5', title:'Voxel Lake', desc:'' },
+        { tag:'style_6', title:'Voxel Village', desc:'' }
+      ],
+          depth: [
+        { tag:'depth_1', title:'Living Room', desc:'', w:1664, h:480 },
+        { tag:'depth_2', title:'Modern Office', desc:'', w:1664, h:480 },
+        { tag:'depth_3', title:'Sunlit Loft', desc:'', w:1664, h:480 },
+        { tag:'depth_4', title:'Sunlit Corridor', desc:'', w:1664, h:480 },
+        { tag:'depth_5', title:'Castle', desc:'', w:1664, h:480 },
+        { tag:'depth_6', title:'Cozy Bedroom', desc:'', w:1664, h:480 }
+      ],
+        };
+
+    const CMP_W = 832, CMP_H = 480, HI_W = 832, HI_H = 480;
+
+    function comparisonItem(s) {
+        const cells = METHODS.map(m => {
+            const badge = `<div class="model-badge ${m.cls}">${m.model}<span class="mb-type">${m.type}</span></div>`;
+            if (m.img) {
+                const src = `static/images/compare/${s.tag}__input.jpg`;
+                return `<div class="comparison-video-container" style="aspect-ratio:${CMP_W}/${CMP_H};">
+                    <img class="comparison-image" src="${src}" alt="input" loading="lazy" style="cursor:default;">
+                    ${badge}</div>`;
+            }
+            const src = `static/videos/compare/${s.tag}__${m.key}.mp4`;
+            const pos = `static/images/compare/${s.tag}__${m.key}.jpg`;
+            return `<div class="comparison-video-container${m.key==='ours'?' is-ours':''}" style="aspect-ratio:${CMP_W}/${CMP_H};">
+                <video class="comparison-video" muted loop playsinline preload="none" poster="${pos}" data-model="${m.model}"
+                       onclick="openFullscreen('${src}', '${esc(s.title)}', '${esc(s.desc)}', ${CMP_W}, ${CMP_H}, '${m.model}')">
+                    <source src="${src}" type="video/mp4"></video>
+                <div class="comparison-video-overlay"><div class="play-button">▶</div></div>
+                ${badge}</div>`;
+        }).join('');
+        return `<div class="comparison-item"><div class="comparison-videos">${cells}</div></div>`;
+    }
+
+    function videoItem(src, poster, title, desc, w, h) {
+        return `<div class="video-item"><div class="video-placeholder" style="aspect-ratio:${w}/${h};">
+            <video class="video-player" muted loop playsinline preload="none" ${poster?`poster="${poster}"`:''}
+                   onclick="openFullscreen('${src}', '${esc(title)}', '', ${w}, ${h})">
+                <source src="${src}" type="video/mp4"></video>
+            <div class="video-overlay"><div class="play-button">▶</div></div></div>
+            <div class="video-info"><h3 class="video-title">${title}</h3></div></div>`;
+    }
+
+    function esc(t) { return String(t).replace(/'/g, "\\'").replace(/"/g, '&quot;'); }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const showItem = (s, w, h) => videoItem(`static/videos/showcase/${s.tag}.mp4`, `static/images/showcase/${s.tag}.jpg`, s.title, s.desc, s.w||w||HI_W, s.h||h||HI_H);
+        const fill = (id, arr, w, h) => { const el = document.getElementById(id); if (el) el.innerHTML = arr.map(s => showItem(s, w, h)).join(''); };
+        document.getElementById('comparison-grid').innerHTML = COMPARISON.map(comparisonItem).join('');
+        fill('recon-grid', SHOWCASE.recon);
+        fill('img2-grid', SHOWCASE.img2);
+        fill('txt2-grid', SHOWCASE.txt2_3d);
+        fill('cat-indoor-grid', CATEGORY.indoor);
+        fill('cat-outdoor-grid', CATEGORY.outdoor);
+        fill('cat-style-grid', CATEGORY.style);
+        fill('cat-depth-grid', CATEGORY.depth, 1664, 480);
+
+        // widths = log-scale of seconds (0.636 .. 662) so all six are visibly distinct and correctly ordered
+        // widths = log-scale of seconds so all six are visibly distinct and correctly ordered
+        const SPEED = [
+            { name:'FantasyWorld', t:'662 s',  w:100, c:'#ff9e40' },
+            { name:'Gen3C',        t:'283 s',  w:87,  c:'#42a5f5' },
+            { name:'Gen3R',        t:'94 s',   w:72,  c:'#b388ff' },
+            { name:'PixWorld (Before Distillation)', t:'7.74 s', w:40, c:'#4dd0e1' },
+            { name:'FlashWorld',   t:'3.21 s', w:27,  c:'#f06292' },
+            { name:'PixWorld (Ours)', t:'0.636 s', w:9, c:'#26c6a0', ours:true },
+        ];
+        const sc = document.getElementById('speed-chart');
+        if (sc) sc.innerHTML = SPEED.map(s =>
+            `<div class="speed-row${s.ours?' ours':''}"><div class="speed-name" style="color:${s.c}">${s.name}</div>`+
+            `<div class="speed-track"><div class="speed-fill" style="width:${s.w}%;color:${s.c};background:linear-gradient(90deg,color-mix(in srgb, ${s.c} 42%, #fff),${s.c})"></div></div>`+
+            `<div class="speed-val" style="color:${s.c}">${s.t}</div></div>`).join('') +
+            `<div class="speed-note">Wall-clock seconds per scene — <strong>log scale, lower is better</strong>. PixWorld runs in ~0.6 s, up to <strong>~1000× faster</strong> than FantasyWorld.</div>`;
+
+        // Lazy-play: only play grid videos while they are near/in the viewport
+        // (78 comparison/gallery clips would be far too heavy to autoplay all at once).
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(en => {
+                const v = en.target;
+                if (en.isIntersecting) { v.play().catch(()=>{}); }
+                else { v.pause(); }
+            });
+        }, { rootMargin: '250px 0px', threshold: 0.05 });
+        document.querySelectorAll('.comparison-video, .video-player').forEach(v => io.observe(v));
+
+        // citation copy
+        const wrap = document.getElementById('citation-block-wrap');
+        wrap && wrap.addEventListener('click', function() {
+            const pre = document.getElementById('citation-bibtex');
+            const hint = document.getElementById('citation-copy-hint');
+            navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
+                hint.textContent = 'Copied!'; wrap.classList.add('copied');
+                setTimeout(() => { hint.textContent = 'Click to copy'; wrap.classList.remove('copied'); }, 2000);
+            }).catch(() => { hint.textContent = 'Copy failed'; });
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeFullscreen();
+        });
+    });
+
+    function openFullscreen(src, title, desc, w, h, model, isImage) {
+        const modal = document.getElementById('fullscreen-modal');
+        const video = document.getElementById('fullscreen-video');
+        const source = video.querySelector('source');
+        const badge = document.getElementById('fullscreen-model-badge');
+        const pt = document.getElementById('fullscreen-prompt-title');
+        const pd = document.getElementById('fullscreen-prompt-description');
+        pt.textContent = title || ''; pd.textContent = desc || '';
+        if (w && h) {
+            video.style.setProperty('--video-width', w + 'px');
+            video.style.setProperty('--video-aspect-ratio', w / h);
+            document.getElementById('fullscreen-prompt').style.setProperty('--video-width', w + 'px');
+        }
+        if (model) { badge.textContent = model; badge.style.display = 'block'; } else { badge.style.display = 'none'; }
+        if (isImage) {
+            // show still image in the video slot via poster-like: use a paused video? simplest: set poster + empty src
+            source.src = ''; video.load(); video.poster = src; video.style.background = `#000 url('${src}') center/contain no-repeat`;
+        } else {
+            video.style.background = '#000'; video.removeAttribute('poster');
+            source.src = src; video.load(); video.muted = false; video.play().catch(()=>{});
+        }
+        modal.classList.add('active');
+    }
+    function closeFullscreen() {
+        const modal = document.getElementById('fullscreen-modal');
+        const video = document.getElementById('fullscreen-video');
+        modal.classList.remove('active');
+        video.pause(); video.querySelector('source').src = ''; video.removeAttribute('poster'); video.style.background = '#000'; video.load();
+    }
+    </script>
+</body>
+</html>
