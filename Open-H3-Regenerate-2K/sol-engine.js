@@ -205,7 +205,7 @@
     const samples = [];
     fig.querySelectorAll('.cmpv-media span[data-cx]').forEach(e => { samples[+e.dataset.i] = { cx: +e.dataset.cx, cy: +e.dataset.cy, vids: {} }; });
     fig.querySelectorAll('.cmpv-media video').forEach(v => { samples[+v.dataset.i].vids[v.dataset.key] = v; });
-    let cur = 0, view = 0, z = 4, cx = samples[0].cx, cy = samples[0].cy, on = false, raf = 0;
+    let cur = 0, view = 0, z = +fig.dataset.zoom || 4, cx = samples[0].cx, cy = samples[0].cy, on = false, raf = 0;
     const dpr = () => window.devicePixelRatio || 1;
     const fit = c => { const w = Math.round(c.clientWidth * dpr()), h = Math.round(c.clientHeight * dpr()); if (w && h && (c.width !== w || c.height !== h)) { c.width = w; c.height = h; } };
     const region = v => {  // magnifier window in the video's own pixels; same relative place in every output
@@ -292,7 +292,7 @@
     const samples = [];
     fig.querySelectorAll('.cmpv-media span[data-cx]').forEach(e => { samples[+e.dataset.i] = { cx: +e.dataset.cx, cy: +e.dataset.cy, urls: {} }; });
     fig.querySelectorAll('.cmpv-media a[data-key]').forEach(a => { samples[+a.dataset.i].urls[a.dataset.key] = a.href; });
-    let cur = -1, want = 0, z = 4, cx = samples[0].cx, cy = samples[0].cy, on = false, raf = 0, rate = 1, showing = null;
+    let cur = -1, want = 0, z = +fig.dataset.zoom || 7, cx = samples[0].cx, cy = samples[0].cy, on = false, raf = 0, rate = 1, showing = null;
     const dpr = () => window.devicePixelRatio || 1;
     const win = () => {  // magnifier window as fractions of the frame; its shape follows the detail windows
       const c = dets[0].c, a = (c.clientWidth || 8) / (c.clientHeight || 9), W = lead.videoWidth || 16, H = lead.videoHeight || 9;
@@ -308,12 +308,15 @@
       }
       const [x, y, w, h] = win();
       for (const p of Object.values(panes)) if (p.box) Object.assign(p.box.style, { left: x * 100 + '%', top: y * 100 + '%', width: w * 100 + '%', height: h * 100 + '%' });
+      const A = (lead.videoWidth || 16) / (lead.videoHeight || 9);
       for (const d of dets) {
         if (d.v.readyState < 2) continue;
         const cw = Math.round(d.c.clientWidth * dpr()), ch = Math.round(d.c.clientHeight * dpr());
         if (cw && ch && (d.c.width !== cw || d.c.height !== ch)) { d.c.width = cw; d.c.height = ch; }
-        const W = d.v.videoWidth, H = d.v.videoHeight;
-        d.c.getContext('2d').drawImage(d.v, x * W, y * H, w * W, h * H, 0, 0, d.c.width, d.c.height);
+        // a source with another aspect (e.g. a 1344x768 input) is shown cover-cropped to the output frame; map the same way
+        let W = d.v.videoWidth, H = d.v.videoHeight, ox = 0, oy = 0;
+        if (W / H > A) { ox = (W - H * A) / 2; W = H * A; } else { oy = (H - W / A) / 2; H = W / A; }
+        d.c.getContext('2d').drawImage(d.v, ox + x * W, oy + y * H, w * W, h * H, 0, 0, d.c.width, d.c.height);
       }
       if (on) raf = requestAnimationFrame(draw);
     };
