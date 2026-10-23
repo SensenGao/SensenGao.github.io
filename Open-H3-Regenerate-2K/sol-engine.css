@@ -203,3 +203,8 @@
   .cmp3-zoom{aspect-ratio:16/9}
   .cmp3-zoom .lg{display:none}.cmp3-zoom .sm{display:inline}
 }
+
+.cmp3 .cmpv-bar{flex-wrap:nowrap;align-items:flex-start}
+.cmp3 .cmpv-tabs{flex:1;gap:6px}
+.cmp3 .cmpv-tab{min-height:28px;padding:3px 10px;font-size:.64rem}
+.cmp3 .cmpv-ctl{flex:none}
