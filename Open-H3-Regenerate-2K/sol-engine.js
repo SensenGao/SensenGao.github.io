@@ -75,6 +75,29 @@
   });
   const fmt = (t, d) => `${t.toFixed(2)} / ${d.toFixed(2)} s`;
 
+  // Fetch a clip completely before it plays. Streaming several 2K files at once stalls on ordinary connections, and a
+  // stalled lead makes synchronized panes jump; from memory they play smoothly and in step. Falls back to streaming.
+  const fetchClip = (v, onBytes) => v._loaded ||= (async () => {
+    const url = v.querySelector('source')?.src || v.src;
+    try {
+      const r = await fetch(url);
+      if (!r.ok || !r.body) throw new Error(String(r.status));
+      const total = +r.headers.get('content-length') || 0, reader = r.body.getReader(), parts = [];
+      let got = 0;
+      for (;;) { const { done, value } = await reader.read(); if (done) break; parts.push(value); got += value.length; onBytes(got, total); }
+      v.src = URL.createObjectURL(new Blob(parts, { type: 'video/mp4' }));
+    } catch (e) { onBytes(1, 1); }
+    await ready(v);
+  })();
+  const progress = (vs, show) => {
+    const seen = new Map();
+    return v => (got, total) => {
+      seen.set(v, [got, total || got]);
+      let a = 0, b = 0; for (const [g, t] of seen.values()) { a += g; b += t; }
+      show(Math.min(99, Math.round(a / Math.max(b, 1) * 100 * seen.size / vs.length)));
+    };
+  };
+
   // Detail zoom follows the pointer: the same relative point in every pane.
   const zoomable = (fig, area) => {
     const z = fig.querySelector('.sync-zoom'); if (!z) return;
@@ -92,19 +115,24 @@
   document.querySelectorAll('[data-sync]').forEach(fig => {
     const vs = [...fig.querySelectorAll('video')], lead = fig.querySelector('video[data-lead]') || vs[0], fol = vs.filter(v => v !== lead);
     const btn = fig.querySelector('.sync-play'), seek = fig.querySelector('.sync-seek'), time = fig.querySelector('.sync-time');
-    const dur = parseFloat(fig.dataset.duration); let on = false, raf = 0, primed = null, rate = 1;
-    const ui = () => { const t = Math.min(lead.currentTime, dur); time.textContent = fmt(t, dur); seek.value = String(Math.round(t / dur * 1000)); btn.textContent = on ? 'Pause' : 'Play'; btn.setAttribute('aria-pressed', String(on)); };
+    const dur = parseFloat(fig.dataset.duration); let on = false, raf = 0, primed = null, rate = 1, loading = false;
+    const ui = () => { const t = Math.min(lead.currentTime, dur); time.textContent = loading ? time.textContent : fmt(t, dur); seek.value = String(Math.round(t / dur * 1000)); btn.textContent = on ? 'Pause' : 'Play'; btn.setAttribute('aria-pressed', String(on)); };
     const tick = () => {
       raf = 0; if (!on) return;
       const t = lead.currentTime;
-      for (const f of fol) { if (f.seeking || f.readyState < 3) continue; if (Math.abs(f.currentTime - t) > .08) f.currentTime = t; if (f.paused) f.play().catch(() => {}); }
+      if (lead.readyState >= 3) for (const f of fol) { if (f.seeking || f.readyState < 3) continue; if (Math.abs(f.currentTime - t) > .1) f.currentTime = t; if (f.paused) f.play().catch(() => {}); }
       ui(); raf = requestAnimationFrame(tick);
     };
     const g = {
       stop() { on = false; vs.forEach(v => v.pause()); ui(); },
       async start() {
         soloStop(g); on = true; ui();
-        await (primed ||= Promise.all(vs.map(ready))); if (!on) return;
+        if (!primed) {
+          loading = true; time.textContent = 'Loading 0%';
+          const track = progress(vs, pct => { if (loading) time.textContent = `Loading ${pct}%`; });
+          primed = Promise.all(vs.map(v => fetchClip(v, track(v))));
+        }
+        await primed; loading = false; if (!on) { ui(); return; }
         const t = lead.currentTime; fol.forEach(f => { f.currentTime = t; }); vs.forEach(v => { v.playbackRate = rate; v.loop = true; });
         await Promise.all(vs.map(v => v.play().catch(() => {}))); if (!raf) raf = requestAnimationFrame(tick);
       },
@@ -132,7 +160,7 @@
     const tick = () => { raf = 0; if (!on) return; ui(); raf = requestAnimationFrame(tick); };
     const g = {
       stop() { on = false; cur.pause(); ui(); },
-      async start() { soloStop(g); on = true; ui(); cur.loop = true; await ready(cur); if (!on) return; await cur.play().catch(() => {}); if (!raf) raf = requestAnimationFrame(tick); },
+      async start() { soloStop(g); on = true; ui(); cur.loop = true; await load(cur); if (!on) return; await cur.play().catch(() => {}); if (!raf) raf = requestAnimationFrame(tick); },
     };
     groups.add(g);
     const select = async key => {
@@ -141,12 +169,18 @@
       const t = cur.currentTime, was = on;
       tabs.forEach(b => b.setAttribute('aria-selected', String(b.dataset.tier === key)));
       if (!v.getAttribute('poster') && v.dataset.poster) v.poster = v.dataset.poster;
-      fig.classList.add('is-loading'); fig.querySelector('.ladder-stage').dataset.loading = `Loading ${next.dataset.tier.toUpperCase()}…`;
-      await ready(v); fig.classList.remove('is-loading'); v.currentTime = t; v.loop = true;
+      await load(v); v.currentTime = t; v.loop = true;
       if (was) { v.playbackRate = cur.playbackRate; await v.play().catch(() => {}); }
       tiers.forEach(x => x.classList.toggle('is-active', x === next));
       const old = cur; cur = v; old.pause(); ui();
     };
+    const stage = fig.querySelector('.ladder-stage');
+    async function load(v) {
+      const label = v.closest('.tier').dataset.tier.toUpperCase();
+      fig.classList.add('is-loading'); stage.dataset.loading = `Loading ${label}…`;
+      await fetchClip(v, (got, total) => { stage.dataset.loading = `Loading ${label} ${total ? Math.round(got / total * 100) : 0}%`; });
+      fig.classList.remove('is-loading');
+    }
     tabs.forEach(b => b.addEventListener('click', () => select(b.dataset.tier)));
     btn.addEventListener('click', () => on ? g.stop() : g.start());
     seek.addEventListener('input', () => { cur.currentTime = seek.value / 1000 * dur; ui(); });
