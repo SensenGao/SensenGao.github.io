@@ -77,16 +77,23 @@
 
   // Fetch a clip completely before it plays. Streaming several 2K files at once stalls on ordinary connections, and a
   // stalled lead makes synchronized panes jump; from memory they play smoothly and in step. Falls back to streaming.
+  const blobs = new Map();  // url -> Promise of an object URL (or the url itself if the fetch fails)
+  const fetchURL = (url, onBytes) => {
+    if (!blobs.has(url)) blobs.set(url, (async () => {
+      try {
+        const r = await fetch(url);
+        if (!r.ok || !r.body) throw new Error(String(r.status));
+        const total = +r.headers.get('content-length') || 0, reader = r.body.getReader(), parts = [];
+        let got = 0;
+        for (;;) { const { done, value } = await reader.read(); if (done) break; parts.push(value); got += value.length; onBytes(got, total); }
+        return URL.createObjectURL(new Blob(parts, { type: 'video/mp4' }));
+      } catch (e) { onBytes(1, 1); return url; }
+    })());
+    else onBytes(1, 1);
+    return blobs.get(url);
+  };
   const fetchClip = (v, onBytes) => v._loaded ||= (async () => {
-    const url = v.querySelector('source')?.src || v.src;
-    try {
-      const r = await fetch(url);
-      if (!r.ok || !r.body) throw new Error(String(r.status));
-      const total = +r.headers.get('content-length') || 0, reader = r.body.getReader(), parts = [];
-      let got = 0;
-      for (;;) { const { done, value } = await reader.read(); if (done) break; parts.push(value); got += value.length; onBytes(got, total); }
-      v.src = URL.createObjectURL(new Blob(parts, { type: 'video/mp4' }));
-    } catch (e) { onBytes(1, 1); }
+    v.src = await fetchURL(v.querySelector('source')?.src || v.src, onBytes);
     await ready(v);
   })();
   const progress = (vs, show) => {
@@ -273,6 +280,93 @@
       new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) load(cur); }), { rootMargin: '900px 0px' }).observe(fig);
       new IntersectionObserver(es => es.forEach(e => { if (reduce.matches) return; if (e.isIntersecting) { if (!on) g.start(); } else if (on) g.stop(); }), { threshold: .35 }).observe(fig);
     } else load(cur);
+  });
+
+  // Three-column viewers: input small on the left, outputs stacked in the middle, detail windows beside each output.
+  document.querySelectorAll('.cmp3').forEach(fig => {
+    const panes = {};
+    fig.querySelectorAll('.cmp3-pane').forEach(el => { panes[el.dataset.key] = { el, v: el.querySelector('video'), box: el.querySelector('.cmp3-box') }; });
+    const lead = panes[fig.dataset.lead].v, all = Object.values(panes).map(p => p.v);
+    const dets = [...fig.querySelectorAll('.cmp3-zoom')].map(z => ({ v: panes[z.dataset.key].v, c: z.querySelector('canvas') }));
+    const loadEl = fig.querySelector('.cmp3-loading'), playBtn = fig.querySelector('.cmpv-play'), tabs = [...fig.querySelectorAll('.cmpv-tab')];
+    const samples = [];
+    fig.querySelectorAll('.cmpv-media span[data-cx]').forEach(e => { samples[+e.dataset.i] = { cx: +e.dataset.cx, cy: +e.dataset.cy, urls: {} }; });
+    fig.querySelectorAll('.cmpv-media a[data-key]').forEach(a => { samples[+a.dataset.i].urls[a.dataset.key] = a.href; });
+    let cur = -1, want = 0, z = 4, cx = samples[0].cx, cy = samples[0].cy, on = false, raf = 0, rate = 1, showing = null;
+    const dpr = () => window.devicePixelRatio || 1;
+    const win = () => {  // magnifier window as fractions of the frame; its shape follows the detail windows
+      const c = dets[0].c, a = (c.clientWidth || 8) / (c.clientHeight || 9), W = lead.videoWidth || 16, H = lead.videoHeight || 9;
+      const w = 1 / z, h = Math.min(1, (W / z) / a / H);
+      return [Math.max(0, Math.min(1 - w, cx - w / 2)), Math.max(0, Math.min(1 - h, cy - h / 2)), w, h];
+    };
+    const draw = () => {
+      raf = 0;
+      if (on && lead.readyState >= 3) for (const v of all) {
+        if (v === lead || v.seeking || v.readyState < 3) continue;
+        if (Math.abs(v.currentTime - lead.currentTime) > .1) v.currentTime = lead.currentTime;
+        if (v.paused) v.play().catch(() => {});
+      }
+      const [x, y, w, h] = win();
+      for (const p of Object.values(panes)) if (p.box) Object.assign(p.box.style, { left: x * 100 + '%', top: y * 100 + '%', width: w * 100 + '%', height: h * 100 + '%' });
+      for (const d of dets) {
+        if (d.v.readyState < 2) continue;
+        const cw = Math.round(d.c.clientWidth * dpr()), ch = Math.round(d.c.clientHeight * dpr());
+        if (cw && ch && (d.c.width !== cw || d.c.height !== ch)) { d.c.width = cw; d.c.height = ch; }
+        const W = d.v.videoWidth, H = d.v.videoHeight;
+        d.c.getContext('2d').drawImage(d.v, x * W, y * H, w * W, h * H, 0, 0, d.c.width, d.c.height);
+      }
+      if (on) raf = requestAnimationFrame(draw);
+    };
+    const redraw = () => { if (!raf) raf = requestAnimationFrame(draw); };
+    const show = i => showing && want === i ? showing : (want = i, showing = (async () => {
+      const s = samples[i], keys = Object.keys(s.urls);
+      loadEl.hidden = false; loadEl.textContent = 'Loading…';
+      const track = progress(keys, pct => { if (want === i) loadEl.textContent = `Loading ${pct}%`; });
+      const urls = await Promise.all(keys.map(k => fetchURL(s.urls[k], track(k))));
+      if (want !== i) return false;
+      if (cur !== i) {
+        keys.forEach((k, j) => { panes[k].v.src = urls[j]; });
+        await Promise.all(keys.map(k => ready(panes[k].v)));
+        if (want !== i) return false;
+        cur = i; cx = s.cx; cy = s.cy;
+      }
+      loadEl.hidden = true; redraw(); return true;
+    })());
+    const g = {
+      stop() { on = false; all.forEach(v => v.pause()); playBtn.textContent = 'Play'; },
+      async start() {
+        soloStop(g); on = true; playBtn.textContent = 'Pause';
+        if (!(await show(want)) || !on) return;
+        all.forEach(v => { v.loop = true; v.playbackRate = rate; if (v !== lead) v.currentTime = lead.currentTime; });
+        await Promise.all(all.map(v => v.play().catch(() => {}))); redraw();
+      },
+    };
+    groups.add(g);
+    playBtn.addEventListener('click', () => on ? g.stop() : g.start());
+    tabs.forEach(b => b.addEventListener('click', () => {
+      const i = +b.dataset.i; if (i === want) return;
+      const was = on; g.stop(); tabs.forEach(t => t.setAttribute('aria-selected', String(t === b)));
+      showing = null; want = i;
+      if (was) g.start(); else show(i);
+    }));
+    fig.querySelectorAll('[data-rate]').forEach(b => b.addEventListener('click', () => {
+      rate = parseFloat(b.dataset.rate); all.forEach(v => { v.playbackRate = rate; });
+      fig.querySelectorAll('[data-rate]').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
+    }));
+    const at = (e, el) => { const r = el.getBoundingClientRect(); cx = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)); cy = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)); redraw(); };
+    for (const p of Object.values(panes)) {
+      const el = p.el; let down = null;
+      el.addEventListener('pointermove', e => { if (e.pointerType === 'mouse' || down) at(e, el); });
+      el.addEventListener('pointerdown', e => { down = [e.clientX, e.clientY]; });
+      el.addEventListener('pointerup', e => { if (down && Math.hypot(e.clientX - down[0], e.clientY - down[1]) < 6) at(e, el); down = null; });
+      el.addEventListener('pointercancel', () => { down = null; });
+      el.addEventListener('wheel', e => { e.preventDefault(); z = Math.min(10, Math.max(1.5, z * (e.deltaY < 0 ? 1.15 : 1 / 1.15))); redraw(); }, { passive: false });
+    }
+    addEventListener('resize', redraw);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && cur < 0) show(want); }), { rootMargin: '900px 0px' }).observe(fig);
+      new IntersectionObserver(es => es.forEach(e => { if (reduce.matches) return; if (e.isIntersecting) { if (!on) g.start(); } else if (on) g.stop(); }), { threshold: .3 }).observe(fig);
+    } else show(want);
   });
 
   // Charts grow in once when they scroll into view.

@@ -156,6 +156,7 @@
 .cmpv-tabs:empty{display:none}
 .cmpv-bar button{min-height:32px;padding:5px 13px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.04em;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease}
 .cmpv-bar button:is(:hover,:focus-visible){border-color:var(--nv-green-dark);color:var(--nv-green-dark)}
+.cmpv-bar button[aria-pressed="true"]{border-color:var(--nv-green);background:var(--nv-green);color:#0b1200}
 .cmpv-tab[aria-selected="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
 .cmpv-tab[aria-selected="true"]:is(:hover,:focus-visible){color:#fff}
 .cmpv-view{border-color:var(--nv-green)!important;background:color-mix(in srgb,var(--nv-green) 12%,#fff)!important}
@@ -177,4 +178,28 @@
 @media (max-width:720px){
   .cmpv-grid,.cmpv.res .cmpv-grid{grid-template-columns:minmax(0,1fr)}
   .cmpv-zooms{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0}
+}
+
+/* Three-column viewer: small input | large outputs stacked | detail windows half as wide, each beside its output. */
+.cmp3-grid{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,2fr) minmax(0,1fr);gap:10px;align-items:center}
+.cmp3-mid,.cmp3-det{display:grid;gap:10px}
+.cmp3-mid{position:relative}
+.cmp3-pane{position:relative;overflow:hidden;aspect-ratio:16/9;border-radius:6px;background:#050705;cursor:crosshair;touch-action:pan-y}
+.cmp3-pane video{display:block;width:100%;height:100%;object-fit:cover}
+.cmp3-box{position:absolute;z-index:1;box-sizing:border-box;border:2px solid var(--nv-green);pointer-events:none}
+.cmp3-zoom{position:relative;margin:0;overflow:hidden;aspect-ratio:8/9;border-radius:6px;background:#050705}
+.cmp3-zoom.is-ours::after{content:"";position:absolute;inset:0;border:2px solid var(--nv-green);border-radius:6px;pointer-events:none}
+.cmp3-zoom canvas{display:block;width:100%;height:100%}
+.cmp3-zoom figcaption{position:absolute;left:8px;top:8px;z-index:1;max-width:none;margin:0;padding:2px 7px;border-radius:3px;background:rgba(16,17,20,.78);color:#fff;font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.06em;line-height:1.6;text-align:left}
+.cmp3-zoom.is-ours figcaption{background:var(--nv-green-dark)}
+.cmp3-zoom .sm{display:none}
+.cmp3-loading{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;border-radius:6px;background:rgba(5,7,5,.6);color:#e4e6e2;font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;pointer-events:none}
+.cmp3-loading[hidden]{display:none}
+@media (max-width:720px){
+  .cmp3-grid{grid-template-columns:minmax(0,1fr)}
+  .cmp3-in{width:50%}
+  .cmp3-det{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cmp3-det:has(> :only-child){grid-template-columns:minmax(0,1fr)}
+  .cmp3-zoom{aspect-ratio:16/9}
+  .cmp3-zoom .lg{display:none}.cmp3-zoom .sm{display:inline}
 }
