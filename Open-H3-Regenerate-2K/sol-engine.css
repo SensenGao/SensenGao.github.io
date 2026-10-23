@@ -172,6 +172,8 @@
 .cmpv-zoom canvas{display:block;width:100%;height:100%}
 .cmpv-zoom figcaption{position:absolute;left:8px;top:8px;z-index:1;max-width:none;margin:0;padding:2px 7px;border-radius:3px;background:rgba(16,17,20,.78);color:#fff;font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.06em;line-height:1.6;text-align:left}
 .cmpv-zoom.is-ours figcaption{background:var(--nv-green-dark)}
+.cmpv-zoom .sm{display:none}
+@media (max-width:720px){.cmpv-zoom .lg{display:none}.cmpv-zoom .sm{display:inline}}
 @media (max-width:720px){
   .cmpv-grid,.cmpv.res .cmpv-grid{grid-template-columns:minmax(0,1fr)}
   .cmpv-zooms{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0}
