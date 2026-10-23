@@ -40,12 +40,15 @@
       scrollTo({ top: scrollY + r.top - Math.max(16, (innerHeight - r.height) / 2), behavior: reduce.matches ? 'auto' : 'smooth' });
       history.replaceState(null, '', '#demo'); play(demo);
     });
-    const fig = demo.closest('.demo-media'), btn = document.createElement('button');
-    if (demo.hasAttribute('data-silent')) btn.style.display = 'none';
-    btn.type = 'button'; btn.className = 'demo-unmute'; btn.textContent = 'Tap for sound'; btn.hidden = !demo.muted;
-    fig.style.position = 'relative'; fig.appendChild(btn);
-    btn.addEventListener('click', () => { demo.muted = false; play(demo); btn.hidden = true; });
-    demo.addEventListener('volumechange', () => { btn.hidden = !demo.muted; });
+    if (demo.hasAttribute('data-silent')) {
+      demo.defaultMuted = true; demo.muted = true; demo.volume = 0;
+    } else {
+      const fig = demo.closest('.demo-media'), btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'demo-unmute'; btn.textContent = 'Tap for sound'; btn.hidden = !demo.muted;
+      fig.style.position = 'relative'; fig.appendChild(btn);
+      btn.addEventListener('click', () => { demo.muted = false; play(demo); btn.hidden = true; });
+      demo.addEventListener('volumechange', () => { btn.hidden = !demo.muted; });
+    }
     if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => {
       if (reduce.matches) return;
       if (e.isIntersecting) { if (demo.paused) play(demo); } else if (!demo.paused) demo.pause();
