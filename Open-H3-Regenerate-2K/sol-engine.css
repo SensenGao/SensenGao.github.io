@@ -79,8 +79,8 @@
 .cchart-legend,.hchart-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 18px;margin-bottom:14px;color:var(--muted);font-family:var(--mono);font-size:.7rem;letter-spacing:.04em}
 .cchart-legend{justify-content:center}
 .cchart-legend span{display:inline-flex;align-items:center}
-.gchart{min-width:0}
-.gchart.single{max-width:440px;margin:0 auto}
+.gchart{min-width:0;max-width:calc(var(--n) * 150px + 80px);margin:0 auto}  /* width follows the number of metric groups */
+.gchart.single{max-width:440px}
 .gchart-scroll{overflow-x:auto;padding-top:24px}
 .gchart-inner{min-width:calc(var(--n) * 92px + 40px)}
 .gchart-bars{position:absolute;inset:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr))}
