@@ -208,3 +208,12 @@
 .cmp3 .cmpv-tabs{flex:1;gap:6px}
 .cmp3 .cmpv-tab{min-height:28px;padding:3px 10px;font-size:.64rem}
 .cmp3 .cmpv-ctl{flex:none}
+
+.cmp3-grid.no-in{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+.res-svg.wide-only{max-width:1000px;margin:0 auto}
+.pairs-svg .fr{stroke-width:1.5}
+.pairs-svg .fr.lo{fill:var(--soft);stroke:var(--quiet)}
+.pairs-svg .fr.hi{fill:color-mix(in srgb,var(--nv-green) 14%,#fff);stroke:var(--nv-green-dark)}
+@media (max-width:720px){.cmp3-grid.no-in{grid-template-columns:minmax(0,1fr)}}
+.article-figure.wide.cmp3-narrow{width:min(920px,100vw - 48px)}
+@media (max-width:720px){.article-figure.wide.cmp3-narrow{width:min(1100px,100vw - 32px)}}
