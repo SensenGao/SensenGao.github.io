@@ -290,7 +290,7 @@
     const dets = [...fig.querySelectorAll('.cmp3-zoom')].map(z => ({ v: panes[z.dataset.key].v, c: z.querySelector('canvas') }));
     const loadEl = fig.querySelector('.cmp3-loading'), playBtn = fig.querySelector('.cmpv-play'), tabs = [...fig.querySelectorAll('.cmpv-tab')];
     const samples = [];
-    fig.querySelectorAll('.cmpv-media span[data-cx]').forEach(e => { samples[+e.dataset.i] = { cx: +e.dataset.cx, cy: +e.dataset.cy, urls: {} }; });
+    fig.querySelectorAll('.cmpv-media span[data-cx]').forEach(e => { samples[+e.dataset.i] = { cx: +e.dataset.cx, cy: +e.dataset.cy, label: e.dataset.label, urls: {} }; });
     fig.querySelectorAll('.cmpv-media a[data-key]').forEach(a => { samples[+a.dataset.i].urls[a.dataset.key] = a.href; });
     let cur = -1, want = 0, z = +fig.dataset.zoom || 7, cx = samples[0].cx, cy = samples[0].cy, on = false, raf = 0, rate = 1, showing = null;
     const dpr = () => window.devicePixelRatio || 1;
@@ -332,6 +332,7 @@
         await Promise.all(keys.map(k => ready(panes[k].v)));
         if (want !== i) return false;
         cur = i; cx = s.cx; cy = s.cy;
+        const badge = panes.input && panes.input.el.querySelector('.badge'); if (badge && s.label) badge.textContent = s.label;
       }
       loadEl.hidden = true; redraw(); return true;
     })());
