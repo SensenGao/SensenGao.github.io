@@ -189,6 +189,92 @@
     ui();
   });
 
+  // Deck-style comparison viewers: hidden videos drawn into a full-frame canvas with a magnifier and matched zoom canvases.
+  document.querySelectorAll('.cmpv').forEach(fig => {
+    const views = JSON.parse(fig.dataset.views), leadKey = fig.dataset.lead;
+    const main = fig.querySelector('.cmpv-canvas'), badge = fig.querySelector('.cmpv-badge'), loadEl = fig.querySelector('.cmpv-loading');
+    const viewBtn = fig.querySelector('.cmpv-view'), playBtn = fig.querySelector('.cmpv-play'), tabs = [...fig.querySelectorAll('.cmpv-tab')];
+    const zooms = [...fig.querySelectorAll('.cmpv-zoom')].map(z => ({ key: z.dataset.key, c: z.querySelector('canvas') }));
+    const samples = [];
+    fig.querySelectorAll('.cmpv-media span[data-cx]').forEach(e => { samples[+e.dataset.i] = { cx: +e.dataset.cx, cy: +e.dataset.cy, vids: {} }; });
+    fig.querySelectorAll('.cmpv-media video').forEach(v => { samples[+v.dataset.i].vids[v.dataset.key] = v; });
+    let cur = 0, view = 0, z = 4, cx = samples[0].cx, cy = samples[0].cy, on = false, raf = 0;
+    const dpr = () => window.devicePixelRatio || 1;
+    const fit = c => { const w = Math.round(c.clientWidth * dpr()), h = Math.round(c.clientHeight * dpr()); if (w && h && (c.width !== w || c.height !== h)) { c.width = w; c.height = h; } };
+    const region = v => {  // magnifier window in the video's own pixels; same relative place in every output
+      const W = v.videoWidth, H = v.videoHeight, w = W / z, h = H / z;
+      return [Math.max(0, Math.min(W - w, cx * W - w / 2)), Math.max(0, Math.min(H - h, cy * H - h / 2)), w, h];
+    };
+    const draw = () => {
+      raf = 0;
+      const s = samples[cur], mv = s.vids[views[view][0]], lead = s.vids[leadKey];
+      if (on && lead.readyState >= 3) for (const v of Object.values(s.vids)) {
+        if (v === lead || v.seeking || v.readyState < 3) continue;
+        if (Math.abs(v.currentTime - lead.currentTime) > .1) v.currentTime = lead.currentTime;
+        if (v.paused) v.play().catch(() => {});
+      }
+      if (mv && mv.readyState >= 2) {
+        fit(main); const g = main.getContext('2d');
+        g.drawImage(mv, 0, 0, main.width, main.height);
+        const [x, y, w, h] = region(mv), sx = main.width / mv.videoWidth, sy = main.height / mv.videoHeight;
+        g.lineWidth = 2 * dpr(); g.strokeStyle = '#76b900'; g.strokeRect(x * sx, y * sy, w * sx, h * sy);
+      }
+      for (const zz of zooms) {
+        const v = s.vids[zz.key]; if (!v || v.readyState < 2) continue;
+        fit(zz.c); const [x, y, w, h] = region(v);
+        zz.c.getContext('2d').drawImage(v, x, y, w, h, 0, 0, zz.c.width, zz.c.height);
+      }
+      if (on) raf = requestAnimationFrame(draw);
+    };
+    const redraw = () => { if (!raf) raf = requestAnimationFrame(draw); };
+    const load = i => {
+      const s = samples[i];
+      if (!s.ready) {
+        const list = Object.values(s.vids);
+        const track = progress(list, pct => { if (cur === i) loadEl.textContent = `Loading ${pct}%`; });
+        s.ready = Promise.all(list.map(v => fetchClip(v, track(v)))).then(() => { s.done = true; });
+      }
+      loadEl.hidden = !!s.done;
+      return s.ready.then(() => { if (cur === i) { loadEl.hidden = true; redraw(); } });
+    };
+    const vids = () => Object.values(samples[cur].vids);
+    const g = {
+      stop() { on = false; vids().forEach(v => v.pause()); playBtn.textContent = 'Play'; },
+      async start() {
+        soloStop(g); on = true; playBtn.textContent = 'Pause';
+        const i = cur; await load(i); if (!on || cur !== i) return;
+        const lead = samples[i].vids[leadKey];
+        vids().forEach(v => { v.loop = true; if (v !== lead) v.currentTime = lead.currentTime; });
+        await Promise.all(vids().map(v => v.play().catch(() => {}))); redraw();
+      },
+    };
+    groups.add(g);
+    playBtn.addEventListener('click', () => on ? g.stop() : g.start());
+    const cycle = () => { view = (view + 1) % views.length; badge.textContent = views[view][1]; viewBtn.textContent = `Showing: ${views[view][1]}`; redraw(); };
+    viewBtn.addEventListener('click', cycle);
+    tabs.forEach(b => b.addEventListener('click', () => {
+      const i = +b.dataset.i; if (i === cur) return;
+      const was = on; g.stop(); cur = i; cx = samples[i].cx; cy = samples[i].cy;
+      tabs.forEach(t => t.setAttribute('aria-selected', String(t === b)));
+      if (was) g.start(); else load(i);
+    }));
+    const at = e => { const r = main.getBoundingClientRect(); cx = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)); cy = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)); redraw(); };
+    let down = null;
+    main.addEventListener('pointermove', e => { if (e.pointerType === 'mouse' || down) at(e); });
+    main.addEventListener('pointerdown', e => { down = [e.clientX, e.clientY, e.pointerType]; });
+    main.addEventListener('pointerup', e => {
+      if (down && Math.hypot(e.clientX - down[0], e.clientY - down[1]) < 6) { if (down[2] === 'mouse') cycle(); else at(e); }
+      down = null;
+    });
+    main.addEventListener('pointercancel', () => { down = null; });
+    main.addEventListener('wheel', e => { e.preventDefault(); z = Math.min(8, Math.max(1.5, z * (e.deltaY < 0 ? 1.15 : 1 / 1.15))); redraw(); }, { passive: false });
+    addEventListener('resize', redraw);
+    if ('IntersectionObserver' in window) {  // fetch the first sample as it approaches; play while in view
+      new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) load(cur); }), { rootMargin: '900px 0px' }).observe(fig);
+      new IntersectionObserver(es => es.forEach(e => { if (reduce.matches) return; if (e.isIntersecting) { if (!on) g.start(); } else if (on) g.stop(); }), { threshold: .35 }).observe(fig);
+    } else load(cur);
+  });
+
   // Charts grow in once when they scroll into view.
   const charts = [...document.querySelectorAll('.gfig,.hchart')];
   if (!reduce.matches && 'IntersectionObserver' in window) {
