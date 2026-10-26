@@ -264,8 +264,9 @@ export class AIDriver {
     if (player && player !== kart && !player.finished && !kart.finished && fin(player.raceProgress) && fin(kart.raceProgress)) {
       const L = Math.max(100, this.track.length || 1000);
       const gap = (kart.raceProgress - player.raceProgress) * L; // + ahead of player
-      if (gap < 0) scale = base + rb * clamp(-gap / 160, 0, 1) * 1.1;
-      else scale = base - rb * 0.8 * clamp(gap / 200, 0, 1);
+      const catchUp = this.cfg.catchUp ?? rb * 1.1, easeOff = this.cfg.easeOff ?? rb * 0.8;
+      if (gap < 0) scale = base + catchUp * clamp(-gap / 160, 0, 1);
+      else scale = base - easeOff * clamp(gap / 150, 0, 1);
     } else if (kart.finished) {
       scale = base * 0.9;
     }

@@ -403,7 +403,7 @@ export function instanced(ctx, geo, material, list, { cast = true, receive = tru
   im.castShadow = cast && quality.shadows !== false; im.receiveShadow = receive;
   im.name = name;
   root.add(im);
-  if (ink && quality.outlines !== false && geo.attributes.outlineN) addOutline(im, inkMat || ctx.inkMat);
+  if (ink && quality.outlines !== false && quality.propOutlines !== false && geo.attributes.outlineN) addOutline(im, inkMat || ctx.inkMat);
   return im;
 }
 

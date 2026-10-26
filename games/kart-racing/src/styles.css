@@ -71,13 +71,16 @@ img { -webkit-user-drag: none; }
 .load-pct { position: relative; font-family: var(--display); font-size: 20px; color: var(--cream); text-shadow: var(--outline); }
 
 /* title */
-.title-screen { cursor: pointer; justify-content: flex-start; padding-top: 6vh; }
+.title-screen { cursor: pointer; justify-content: center; gap: clamp(6px, 2vh, 18px); padding: 3vh 2vw 8vh; }
 .title-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, transparent 40%, rgba(43,29,46,0.55) 100%); pointer-events: none; }
-.title-logo { position: relative; width: min(70vw, 640px); filter: drop-shadow(0 10px 0 rgba(43,29,46,0.45)); animation: logoIn 0.9s cubic-bezier(.2,1.6,.4,1) both, bob 3s 0.9s ease-in-out infinite; }
+.title-logo { position: relative; width: min(70vw, 640px, 95vh); filter: drop-shadow(0 10px 0 rgba(43,29,46,0.45)); animation: logoIn 0.9s cubic-bezier(.2,1.6,.4,1) both, bob 3s 0.9s ease-in-out infinite; }
 @keyframes logoIn { from { transform: scale(0.2) rotate(-12deg); opacity: 0; } }
 .title-tag { position: relative; margin-top: 6px; font-family: var(--display); font-size: clamp(18px, 2.6vw, 30px); color: var(--cream); text-shadow: var(--outline); transform: rotate(-2deg); }
-.press-start { position: absolute; bottom: 16vh; font-family: var(--display); font-size: clamp(20px, 2.8vw, 34px); color: var(--sun); text-shadow: var(--outline); animation: pulse 1.1s ease-in-out infinite; text-align: center; padding: 0 12px; }
-@keyframes pulse { 50% { transform: scale(1.07); opacity: 0.8; } }
+.start-btn { position: relative; font-family: var(--display); font-size: clamp(24px, 3.4vw, 40px); padding: 10px 46px; background: var(--tangerine); color: var(--cream); text-shadow: 0 3px 0 var(--ink); animation: glowPulse 1.1s ease-in-out infinite; pointer-events: auto; }
+@keyframes glowPulse { 50% { box-shadow: 0 6px 0 var(--ink), 0 0 0 8px rgba(255, 210, 63, 0.75); } }
+.start-btn:hover { background: var(--berry); }
+.press-start { position: relative; font-family: var(--display); font-size: clamp(20px, 2.8vw, 34px); color: var(--sun); text-shadow: var(--outline); animation: pulse 1.1s ease-in-out infinite; text-align: center; padding: 0 12px; }
+@keyframes pulse { 50% { transform: scale(1.07); opacity: 0.85; } }
 .title-foot { position: absolute; bottom: 3vh; left: 0; right: 0; text-align: center; font-weight: 800; font-size: 13px; color: var(--cream); text-shadow: 0 2px 0 var(--ink); opacity: 0.9; padding: 0 12px; }
 
 /* generic page */
@@ -140,11 +143,13 @@ img { -webkit-user-drag: none; }
 .racer-card { --kc: #888; padding: 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
 .rc-portrait, .rp-portrait, .res-portrait { --kc: #888; position: relative; border-radius: 50%; border: 4px solid var(--ink); background: radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--kc) 55%, white) 0%, var(--kc) 75%); overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .rc-portrait { width: clamp(54px, 8.5vmin, 96px); aspect-ratio: 1; }
-.rc-portrait img, .rp-portrait img, .res-portrait img { width: 118%; height: 118%; object-fit: cover; margin-top: 8%; }
+.rc-portrait img, .rp-portrait img, .res-portrait img { width: 100%; height: 100%; object-fit: cover; }
 .rc-portrait span { font-family: var(--display); font-size: 32px; color: var(--cream); text-shadow: var(--outline); }
 .racer-card.locked .rc-portrait img { filter: brightness(0) opacity(0.55); }
 .rc-name { font-family: var(--display); font-size: clamp(12px, 1.4vw, 17px); white-space: nowrap; }
-.racer-panel { flex: 1; max-width: 400px; padding: 16px 20px; display: flex; flex-direction: column; align-items: center; gap: 6px; transform: rotate(1deg); align-self: center; }
+.racer-side { flex: 1; max-width: 400px; display: flex; flex-direction: column; align-items: stretch; gap: 6px; min-height: 0; }
+.rp-stage { flex: 1; min-height: 150px; }   /* transparent: the 3D turntable is drawn into this rectangle */
+.racer-panel { padding: 12px 20px; display: flex; flex-direction: column; align-items: center; gap: 6px; transform: rotate(1deg); }
 .rp-portrait { width: clamp(90px, 18vmin, 150px); aspect-ratio: 1; }
 .rp-portrait.locked img { filter: brightness(0) opacity(0.5); }
 .rp-name { font-family: var(--display); font-size: clamp(26px, 3.4vw, 40px); line-height: 1; }
@@ -388,7 +393,7 @@ img { -webkit-user-drag: none; }
 .t-pause { position: absolute; top: max(8px, env(safe-area-inset-top)); left: 50%; transform: translateX(calc(-50% - min(14vh, 80px))); width: 46px; height: 46px; border-radius: 12px; background: var(--cream); border: 3px solid var(--ink); box-shadow: 0 3px 0 var(--ink); font-family: var(--display); font-size: 18px; }
 .touch-device .hud-minimap { bottom: auto; top: calc(max(12px, env(safe-area-inset-top)) + 110px); width: clamp(90px, 18vmin, 130px); }
 .touch-device .hud-br { bottom: auto; top: max(6px, env(safe-area-inset-top)); right: max(12px, env(safe-area-inset-right)); }
-.touch-device .pause-help, .touch-device .title-foot { display: none; }
+.touch-device .pause-help, .touch-device .title-foot, .touch-device .press-start { display: none; }
 .touch-device .hud-speedo { display: none; }
 .touch-device .hud-standings { display: none; }
 .touch-device .hud-place .num { font-size: clamp(48px, 13vmin, 80px); }
@@ -398,6 +403,9 @@ img { -webkit-user-drag: none; }
 
 /* ---------------------------------------------------------------- small screens */
 @media (max-height: 500px) {
+  .title-tag { font-size: 16px; margin-top: 0; }
+  .start-btn { font-size: 22px; padding: 6px 30px; }
+  .press-start { font-size: 16px; }
   .page { padding: 6px 12px; gap: 6px; }
   .page-title { font-size: 26px; }
   .main-logo { width: 190px; }
@@ -411,7 +419,8 @@ img { -webkit-user-drag: none; }
   .racer-grid { gap: 4px; }
   .rc-portrait { width: 46px; }
   .rc-name { font-size: 11px; }
-  .racer-panel { padding: 8px 12px; gap: 2px; }
+  .racer-panel { padding: 6px 12px; gap: 2px; }
+  .rp-stage { min-height: 90px; }
   .rp-portrait { width: 64px; }
   .rp-name { font-size: 22px; }
   .stat { font-size: 11px; } .stat span { width: 66px; } .bar i { height: 9px; }

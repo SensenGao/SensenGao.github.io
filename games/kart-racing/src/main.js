@@ -90,8 +90,10 @@ async function setupPost() {
   composer.addPass(new OutputPass());
   onResize();
 }
+// Dynamic resolution: a multiplier on the preset's pixel ratio, lowered when frames stay slow, raised with headroom.
+const dyn = { scale: 1, slowT: 0, fastT: 0, avg: 16.7 };
 function applyQuality() {
-  const pr = Math.min(window.devicePixelRatio || 1, quality.pixelRatioMax) * quality.pixelRatioScale;
+  const pr = Math.max(0.5, Math.min(window.devicePixelRatio || 1, quality.pixelRatioMax) * quality.pixelRatioScale * dyn.scale);
   renderer.setPixelRatio(pr);
   renderer.shadowMap.enabled = !!quality.shadows;
   onResize();
@@ -112,7 +114,7 @@ applyQuality();
 // ---------------------------------------------------------------------------------------------
 const input = new InputController();
 const audio = new AudioEngine();
-audio.setVolumes?.(save.settings.music, save.settings.sfx, save.settings.muted);
+audio.setVolumes?.(save.settings.music, save.settings.sfx, save.settings.muted, save.settings.voice, save.settings.voiceMuted);
 const hud = new HUD(uiRoot);
 const touch = new TouchControls(uiRoot, input);
 const app = {
@@ -132,10 +134,11 @@ const screens = new Screens(uiRoot, app);
 hud.setPortraitProvider((c) => portraitOf(c.id));
 
 function settingsChanged(key, value) {
-  if (key === 'music' || key === 'sfx' || key === 'muted') audio.setVolumes?.(save.settings.music, save.settings.sfx, save.settings.muted);
+  if (key === 'music' || key === 'sfx' || key === 'muted') audio.setVolumes?.(save.settings.music, save.settings.sfx, save.settings.muted, save.settings.voice, save.settings.voiceMuted);
   if (key === 'quality') {
     const prevBloom = quality.bloom;
     quality = resolvePreset(value, save.autoQuality);
+    dyn.scale = 1;
     applyQuality();
     if (prevBloom !== quality.bloom) setupPost();
     hud.toast(t('set.quality') + ': ' + t('q.' + quality.name));
@@ -551,6 +554,7 @@ async function runTimeTrial(player, s) {
     const best = res.lapTimes && res.lapTimes.length ? Math.min(...res.lapTimes) : null;
     const total = res.results.find((r) => r.isPlayer)?.time;
     const newBestLap = Save.recordBestLap(s.trackKey, best);
+    if (newBestLap) bus.emit('tt:record');
     Save.recordBestRace(s.trackKey, total);
     let ghostSaved = false;
     if (newBestLap && lastBestGhost) ghostSaved = Save.saveGhost(s.trackKey, lastBestGhost);
@@ -688,6 +692,28 @@ function checkHazards(w) {
   }
 }
 
+// Steering assist (default on in Chill): when the player is not steering hard or drifting, gently turn towards a
+// point ahead on the road and away from the walls. Real input always wins over the assist.
+const _aT = new THREE.Vector3();
+function assistOn(w) {
+  const a = save.settings.assist || 'auto';
+  if (a === 'off' || !w.opts || w.opts.timeTrial) return false;
+  return a === 'on' || (DIFFICULTY[w.opts.cls] && DIFFICULTY[w.opts.cls].assist) || false;
+}
+function steeringAssist(w, k) {
+  const inp = k.input;
+  if (k.drifting || k.airborne || Math.abs(k.speed) < 6) return;
+  const tr = w.track;
+  const look = Math.min(30, 10 + Math.abs(k.speed) * 0.45) / tr.length;
+  tr.pointAtLat(k.trackT + look, Math.max(-6, Math.min(6, k.lateral * 0.4)), _aT);
+  const want = Math.atan2(_aT.x - k.position.x, _aT.z - k.position.z);
+  let d = want - k.heading; d = Math.atan2(Math.sin(d), Math.cos(d));
+  const help = Math.max(-1, Math.min(1, -d * 2.2));
+  const user = inp.steer || 0;
+  const strength = Math.abs(user) > 0.6 ? 0.15 : 0.55;   // mostly yields to the player
+  inp.steer = Math.max(-1, Math.min(1, user + help * strength * (1 - Math.abs(user) * 0.5)));
+}
+
 function simulate(w, dt) {
   time += dt;
   TIME.value = time;
@@ -709,6 +735,7 @@ function simulate(w, dt) {
       player.input = { ...NEUTRAL };
     } else {
       player.input = raw || { ...NEUTRAL };
+      if (assistOn(w)) safe('assist', () => steeringAssist(w, player));
     }
   }
   for (let i = 0; i < w.ais.length; i++) {
@@ -776,14 +803,79 @@ function render(dt) {
     else renderer.render(scene, cam);
   } catch (e) { report('render', e); }
   lastInfo.calls = renderer.info.render.calls; lastInfo.triangles = renderer.info.render.triangles;
+  safe('turntable', () => renderTurntable(dt));
 }
 const lastInfo = { calls: 0, triangles: 0 };
 
+// ---------------------------------------------------------------------------------------------
+// Racer-select turntable: the chosen racer spins on a little stage drawn into the menu's stage rectangle
+// ---------------------------------------------------------------------------------------------
+const turntable = { scene: null, cam: null, model: null, key: '', angle: 0, silhouette: null };
+function renderTurntable(dt) {
+  const info = menu.turntableInfo && menu.turntableInfo();
+  if (!info) return;
+  if (!turntable.scene) {
+    const sc = new THREE.Scene();
+    sc.add(new THREE.HemisphereLight(0xfff4dc, 0x7a5f86, 1.25));
+    const key = new THREE.DirectionalLight(0xffffff, 2.3); key.position.set(3, 5, 4); sc.add(key);
+    const disc = new THREE.Mesh(new THREE.CylinderGeometry(2.1, 2.2, 0.25, 48), new THREE.MeshToonMaterial({ color: 0xfff4dc }));
+    disc.position.y = -0.13; sc.add(disc);
+    const rim = new THREE.Mesh(new THREE.TorusGeometry(2.15, 0.06, 6, 48).rotateX(Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0x2b1d2e }));
+    rim.position.y = 0.0; sc.add(rim);
+    // backdrop: a big cream "sticker" disc behind the kart so it reads over the busy menu background
+    const back = new THREE.Mesh(new THREE.CircleGeometry(2.55, 48), new THREE.MeshBasicMaterial({ color: 0xfff4dc, toneMapped: false }));
+    const backRim = new THREE.Mesh(new THREE.RingGeometry(2.55, 2.75, 48), new THREE.MeshBasicMaterial({ color: 0x2b1d2e, toneMapped: false }));
+    back.position.set(0, 1.25, -2.2); backRim.position.copy(back.position); sc.add(back, backRim);
+    turntable.backdrop = [back, backRim];
+    turntable.scene = sc;
+    turntable.cam = new THREE.PerspectiveCamera(30, 1, 0.1, 50);
+    turntable.silhouette = new THREE.MeshBasicMaterial({ color: 0x2b1d2e });
+  }
+  const k = `${info.id}|${info.paint}|${info.locked}`;
+  if (k !== turntable.key) {
+    if (turntable.model) { turntable.scene.remove(turntable.model.root); turntable.model.dispose(); }
+    const c = characterById(info.id);
+    turntable.model = makeKartModel(c, { paint: paintFor(c, info.paint), outline: !info.locked });
+    if (info.locked) turntable.model.root.traverse((o) => { if (o.isMesh) o.material = turntable.silhouette; });
+    turntable.scene.add(turntable.model.root);
+    turntable.key = k;
+  }
+  turntable.angle += dt * 0.8;
+  const m = turntable.model;
+  m.root.rotation.y = turntable.angle;
+  m.animate && m.animate({ dt, speed: 0, steer: Math.sin(turntable.angle * 1.3) * 0.3, time: turntable.angle });
+  const r = info.rect;
+  const cam = turntable.cam;
+  cam.aspect = r.width / r.height; cam.updateProjectionMatrix();
+  const fit = Math.max(2.6 / Math.tan(THREE.MathUtils.degToRad(cam.fov / 2)), 2.4 / (Math.tan(THREE.MathUtils.degToRad(cam.fov / 2)) * cam.aspect));
+  cam.position.set(0, 1.7, fit * 0.6); cam.lookAt(0, 0.9, 0);
+  for (const b of turntable.backdrop) b.lookAt(cam.position);
+  const H = window.innerHeight;
+  renderer.setScissorTest(true);
+  renderer.setScissor(r.left, H - r.bottom, r.width, r.height);
+  renderer.setViewport(r.left, H - r.bottom, r.width, r.height);
+  renderer.clearDepth();
+  const ac = renderer.autoClear; renderer.autoClear = false;
+  renderer.render(turntable.scene, cam);
+  renderer.autoClear = ac;
+  renderer.setScissorTest(false);
+  renderer.setViewport(0, 0, window.innerWidth, window.innerHeight);
+}
+
 let fpsAcc = 0, fpsN = 0;
+function updateDynamicResolution(rawDt) {
+  if (rawDt > 0.25 || document.hidden) return;              // tab switch / hitch: ignore
+  const ms = rawDt * 1000;
+  dyn.avg += (ms - dyn.avg) * 0.08;
+  if (dyn.avg > 20) { dyn.slowT += rawDt; dyn.fastT = 0; } else if (dyn.avg < 13.5) { dyn.fastT += rawDt; dyn.slowT = 0; } else { dyn.slowT = 0; dyn.fastT = 0; }
+  if (dyn.slowT > 3 && dyn.scale > 0.55) { dyn.scale = Math.max(0.55, dyn.scale - 0.15); dyn.slowT = 0; applyQuality(); }
+  else if (dyn.fastT > 5 && dyn.scale < 1) { dyn.scale = Math.min(1, dyn.scale + 0.1); dyn.fastT = 0; applyQuality(); }
+}
 function frame() {
   requestAnimationFrame(frame);
   const rawDt = clock.getDelta();
   if (debug.manual) return;
+  updateDynamicResolution(rawDt);
   fpsAcc += rawDt; fpsN++;
   if (fpsAcc > 1) { debug.fps = fpsN / fpsAcc; debug.frameMs = 1000 * fpsAcc / fpsN; fpsAcc = 0; fpsN = 0; }
   tick(Math.min(rawDt, 1 / 30), rawDt, true);
@@ -813,6 +905,12 @@ async function boot() {
   menu.showTitle();
   setState('title');
   audio.playMusic('menu');
+  // announcer lines load in the background (small mp3s)
+  loadGroup(groupFiles('audio')).then(() => {
+    const map = {};
+    for (const p of groupFiles('audio')) if (p.startsWith('audio/voice/')) map[p.split('/').pop().replace('.mp3', '')] = getAsset(p);
+    audio.setVoiceData(map);
+  }).catch((e) => report('voice', e));
 }
 boot();
 
@@ -824,6 +922,7 @@ window.__game = {
   get world() { return world; },
   get session() { return session; },
   get quality() { return quality; },
+  dyn,
   audio, hud, menu, screens, renderer, camera, bus, save: Save, input, touch,
   startSession: (s) => startSession(s),
   goToMenu,

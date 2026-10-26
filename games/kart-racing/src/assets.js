@@ -3,7 +3,7 @@
 import * as THREE from 'three';
 
 export const HF_REPO = 'Sensen02/games-assets';
-export const HF_COMMIT = '38e8f4ac589791414fe1a163abbfe4cf5ee8a907';
+export const HF_COMMIT = 'f38bf23a9ef805975282067024eaa82163830f2b';
 const HF_BASE = `https://huggingface.co/datasets/${HF_REPO}/resolve/${HF_COMMIT}/kart-racing/`;
 
 const params = new URLSearchParams(location.search);
@@ -50,12 +50,16 @@ async function fetchBytes(path, onBytes) {
   return out.buffer;
 }
 
+const blobURLs = new Map();     // path -> object URL of the downloaded bytes (reused by <img> in the UI)
+/** URL for an image used in the DOM: the already-downloaded blob when available (no second network fetch). */
+export function uiURL(path) { return blobURLs.get(path) || assetURL(path); }
+
 function decodeImage(buf, path) {
   return new Promise((resolve, reject) => {
     const type = path.endsWith('.png') ? 'image/png' : path.endsWith('.jpg') ? 'image/jpeg' : 'image/webp';
     const url = URL.createObjectURL(new Blob([buf], { type }));
     const img = new Image();
-    img.onload = () => { resolve(img); };
+    img.onload = () => { blobURLs.set(path, url); resolve(img); };
     img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('decode failed ' + path)); };
     img.src = url;
   });

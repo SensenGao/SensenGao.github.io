@@ -2,15 +2,15 @@
 export const PRESETS = {
   low: {
     name: 'low', pixelRatioMax: 1, pixelRatioScale: 0.8, shadows: false, shadowMap: 1024, shadowExtent: 55,
-    outlines: true, crowdOutlines: false, kartInkDist: 45, bloom: false, terrainDetail: 0.55, particles: 0.45, props: 0.55, antialias: false, fogScale: 0.8,
+    outlines: true, propOutlines: false, crowdOutlines: false, kartInkDist: 45, bloom: false, terrainDetail: 0.55, particles: 0.45, props: 0.55, antialias: false, fogScale: 0.8,
   },
   medium: {
     name: 'medium', pixelRatioMax: 1.25, pixelRatioScale: 1, shadows: true, shadowMap: 1024, shadowExtent: 60,
-    outlines: true, crowdOutlines: false, kartInkDist: 70, bloom: false, terrainDetail: 0.75, particles: 0.8, props: 0.8, antialias: true, fogScale: 1,
+    outlines: true, propOutlines: false, crowdOutlines: false, kartInkDist: 70, bloom: false, terrainDetail: 0.75, particles: 0.8, props: 0.8, antialias: true, fogScale: 1,
   },
   high: {
     name: 'high', pixelRatioMax: 2, pixelRatioScale: 1, shadows: true, shadowMap: 2048, shadowExtent: 75,
-    outlines: true, crowdOutlines: true, kartInkDist: 140, bloom: true, terrainDetail: 1, particles: 1, props: 1, antialias: true, fogScale: 1,
+    outlines: true, propOutlines: true, crowdOutlines: true, kartInkDist: 140, bloom: true, terrainDetail: 1, particles: 1, props: 1, antialias: true, fogScale: 1,
   },
 };
 

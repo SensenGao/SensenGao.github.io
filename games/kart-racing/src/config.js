@@ -69,9 +69,10 @@ export const ITEM_INFO = {
 
 // Classes (difficulty). aiSpeedFactor scales AI top speed, aiSkill = line accuracy / drift / item smarts.
 export const DIFFICULTY = {
-  chill: { aiSpeedFactor: 0.86, aiSkill: 0.55, rubberBand: 0.08, name: 'Chill', zh: '悠闲', cc: 'CHILL' },
-  zoom:  { aiSpeedFactor: 0.95, aiSkill: 0.78, rubberBand: 0.12, name: 'Zoom', zh: '飞驰', cc: 'ZOOM' },
-  turbo: { aiSpeedFactor: 1.01, aiSkill: 0.96, rubberBand: 0.16, name: 'Turbo', zh: '涡轮', cc: 'TURBO' },
+  // catchUp: extra speed when an AI is behind the player; easeOff: slow-down when it is ahead (rubber band).
+  chill: { aiSpeedFactor: 0.83, aiSkill: 0.42, rubberBand: 0.08, catchUp: 0.03, easeOff: 0.16, assist: true, name: 'Chill', zh: '悠闲', cc: 'CHILL' },
+  zoom:  { aiSpeedFactor: 0.93, aiSkill: 0.76, rubberBand: 0.12, catchUp: 0.1, easeOff: 0.1, name: 'Zoom', zh: '飞驰', cc: 'ZOOM' },
+  turbo: { aiSpeedFactor: 1.01, aiSkill: 0.96, rubberBand: 0.16, catchUp: 0.16, easeOff: 0.05, name: 'Turbo', zh: '涡轮', cc: 'TURBO' },
 };
 export const CLASS_ORDER = ['chill', 'zoom', 'turbo'];
 // legacy aliases used by older modules

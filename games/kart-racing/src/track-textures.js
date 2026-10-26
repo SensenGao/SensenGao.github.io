@@ -241,3 +241,17 @@ export function makeStripeTexture(a = '#ffffff', b = '#e8322f', n = 8) {
   for (let i = 0; i < n; i++) { ctx.fillStyle = i % 2 ? b : a; ctx.fillRect(i * 256 / n, 0, 256 / n, 16); }
   return finish(c);
 }
+
+/** Corner warning board: three sunshine chevrons pointing right on a plum board with a cream border. */
+export function makeChevronTexture() {
+  const W = 256, H = 128;
+  const [c, ctx] = canvas(W, H);
+  ctx.fillStyle = '#fff4dc'; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = '#2b1d2e'; ctx.fillRect(8, 8, W - 16, H - 16);
+  ctx.fillStyle = '#ffd23f';
+  for (let k = 0; k < 3; k++) {
+    const x = 34 + k * 66;
+    ctx.beginPath(); ctx.moveTo(x, 22); ctx.lineTo(x + 34, 64); ctx.lineTo(x, 106); ctx.lineTo(x + 20, 106); ctx.lineTo(x + 54, 64); ctx.lineTo(x + 20, 22); ctx.closePath(); ctx.fill();
+  }
+  return finish(c, { repeat: false });
+}

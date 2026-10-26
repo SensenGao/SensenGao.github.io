@@ -1,6 +1,6 @@
 // Character portraits rendered in-engine from the actual 3D racer models (so menus/HUD always match the karts).
 import * as THREE from 'three';
-import { createRacerModel, hasRacer } from './racers.js';
+import { createRacerModel, hasRacer, racerHeadBounds } from './racers.js';
 
 const cache = new Map();
 
@@ -30,11 +30,15 @@ export function renderPortraits(renderer, characters, size = 256) {
     scene.add(m.root);
     m.animate({ dt: 0.016, speed: 0, steer: 0.15 });
     m.root.updateMatrixWorld(true);
-    const hb = m.skeleton.bones.find((b) => b.name === 'head');
-    if (hb) hb.getWorldPosition(head); else head.set(0, 1.35, -0.2);
-    head.y += 0.12;
-    cam.position.set(head.x + 0.75, head.y + 0.12, head.z + 2.05);
-    cam.lookAt(head.x, head.y - 0.02, head.z);
+    // frame the head and everything on it (ears, horns, antenna, helmet, gills) with a margin
+    const hb = racerHeadBounds(c.id);
+    let radius = 0.45;
+    if (hb) { hb.min.y -= 0.12; hb.getCenter(head); const sz = hb.getSize(new THREE.Vector3()); radius = Math.max(sz.x, sz.y) * 0.5; }
+    else head.set(0, 1.4, -0.2);
+    const dist = (radius * 1.22) / Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));
+    const dir = new THREE.Vector3(0.36, 0.1, 1).normalize();
+    cam.position.copy(head).addScaledVector(dir, dist);
+    cam.lookAt(head);
     renderer.setViewport(0, 0, css, css); renderer.setScissor(0, 0, css, css); renderer.setScissorTest(true);
     renderer.setClearColor(0x000000, 0);
     renderer.clear();

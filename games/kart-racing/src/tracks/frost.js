@@ -92,6 +92,7 @@ export default {
     { type: 'ice', from: 27.7, to: 28.3, lat: -1, hw: 9 },
   ],
   style: {
+    chevrons: false,   // this track places its own chevron boards
     roadTex: 'textures/common/road_frost.webp', roadTint: 0xffffff, roadAlongScale: 24,
     offroadTex: 'textures/common/snow.webp', offroadTint: 0xdfe7ff, offroadScale: 8,
     deckTex: 'textures/common/wood_planks.webp',

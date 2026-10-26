@@ -4,7 +4,7 @@ import { bus } from './events.js';
 import { CHARACTERS, PAINTS, CUPS, TRACKS, CLASS_ORDER, DIFFICULTY } from './config.js';
 import { MISSIONS } from './missions.js';
 import * as Save from './save.js';
-import { assetURL } from './assets.js';
+import { assetURL, uiURL } from './assets.js';
 import { t, lang } from './i18n.js';
 import { CREDITS_HTML } from './credits.js';
 
@@ -38,7 +38,7 @@ export class Menu {
   _buildLoading() {
     this.loadEl = el('div', 'screen loading-screen hidden', this.uiRoot);
     this.loadEl.innerHTML = `
-      <div class="load-logo"><img src="${assetURL('ui/logo.webp')}" alt="Zoomies GP" onerror="this.style.display='none'"></div>
+      <div class="load-logo"><img src="${uiURL('ui/logo.webp')}" alt="Zoomies GP" onerror="this.style.display='none'"></div>
       <div class="load-text">LOADING</div>
       <div class="load-bar"><div class="load-fill"></div></div>
       <div class="load-pct">0%</div>`;
@@ -62,14 +62,21 @@ export class Menu {
   // ------------------------------------------------------------------ title
   _buildTitle() {
     this.titleEl = el('div', 'screen title-screen hidden', this.uiRoot);
-    this.titleEl.addEventListener('click', () => { if (this.screen === 'title') { this.app.audio.unlock?.(); this._sfx('confirm'); this.showMain(); } });
+    this.titleEl.addEventListener('click', () => { if (this.screen === 'title') this._leaveTitle(); });
+  }
+  _leaveTitle() {
+    this.app.audio.unlock?.();
+    this._sfx('confirm');
+    if (!this._welcomed) { this._welcomed = true; setTimeout(() => bus.emit('ui:welcome'), 250); }
+    this.showMain();
   }
   showTitle() {
     this._closeAll();
     this.titleEl.innerHTML = `
       <div class="title-vignette"></div>
-      <img class="title-logo" src="${assetURL('ui/logo.webp')}" alt="Zoomies GP">
+      <img class="title-logo" src="${uiURL('ui/logo.webp')}" alt="Zoomies GP">
       <div class="title-tag">${t('title.tag')}</div>
+      <button class="sticker start-btn">${t('start')} ▶</button>
       <div class="press-start">${t('title.press')}</div>
       <div class="title-foot">${t('controls')}</div>`;
     this.titleEl.classList.remove('hidden');
@@ -145,6 +152,14 @@ export class Menu {
   hideAll() { this._closeAll(); this.hidePause(); }
   refresh() { if (this.screen === 'title') this.showTitle(); else this.refreshPage(); if (this.pauseEl) { this.hidePause(); this.showPause(); } }
   focusRacer() { return this.screen === 'page' ? this._focusRacer : null; }
+  /** Racer-select turntable: { id, paint, locked, rect } while the racer page is on screen. */
+  turntableInfo() {
+    const tt = this._turn;
+    if (!tt || this.screen !== 'page' || !this.page || !tt.el.isConnected || this.page.el.classList.contains('hidden')) return null;
+    const r = tt.el.getBoundingClientRect();
+    if (r.width < 20 || r.height < 20) return null;
+    return { id: tt.id, paint: tt.paint, locked: tt.locked, rect: r };
+  }
   subPageOpen() { return !!(this.pauseEl && this.pauseSub); }
 
   _sfx(kind) { bus.emit(kind === 'move' ? 'ui:move' : kind === 'back' ? 'ui:back' : kind === 'error' ? 'ui:error' : 'ui:confirm'); }
@@ -158,14 +173,14 @@ export class Menu {
       cls: 'main-menu', title: '', root: true,
       onBack: () => this.showTitle(),
       build: (body) => {
-        body.innerHTML = `<img class="main-logo" src="${assetURL('ui/logo.webp')}" alt="Zoomies GP"><div class="main-cols"><div class="main-list"></div><div class="main-side"></div></div>`;
+        body.innerHTML = `<img class="main-logo" src="${uiURL('ui/logo.webp')}" alt="Zoomies GP"><div class="main-cols"><div class="main-list"></div><div class="main-side"></div></div>`;
         const list = body.querySelector('.main-list');
         const side = body.querySelector('.main-side');
         const trophies = CUPS.map((c) => {
           const tr = sv.trophies[c.id] || {};
           return `<div class="trophy-row"><span>${t.label(c)}</span>${CLASS_ORDER.map((k) => `<b class="cup ${tr[k] || 'none'}" title="${t('class.' + k)}">${t('class.' + k)[0]}</b>`).join('')}</div>`;
         }).join('');
-        side.innerHTML = `<div class="sticker side-card"><div class="side-stars"><img src="${assetURL('ui/icons/star.webp')}" alt=""> <span>${t('menu.stars', { n: total })}</span></div><div class="side-title">${t('menu.trophies')}</div>${trophies}</div>`;
+        side.innerHTML = `<div class="sticker side-card"><div class="side-stars"><img src="${uiURL('ui/icons/star.webp')}" alt=""> <span>${t('menu.stars', { n: total })}</span></div><div class="side-title">${t('menu.trophies')}</div>${trophies}</div>`;
         const items = [];
         const entries = [
           ['gp', 'menu.gp', () => this.flowGP()], ['quick', 'menu.quick', () => this.flowQuick()], ['tt', 'menu.tt', () => this.flowTT()],
@@ -199,7 +214,7 @@ export class Menu {
     this.push({
       cls: 'missions-page', title: t('menu.missions'), cols: 5,
       build: (body, page) => {
-        page.extra.innerHTML = `<span class="hdr-stars"><img src="${assetURL('ui/icons/star.webp')}" alt="">${Save.totalStars()} / ${MISSIONS.length * 3}</span>`;
+        page.extra.innerHTML = `<span class="hdr-stars"><img src="${uiURL('ui/icons/star.webp')}" alt="">${Save.totalStars()} / ${MISSIONS.length * 3}</span>`;
         const grid = el('div', 'mission-grid', body);
         const info = el('div', 'sticker mission-info', body);
         return MISSIONS.map((m, i) => {
@@ -227,7 +242,7 @@ export class Menu {
           const tr = sv.trophies[cup.id] || {};
           const tracks = cup.races.map((k) => t.label(TRACKS.find((x) => x.key === k))).join('<br>');
           const card = el('button', 'sticker cup-card', row, `
-            <img class="cup-icon" src="${assetURL('ui/icons/trophy.webp')}" alt="">
+            <img class="cup-icon" src="${uiURL('ui/icons/trophy.webp')}" alt="">
             <div class="cup-name">${t.label(cup)}</div>
             <div class="cup-tracks">${ok ? tracks : '<i class="lock"></i>' + Save.unlockText(cup.unlock, t)}</div>
             <div class="cup-trophies">${CLASS_ORDER.map((k) => `<b class="cup ${tr[k] || 'none'}">${t('class.' + k)}</b>`).join('')}</div>`);
@@ -260,7 +275,7 @@ export class Menu {
           const ok = Save.trackUnlocked(tr);
           const best = tt ? sv.bestLap[tr.key] : null;
           const card = el('button', 'sticker track-card track-' + tr.thumb, row, `
-            <div class="tc-thumb" style="background-image:url('${assetURL('ui/thumbs/' + tr.thumb + '.webp')}')"></div>
+            <div class="tc-thumb" style="background-image:url('${uiURL('ui/thumbs/' + tr.thumb + '.webp')}')"></div>
             <div class="tc-name">${t.label(tr)}</div>
             <div class="tc-sub">${ok ? (tt ? (best ? t('tt.best') + ' ' + fmt(best) : t('tt.noghost')) : '') : '<i class="lock"></i>' + Save.unlockText(tr.unlock, t)}</div>`);
           if (!ok) card.classList.add('locked');
@@ -277,9 +292,10 @@ export class Menu {
     this.push({
       cls: 'racer-page', title: t('choose.racer'), cols: 5,
       build: (body, page) => {
-        body.innerHTML = '<div class="racer-grid"></div><div class="sticker racer-panel"></div>';
+        body.innerHTML = '<div class="racer-grid"></div><div class="racer-side"><div class="rp-stage"></div><div class="sticker racer-panel"></div></div>';
         const grid = body.querySelector('.racer-grid');
         const panel = body.querySelector('.racer-panel');
+        const stage = body.querySelector('.rp-stage');
         const items = CHARACTERS.map((c, i) => {
           const ok = Save.racerUnlocked(c);
           const card = el('button', 'sticker racer-card', grid, `
@@ -288,19 +304,18 @@ export class Menu {
           card.style.setProperty('--kc', hex(c.color));
           if (!ok) card.classList.add('locked');
           const showPanel = () => {
-            this._focusRacer = ok ? c.id : null;
+            this._focusRacer = null;
             const unlockedPaints = PAINTS.filter((p) => Save.paintUnlocked(p));
             let pi = paintIdx[c.id];
             if (pi == null) { const want = sv.paint[c.id] || 'stock'; pi = Math.max(0, unlockedPaints.findIndex((p) => p.id === want)); paintIdx[c.id] = pi; }
             const paint = unlockedPaints[pi] || PAINTS[0];
+            this._turn = { id: c.id, paint: paint.id, locked: !ok, el: stage };
             panel.innerHTML = ok ? `
-              <div class="rp-portrait" style="--kc:${hex(c.color)}"><img src="${this.app.portrait(c.id)}" alt=""></div>
               <div class="rp-name">${t.label(c)}</div>
               <div class="rp-species">${t.field(c, 'species')} · ${t.field(c, 'kart')}</div>
               <div class="rp-stats">${STAT_KEYS.map((k) => `<div class="stat"><span>${t('stat.' + k)}</span><div class="bar">${[1, 2, 3, 4, 5].map((v) => `<i class="${v <= c.stats[k] ? 'on' : ''}"></i>`).join('')}</div></div>`).join('')}</div>
               <div class="rp-paint"><span>${t('paint')}</span><button class="arrow pl">◀</button><b>${t.label(paint)}</b><button class="arrow pr">▶</button><em>${PAINTS.length - unlockedPaints.length ? '<i class="lock"></i>' + (PAINTS.length - unlockedPaints.length) : ''}</em></div>
               <button class="sticker go-btn">${t('start')} ▶</button>` : `
-              <div class="rp-portrait locked" style="--kc:#555"><img src="${this.app.portrait(c.id)}" alt=""></div>
               <div class="rp-name">???</div><div class="rp-lock"><i class="lock"></i>${Save.unlockText(c.unlock, t)}</div>`;
             const cyc = (d) => { paintIdx[c.id] = (pi + d + unlockedPaints.length) % unlockedPaints.length; this._sfx('move'); showPanel(); };
             panel.querySelector('.pl')?.addEventListener('click', (e) => { e.stopPropagation(); cyc(-1); });
@@ -329,9 +344,12 @@ export class Menu {
     const rows = [
       { key: 'music', label: 'set.music', get: () => Math.round(s.music * 10), fmt: (v) => `${'■'.repeat(v)}${'□'.repeat(10 - v)}`, step: (d) => { Save.setSetting('music', Math.max(0, Math.min(1, Math.round(s.music * 10 + d) / 10))); this.app.settingsChanged('music'); } },
       { key: 'sfx', label: 'set.sfx', get: () => Math.round(s.sfx * 10), fmt: (v) => `${'■'.repeat(v)}${'□'.repeat(10 - v)}`, step: (d) => { Save.setSetting('sfx', Math.max(0, Math.min(1, Math.round(s.sfx * 10 + d) / 10))); this.app.settingsChanged('sfx'); bus.emit('ui:move'); } },
+      { key: 'voice', label: 'set.voice', get: () => Math.round((s.voice ?? 0.9) * 10), fmt: (v) => `${'■'.repeat(v)}${'□'.repeat(10 - v)}`, step: (d) => { Save.setSetting('voice', Math.max(0, Math.min(1, Math.round((s.voice ?? 0.9) * 10 + d) / 10))); this.app.settingsChanged('voice'); this.app.audio.say?.('go'); } },
+      { key: 'voiceMuted', label: 'set.voiceMute', get: () => !s.voiceMuted, fmt: (v) => (v ? t('on') : t('off')), step: () => { Save.setSetting('voiceMuted', !s.voiceMuted); this.app.settingsChanged('voiceMuted'); } },
       { key: 'muted', label: 'set.mute', get: () => s.muted, fmt: (v) => (v ? t('on') : t('off')), step: () => { Save.setSetting('muted', !s.muted); this.app.settingsChanged('muted'); } },
       { key: 'quality', label: 'set.quality', get: () => s.quality, fmt: qName, step: (d) => { const opts = ['auto', 'low', 'medium', 'high']; const i = (opts.indexOf(s.quality) + d + opts.length) % opts.length; Save.setSetting('quality', opts[i]); this.app.settingsChanged('quality', opts[i]); } },
       { key: 'lang', label: 'set.lang', get: () => s.lang, fmt: (v) => (v === 'zh' ? '中文' : 'English'), step: () => { Save.setSetting('lang', s.lang === 'zh' ? 'en' : 'zh'); document.documentElement.lang = s.lang; this.app.settingsChanged('lang'); } },
+      { key: 'assist', label: 'set.assist', get: () => s.assist || 'auto', fmt: (v) => t('assist.' + v), step: (d) => { const o = ['auto', 'on', 'off']; Save.setSetting('assist', o[(o.indexOf(s.assist || 'auto') + d + 3) % 3]); } },
       { key: 'shake', label: 'set.shake', get: () => s.shake, fmt: (v) => (v ? t('on') : t('off')), step: () => Save.setSetting('shake', !s.shake) },
       { key: 'autoAccel', label: 'set.auto', get: () => s.autoAccel, fmt: (v) => (v ? t('on') : t('off')), step: () => Save.setSetting('autoAccel', !s.autoAccel) },
     ];
@@ -396,7 +414,7 @@ export class Menu {
     if (!inp) return;
     const press = (a) => inp.consumePressed(a);
     if (this.screen === 'title') {
-      if (press('confirm') || press('accelerate')) { this.app.audio.unlock?.(); this._sfx('confirm'); this.showMain(); }
+      if (press('confirm') || press('accelerate')) this._leaveTitle();
       return;
     }
     let p = null;

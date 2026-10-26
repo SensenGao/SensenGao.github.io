@@ -2,7 +2,7 @@
 // announcements. Each method returns a Promise that resolves with the id of the button the player picked.
 import { bus } from './events.js';
 import { trackByKey } from './config.js';
-import { assetURL } from './assets.js';
+import { assetURL, uiURL } from './assets.js';
 import { t } from './i18n.js';
 import { formatTime } from './race.js';
 
@@ -114,7 +114,7 @@ export class Screens {
     const msg = trophy ? t('gp.trophy.' + trophy) : t('gp.trophy.none');
     const html = `<div class="post-title">${t('gp.podium')}</div><div class="post-sub">${t.label(cup)}</div>
       <div class="podium-names">${top3.map((c, i) => `<div class="pn pn${i + 1}"><b>${i + 1}</b> ${t.label(c)}</div>`).join('')}</div>
-      <div class="trophy-banner ${trophy || 'none'}">${trophy ? `<img src="${assetURL('ui/icons/trophy.webp')}" alt="">` : ''}<span>${msg}</span></div>`;
+      <div class="trophy-banner ${trophy || 'none'}">${trophy ? `<img src="${uiURL('ui/icons/trophy.webp')}" alt="">` : ''}<span>${msg}</span></div>`;
     void player;
     return this._open(html, buttons, 'podium-screen');
   }

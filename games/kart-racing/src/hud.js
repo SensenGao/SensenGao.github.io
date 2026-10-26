@@ -3,7 +3,7 @@
 import { bus } from './events.js';
 import { ITEMS, ITEM_INFO, CHARACTERS } from './config.js';
 import { formatTime } from './race.js';
-import { assetURL } from './assets.js';
+import { assetURL, uiURL } from './assets.js';
 import { t } from './i18n.js';
 
 const hex = (c) => '#' + (c >>> 0).toString(16).padStart(6, '0').slice(-6);
@@ -31,7 +31,7 @@ function restartAnim(e, cls) {
 // Item icons: painted images (ui/icons/*.webp on the asset host)
 export function itemIcon(type) {
   const info = ITEM_INFO[type];
-  return info ? assetURL(info.icon) : '';
+  return info ? uiURL(info.icon) : '';
 }
 
 // ---------------------------------------------------------------------------------------------

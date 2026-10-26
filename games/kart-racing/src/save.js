@@ -8,7 +8,7 @@ const GHOST_PREFIX = 'zoomiesgp.ghost.v1.';
 
 const DEFAULT = () => ({
   v: 1,
-  settings: { music: 0.6, sfx: 0.8, muted: false, quality: 'auto', lang: 'en', shake: true, autoAccel: false },
+  settings: { music: 0.6, sfx: 0.8, voice: 0.9, muted: false, voiceMuted: false, quality: 'auto', lang: 'en', shake: true, autoAccel: false, assist: 'auto' },
   stars: {},            // missionId -> best stars (0..3)
   missionBest: {},      // missionId -> best score
   trophies: {},         // cupId -> { chill: 'gold'|'silver'|'bronze', zoom: ..., turbo: ... }

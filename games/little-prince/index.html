@@ -9,7 +9,7 @@
 <title>Two Small Worlds — a Little Prince fan homage</title>
 <meta name="description" content="A calm watercolour 3D story game in two chapters: Asteroid B-612 and The Fox. Unofficial fan homage inspired by The Little Prince by Antoine de Saint-Exupéry.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=0.3.1">
+<link rel="stylesheet" href="style.css?v=0.4.0">
 </head>
 <body>
 <canvas id="c" tabindex="0" aria-label="game"></canvas>
@@ -28,7 +28,7 @@
 <script>
 // Real-progress loader for the game bundle (sizes are written in at build time).
 (function () {
-  var BUNDLE = 'game.js?v=0.3.1', SIZE = 965304;
+  var BUNDLE = 'game.js?v=0.4.0', SIZE = 969429;
   var fill = document.getElementById('loaderFill'), pct = document.getElementById('loaderPct');
   window.__loadProgress = function (p) { p = Math.max(0, Math.min(1, p)); fill.style.width = (p * 100).toFixed(1) + '%'; pct.textContent = Math.round(p * 100) + '%'; };
   function fail(msg) { document.getElementById('loaderErr').textContent = msg; }

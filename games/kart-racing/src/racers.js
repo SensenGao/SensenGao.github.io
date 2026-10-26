@@ -92,6 +92,23 @@ export async function registerRacerGLB(id, arrayBuffer) {
 export function hasRacer(id) { return templates.has(id); }
 export function racerTemplate(id) { return templates.get(id) || null; }
 
+/** Rest-pose bounding box (model space) of the head bone and everything parented to it (ears, horns, helmet...). */
+export function racerHeadBounds(id) {
+  const tpl = templates.get(id);
+  if (!tpl) return null;
+  const names = new Set(['head']);
+  let grew = true;
+  while (grew) { grew = false; for (const b of tpl.bones) if (b.parent && names.has(b.parent) && !names.has(b.name)) { names.add(b.name); grew = true; } }
+  const idx = new Set(tpl.bones.map((b, i) => (names.has(b.name) ? i : -1)).filter((i) => i >= 0));
+  const box = new THREE.Box3();
+  for (const g of [tpl.opaque, tpl.glass]) {
+    if (!g) continue;
+    const pos = g.attributes.position, si = g.attributes.skinIndex;
+    for (let i = 0; i < pos.count; i++) if (idx.has(si.getX(i))) box.expandByPoint(_v.set(pos.getX(i), pos.getY(i), pos.getZ(i)));
+  }
+  return box.isEmpty() ? null : box;
+}
+
 let _sharedMats = null;
 function sharedMaterials() {
   if (_sharedMats) return _sharedMats;

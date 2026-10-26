@@ -185,3 +185,8 @@ body.touch #pauseBtn { display: none; }
 .hudmute { position: absolute; right: calc(14px + env(safe-area-inset-right, 0px)); bottom: calc(58px + var(--safe-b)); background: rgba(244, 235, 217, 0.6); color: var(--ink); }
 .mutebtn.muted { opacity: 0.85; }
 body.touch .hudmute { bottom: auto; top: calc(110px + var(--safe-t)); width: 46px; height: 46px; background: rgba(244, 235, 217, 0.78); }
+
+/* faded-out overlays are also removed from the visible / focusable tree once the fade has finished */
+#dialogue, #prompt, #hint, #card, #caption, #bond, #journal { transition-property: opacity, transform, visibility; }
+#dialogue.off, #prompt.off, #hint.off, #card.off, #caption.off, #bond.off, #journal.collapsed { visibility: hidden; transition-delay: 0s, 0s, 0.35s; }
+#card.off { transition-delay: 0s, 0s, 1.2s; }

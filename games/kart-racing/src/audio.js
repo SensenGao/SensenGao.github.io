@@ -131,6 +131,8 @@ export class AudioEngine {
 
     this.musicGain = ctx.createGain(); this.musicGain.gain.value = this._musicLevel(); this.musicGain.connect(this.master);
     this.sfxGain = ctx.createGain(); this.sfxGain.gain.value = 0.9 * (this.sfxVol ?? 0.8) / 0.8; this.sfxGain.connect(this.master);
+    this.voiceGain = ctx.createGain(); this.voiceGain.gain.value = this.voiceMuted ? 0 : (this.voiceVol ?? 0.9) * 1.1; this.voiceGain.connect(this.master);
+    this._decodeVoices();
 
     // shared noise buffer (2 s)
     const len = ctx.sampleRate * 2;
@@ -172,11 +174,14 @@ export class AudioEngine {
   _subscribe() {
     const on = (n, f) => this._offs.push(bus.on(n, (d) => { if (this.ctx) { try { f(d || {}); } catch (e) { console.warn('[audio]', n, e); } } }));
     const isP = (k) => k && k.isPlayer;
-    on('race:countdown', () => this.beep(440, 0.18, 'square', 0.22));
-    on('race:go', () => { this.beep(880, 0.55, 'square', 0.24); this.beep(1760, 0.4, 'sine', 0.08); });
+    on('race:countdown', (d) => { this.beep(440, 0.18, 'square', 0.14); this.say(String(d.n)); });
+    on('race:go', () => { this.beep(880, 0.55, 'square', 0.16); this.beep(1760, 0.4, 'sine', 0.06); this.say('go'); });
+    on('tt:record', () => this.say('record'));
+    on('mission:end', (d) => { if (d && d.stars > 0) setTimeout(() => this.say('mission'), 600); });
+    on('ui:welcome', () => this.say('welcome'));
     on('race:lap', (d) => { if (isP(d.kart)) this.lapChime(); });
-    on('race:finalLap', () => { this.finalLapJingle(); this.tempoScale = 1.12; });
-    on('race:finish', (d) => { if (isP(d.kart)) { this.fanfare(d.place); } });
+    on('race:finalLap', () => { this.finalLapJingle(); this.tempoScale = 1.12; setTimeout(() => this.say('final'), 300); });
+    on('race:finish', (d) => { if (isP(d.kart)) { this.fanfare(d.place); this.say(d.place === 1 ? 'win' : 'finish'); } });
     on('kart:driftLevel', (d) => { if (isP(d.kart) && d.level > 0) this.sparkTick(d.level); });
     on('kart:miniTurbo', (d) => { if (isP(d.kart)) this.whoosh(0.3 + 0.15 * (d.level || 1), 1 + 0.2 * (d.level || 1)); });
     on('kart:boost', (d) => { if (isP(d.kart) && d.source !== 'miniTurbo') this.whoosh(0.6, 1); });
@@ -212,15 +217,46 @@ export class AudioEngine {
     return this.muted;
   }
   setVolume(v) { this.volume = clamp(v, 0, 1); if (this.master && !this.muted) this.master.gain.value = this.volume; }
-  /** Settings: music / sfx volume 0..1 and global mute. */
-  setVolumes(music = 0.6, sfx = 0.8, muted = false) {
+  /** Settings: music / sfx / announcer volume 0..1, global mute and announcer mute. */
+  setVolumes(music = 0.6, sfx = 0.8, muted = false, voice = 0.9, voiceMuted = false) {
     this.musicVol = clamp(music, 0, 1); this.sfxVol = clamp(sfx, 0, 1); this.muted = !!muted;
+    this.voiceVol = clamp(voice ?? 0.9, 0, 1); this.voiceMuted = !!voiceMuted;
     if (!this.ctx) return;
     const t = this.ctx.currentTime;
+    if (this.voiceGain) this.voiceGain.gain.setTargetAtTime(this.voiceMuted ? 0 : this.voiceVol * 1.1, t, 0.05);
     this.master.gain.setTargetAtTime(this.muted ? 0 : this.volume, t, 0.03);
     this.musicGain.gain.setTargetAtTime((this.paused ? 0.14 : 0.42) * this.musicVol / 0.6, t, 0.05);
     this.sfxGain.gain.setTargetAtTime(0.9 * this.sfxVol / 0.8, t, 0.05);
   }
+  // ------------------------------------------------------------------ announcer voice lines
+  /** map id -> ArrayBuffer (mp3); decoded once the AudioContext exists. */
+  setVoiceData(map) { this.voiceRaw = { ...(this.voiceRaw || {}), ...map }; this._decodeVoices(); }
+  _decodeVoices() {
+    if (!this.ctx || !this.voiceRaw) return;
+    this.voiceBuf = this.voiceBuf || {};
+    for (const [id, buf] of Object.entries(this.voiceRaw)) {
+      if (this.voiceBuf[id] || !buf) continue;
+      this.voiceBuf[id] = 'pending';
+      this.ctx.decodeAudioData(buf.slice(0)).then((b) => {
+        this.voiceBuf[id] = b;
+        // a line requested while it was still decoding plays if it is still timely
+        if (this._wantSay && this._wantSay.id === id && performance.now() - this._wantSay.at < 1500) { this._wantSay = null; this.say(id); }
+      }).catch(() => { delete this.voiceBuf[id]; });
+    }
+  }
+  /** Play an announcer line (ducks the music a little). */
+  say(id) {
+    if (!this.ctx || this.muted || this.voiceMuted || !this.voiceBuf) return;
+    const b = this.voiceBuf[id];
+    if (b === 'pending') { this._wantSay = { id, at: performance.now() }; return; }
+    if (!b) return;
+    if (this._voiceSrc) { try { this._voiceSrc.stop(); } catch (e) { /* ignore */ } }
+    const src = this.ctx.createBufferSource(); src.buffer = b; src.connect(this.voiceGain); src.start();
+    this._voiceSrc = src;
+    const g = this.musicGain.gain, t = this.ctx.currentTime;
+    g.setTargetAtTime(this._musicLevel() * 0.45, t, 0.05); g.setTargetAtTime(this._musicLevel(), t + b.duration, 0.25);
+  }
+
   _musicLevel() { return (this.paused ? 0.14 : 0.42) * (this.musicVol ?? 0.6) / 0.6; }
 
   playMusic(name) {

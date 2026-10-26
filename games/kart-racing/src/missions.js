@@ -12,7 +12,7 @@ import { t } from './i18n.js';
  * race: overrides for the race (racers, items, laps, grid, startItem, itemFilter, timer).
  */
 export const MISSIONS = [
-  { id: 'drift-school', track: 'harbor', type: 'drift', time: 45, stars: [3, 5, 8],
+  { id: 'drift-school', track: 'harbor', type: 'drift', time: 45, stars: [4, 8, 12],
     name: 'Drift School', zh: '漂移学校', goal: 'Fire as many mini-turbos as you can in 45 s', goalZh: '45 秒内尽可能多地触发迷你加速',
     race: { racers: 1, items: false, laps: 9 } },
   { id: 'gem-rush', track: 'canyon', type: 'gems', time: 60, stars: [12, 22, 32],
@@ -23,17 +23,17 @@ export const MISSIONS = [
     race: { racers: 1, items: 'ball', laps: 9 } },
   { id: 'overtake', track: 'frost', type: 'overtake', stars: [3, 2, 1], lowerIsBetter: true,
     name: 'Overtake Frenzy', zh: '超车狂欢', goal: 'Start last and finish as high as you can in one lap', goalZh: '从最后一名出发，一圈内尽量冲到前面',
-    race: { racers: 8, items: true, laps: 1, grid: 7, cls: 'zoom' } },
+    race: { racers: 8, items: true, laps: 1, grid: 7, cls: 'chill' } },
   { id: 'clean-lap', track: 'canyon', type: 'clean', stars: [0, 0, 0], lowerIsBetter: true,
     name: 'Clean Lap', zh: '零失误圈', goal: 'Finish a fast lap without touching a single wall', goalZh: '不碰任何墙壁地完成快速一圈',
     race: { racers: 1, items: false, laps: 1 } },
-  { id: 'slalom', track: 'frost', type: 'gates', time: 70, stars: [8, 12, 15],
+  { id: 'slalom', track: 'frost', type: 'gates', time: 70, stars: [8, 11, 14],
     name: 'Slalom Gates', zh: '障碍门滑行', goal: 'Drive through the flag gates in order', goalZh: '按顺序穿过旗门',
     race: { racers: 1, items: false, laps: 9 } },
   { id: 'purple-power', track: 'frost', type: 'ultra', time: 60, stars: [1, 2, 4],
     name: 'Purple Power', zh: '紫色力量', goal: 'Charge full purple (Ultra) mini-turbos — ice helps!', goalZh: '蓄满紫色（极限）迷你加速——冰面有帮助！',
     race: { racers: 1, items: false, laps: 9 } },
-  { id: 'boost-chain', track: 'harbor', type: 'pads', time: 50, stars: [3, 5, 7],
+  { id: 'boost-chain', track: 'harbor', type: 'pads', time: 50, stars: [2, 4, 6],
     name: 'Boost Chain', zh: '加速连锁', goal: 'Hit as many boost pads as you can in 50 s', goalZh: '50 秒内踩中尽可能多的加速板',
     race: { racers: 1, items: false, laps: 9 } },
   { id: 'boulder-dash', track: 'canyon', type: 'dodge', stars: [2, 1, 0], lowerIsBetter: true,
@@ -148,8 +148,8 @@ export function createMissionRuntime(def, world) {
     const gates = [];
     for (let k = 0; k < 15; k++) {
       const t = 0.05 + k * (0.9 / 15);
-      const lat = ((k % 2) * 2 - 1) * 4.5;
-      const hw = 3.6;
+      const lat = ((k % 2) * 2 - 1) * 3.5;
+      const hw = 4.4;
       const s = t * L.N;
       gates.push({ t, lat, hw, s, passed: false, missed: false, idx: k });
       const a = track.pointAtLat(t, lat - hw), b = track.pointAtLat(t, lat + hw);
@@ -162,6 +162,7 @@ export function createMissionRuntime(def, world) {
     const banMesh = makeStatic(bannerG, banners.map((b) => ({ pos: b.pos, yaw: b.yaw + Math.PI / 2, s: [b.w, 1, 1] })), banMat, true);
     banners.forEach((b, k) => banMesh.setColorAt(k, new THREE.Color(k === 0 ? 0xffd23f : 0x19b5a5)));
     banMesh.instanceColor && (banMesh.instanceColor.needsUpdate = true);
+    rt._gates = gates;
     let next = 0;
     let prevT = null;
     spinItems.push(() => {
@@ -257,6 +258,18 @@ export function createMissionRuntime(def, world) {
     itemSupport(dt);
     if (def.type === 'gems' && objects && objects.list.every((g) => !g.alive)) finish(true);
     if (def.type === 'targets' && objects && objects.list.every((g) => !g.alive)) finish(true);
+  };
+
+  /** Next objective ahead of the player as { t, lat } (used by the keyboard test bot, could drive a HUD arrow). */
+  rt.nextTarget = () => {
+    const tp = player.trackT;
+    const ahead = (t) => { let d = t - tp; if (d < 0) d += 1; return d; };
+    let best = null, bd = 0.06;   // look up to ~6% of a lap ahead
+    const consider = (t, lat) => { const d = ahead(t); if (d > 0.002 && d < bd) { bd = d; best = { t, lat }; } };
+    if (objects) for (const it of objects.list) { if (!it.alive) continue; if (it.t == null) { const info = track.getSurfaceInfo(it.pos); it.t = info.t; it.lat = info.lateral; } consider(it.t, it.lat); }
+    if (def.type === 'pads') for (const pad of track.boostPads || []) consider(pad.t, pad.lateral);
+    if (rt._gates) { const g = rt._gates.find((x) => !x.passed && !x.missed); if (g) consider(g.t, g.lat); }
+    return best;
   };
 
   rt.hud = () => {

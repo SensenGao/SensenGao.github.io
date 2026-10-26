@@ -553,7 +553,7 @@ export function createTrack(scene, renderer, def, opts = {}) {
   // Tyre stacks (instanced) on the outside of tight corners
   if (style.tires !== false) {
     const TR = 0.9;
-    const tireGeo = new THREE.CylinderGeometry(TR, TR, 0.42, 12, 1);
+    const tireGeo = new THREE.CylinderGeometry(TR, TR, 0.42, 9, 1);
     const tireMat = mat(toonMaterial({}));
     const places = [];
     for (const side of [1, -1]) {
@@ -590,6 +590,40 @@ export function createTrack(scene, renderer, def, opts = {}) {
     im.name = 'tires';
     root.add(im);
     disposables.push(tireGeo);
+  }
+
+  // Chevron boards on the outside of sharp corners (facing the approaching driver, arrows point into the turn)
+  if (style.chevrons !== false) {
+    const tex = TX.makeChevronTexture(); disposables.push(tex);
+    const chevMat = mat(toonMaterial({ map: tex, rim: false, side: THREE.DoubleSide }));
+    const postMat = mat(toonMaterial({ color: 0x2b1d2e }));
+    const boards = [], posts = [];
+    const sharp = (i) => Math.abs(kS[i]) > 1 / 75 && bridge[i] < 0.5;
+    for (const [a, b] of runs(sharp, 12)) {
+      const mid = Math.round((a + b) / 2);
+      const dir = Math.sign(kS[mid % N]);            // + = left turn -> outer side is the right (+lat)
+      const n = Math.min(4, Math.max(2, Math.round((b - a) * ds / 22)));
+      for (let k = 0; k < n; k++) {
+        const ii = Math.round(a + (b - a) * (0.15 + 0.7 * k / Math.max(1, n - 1)));
+        const i = ((ii % N) + N) % N;
+        const W = dir > 0 ? wallR[i] : wallL[i];
+        const lat = dir * (W + 1.6);
+        const x = px[i] + rx[i] * lat, z = pz[i] + rz[i] * lat, y = py[i];
+        // board normal points back along the road (towards incoming karts), tilted slightly to the road
+        const nx = -tx[i] - dir * rx[i] * 0.35, nz = -tz[i] - dir * rz[i] * 0.35;
+        const yaw = Math.atan2(nx, nz);
+        const g = new THREE.PlaneGeometry(3.2, 1.6);
+        if (dir > 0) { const uv = g.attributes.uv; for (let q = 0; q < uv.count; q++) uv.setX(q, 1 - uv.getX(q)); }   // arrows point left for left turns
+        g.rotateY(yaw).translate(x, y + 2.3, z);
+        boards.push(g);
+        posts.push(new THREE.CylinderGeometry(0.09, 0.09, 1.6, 5).translate(x, y + 0.8, z));
+      }
+    }
+    if (boards.length) {
+      addMesh(mergeGeometries(boards), chevMat, { name: 'chevrons' });
+      addMesh(mergeGeometries(posts.map((g) => { g.deleteAttribute('uv'); return g; })), postMat, { name: 'chevronPosts', cast: true });
+      boards.forEach((g) => g.dispose()); posts.forEach((g) => g.dispose());
+    }
   }
 
   // Bridge piers
