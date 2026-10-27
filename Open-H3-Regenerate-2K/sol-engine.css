@@ -238,3 +238,16 @@
 .credits-name sup{margin-left:1px;color:var(--nv-green-dark);font-size:.7em}
 .credits-note{margin:10px 0 6px;color:var(--muted);font-size:.86rem}
 .credits-note sup{color:var(--nv-green-dark)}
+/* NVIDIA | SANA Sol-Engine owner lockup under the hero links (2026-10-28; the Sol-H3 page's owner logos, light theme) */
+.owner-lockup{display:inline-flex;align-items:center;gap:16px;max-width:100%;margin-top:22px;padding:13px 18px 13px 16px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(115deg,rgba(118,185,0,.11),rgba(255,255,255,0) 58%),#fff;box-shadow:0 10px 30px rgba(31,49,23,.06),inset 0 1px 0 #fff;color:var(--ink);text-decoration:none;transition:transform .2s cubic-bezier(.16,1,.3,1),border-color .2s ease,box-shadow .2s ease}
+.owner-lockup:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--nv-green) 55%,var(--line));box-shadow:0 14px 36px rgba(31,49,23,.1),inset 0 1px 0 #fff}
+.owner-lockup:focus-visible{outline:2px solid var(--nv-green);outline-offset:3px}
+.owner-nv{display:block;flex:0 0 auto}
+.owner-nv img{display:block;width:112px;height:auto}
+.owner-div{flex:0 0 auto;width:1px;height:36px;background:rgba(22,38,16,.16)}
+.owner-project{display:flex;align-items:center;gap:11px;min-width:0}
+.owner-sana{display:block;flex:0 0 auto;width:76px;height:auto}
+.owner-word{display:flex;flex-direction:column;justify-content:center;line-height:1}
+.owner-word strong{color:var(--ink);font-size:1.02rem;font-weight:760;letter-spacing:-.02em;white-space:nowrap}
+.owner-word small{margin-top:6px;color:var(--muted);font-family:var(--mono);font-size:.62rem;font-weight:650;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+@media (max-width:420px){.owner-lockup{flex-wrap:wrap;gap:12px 14px}.owner-div{display:none}.owner-project{flex:1 1 100%;padding-top:11px;border-top:1px solid rgba(22,38,16,.1)}}
