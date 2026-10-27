@@ -234,3 +234,7 @@
 .donut-svg .dn-note{fill:var(--quiet);font-family:var(--mono);font-size:11.5px}
 .donut-svg.narrow-only{display:none;max-width:400px}
 @media (max-width:720px){.donut-svg.wide-only{display:none}.donut-svg.narrow-only{display:block}}
+/* equal-contribution mark under the author row */
+.credits-name sup{margin-left:1px;color:var(--nv-green-dark);font-size:.7em}
+.credits-note{margin:10px 0 6px;color:var(--muted);font-size:.86rem}
+.credits-note sup{color:var(--nv-green-dark)}

@@ -399,5 +399,13 @@
       el.addEventListener('pointerleave', () => { tip.hidden = true; });
     });
   }
+  // BibTeX copy button (same behaviour as the StreamRender-H3 page)
+  document.querySelectorAll('.cite-copy').forEach(b => b.addEventListener('click', async () => {
+    const el = document.getElementById(b.dataset.copyTarget);
+    try { await navigator.clipboard.writeText(el.textContent); b.textContent = 'Copied'; } catch (e) {
+      const r = document.createRange(); r.selectNodeContents(el); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); b.textContent = 'Press ⌘C';
+    }
+    setTimeout(() => { b.textContent = 'Copy all BibTeX'; }, 1800);
+  }));
   window.blogReady = true;
 })();
