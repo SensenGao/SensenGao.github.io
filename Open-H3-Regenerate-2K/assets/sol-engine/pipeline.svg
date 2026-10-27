@@ -110,9 +110,9 @@
       <rect x="228" y="346" width="548" height="190" rx="12" class="d-dark"/>
       <text class="d-h light" x="248" y="376">MiniMax H3 transformer</text>
       <text class="d-xs light2" x="248" y="394">frozen base weights · adapters merged once</text>
-      <g class="d-chip refiner"><rect x="248" y="408" width="262" height="34" rx="6"/><text x="260" y="430">Refiner LoRA · 5,000-step EMA · ×0.7</text></g>
-      <g class="d-chip"><rect x="248" y="450" width="262" height="34" rx="6"/><text x="260" y="472">LightX2V FL2VA Turbo v1.2 · ×1.0</text></g>
-      <g class="d-chip"><rect x="248" y="492" width="262" height="34" rx="6"/><text x="260" y="514">LMS Sharp · ×1.0</text></g>
+      <g class="d-chip refiner"><rect x="248" y="408" width="262" height="34" rx="6"/><text x="260" y="430">Refiner LoRA · 5,000-step EMA</text></g>
+      <g class="d-chip"><rect x="248" y="450" width="262" height="34" rx="6"/><text x="260" y="472">LightX2V FL2VA Turbo v1.2</text></g>
+      <g class="d-chip"><rect x="248" y="492" width="262" height="34" rx="6"/><text x="260" y="514">LMS Sharp</text></g>
       <text class="d-xs light2" x="528" y="424">Conditioning</text>
       <text class="d-s light" x="528" y="444">prompt embeddings</text>
       <text class="d-s light" x="528" y="464">audio: fixed encoded</text>
