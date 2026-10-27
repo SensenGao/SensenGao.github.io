@@ -295,7 +295,7 @@
     const samples = [];
     fig.querySelectorAll('.cmpv-media span[data-cx]').forEach(e => { samples[+e.dataset.i] = { cx: +e.dataset.cx, cy: +e.dataset.cy, label: e.dataset.label, urls: {} }; });
     fig.querySelectorAll('.cmpv-media a[data-key]').forEach(a => { samples[+a.dataset.i].urls[a.dataset.key] = a.href; });
-    let cur = -1, want = 0, z = +fig.dataset.zoom || 7, cx = samples[0].cx, cy = samples[0].cy, on = false, raf = 0, rate = 1, showing = null;
+    let cur = -1, want = 0, z = +fig.dataset.zoom || 8, cx = samples[0].cx, cy = samples[0].cy, on = false, raf = 0, rate = 1, showing = null;
     const dpr = () => window.devicePixelRatio || 1;
     const win = () => {  // magnifier window as fractions of the frame; its shape follows the detail windows
       const c = dets[0].c, a = (c.clientWidth || 8) / (c.clientHeight || 9), W = lead.videoWidth || 16, H = lead.videoHeight || 9;
@@ -367,7 +367,7 @@
       el.addEventListener('pointerdown', e => { down = [e.clientX, e.clientY]; });
       el.addEventListener('pointerup', e => { if (down && Math.hypot(e.clientX - down[0], e.clientY - down[1]) < 6) at(e, el); down = null; });
       el.addEventListener('pointercancel', () => { down = null; });
-      el.addEventListener('wheel', e => { e.preventDefault(); z = Math.min(10, Math.max(1.5, z * (e.deltaY < 0 ? 1.15 : 1 / 1.15))); redraw(); }, { passive: false });
+      // 2026-10-27 (user): fixed small magnifier box; no scroll zoom in the comparison viewers
     }
     addEventListener('resize', redraw);
     if ('IntersectionObserver' in window) {
