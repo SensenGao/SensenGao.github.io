@@ -274,7 +274,7 @@
 .ic-table .ic{background:color-mix(in srgb,var(--nv-green) 9%,transparent)}
 .ic-table thead th.ic{color:var(--nv-green-dark)}
 @media (max-width:720px){.ic-table{font-size:.78rem}.ic-table th,.ic-table td{padding:7px 6px}.ic-table tbody th{white-space:normal}}
-.teaser-card video{display:block;width:100%;height:auto;background:#05070a}
 .teaser-tag{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:6px 14px;margin:0;font-family:var(--mono);font-size:.66rem;font-weight:650;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
 .teaser-tag b{color:var(--nv-green-dark);font-weight:700}
 .teaser-tag a{color:inherit}
+.hero-demo .demo-media+.demo-media{margin-top:22px}
