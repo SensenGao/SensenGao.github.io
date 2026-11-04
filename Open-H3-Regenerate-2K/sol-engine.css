@@ -278,3 +278,21 @@
 .teaser-tag b{color:var(--nv-green-dark);font-weight:700}
 .teaser-tag a{color:inherit}
 .hero-demo .demo-media+.demo-media{margin-top:22px}
+/* Open-H3-Regenerate-2K version switch (2026-11-04) */
+.ver-intro{display:flex;flex-direction:column;align-items:center;gap:20px;padding:clamp(20px,3vw,40px) 0 clamp(8px,1.5vw,16px)}
+.ver-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);width:min(1560px,calc(100vw - 64px))}
+.ver-card{position:relative;display:block;margin:0;padding:0;border:0;border-radius:16px;overflow:hidden;background:#05070a;cursor:pointer;box-shadow:0 24px 60px -28px rgba(10,20,10,.45);outline:3px solid transparent;outline-offset:3px;opacity:.6;transition:opacity .25s,outline-color .25s}
+.ver-card img{display:block;width:100%;height:auto}
+.ver-card:hover,.ver-card.is-active{opacity:1}
+.ver-card.is-active{outline-color:var(--ink)}
+.ver-card.is-ic.is-active{outline-color:var(--nv-green)}
+.ver-cap{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:3px;padding:30px 16px 12px;background:linear-gradient(0deg,rgba(5,6,7,.88),rgba(5,6,7,0));color:#eee9dc;font-family:var(--mono);font-size:.68rem;font-weight:650;letter-spacing:.07em;text-align:left;text-transform:uppercase}
+.ver-cap b{color:#c6f432;font-weight:700}
+.ver-switch{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.ver-btn{appearance:none;padding:12px 22px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink);font:650 .95rem var(--sans);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.ver-btn:hover{border-color:var(--ink)}
+.ver-btn[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.ver-btn.is-ic[aria-selected="true"]{background:var(--nv-green);border-color:var(--nv-green);color:#0b0c0e}
+.ver-view[hidden],.nav-group[hidden]{display:none!important}
+.nav-group{display:contents}
+@media (max-width:720px){.ver-grid{grid-template-columns:1fr;width:calc(100vw - 32px)}.ver-card{border-radius:12px;opacity:1}.ver-btn{padding:10px 14px;font-size:.8rem}}
