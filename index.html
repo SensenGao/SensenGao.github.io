@@ -65,7 +65,10 @@
     background:var(--mark); border-radius:999px; padding:2px 10px; font-variant-numeric:tabular-nums;
   }
   .metric b{font-weight:600; color:var(--ink)}
-  .role{font-size:0.85rem; color:var(--accent); margin-top:3px}
+  .work p.authors{font-size:0.85rem; color:var(--muted); margin-top:6px}
+  .work p.authors .me{color:var(--ink); font-weight:600}
+  .role{font-size:0.85rem; color:var(--accent); margin-top:4px}
+  .role .legend{color:var(--faint)}
   .work p.desc{font-size:0.92rem; color:var(--muted); margin-top:7px}
   .links{margin-top:9px; font-size:0.85rem; display:flex; flex-wrap:wrap; gap:0 6px}
   .links a{border-bottom:1px solid var(--rule)}
@@ -119,7 +122,7 @@
       and Technology from <a href="https://www.nankai.edu.cn/">Nankai University</a> in 2024.
     </p>
     <p class="about">
-      My research interests are computer vision, multimodal generation, multimodal LLMs, and AI security.
+      My research is mainly on recursive self-improvement (RSI), video generation, and embodied intelligence.
     </p>
   </section>
 
@@ -131,7 +134,11 @@
         <span class="work-title">Open-H3-Regenerate-2K</span>
         <span class="metric"><b id="oh3-dl">1.32M</b> downloads on Hugging Face</span>
       </div>
-      <p class="role">First author</p>
+      <p class="authors">
+        Haozhe Liu*, Tian Ye*, Shuchen Xue*, <span class="me">Sensen Gao</span>*, Yitong Li, Junsong Chen,
+        Haopeng Li, Jincheng Yu, Duomin Wang, Ruihua Zhang, Lei Zhu, Jia-Wang Bian, Song Han, Enze Xie
+      </p>
+      <p class="role">First author <span class="legend">&middot; * equal contribution</span></p>
       <p class="desc">
         An open replacement for the closed H3-Regenerate-2K API: a three-step MiniMax-H3 refinement pass that
         regenerates a 768P draft at 2560&times;1440, with a Sol-Engine path that makes it 3.9&times; faster on one B200.
@@ -150,7 +157,11 @@
         <span class="work-title">SoL-Pi</span>
         <span class="metric"><b id="solpi-stars">3.7k</b> stars on GitHub</span>
       </div>
-      <p class="role">Core contributor</p>
+      <p class="authors">
+        Haozhe Liu*, Tian Ye*, <span class="me">Sensen Gao</span>#, Qihang Cao#, Yitong Li#, Mingchen Zhuge,
+        Duomin Wang, Ruihua Zhang, Ping Luo, Jiawang Bian, Lei Zhu, Ligeng Zhu, Enze Xie, Song Han
+      </p>
+      <p class="role">Core contributor <span class="legend">&middot; * equal contribution &middot; # core contributor</span></p>
       <p class="desc">
         Scaling auto-research loops for efficient agent harnesses: a standalone extension for Pi that packages four
         efficiency mechanisms found by automated research, cutting repeated model turns, context replay, and
