@@ -77,9 +77,9 @@
 
   /* simple lists */
   .rows{list-style:none; font-size:0.92rem}
-  .rows li{display:flex; gap:14px; padding:7px 0; border-bottom:1px solid var(--rule)}
+  .rows li{display:flex; gap:28px; padding:7px 0; border-bottom:1px solid var(--rule)}
   .rows li:last-child{border-bottom:none}
-  .rows .when{color:var(--faint); white-space:nowrap; width:118px; flex-shrink:0; font-variant-numeric:tabular-nums}
+  .rows .when{color:var(--faint); white-space:nowrap; min-width:148px; flex-shrink:0; font-variant-numeric:tabular-nums}
   .rows .what{flex:1; min-width:0}
 
   footer{margin-top:56px; padding-top:18px; border-top:1px solid var(--rule); font-size:0.8rem; color:var(--faint)}
@@ -92,7 +92,7 @@
     header img{width:72px; height:72px}
     h1{font-size:1.35rem}
     .rows li{flex-direction:column; gap:1px}
-    .rows .when{width:auto}
+    .rows .when{min-width:0}
     .pub{gap:10px}
   }
 </style>
