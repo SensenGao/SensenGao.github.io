@@ -71,25 +71,6 @@
   .links a{border-bottom:1px solid var(--rule)}
   .links .sep{color:var(--faint)}
 
-  /* publications */
-  .pub-meta{font-size:0.85rem; color:var(--muted); margin:-8px 0 18px; font-variant-numeric:tabular-nums}
-  .pub-meta b{color:var(--ink); font-weight:600}
-  .year{font-size:0.8rem; font-weight:600; color:var(--faint); letter-spacing:0.06em; margin:22px 0 10px; font-variant-numeric:tabular-nums}
-  .year:first-of-type{margin-top:0}
-  .pub{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--rule)}
-  .pub:last-child{border-bottom:none}
-  .pub-body{flex:1; min-width:0}
-  .pub-title{font-size:0.95rem; font-weight:500}
-  .pub-authors{font-size:0.83rem; color:var(--muted); margin-top:2px}
-  .pub-authors .me{color:var(--ink); font-weight:600}
-  .pub-venue{font-size:0.83rem; color:var(--muted); margin-top:2px}
-  .pub-venue .v{color:var(--ink)}
-  .pub-venue a{border-bottom:1px solid var(--rule)}
-  .cites{
-    font-size:0.78rem; color:var(--muted); white-space:nowrap; padding-top:3px;
-    font-variant-numeric:tabular-nums; border-bottom:none;
-  }
-  .cites:hover{color:var(--accent)}
 
   /* simple lists */
   .rows{list-style:none; font-size:0.92rem}
@@ -183,26 +164,7 @@
     </article>
   </section>
 
-  <section id="publications">
-    <h2>Publications</h2>
-    <p class="pub-meta">
-      From <a href="https://scholar.google.com/citations?user=-UkpA7oAAAAJ">Google Scholar</a> &middot;
-      <b id="gs-cites">434</b> citations &middot; h-index <b id="gs-h">10</b> &middot;
-      i10-index <b id="gs-i10">10</b> <span id="gs-date">(2026-11-16)</span>
-    </p>
-    <div id="pub-list"></div>
-  </section>
 
-  <section id="news">
-    <h2>News</h2>
-    <ul class="rows">
-      <li><span class="when">2026.04</span><span class="what">One paper accepted by <b>ACL 2026</b> Main Conference.</span></li>
-      <li><span class="when">2025.09</span><span class="what">One paper accepted by <b>NeurIPS 2025</b>.</span></li>
-      <li><span class="when">2025.06</span><span class="what">One paper accepted by <b>IEEE TPAMI</b>.</span></li>
-      <li><span class="when">2024.07</span><span class="what">One paper accepted by <b>ECCV 2024</b>.</span></li>
-      <li><span class="when">2024.05</span><span class="what">One paper accepted by <b>DIS 2024</b>.</span></li>
-    </ul>
-  </section>
 
   <section id="education">
     <h2>Education</h2>
@@ -233,60 +195,9 @@
   </footer>
 </div>
 
-<script type="application/json" id="pub-data">
-[
- {"y":2026,"t":"DynThinker: Unifying Static 3D and Dynamic 4D Spatial Reasoning","a":"Q Cao, H Li, Z Guo, <b>S Gao</b>, Z Gao, H Zhang, F He, J Han, H Xu, X Liang, et al.","v":"arXiv","id":"2610.20598","c":0},
- {"y":2026,"t":"Visual-Invariance-Augmented Feature Optimal Alignment for Transferable Adversarial Attacks against Closed-Source MLLMs","a":"X Jia, S Qin, Y Li, J Liao, <b>S Gao</b>, K Ma, Y Liu, X Cao","v":"arXiv","id":"2610.06977","c":0},
- {"y":2026,"t":"SoL-Refiner: Speed-of-Light One-Step Refinement for High-Resolution Video","a":"H Liu*, T Ye*, S Xue*, <b>S Gao</b>*, Y Li, J Chen, H Li, J Yu, D Wang, R Zhang, et al.","v":"arXiv","id":"2609.37969","c":0,"blog":"https://nvlabs.github.io/Sana/Open-H3-Regenerate-2K/","blogName":"Blog"},
- {"y":2026,"t":"SoL-Pi: Recursively Scaling Auto-Research Loops for Efficient Agent Harness","a":"H Liu*, T Ye*, <b>S Gao</b>#, Q Cao#, Y Li#, M Zhuge, D Wang, R Zhang, P Luo, et al.","v":"arXiv","id":"2609.20519","c":12,"blog":"https://nvlabs.github.io/SoL-Pi/","blogName":"Blog"},
- {"y":2026,"t":"PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space","a":"<b>S Gao</b>*, Z Wang*, Q Cao, D Yu, C Wang, JW Bian","v":"arXiv","id":"2607.05373","c":3,"blog":"/PixWorld/","blogName":"Project page","code":"https://github.com/SensenGao/PixWorld"},
- {"y":2026,"t":"Fast-dDrive: Efficient Block-Diffusion VLM for Autonomous Driving","a":"K Zhang, J Wang, <b>S Gao</b>, C Wu, Y Cao, S Han, B Ivanovic, L Liu, et al.","v":"arXiv","id":"2605.23163","c":6},
- {"y":2026,"t":"Adversarial Attacks against Closed-Source MLLMs via Feature Optimal Alignment","a":"X Jia, <b>S Gao</b>, S Qin, T Pang, C Du, Y Huang, X Li, Y Li, B Li, Y Liu","v":"NeurIPS 2025","id":"2505.21494","c":62},
- {"y":2026,"t":"Feed-Forward 3D Scene Modeling: A Problem-Driven Perspective","a":"W Wang*, Q Cao*, <b>S Gao</b>*, DY Chen, H Xu, W Bian, S Peng, TJ Cham, et al.","v":"arXiv","id":"2604.14025","c":9},
- {"y":2026,"t":"Fast-dVLM: Efficient Block-Diffusion VLM via Direct Conversion from Autoregressive VLM","a":"C Wu, S Lan, Y Fu, <b>S Gao</b>, J Wang, J Yu, JM Alvarez, P Molchanov, P Luo, et al.","v":"arXiv","id":"2604.06832","c":6},
- {"y":2026,"t":"Boosting Adversarial Transferability of Vision-Language Pre-trained Models via Optimal Transport","a":"S Qin, G Li, <b>S Gao</b>, D Han, X Jia, Y Bai, J Gu, X Cao","v":"Pattern Recognition 2026","c":68},
- {"y":2026,"t":"Scaling Beyond Context: A Survey of Multimodal Retrieval-Augmented Generation for Document Understanding","a":"<b>S Gao</b>, S Zhao, X Jiang, L Duan, YX Chng, QG Chen, W Luo, K Zhang, et al.","v":"ACL 2026 Main","id":"2510.15253","c":18,"blog":"/Multimodal-RAG-Survey/","blogName":"Project page","code":"https://github.com/SensenGao/Multimodal-RAG-Survey-For-Document"},
- {"y":2026,"t":"OneWorld: Taming Scene Generation with 3D Unified Representation Autoencoder","a":"<b>S Gao</b>*, Z Wang*, Q Cao, D Yu, C Wang, T Liu, M Gong, J Bian","v":"ECCV 2026","id":"2603.16099","c":2,"blog":"/OneWorld/","blogName":"Project page"},
- {"y":2025,"t":"Ovis2.5 Technical Report","a":"S Lu, Y Li, Y Xia, Y Hu, S Zhao, Y Ma, Z Wei, Y Li, L Duan, J Zhao, Y Han, ..., <b>S Gao</b>, ..., K Zhang","v":"arXiv","id":"2508.11737","c":12},
- {"y":2025,"t":"Semantic-Aligned Adversarial Evolution Triangle for High-Transferability Vision-Language Attack","a":"X Jia*, <b>S Gao</b>*, Q Guo, S Qin, K Ma, Y Huang, Y Liu, I Tsang, X Cao","v":"IEEE TPAMI 2025","id":"2411.02669","c":41},
- {"y":2025,"t":"Evolution-Based Region Adversarial Prompt Learning for Robustness Enhancement in Vision-Language Models","a":"X Jia, <b>S Gao</b>, S Qin, K Ma, X Li, Y Huang, W Dong, Y Liu, X Cao","v":"arXiv","id":"2503.12874","c":9},
- {"y":2025,"t":"Hyper3D: Efficient 3D Representation via Hybrid Triplane and Octree Feature for Enhanced 3D Shape Variational Auto-Encoders","a":"J Guo, <b>S Gao</b>, JW Bian, W Sun, H Zheng, R Jia, M Gong","v":"arXiv","id":"2503.10403","c":11},
- {"y":2024,"t":"HTS-Attack: Heuristic Token Search for Jailbreaking Text-to-Image Models","a":"<b>S Gao</b>, X Jia, Y Huang, R Duan, J Gu, Y Bai, Y Liu, Q Guo","v":"arXiv","id":"2408.13896","c":52},
- {"y":2024,"t":"Boosting Transferability in Vision-Language Attacks via Diversification along the Intersection Region of Adversarial Trajectory","a":"<b>S Gao</b>, X Jia, X Ren, I Tsang, Q Guo","v":"ECCV 2024","id":"2403.12445","c":94},
- {"y":2024,"t":"Towards Transferable Attacks against Vision-LLMs in Autonomous Driving with Typography","a":"N Chung, <b>S Gao</b>, TA Vu, J Zhang, A Liu, Y Lin, JS Dong, Q Guo","v":"arXiv","id":"2405.14169","c":27},
- {"y":2024,"t":"Exploring Scaffolding Techniques for Agent-Administered Brief Cognitive Screening in Hospital Settings","a":"D Liu, <b>S Gao</b>, Z Chen, Y Shen, C Shi, BE Shi, X Ma","v":"ACM DIS 2024 Companion","doi":"10.1145/3656156.3663697","c":2}
-]
-</script>
 
 <script>
 (function () {
-  var SCHOLAR = 'https://scholar.google.com/citations?user=-UkpA7oAAAAJ';
-  var pubs = JSON.parse(document.getElementById('pub-data').textContent);
-  var list = document.getElementById('pub-list');
-
-  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
-
-  function render() {
-    var html = '', year = null;
-    pubs.forEach(function (p) {
-      if (p.y !== year) { year = p.y; html += '<div class="year">' + year + '</div>'; }
-      var links = [];
-      if (p.id) links.push('<a href="https://arxiv.org/abs/' + p.id + '">arXiv:' + p.id + '</a>');
-      if (p.doi) links.push('<a href="https://doi.org/' + p.doi + '">DOI</a>');
-      if (p.blog) links.push('<a href="' + p.blog + '">' + (p.blogName || 'Blog') + '</a>');
-      if (p.code) links.push('<a href="' + p.code + '">Code</a>');
-      html += '<div class="pub"><div class="pub-body">' +
-        '<div class="pub-title">' + esc(p.t) + '</div>' +
-        '<div class="pub-authors">' + p.a.replace(/<b>/g, '<span class="me">').replace(/<\/b>/g, '</span>') + '</div>' +
-        '<div class="pub-venue"><span class="v">' + esc(p.v) + '</span>' +
-        (links.length ? ' &middot; ' + links.join(' &middot; ') : '') + '</div></div>' +
-        (p.c ? '<a class="cites" href="' + SCHOLAR + '">' + p.c + ' cites</a>' : '') +
-        '</div>';
-    });
-    list.innerHTML = html;
-  }
-  render();
-
   function fmt(n) {
     if (n >= 1e6) return (n / 1e6).toFixed(2).replace(/\.?0+$/, '') + 'M';
     if (n >= 1e3) return (n / 1e3).toFixed(1).replace(/\.0$/, '') + 'k';
@@ -312,27 +223,6 @@
     if (total) put('oh3-dl', fmt(total));
   });
 
-  // Google Scholar numbers, refreshed by .github/workflows/google_scholar_crawler.yaml when it is enabled
-  fetch('https://raw.githubusercontent.com/SensenGao/SensenGao.github.io/google-scholar-stats/gs_data.json')
-    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-    .then(function (d) {
-      if (d.citedby) put('gs-cites', d.citedby);
-      if (d.hindex) put('gs-h', d.hindex);
-      if (d.i10index) put('gs-i10', d.i10index);
-      if (d.updated) put('gs-date', '(' + String(d.updated).slice(0, 10) + ')');
-      var by = {};
-      Object.keys(d.publications || {}).forEach(function (k) {
-        var p = d.publications[k];
-        if (p.bib && p.bib.title) by[p.bib.title.toLowerCase().replace(/[^a-z0-9]/g, '')] = p.num_citations || 0;
-      });
-      var changed = false;
-      pubs.forEach(function (p) {
-        var key = p.t.toLowerCase().replace(/[^a-z0-9]/g, '');
-        if (key in by && by[key] !== p.c) { p.c = by[key]; changed = true; }
-      });
-      if (changed) render();
-    })
-    .catch(function () {});
 })();
 </script>
 </body>
