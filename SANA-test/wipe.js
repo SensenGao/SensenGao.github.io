@@ -14,7 +14,7 @@
   const TEMPLATE = `
     <div class="stage">
       <div class="wipe" tabindex="0" role="slider" aria-label="拖动对比左右两侧" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-        <video muted loop playsinline preload="metadata"></video><canvas></canvas>
+        <video muted loop playsinline autoplay preload="auto"></video><canvas></canvas>
         <span class="badge l"></span><span class="badge r"></span>
         <span class="zoomtag">原图 · 双击后可放大查看</span>
         <div class="handle" aria-hidden="true"><span>${svg('<path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/>')}</span></div>
@@ -90,8 +90,8 @@
       this.bl.textContent = c.modes[m].l; this.br.textContent = c.modes[m].r;
       if (!this.visible) { this.v.removeAttribute('src'); return; }      // load media only when the section is on screen
       const t = this.v.currentTime || 0;
-      this.v.src = MEDIA + c.modes[m].f; this.v.load();
-      this.v.addEventListener('loadeddata', () => { try { this.v.currentTime = t; } catch (e) {} this.play(); }, { once: true });
+      this.v.src = MEDIA + c.modes[m].f; this.v.load(); this.play();   // play right away (Safari loads frames only after play)
+      this.v.addEventListener('loadeddata', () => { try { if (t) this.v.currentTime = t; } catch (e) {} this.play(); }, { once: true });
     }
     select(i, scroll = true) {
       if (i < 0 || i >= this.cases.length) return;
