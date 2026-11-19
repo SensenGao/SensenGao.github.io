@@ -1227,16 +1227,16 @@
   "id": "s2f-sanabase-b001",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "2D-animated, a cute cartoon panda stands on a snowy sidewalk holding a steami…",
   "caption": "[Shot 1] 2D-animated, a cute cartoon panda stands on a snowy sidewalk holding a steaming cup of coffee. The panda, adorned with a black scarf, looks around curiously as snowflakes gently fall around it. The background features a cozy street scene with warm streetlights casting a golden glow, illumin",
   "thumb": "sanabase-b001.thumb.jpg",
   "poster": "sanabase-b001.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b001.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b001.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1245,16 +1245,16 @@
   "id": "s2f-sanabase-b012",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "3D Pixar style, a close-up underwater perspective frames a cute baby whale sw…",
   "caption": "[Shot 1] 3D Pixar style, a close-up underwater perspective frames a cute baby whale swimming gracefully through a vibrant underwater world. The baby whale's fins move gently while its tail flaps rhythmically, propelling it forward through the colorful aquatic environment.",
   "thumb": "sanabase-b012.thumb.jpg",
   "poster": "sanabase-b012.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b012.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b012.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1263,16 +1263,16 @@
   "id": "s2f-sanabase-b023",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Live-action, cinematic, a medium shot frames a police officer standing confid…",
   "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a police officer standing confidently in front of a cityscape featuring modern buildings and greenery, suggesting an urban setting. The officer wears a light blue uniform with a badge and patches on the shoulders, and his name \"BUCS\" is clearly v",
   "thumb": "sanabase-b023.thumb.jpg",
   "poster": "sanabase-b023.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b023.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b023.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1281,16 +1281,16 @@
   "id": "s2f-sanabase-b035",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Live-action, cinematic, a steady wide-angle shot frames a futuristic greenhou…",
   "caption": "[Shot 1] Live-action, cinematic, a steady wide-angle shot frames a futuristic greenhouse bathed in bright sunlight with clear blue skies and verdant trees visible outside the transparent dome. Three astronauts in white spacesuits tend to lush green plants; the central astronaut, equipped with a back",
   "thumb": "sanabase-b035.thumb.jpg",
   "poster": "sanabase-b035.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b035.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b035.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1299,16 +1299,16 @@
   "id": "s2f-sanabase-b046",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Live-action, cinematic, a sunny day on a street where a person wearing a vibr…",
   "caption": "[Shot 1] Live-action, cinematic, a sunny day on a street where a person wearing a vibrant, colorful Hawaiian shirt and a straw hat walks past a white veterinary clinic with blue doors and windows named \"San Monet de Asis\". The person carries a small, fluffy dog wrapped in green fabric over their sho",
   "thumb": "sanabase-b046.thumb.jpg",
   "poster": "sanabase-b046.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b046.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b046.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1317,16 +1317,16 @@
   "id": "s2f-sanabase-b058",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Live-action, cinematic, a medium shot frames a green-skinned alien in a golde…",
   "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a green-skinned alien in a golden robe gesturing animatedly with fluid hand movements while speaking to three individuals in sleek, metallic uniforms. The alien's expressive hands move as they communicate, while the three humans stand attentively",
   "thumb": "sanabase-b058.thumb.jpg",
   "poster": "sanabase-b058.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b058.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b058.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1335,16 +1335,16 @@
   "id": "s2f-sanabase-b069",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Live-action, cinematic, a medium shot frames a young boy with curly brown hai…",
   "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a young boy with curly brown hair, wearing a yellow shirt and a party hat with a Swedish flag design, standing in front of a festive backdrop adorned with colorful balloons and banners that spell out \"GRATULERA BÅRDADY.\" He holds a birthday cake ",
   "thumb": "sanabase-b069.thumb.jpg",
   "poster": "sanabase-b069.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b069.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b069.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1353,16 +1353,16 @@
   "id": "s2f-sanabase-b081",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Live-action, cinematic, a static shot frames a solitary figure standing on th…",
   "caption": "[Shot 1] Live-action, cinematic, a static shot frames a solitary figure standing on the edge of a rugged cliff, silhouetted against a vibrant sunset sky painted with shades of orange, pink, and purple. Scattered clouds add depth to the scene while the ocean below displays gentle waves with crests ca",
   "thumb": "sanabase-b081.thumb.jpg",
   "poster": "sanabase-b081.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b081.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b081.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1371,16 +1371,16 @@
   "id": "s2f-sanabase-b092",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Live-action, cinematic, a steady tracking shot follows a group of horses grac…",
   "caption": "[Shot 1] Live-action, cinematic, a steady tracking shot follows a group of horses gracefully trotting across a lush green field. The central horse, a rich chestnut with a glossy coat and a flowing black mane and tail, leads the pack, its legs moving rhythmically and kicking up small clouds of dust b",
   "thumb": "sanabase-b092.thumb.jpg",
   "poster": "sanabase-b092.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b092.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b092.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1389,16 +1389,16 @@
   "id": "s2f-sanabase-b103",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Cinematic, live-action, a medium-wide shot frames a monstrous creature emergi…",
   "caption": "[Shot 1] Cinematic, live-action, a medium-wide shot frames a monstrous creature emerging from the ocean under a lightning-streaked sky. The creature has glowing eyes, tentacle-like appendages, and a muscular build, standing amidst crashing waves with snow blanketing the rocky cliffs. As the scene pr",
   "thumb": "sanabase-b103.thumb.jpg",
   "poster": "sanabase-b103.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b103.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b103.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1407,16 +1407,16 @@
   "id": "s2f-sanabase-b115",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "2D-animated, a medium-wide steady frontal shot frames two blocky animated cha…",
   "caption": "[Shot 1] 2D-animated, a medium-wide steady frontal shot frames two blocky animated characters dancing rhythmically in front of the grand Milan Cathedral in a bustling piazza. The character on the left has blonde hair and wears a black hoodie emblazoned with \"MIACED,\" moving their arms and swaying si",
   "thumb": "sanabase-b115.thumb.jpg",
   "poster": "sanabase-b115.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b115.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b115.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1425,16 +1425,16 @@
   "id": "s2f-sanabase-b126",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Cinematic, soft desaturated colors, a medium shot frames a nervous young girl…",
   "caption": "[Shot 1] Cinematic, soft desaturated colors, a medium shot frames a nervous young girl in a neat uniform standing hunched at a school gate, clutching her bag with her head down. Sunlight filters through clouds, gently glowing on background buildings. Leaves flutter softly in the air as she hesitates",
   "thumb": "sanabase-b126.thumb.jpg",
   "poster": "sanabase-b126.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b126.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b126.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1443,16 +1443,16 @@
   "id": "s2f-sanabase-b138",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Live-action, cinematic, a steady frontal shot captures three individuals walk…",
   "caption": "[Shot 1] Live-action, cinematic, a steady frontal shot captures three individuals walking confidently down a wet street in a moody urban setting. The man on the left, dressed in a long black coat and hat, leads the group, followed by the man in the middle wearing a light blue lab coat over a dark su",
   "thumb": "sanabase-b138.thumb.jpg",
   "poster": "sanabase-b138.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b138.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b138.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1461,16 +1461,16 @@
   "id": "s2f-sanabase-b149",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Live-action, cinematic, a wide shot frames a grand medieval army standing in…",
   "caption": "[Shot 1] Live-action, cinematic, a wide shot frames a grand medieval army standing in formation under a stormy sky, their spears and banners gleaming in the dim light. The ground is blanketed in snow, and distant mountains loom under heavy clouds. In the foreground, a figure clad in ornate armor and",
   "thumb": "sanabase-b149.thumb.jpg",
   "poster": "sanabase-b149.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b149.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b149.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1479,16 +1479,16 @@
   "id": "s2f-sanabase-b161",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Live-action, cinematic, a medium shot frames a young man with short brown hai…",
   "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a young man with short brown hair wearing a light green button-up shirt standing in a vibrant garden filled with colorful flowers and lush greenery. The sunlight filters through the leaves, casting a warm glow over the scene, with the background ",
   "thumb": "sanabase-b161.thumb.jpg",
   "poster": "sanabase-b161.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b161.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b161.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1497,16 +1497,16 @@
   "id": "s2f-sanabase-b172",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "3D CG, cinematic, a medium-wide shot captures a dynamic space battle between…",
   "caption": "[Shot 1] 3D CG, cinematic, a medium-wide shot captures a dynamic space battle between two sleek futuristic spacecraft amidst a field of asteroids with a distant planet in the background. The leading ship, emitting bright blue exhaust, maneuvers skillfully and fires blue energy beams at adversaries. ",
   "thumb": "sanabase-b172.thumb.jpg",
   "poster": "sanabase-b172.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b172.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b172.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1515,16 +1515,16 @@
   "id": "s2f-sanabase-b183",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "3D CG, cyberpunk, a close-up shot frames two rabbits with glowing green patte…",
   "caption": "[Shot 1] 3D CG, cyberpunk, a close-up shot frames two rabbits with glowing green patterns on their fur standing facing each other in a futuristic, neon-lit setting. Their large ears and whiskers are prominently displayed as they interact closely, performing subtle head tilts and eye movements to enh",
   "thumb": "sanabase-b183.thumb.jpg",
   "poster": "sanabase-b183.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b183.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b183.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1533,16 +1533,16 @@
   "id": "s2f-sanabase-b195",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Cinematic, live-action, a close-up shot frames a Tyrannosaurus rex roaring fi…",
   "caption": "[Shot 1] Cinematic, live-action, a close-up shot frames a Tyrannosaurus rex roaring fiercely against a dramatic sunset backdrop with rolling hills and scattered clouds. The dinosaur's mouth is agape as flames erupt from its jaws, sparks fly, and its eyes glow with intense prehistoric power. The came",
   "thumb": "sanabase-b195.thumb.jpg",
   "poster": "sanabase-b195.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b195.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b195.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1551,16 +1551,16 @@
   "id": "s2f-sanabase-b206",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "2D-animated, black-and-white, a static medium shot displays intricate snowfla…",
   "caption": "[Shot 1] 2D-animated, black-and-white, a static medium shot displays intricate snowflake patterns in various sizes and orientations against a stark black background. The snowflakes are detailed with fine lines, creating a textured appearance. The scene remains completely static throughout, allowing ",
   "thumb": "sanabase-b206.thumb.jpg",
   "poster": "sanabase-b206.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b206.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b206.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
@@ -1569,19 +1569,127 @@
   "id": "s2f-sanabase-b218",
   "cat": "g3",
   "group": "sana",
-  "group_zh": "SANA 8× 退化",
+  "group_zh": "SANA 768P",
   "title": "Live-action, cinematic, a medium shot frames a woman standing confidently in…",
   "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a woman standing confidently in an art studio. She is dressed in a professional black blazer over a crisp white shirt, with her hands clasped together in front of her, gazing thoughtfully to the side. The studio is vibrant, filled with colorful a",
   "thumb": "sanabase-b218.thumb.jpg",
   "poster": "sanabase-b218.poster.jpg",
   "modes": {
-   "in8_ic8": {
-    "f": "sanabase-b218.in8_ic8.mp4",
-    "l": "输入 8× 退化（同训练）",
-    "r": "本 refiner · 8× 输入 · 2K"
+   "ic_ic8": {
+    "f": "sanabase-b218.ic_ic8.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 8× 退化再 refine → 2K"
    }
   },
   "sec": "s2f"
+ },
+ {
+  "id": "s2g-sanabase-b001",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 768P",
+  "title": "2D-animated, a cute cartoon panda stands on a snowy sidewalk holding a steami…",
+  "caption": "[Shot 1] 2D-animated, a cute cartoon panda stands on a snowy sidewalk holding a steaming cup of coffee. The panda, adorned with a black scarf, looks around curiously as snowflakes gently fall around it. The background features a cozy street scene with warm streetlights casting a golden glow, illumin",
+  "thumb": "sanabase-b001.thumb.jpg",
+  "poster": "sanabase-b001.poster.jpg",
+  "modes": {
+   "ic_ic16": {
+    "f": "sanabase-b001.ic_ic16.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 16× 退化再 refine → 2K"
+   }
+  },
+  "sec": "s2g"
+ },
+ {
+  "id": "s2g-sanabase-b012",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 768P",
+  "title": "3D Pixar style, a close-up underwater perspective frames a cute baby whale sw…",
+  "caption": "[Shot 1] 3D Pixar style, a close-up underwater perspective frames a cute baby whale swimming gracefully through a vibrant underwater world. The baby whale's fins move gently while its tail flaps rhythmically, propelling it forward through the colorful aquatic environment.",
+  "thumb": "sanabase-b012.thumb.jpg",
+  "poster": "sanabase-b012.poster.jpg",
+  "modes": {
+   "ic_ic16": {
+    "f": "sanabase-b012.ic_ic16.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 16× 退化再 refine → 2K"
+   }
+  },
+  "sec": "s2g"
+ },
+ {
+  "id": "s2g-sanabase-b023",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 768P",
+  "title": "Live-action, cinematic, a medium shot frames a police officer standing confid…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a police officer standing confidently in front of a cityscape featuring modern buildings and greenery, suggesting an urban setting. The officer wears a light blue uniform with a badge and patches on the shoulders, and his name \"BUCS\" is clearly v",
+  "thumb": "sanabase-b023.thumb.jpg",
+  "poster": "sanabase-b023.poster.jpg",
+  "modes": {
+   "ic_ic16": {
+    "f": "sanabase-b023.ic_ic16.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 16× 退化再 refine → 2K"
+   }
+  },
+  "sec": "s2g"
+ },
+ {
+  "id": "s2g-sanabase-b035",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 768P",
+  "title": "Live-action, cinematic, a steady wide-angle shot frames a futuristic greenhou…",
+  "caption": "[Shot 1] Live-action, cinematic, a steady wide-angle shot frames a futuristic greenhouse bathed in bright sunlight with clear blue skies and verdant trees visible outside the transparent dome. Three astronauts in white spacesuits tend to lush green plants; the central astronaut, equipped with a back",
+  "thumb": "sanabase-b035.thumb.jpg",
+  "poster": "sanabase-b035.poster.jpg",
+  "modes": {
+   "ic_ic16": {
+    "f": "sanabase-b035.ic_ic16.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 16× 退化再 refine → 2K"
+   }
+  },
+  "sec": "s2g"
+ },
+ {
+  "id": "s2g-sanabase-b046",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 768P",
+  "title": "Live-action, cinematic, a sunny day on a street where a person wearing a vibr…",
+  "caption": "[Shot 1] Live-action, cinematic, a sunny day on a street where a person wearing a vibrant, colorful Hawaiian shirt and a straw hat walks past a white veterinary clinic with blue doors and windows named \"San Monet de Asis\". The person carries a small, fluffy dog wrapped in green fabric over their sho",
+  "thumb": "sanabase-b046.thumb.jpg",
+  "poster": "sanabase-b046.poster.jpg",
+  "modes": {
+   "ic_ic16": {
+    "f": "sanabase-b046.ic_ic16.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 16× 退化再 refine → 2K"
+   }
+  },
+  "sec": "s2g"
+ },
+ {
+  "id": "s2g-sanabase-b058",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 768P",
+  "title": "Live-action, cinematic, a medium shot frames a green-skinned alien in a golde…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a green-skinned alien in a golden robe gesturing animatedly with fluid hand movements while speaking to three individuals in sleek, metallic uniforms. The alien's expressive hands move as they communicate, while the three humans stand attentively",
+  "thumb": "sanabase-b058.thumb.jpg",
+  "poster": "sanabase-b058.poster.jpg",
+  "modes": {
+   "ic_ic16": {
+    "f": "sanabase-b058.ic_ic16.mp4",
+    "l": "直接 refine → 2K",
+    "r": "先 16× 退化再 refine → 2K"
+   }
+  },
+  "sec": "s2g"
  },
  {
   "id": "s3a-clean-movie_cand_e78e74c5d471eb6a5cb084a8",
