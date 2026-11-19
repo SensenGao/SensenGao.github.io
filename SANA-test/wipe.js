@@ -12,30 +12,31 @@
   };
   const svg = p => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
   const TEMPLATE = `
-    <div class="stage">
-      <div class="wipe" tabindex="0" role="slider" aria-label="拖动对比左右两侧" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-        <video muted loop playsinline autoplay preload="auto"></video><canvas></canvas>
-        <span class="badge l"></span><span class="badge r"></span>
-        <span class="zoomtag">原图 · 双击后可放大查看</span>
-        <div class="handle" aria-hidden="true"><span>${svg('<path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/>')}</span></div>
-      </div>
-      <div class="bar">
-        <div class="seg modes" role="group" aria-label="对比模式"></div>
-        <div class="tools">
-          <div class="seg zooms" role="group" aria-label="放大">
-            <button type="button" data-z="1" aria-pressed="true">1×</button><button type="button" data-z="2" aria-pressed="false">2×</button><button type="button" data-z="4" aria-pressed="false">4×</button>
+    <div class="vrow">
+      <div class="stage">
+        <div class="wipe" tabindex="0" role="slider" aria-label="拖动对比左右两侧" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <video muted loop playsinline autoplay preload="auto"></video><canvas></canvas>
+          <span class="badge l"></span><span class="badge r"></span>
+          <span class="zoomtag">原图 · 双击放大</span>
+          <div class="handle" aria-hidden="true"><span>${svg('<path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/>')}</span></div>
+        </div>
+        <div class="bar">
+          <div class="seg modes" role="group" aria-label="对比模式"></div>
+          <div class="tools">
+            <div class="seg zooms" role="group" aria-label="放大">
+              <button type="button" data-z="1" aria-pressed="true">1×</button><button type="button" data-z="2" aria-pressed="false">2×</button><button type="button" data-z="4" aria-pressed="false">4×</button>
+            </div>
+            <button class="icon prev" type="button" aria-label="上一个">${svg(ICON.prev)}</button>
+            <button class="icon play" type="button" aria-label="播放 / 暂停">${svg(ICON.play)}</button>
+            <button class="icon next" type="button" aria-label="下一个">${svg(ICON.next)}</button>
+            <button class="icon full" type="button" aria-label="全屏">${svg(ICON.full)}</button>
           </div>
-          <button class="icon prev" type="button" aria-label="上一个">${svg(ICON.prev)}</button>
-          <button class="icon play" type="button" aria-label="播放 / 暂停">${svg(ICON.play)}</button>
-          <button class="icon next" type="button" aria-label="下一个">${svg(ICON.next)}</button>
-          <button class="icon full" type="button" aria-label="全屏">${svg(ICON.full)}</button>
         </div>
       </div>
-      <div class="meta"><h2><span class="tag"></span><span class="title"></span></h2><span class="count"></span><p class="caption"></p></div>
-    </div>
-    <div class="gallery">
-      <div class="ghead"><h3>样例 <span class="count gcount"></span></h3><div class="filters"></div></div>
-      <div class="grid"></div>
+      <aside class="vside">
+        <div class="meta"><div class="mtop"><span class="tag"></span><span class="count"></span></div><h4 class="title"></h4><p class="caption"></p></div>
+        <div class="picker"><div class="filters" hidden></div><div class="grid"></div></div>
+      </aside>
     </div>`;
 
   let BTN = {}, active = null;
@@ -101,11 +102,12 @@
       this.q('.title').textContent = c.title; this.q('.tag').textContent = c.group_zh || '';
       this.q('.caption').textContent = c.caption || '';
       this.q('.meta .count').textContent = `${this.shown.indexOf(i) + 1 || '–'} / ${this.shown.length}`;
+      const card = this.grid.querySelector(`.card[data-i="${i}"]`); if (card && !scroll) card.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       this.poster = new Image(); this.poster.src = MEDIA + c.poster;
       this.touched = false; this.t0 = performance.now(); this.split = .5;
       this.v.removeAttribute('src'); this.setMode(this.mode);
       this.grid.querySelectorAll('.card').forEach(el => el.setAttribute('aria-current', String(+el.dataset.i === i)));
-      if (scroll) { active = this; this.q('.stage').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      if (scroll) active = this;
     }
     step(d) { const k = this.shown.indexOf(this.cur); this.select(this.shown[(Math.max(k, 0) + d + this.shown.length) % this.shown.length], false); }
     render() {
@@ -114,12 +116,11 @@
       for (const i of this.shown) {
         const c = this.cases[i], b = document.createElement('button');
         b.className = 'card'; b.type = 'button'; b.dataset.i = i; b.setAttribute('aria-current', String(i === this.cur));
-        b.innerHTML = `<img loading="lazy" alt="" src="${MEDIA}${c.thumb}"><div class="t"><small></small><span></span></div><div class="m"><i>${Object.keys(c.modes).length} 种对比</i></div>`;
-        b.querySelector('small').textContent = c.group_zh; b.querySelector('span').textContent = c.title;
+        b.innerHTML = `<img loading="lazy" alt="" src="${MEDIA}${c.thumb}"><span class="ct"></span>`;
+        b.querySelector('.ct').textContent = c.title; b.title = c.title;
         b.addEventListener('click', () => this.select(i));
         this.grid.appendChild(b);
       }
-      this.q('.gcount').textContent = `${this.shown.length} 条`;
     }
     chips() {
       this.filters.innerHTML = '';
@@ -137,7 +138,7 @@
       const box = this.box;
       this.zooms.forEach(b => b.addEventListener('click', () => {
         this.zoom = +b.dataset.z; this.zooms.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
-        this.ztag.textContent = this.zoom > 1 ? `${this.zoom}× 放大 · 双击改变中心` : '原图 · 双击后可放大查看';
+        this.ztag.textContent = this.zoom > 1 ? `${this.zoom}× 放大 · 双击改变中心` : '原图 · 双击放大';
       }));
       this.q('.prev').addEventListener('click', () => this.step(-1));
       this.q('.next').addEventListener('click', () => this.step(1));
@@ -170,26 +171,31 @@
   Promise.all([fetch(DATA + 'cases.json', { cache: 'no-cache' }).then(r => r.json()),
                fetch(DATA + 'meta.json', { cache: 'no-cache' }).then(r => r.json())]).then(([cases, meta]) => {
     BTN = meta.buttons || {};
-    if (meta.summary_html) document.querySelector('#summary').innerHTML = meta.summary_html;
-    const main = document.querySelector('#sections'), toc = document.querySelector('#toc');
-    for (const S of meta.sections) {
-      const sec = document.createElement(S.appendix ? 'details' : 'section');
-      sec.className = 'sec'; sec.id = S.id;
-      const head = S.appendix ? `<summary><span class="num">附录</span>${S.title}</summary>` : `<header class="sechead"><span class="num">${S.num}</span><h2>${S.title}</h2></header>`;
-      sec.innerHTML = head + (S.lede ? `<p class="seclede">${S.lede}</p>` : '') + (S.body_html || '');
-      main.appendChild(sec);
-      if (!S.appendix) toc.insertAdjacentHTML('beforeend', `<a href="#${S.id}"><b>${S.num}</b>${S.title}</a>`);
-      for (const U of (S.subs || [{ id: S.id }])) {
-        const list = cases.filter(c => c.sec === U.id);
-        if (!list.length) continue;
-        if (U.title) sec.insertAdjacentHTML('beforeend', `<div class="subhead" id="${U.id}"><h3>${U.title}</h3><span>${list.length} 条</span></div>` + (U.lede ? `<p class="sublede">${U.lede}</p>` : ''));
-        const host = document.createElement('div'); host.className = 'viewer'; sec.appendChild(host);
+    const main = document.querySelector('#sections');
+    const concl = document.querySelector('#concl');
+    meta.sections.forEach((S, k) => {
+      const sec = document.createElement('details');
+      sec.className = 'sec' + (S.appendix ? ' appendix' : ''); sec.id = S.id; if (k === 0) sec.open = true;
+      sec.innerHTML = `<summary><span class="num">${S.num}</span><span class="stitle"><b>${S.title}</b>${S.claim ? `<small>${S.claim}</small>` : ''}</span><span class="chev" aria-hidden="true"></span></summary><div class="sbody"></div>`;
+      const body = sec.querySelector('.sbody');
+      if (S.lede) body.insertAdjacentHTML('beforeend', `<p class="seclede">${S.lede}</p>`);
+      if (S.body_html) body.insertAdjacentHTML('beforeend', S.body_html);
+      for (const U of (S.subs || [])) {
+        const list = cases.filter(c => c.sec === U.id); if (!list.length) continue;
+        body.insertAdjacentHTML('beforeend', `<div class="subhead" id="${U.id}"><h3>${U.title}</h3><span>${list.length} 条</span></div>` + (U.lede ? `<p class="sublede">${U.lede}</p>` : ''));
+        const host = document.createElement('div'); host.className = 'viewer'; body.appendChild(host);
         viewers.push(new Viewer(host, list, []));
       }
-      if (S.notes_html) sec.insertAdjacentHTML('beforeend', `<div class="notes">${S.notes_html}</div>`);
-    }
+      if (S.notes_html) body.insertAdjacentHTML('beforeend', `<details class="more"><summary>详细观察</summary><div class="notes">${S.notes_html}</div></details>`);
+      main.appendChild(sec);
+      if (concl && S.concl) concl.insertAdjacentHTML('beforeend', `<a class="ccard" href="#${S.id}"><span class="cnum">${S.num}</span><span>${S.concl}</span></a>`);
+    });
+    if (meta.plan_html) document.querySelector('#plan').innerHTML = meta.plan_html;
+    document.querySelectorAll('a.ccard').forEach(a => a.addEventListener('click', e => {
+      const d = document.getElementById(a.getAttribute('href').slice(1)); if (d) { d.open = true; }
+    }));
     requestAnimationFrame(loop);
     const h = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
-    if (h) setTimeout(() => h.scrollIntoView({ block: 'start' }), 50);   // sections are built after the json loads
+    if (h) { const d = h.closest('details.sec'); if (d) d.open = true; setTimeout(() => h.scrollIntoView({ block: 'start' }), 50); }   // sections are built after the json loads
   });
 })();
