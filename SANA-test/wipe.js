@@ -189,5 +189,7 @@
       if (S.notes_html) sec.insertAdjacentHTML('beforeend', `<div class="notes">${S.notes_html}</div>`);
     }
     requestAnimationFrame(loop);
+    const h = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (h) setTimeout(() => h.scrollIntoView({ block: 'start' }), 50);   // sections are built after the json loads
   });
 })();
