@@ -1,0 +1,3078 @@
+[
+ {
+  "id": "clean-movie_cand_e78e74c5d471eb6a5cb084a8",
+  "cat": "g2",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "Wide shot of a family gathering on the lawn of a yellow farmhouse.",
+  "caption": "Wide shot of a family gathering on the lawn of a yellow farmhouse.",
+  "thumb": "clean-movie_cand_e78e74c5d471eb6a5cb084a8.thumb.jpg",
+  "poster": "clean-movie_cand_e78e74c5d471eb6a5cb084a8.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "clean-movie_cand_e78e74c5d471eb6a5cb084a8.in_ic.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "gt_ic": {
+    "f": "clean-movie_cand_e78e74c5d471eb6a5cb084a8.gt_ic.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_1440p_32b80925f424231894b5b322",
+  "cat": "g2",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A detailed close-up view of a skilled and steady hand performing precise work…",
+  "caption": "The video provides a detailed close-up view of a skilled and steady hand performing precise work on a green circuit board. The hand uses a specialized tool to adjust or secure a small metallic component, with the camera capturing the meticulous movements and the intricate nature of the task. The bac",
+  "thumb": "clean-ultravideo_1440p_32b80925f424231894b5b322.thumb.jpg",
+  "poster": "clean-ultravideo_1440p_32b80925f424231894b5b322.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "clean-ultravideo_1440p_32b80925f424231894b5b322.in_ic.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "gt_ic": {
+    "f": "clean-ultravideo_1440p_32b80925f424231894b5b322.gt_ic.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c",
+  "cat": "g2",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A wooden bowl filled with raw chicken pieces placed on a bed of vibrant green…",
+  "caption": "The video shows a wooden bowl filled with raw chicken pieces placed on a bed of vibrant green moss outdoors. The chicken pieces are pale pink and appear fresh, with a smooth texture. Cornstarch is sprinkled over the chicken, creating a cloud of white powder that settles onto the meat. Hands then ent",
+  "thumb": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.thumb.jpg",
+  "poster": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.in_ic.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "gt_ic": {
+    "f": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.gt_ic.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf",
+  "cat": "g2",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A wide-angle view of a breathtaking landscape dominated by a towering mountai…",
+  "caption": "The video opens with a wide-angle view of a breathtaking landscape dominated by a towering mountain range that stretches across the horizon. The mountains, bathed in sunlight with rays piercing through the clouds, create a stunning interplay of light and shadow. In the foreground, a woman dressed in",
+  "thumb": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.thumb.jpg",
+  "poster": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.in_ic.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "gt_ic": {
+    "f": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.gt_ic.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_796743359bdf6d25f994491d",
+  "cat": "g2",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "In a cozy, well-lit living room, a man and a woman engage in a warm and livel…",
+  "caption": "In a cozy, well-lit living room, a man and a woman engage in a warm and lively interaction. The man, dressed in a striped shirt and white pants, stands beside the woman, who is comfortably seated in an armchair, holding a drink. He gestures animatedly as he speaks, while the woman, wearing a floral ",
+  "thumb": "clean-ultravideo_cand_796743359bdf6d25f994491d.thumb.jpg",
+  "poster": "clean-ultravideo_cand_796743359bdf6d25f994491d.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "clean-ultravideo_cand_796743359bdf6d25f994491d.in_ic.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "gt_ic": {
+    "f": "clean-ultravideo_cand_796743359bdf6d25f994491d.gt_ic.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a",
+  "cat": "g2",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "The intense and meticulous process of blacksmithing within a traditional work…",
+  "caption": "The video captures the intense and meticulous process of blacksmithing within a traditional workshop setting. The blacksmith, dressed in a white uniform and a headscarf, is seen actively engaging with the forge. He uses long-handled tongs to manipulate a glowing piece of metal, heated to a bright or",
+  "thumb": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a.thumb.jpg",
+  "poster": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a.in_ic.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "gt_ic": {
+    "f": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a.gt_ic.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916",
+  "cat": "g2",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "An aerial view of a vibrant European city, characterized by its dense array o…",
+  "caption": "The video showcases an aerial view of a vibrant European city, characterized by its dense array of historic buildings with red-tiled roofs and narrow streets. The camera pans across the urban landscape, capturing the architectural diversity and intricate layout of the city. The focal point is a live",
+  "thumb": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.thumb.jpg",
+  "poster": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.in_ic.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "gt_ic": {
+    "f": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.gt_ic.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0",
+  "cat": "g2",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A serene moment in nature featuring a vibrant green frog perched on a plant s…",
+  "caption": "The video captures a serene moment in nature featuring a vibrant green frog perched on a plant stem. The frog, with its striking emerald hue and large, expressive eyes, is the focal point of the scene. The camera maintains a steady, close-up shot, allowing viewers to observe the intricate details of",
+  "thumb": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.thumb.jpg",
+  "poster": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.in_ic.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "gt_ic": {
+    "f": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.gt_ic.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81",
+  "cat": "g2",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A man dressed in a bright yellow shirt and a straw hat, crouched beside two l…",
+  "caption": "The video captures a man dressed in a bright yellow shirt and a straw hat, crouched beside two large pots placed on the ground in an outdoor setting. On a sunny day, he methodically transfers what looks like cooked food from one pot to another using a metal strainer. His movements are deliberate and",
+  "thumb": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.thumb.jpg",
+  "poster": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.in_ic.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "gt_ic": {
+    "f": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.gt_ic.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_f829a5934155dca01a34857c",
+  "cat": "g2",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "An aerial view of a secluded beach, capturing the harmonious blend of natural…",
+  "caption": "The video opens with an aerial view of a secluded beach, capturing the harmonious blend of natural and man-made elements. The camera slowly pans across the scene, revealing a series of weathered beach huts that line the sandy shore. These huts, constructed with simple materials, exhibit signs of age",
+  "thumb": "clean-ultravideo_cand_f829a5934155dca01a34857c.thumb.jpg",
+  "poster": "clean-ultravideo_cand_f829a5934155dca01a34857c.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "clean-ultravideo_cand_f829a5934155dca01a34857c.in_ic.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "gt_ic": {
+    "f": "clean-ultravideo_cand_f829a5934155dca01a34857c.gt_ic.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "h3-01-quiet-breathing-portrait",
+  "cat": "g2",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Quiet breathing portrait",
+  "caption": "[Shot 1] Photorealistic medium close-up of an adult woman in a peach cotton blouse seated on a timber bench among tropical ferns. She closes her eyes, takes one relaxed breath and opens her eyes with a small smile. The camera makes a very slow, level push toward her face. Warm morning light reveals ",
+  "thumb": "h3-01-quiet-breathing-portrait.thumb.jpg",
+  "poster": "h3-01-quiet-breathing-portrait.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "h3-01-quiet-breathing-portrait.in_ic.mp4",
+    "l": "输入 H3 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "h3_ic": {
+    "f": "h3-01-quiet-breathing-portrait.h3_ic.mp4",
+    "l": "H3 自带 refiner · 2560",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "h3-06-glass-mushroom-audio-timing",
+  "cat": "g2",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Glass mushroom audio timing",
+  "caption": "[Shot 1] Photorealistic locked macro shot of three small translucent glass mushrooms growing from a mossy log. A single adult fingertip enters from the right and gently taps the nearest cap once, then withdraws. The cap rings faintly and releases one clear water droplet from its lower rim. The dropl",
+  "thumb": "h3-06-glass-mushroom-audio-timing.thumb.jpg",
+  "poster": "h3-06-glass-mushroom-audio-timing.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "h3-06-glass-mushroom-audio-timing.in_ic.mp4",
+    "l": "输入 H3 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "h3_ic": {
+    "f": "h3-06-glass-mushroom-audio-timing.h3_ic.mp4",
+    "l": "H3 自带 refiner · 2560",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "h3-11-sweater-unravels-into-scarf",
+  "cat": "g2",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Sweater unravels into scarf",
+  "caption": "[Shot 1] Locked live-action tabletop close-up of an ivory knitted sweater lying next to a short matching scarf. One continuous strand of wool gently pulls from the sweater’s lower edge toward the scarf. Several sweater stitches loosen while a small new row forms at the scarf’s end. The camera stays ",
+  "thumb": "h3-11-sweater-unravels-into-scarf.thumb.jpg",
+  "poster": "h3-11-sweater-unravels-into-scarf.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "h3-11-sweater-unravels-into-scarf.in_ic.mp4",
+    "l": "输入 H3 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "h3_ic": {
+    "f": "h3-11-sweater-unravels-into-scarf.h3_ic.mp4",
+    "l": "H3 自带 refiner · 2560",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "h3-16-warehouse-fight-impact-speed-ramps",
+  "cat": "g2",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Warehouse fight impact speed ramps",
+  "caption": "[Shot 1] Photorealistic medium-wide shot of two adult trained fighters wearing charcoal and olive sportswear in a spacious empty warehouse. One throws a controlled straight punch and the other blocks with the forearm, with no injury. Motion begins at normal speed, briefly slows as their arms meet, t",
+  "thumb": "h3-16-warehouse-fight-impact-speed-ramps.thumb.jpg",
+  "poster": "h3-16-warehouse-fight-impact-speed-ramps.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "h3-16-warehouse-fight-impact-speed-ramps.in_ic.mp4",
+    "l": "输入 H3 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "h3_ic": {
+    "f": "h3-16-warehouse-fight-impact-speed-ramps.h3_ic.mp4",
+    "l": "H3 自带 refiner · 2560",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "h3-fast-01-cliff-speeder",
+  "cat": "g2",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Cliff speeder",
+  "caption": "[Shot 1] A photorealistic silver single-seat hoverbike races left to right along a narrow stone ledge above a deep canyon. Its adult rider wears a cobalt flight suit and orange helmet. During the first two seconds a stone arch starts to crumble ahead; the rider banks sharply under the falling stones",
+  "thumb": "h3-fast-01-cliff-speeder.thumb.jpg",
+  "poster": "h3-fast-01-cliff-speeder.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "h3-fast-01-cliff-speeder.in_ic.mp4",
+    "l": "输入 H3 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "h3_ic": {
+    "f": "h3-fast-01-cliff-speeder.h3_ic.mp4",
+    "l": "H3 自带 refiner · 2560",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "h3-fast-06-eyewear-crossing",
+  "cat": "g2",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Eyewear crossing",
+  "caption": "[Shot 1] A premium live-action fashion action shot in a white cyclorama. Two adult models wear sharply different outfits: a tall woman in a flowing black trouser suit and a woman with a short auburn bob in a silver pleated dress. Both wear slim mirrored wraparound eyewear. They stride quickly across",
+  "thumb": "h3-fast-06-eyewear-crossing.thumb.jpg",
+  "poster": "h3-fast-06-eyewear-crossing.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "h3-fast-06-eyewear-crossing.in_ic.mp4",
+    "l": "输入 H3 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "h3_ic": {
+    "f": "h3-fast-06-eyewear-crossing.h3_ic.mp4",
+    "l": "H3 自带 refiner · 2560",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "h3-fast-11-windmill-freeze",
+  "cat": "g2",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Windmill freeze",
+  "caption": "[Shot 1] Live-action breaking performance in a well-lit rehearsal hall with a matte wooden floor. One athletic adult dancer in a fitted green top, loose grey trousers and flat white shoes drops from a crouch onto the upper back, performs two fast windmill rotations with separated extended legs, plan",
+  "thumb": "h3-fast-11-windmill-freeze.thumb.jpg",
+  "poster": "h3-fast-11-windmill-freeze.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "h3-fast-11-windmill-freeze.in_ic.mp4",
+    "l": "输入 H3 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "h3_ic": {
+    "f": "h3-fast-11-windmill-freeze.h3_ic.mp4",
+    "l": "H3 自带 refiner · 2560",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "h3-hot-01-robot-caliper-muscles",
+  "cat": "g2",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Robot caliper muscles",
+  "caption": "A five-second fictional visual comedy in one steady medium close shot. In a sunlit industrial gym, a slender pearl-white humanoid robot with a black glass face finishes one small dumbbell curl. It proudly bends its elbow, then uses a polished vernier caliper to measure the almost paper-thin aluminum",
+  "thumb": "h3-hot-01-robot-caliper-muscles.thumb.jpg",
+  "poster": "h3-hot-01-robot-caliper-muscles.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "h3-hot-01-robot-caliper-muscles.in_ic.mp4",
+    "l": "输入 H3 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "h3_ic": {
+    "f": "h3-hot-01-robot-caliper-muscles.h3_ic.mp4",
+    "l": "H3 自带 refiner · 2560",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "h3-hot-06-thin-robot-huge-shadow",
+  "cat": "g2",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Thin robot huge shadow",
+  "caption": "A five-second stylized cinematic comedy in one fixed wide shot. A very slim humanoid robot stands sideways in a theatrical gym lit by a single amber spotlight, showing an almost ruler-thin torso and delicate mechanical arms. It raises both arms into a proud bodybuilding pose. On the textured concret",
+  "thumb": "h3-hot-06-thin-robot-huge-shadow.thumb.jpg",
+  "poster": "h3-hot-06-thin-robot-huge-shadow.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "h3-hot-06-thin-robot-huge-shadow.in_ic.mp4",
+    "l": "输入 H3 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "h3_ic": {
+    "f": "h3-hot-06-thin-robot-huge-shadow.h3_ic.mp4",
+    "l": "H3 自带 refiner · 2560",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "h3-hot-11-roadster-teacup-coaster",
+  "cat": "g2",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Roadster teacup coaster",
+  "caption": "A five-second whimsical macro film in one smooth close tracking shot. A palm-sized red Roadster-inspired electric sports car floats a few centimeters above a dark walnut tea table, passing through a curl of steam from a porcelain teacup. It gently rotates into alignment and lands on a tiny ceramic s",
+  "thumb": "h3-hot-11-roadster-teacup-coaster.thumb.jpg",
+  "poster": "h3-hot-11-roadster-teacup-coaster.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "h3-hot-11-roadster-teacup-coaster.in_ic.mp4",
+    "l": "输入 H3 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "h3_ic": {
+    "f": "h3-hot-11-roadster-teacup-coaster.h3_ic.mp4",
+    "l": "H3 自带 refiner · 2560",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "ltx-p003_ltx2_stage1_s0000_768x512_121f_lq15",
+  "cat": "g2",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A young artist stands before a large canvas in a sun-drenched studio, applyin…",
+  "caption": "A young artist stands before a large canvas in a sun-drenched studio, applying thick layers of oil paint with a palette knife. The camera orbits slowly around her, capturing the vibrant texture of the impasto strokes and the messy splashes of color on her denim overalls. She concentrates intensely, ",
+  "thumb": "ltx-p003_ltx2_stage1_s0000_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p003_ltx2_stage1_s0000_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "ltx-p003_ltx2_stage1_s0000_768x512_121f_lq15.in_ic.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "ltx-p021_ltx2_stage1_s0006_768x512_121f_lq15",
+  "cat": "g2",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A contemporary dancer wearing a flowing linen outfit performs a slow, express…",
+  "caption": "A contemporary dancer wearing a flowing linen outfit performs a slow, expressive routine in a sun-drenched, abandoned warehouse. As they arch their back and reach toward the high ceiling, fine dust motes dance in the thick shafts of light. The camera slowly orbits the dancer, capturing the intricate",
+  "thumb": "ltx-p021_ltx2_stage1_s0006_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p021_ltx2_stage1_s0006_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "ltx-p021_ltx2_stage1_s0006_768x512_121f_lq15.in_ic.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "ltx-p036_ltx2_stage1_s0011_768x512_121f_lq15",
+  "cat": "g2",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A large green sea turtle glides effortlessly through a vibrant coral reef, it…",
+  "caption": "A large green sea turtle glides effortlessly through a vibrant coral reef, its ancient, patterned shell reflecting the shimmering light rays from the surface. The camera orbits the turtle, showcasing the leathery texture of its flippers and the intricate scales on its neck. Schools of small, colorfu",
+  "thumb": "ltx-p036_ltx2_stage1_s0011_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p036_ltx2_stage1_s0011_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "ltx-p036_ltx2_stage1_s0011_768x512_121f_lq15.in_ic.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "ltx-p051_ltx2_stage1_s0016_768x512_121f_lq15",
+  "cat": "g2",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A vintage steam locomotive thunders across a stone bridge in a misty valley.",
+  "caption": "A vintage steam locomotive thunders across a stone bridge in a misty valley. Thick, billowing white smoke erupts from the chimney, swirling against the damp, green hills. The camera pans parallel to the train, capturing the rhythmic churning of the heavy steel pistons and the glint of brass pipes. W",
+  "thumb": "ltx-p051_ltx2_stage1_s0016_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p051_ltx2_stage1_s0016_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "ltx-p051_ltx2_stage1_s0016_768x512_121f_lq15.in_ic.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "ltx-p063_ltx2_stage1_s0020_768x512_121f_lq15",
+  "cat": "g2",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A jagged, snow-capped mountain peak towers above a sea of swirling white clou…",
+  "caption": "A jagged, snow-capped mountain peak towers above a sea of swirling white clouds during the blue hour. The camera executes a slow orbit around the summit, revealing the crystalline texture of the wind-swept ice and the sheer rock faces. Wisps of cirrus clouds drift rapidly past the peak, creating a s",
+  "thumb": "ltx-p063_ltx2_stage1_s0020_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p063_ltx2_stage1_s0020_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "ltx-p063_ltx2_stage1_s0020_768x512_121f_lq15.in_ic.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "ltx-p078_ltx2_stage1_s0025_768x512_121f_lq15",
+  "cat": "g2",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A pair of hands carefully slices through a freshly baked loaf of sourdough br…",
+  "caption": "A pair of hands carefully slices through a freshly baked loaf of sourdough bread on a wooden cutting board. The camera is at a low angle, focusing on the golden, crackling crust as it shatters into small crumbs under the serrated knife. Inside, the bread reveals a soft, airy crumb with large, irregu",
+  "thumb": "ltx-p078_ltx2_stage1_s0025_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p078_ltx2_stage1_s0025_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "ltx-p078_ltx2_stage1_s0025_768x512_121f_lq15.in_ic.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "ltx-p087_ltx2_stage1_s0028_768x512_121f_lq15",
+  "cat": "g2",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A dolly shot moves forward through a narrow, winding European cobblestone str…",
+  "caption": "A dolly shot moves forward through a narrow, winding European cobblestone street lined with ancient stone buildings. Potted red geraniums sit on wrought-iron balconies that partially occlude the view of the upper floors. A few pedestrians in casual summer clothing walk away from the camera, their sh",
+  "thumb": "ltx-p087_ltx2_stage1_s0028_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p087_ltx2_stage1_s0028_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "ltx-p087_ltx2_stage1_s0028_768x512_121f_lq15.in_ic.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "ltx-p099_ltx2_stage1_s0032_768x512_121f_lq15",
+  "cat": "g2",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A young woman stands in the middle of a rain-slicked street, her face decorat…",
+  "caption": "A young woman stands in the middle of a rain-slicked street, her face decorated with subtle, glowing bioluminescent patterns that pulse with a soft amber light. Raindrops cling to her eyelashes and run down her damp skin, catching the vibrant reflections of nearby neon signs. The camera orbits her s",
+  "thumb": "ltx-p099_ltx2_stage1_s0032_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p099_ltx2_stage1_s0032_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "ltx-p099_ltx2_stage1_s0032_768x512_121f_lq15.in_ic.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "ltx-p111_ltx2_stage1_s0036_768x512_121f_lq15",
+  "cat": "g2",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A macro closeup of a luxury skeleton watch.",
+  "caption": "A macro closeup of a luxury skeleton watch. The intricate gold and silver gears rotate rhythmically behind a clear sapphire crystal. Tiny rubies glint as the balance wheel oscillates rapidly. The camera slowly orbits the watch face, capturing the brushed metal texture and polished edges. Fine dust m",
+  "thumb": "ltx-p111_ltx2_stage1_s0036_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p111_ltx2_stage1_s0036_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "ltx-p111_ltx2_stage1_s0036_768x512_121f_lq15.in_ic.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "ltx-p120_ltx2_stage1_s0039_768x512_121f_lq15",
+  "cat": "g2",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A cinematic shot of a bioluminescent jellyfish-like creature floating through…",
+  "caption": "A cinematic shot of a bioluminescent jellyfish-like creature floating through a vibrant cosmic nebula. The creature's translucent body pulses with rhythmic waves of neon blue and violet light, revealing delicate, glowing nervous systems within. Long, wispy tentacles trail behind, shimmering with sta",
+  "thumb": "ltx-p120_ltx2_stage1_s0039_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p120_ltx2_stage1_s0039_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "ltx-p120_ltx2_stage1_s0039_768x512_121f_lq15.in_ic.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b001",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "2D-animated, a cute cartoon panda stands on a snowy sidewalk holding a steami…",
+  "caption": "[Shot 1] 2D-animated, a cute cartoon panda stands on a snowy sidewalk holding a steaming cup of coffee. The panda, adorned with a black scarf, looks around curiously as snowflakes gently fall around it. The background features a cozy street scene with warm streetlights casting a golden glow, illumin",
+  "thumb": "sanabase-b001.thumb.jpg",
+  "poster": "sanabase-b001.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b001.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b001.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b001.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   },
+   "in16_ic16": {
+    "f": "sanabase-b001.in16_ic16.mp4",
+    "l": "输入 16× 退化（同训练）",
+    "r": "本 refiner · 16× 输入 · 2K"
+   },
+   "ic_ic16": {
+    "f": "sanabase-b001.ic_ic16.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 16× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b012",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "3D Pixar style, a close-up underwater perspective frames a cute baby whale sw…",
+  "caption": "[Shot 1] 3D Pixar style, a close-up underwater perspective frames a cute baby whale swimming gracefully through a vibrant underwater world. The baby whale's fins move gently while its tail flaps rhythmically, propelling it forward through the colorful aquatic environment.",
+  "thumb": "sanabase-b012.thumb.jpg",
+  "poster": "sanabase-b012.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b012.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b012.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b012.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   },
+   "in16_ic16": {
+    "f": "sanabase-b012.in16_ic16.mp4",
+    "l": "输入 16× 退化（同训练）",
+    "r": "本 refiner · 16× 输入 · 2K"
+   },
+   "ic_ic16": {
+    "f": "sanabase-b012.ic_ic16.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 16× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b023",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a medium shot frames a police officer standing confid…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a police officer standing confidently in front of a cityscape featuring modern buildings and greenery, suggesting an urban setting. The officer wears a light blue uniform with a badge and patches on the shoulders, and his name \"BUCS\" is clearly v",
+  "thumb": "sanabase-b023.thumb.jpg",
+  "poster": "sanabase-b023.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b023.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b023.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b023.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   },
+   "in16_ic16": {
+    "f": "sanabase-b023.in16_ic16.mp4",
+    "l": "输入 16× 退化（同训练）",
+    "r": "本 refiner · 16× 输入 · 2K"
+   },
+   "ic_ic16": {
+    "f": "sanabase-b023.ic_ic16.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 16× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b035",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a steady wide-angle shot frames a futuristic greenhou…",
+  "caption": "[Shot 1] Live-action, cinematic, a steady wide-angle shot frames a futuristic greenhouse bathed in bright sunlight with clear blue skies and verdant trees visible outside the transparent dome. Three astronauts in white spacesuits tend to lush green plants; the central astronaut, equipped with a back",
+  "thumb": "sanabase-b035.thumb.jpg",
+  "poster": "sanabase-b035.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b035.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b035.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b035.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   },
+   "in16_ic16": {
+    "f": "sanabase-b035.in16_ic16.mp4",
+    "l": "输入 16× 退化（同训练）",
+    "r": "本 refiner · 16× 输入 · 2K"
+   },
+   "ic_ic16": {
+    "f": "sanabase-b035.ic_ic16.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 16× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b046",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a sunny day on a street where a person wearing a vibr…",
+  "caption": "[Shot 1] Live-action, cinematic, a sunny day on a street where a person wearing a vibrant, colorful Hawaiian shirt and a straw hat walks past a white veterinary clinic with blue doors and windows named \"San Monet de Asis\". The person carries a small, fluffy dog wrapped in green fabric over their sho",
+  "thumb": "sanabase-b046.thumb.jpg",
+  "poster": "sanabase-b046.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b046.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b046.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b046.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   },
+   "in16_ic16": {
+    "f": "sanabase-b046.in16_ic16.mp4",
+    "l": "输入 16× 退化（同训练）",
+    "r": "本 refiner · 16× 输入 · 2K"
+   },
+   "ic_ic16": {
+    "f": "sanabase-b046.ic_ic16.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 16× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b058",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a medium shot frames a green-skinned alien in a golde…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a green-skinned alien in a golden robe gesturing animatedly with fluid hand movements while speaking to three individuals in sleek, metallic uniforms. The alien's expressive hands move as they communicate, while the three humans stand attentively",
+  "thumb": "sanabase-b058.thumb.jpg",
+  "poster": "sanabase-b058.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b058.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b058.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b058.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   },
+   "in16_ic16": {
+    "f": "sanabase-b058.in16_ic16.mp4",
+    "l": "输入 16× 退化（同训练）",
+    "r": "本 refiner · 16× 输入 · 2K"
+   },
+   "ic_ic16": {
+    "f": "sanabase-b058.ic_ic16.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 16× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b069",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a medium shot frames a young boy with curly brown hai…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a young boy with curly brown hair, wearing a yellow shirt and a party hat with a Swedish flag design, standing in front of a festive backdrop adorned with colorful balloons and banners that spell out \"GRATULERA BÅRDADY.\" He holds a birthday cake ",
+  "thumb": "sanabase-b069.thumb.jpg",
+  "poster": "sanabase-b069.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b069.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b069.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b069.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b081",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a static shot frames a solitary figure standing on th…",
+  "caption": "[Shot 1] Live-action, cinematic, a static shot frames a solitary figure standing on the edge of a rugged cliff, silhouetted against a vibrant sunset sky painted with shades of orange, pink, and purple. Scattered clouds add depth to the scene while the ocean below displays gentle waves with crests ca",
+  "thumb": "sanabase-b081.thumb.jpg",
+  "poster": "sanabase-b081.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b081.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b081.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b081.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b092",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a steady tracking shot follows a group of horses grac…",
+  "caption": "[Shot 1] Live-action, cinematic, a steady tracking shot follows a group of horses gracefully trotting across a lush green field. The central horse, a rich chestnut with a glossy coat and a flowing black mane and tail, leads the pack, its legs moving rhythmically and kicking up small clouds of dust b",
+  "thumb": "sanabase-b092.thumb.jpg",
+  "poster": "sanabase-b092.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b092.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b092.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b092.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b103",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Cinematic, live-action, a medium-wide shot frames a monstrous creature emergi…",
+  "caption": "[Shot 1] Cinematic, live-action, a medium-wide shot frames a monstrous creature emerging from the ocean under a lightning-streaked sky. The creature has glowing eyes, tentacle-like appendages, and a muscular build, standing amidst crashing waves with snow blanketing the rocky cliffs. As the scene pr",
+  "thumb": "sanabase-b103.thumb.jpg",
+  "poster": "sanabase-b103.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b103.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b103.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b103.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b115",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "2D-animated, a medium-wide steady frontal shot frames two blocky animated cha…",
+  "caption": "[Shot 1] 2D-animated, a medium-wide steady frontal shot frames two blocky animated characters dancing rhythmically in front of the grand Milan Cathedral in a bustling piazza. The character on the left has blonde hair and wears a black hoodie emblazoned with \"MIACED,\" moving their arms and swaying si",
+  "thumb": "sanabase-b115.thumb.jpg",
+  "poster": "sanabase-b115.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b115.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b115.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b115.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b126",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Cinematic, soft desaturated colors, a medium shot frames a nervous young girl…",
+  "caption": "[Shot 1] Cinematic, soft desaturated colors, a medium shot frames a nervous young girl in a neat uniform standing hunched at a school gate, clutching her bag with her head down. Sunlight filters through clouds, gently glowing on background buildings. Leaves flutter softly in the air as she hesitates",
+  "thumb": "sanabase-b126.thumb.jpg",
+  "poster": "sanabase-b126.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b126.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b126.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b126.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b138",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a steady frontal shot captures three individuals walk…",
+  "caption": "[Shot 1] Live-action, cinematic, a steady frontal shot captures three individuals walking confidently down a wet street in a moody urban setting. The man on the left, dressed in a long black coat and hat, leads the group, followed by the man in the middle wearing a light blue lab coat over a dark su",
+  "thumb": "sanabase-b138.thumb.jpg",
+  "poster": "sanabase-b138.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b138.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b138.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b138.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b149",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a wide shot frames a grand medieval army standing in…",
+  "caption": "[Shot 1] Live-action, cinematic, a wide shot frames a grand medieval army standing in formation under a stormy sky, their spears and banners gleaming in the dim light. The ground is blanketed in snow, and distant mountains loom under heavy clouds. In the foreground, a figure clad in ornate armor and",
+  "thumb": "sanabase-b149.thumb.jpg",
+  "poster": "sanabase-b149.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b149.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b149.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b149.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b161",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a medium shot frames a young man with short brown hai…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a young man with short brown hair wearing a light green button-up shirt standing in a vibrant garden filled with colorful flowers and lush greenery. The sunlight filters through the leaves, casting a warm glow over the scene, with the background ",
+  "thumb": "sanabase-b161.thumb.jpg",
+  "poster": "sanabase-b161.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b161.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b161.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b161.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b172",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "3D CG, cinematic, a medium-wide shot captures a dynamic space battle between…",
+  "caption": "[Shot 1] 3D CG, cinematic, a medium-wide shot captures a dynamic space battle between two sleek futuristic spacecraft amidst a field of asteroids with a distant planet in the background. The leading ship, emitting bright blue exhaust, maneuvers skillfully and fires blue energy beams at adversaries. ",
+  "thumb": "sanabase-b172.thumb.jpg",
+  "poster": "sanabase-b172.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b172.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b172.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b172.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b183",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "3D CG, cyberpunk, a close-up shot frames two rabbits with glowing green patte…",
+  "caption": "[Shot 1] 3D CG, cyberpunk, a close-up shot frames two rabbits with glowing green patterns on their fur standing facing each other in a futuristic, neon-lit setting. Their large ears and whiskers are prominently displayed as they interact closely, performing subtle head tilts and eye movements to enh",
+  "thumb": "sanabase-b183.thumb.jpg",
+  "poster": "sanabase-b183.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b183.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b183.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b183.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b195",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Cinematic, live-action, a close-up shot frames a Tyrannosaurus rex roaring fi…",
+  "caption": "[Shot 1] Cinematic, live-action, a close-up shot frames a Tyrannosaurus rex roaring fiercely against a dramatic sunset backdrop with rolling hills and scattered clouds. The dinosaur's mouth is agape as flames erupt from its jaws, sparks fly, and its eyes glow with intense prehistoric power. The came",
+  "thumb": "sanabase-b195.thumb.jpg",
+  "poster": "sanabase-b195.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b195.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b195.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b195.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b206",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "2D-animated, black-and-white, a static medium shot displays intricate snowfla…",
+  "caption": "[Shot 1] 2D-animated, black-and-white, a static medium shot displays intricate snowflake patterns in various sizes and orientations against a stark black background. The snowflakes are detailed with fine lines, creating a textured appearance. The scene remains completely static throughout, allowing ",
+  "thumb": "sanabase-b206.thumb.jpg",
+  "poster": "sanabase-b206.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b206.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b206.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b206.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b218",
+  "cat": "g3",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a medium shot frames a woman standing confidently in…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a woman standing confidently in an art studio. She is dressed in a professional black blazer over a crisp white shirt, with her hands clasped together in front of her, gazing thoughtfully to the side. The studio is vibrant, filled with colorful a",
+  "thumb": "sanabase-b218.thumb.jpg",
+  "poster": "sanabase-b218.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b218.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "in8_ic8": {
+    "f": "sanabase-b218.in8_ic8.mp4",
+    "l": "输入 8× 退化（同训练）",
+    "r": "本 refiner · 8× 输入 · 2K"
+   },
+   "ic_ic8": {
+    "f": "sanabase-b218.ic_ic8.mp4",
+    "l": "本 refiner · 原输入",
+    "r": "本 refiner · 8× 退化输入"
+   }
+  }
+ },
+ {
+  "id": "b320-clean-movie_cand_e78e74c5d471eb6a5cb084a8",
+  "cat": "g4",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "Wide shot of a family gathering on the lawn of a yellow farmhouse.",
+  "caption": "Wide shot of a family gathering on the lawn of a yellow farmhouse.",
+  "thumb": "b320-clean-movie_cand_e78e74c5d471eb6a5cb084a8.thumb.jpg",
+  "poster": "b320-clean-movie_cand_e78e74c5d471eb6a5cb084a8.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-clean-movie_cand_e78e74c5d471eb6a5cb084a8.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-clean-movie_cand_e78e74c5d471eb6a5cb084a8.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-clean-ultravideo_1440p_32b80925f424231894b5b322",
+  "cat": "g4",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A detailed close-up view of a skilled and steady hand performing precise work…",
+  "caption": "The video provides a detailed close-up view of a skilled and steady hand performing precise work on a green circuit board. The hand uses a specialized tool to adjust or secure a small metallic component, with the camera capturing the meticulous movements and the intricate nature of the task. The bac",
+  "thumb": "b320-clean-ultravideo_1440p_32b80925f424231894b5b322.thumb.jpg",
+  "poster": "b320-clean-ultravideo_1440p_32b80925f424231894b5b322.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-clean-ultravideo_1440p_32b80925f424231894b5b322.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-clean-ultravideo_1440p_32b80925f424231894b5b322.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c",
+  "cat": "g4",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A wooden bowl filled with raw chicken pieces placed on a bed of vibrant green…",
+  "caption": "The video shows a wooden bowl filled with raw chicken pieces placed on a bed of vibrant green moss outdoors. The chicken pieces are pale pink and appear fresh, with a smooth texture. Cornstarch is sprinkled over the chicken, creating a cloud of white powder that settles onto the meat. Hands then ent",
+  "thumb": "b320-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.thumb.jpg",
+  "poster": "b320-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-clean-ultravideo_1440p_c1b6dbc6ad7fa8172798d9c0",
+  "cat": "g4",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A person stirring a large pot filled with a vibrant red liquid, likely a type…",
+  "caption": "The video captures a person stirring a large pot filled with a vibrant red liquid, likely a type of sauce or jam, using a long wooden spoon. The individual, dressed in a patterned shirt and an apron, moves their hands rhythmically to ensure the mixture is well-blended. The pot is substantial, sugges",
+  "thumb": "b320-clean-ultravideo_1440p_c1b6dbc6ad7fa8172798d9c0.thumb.jpg",
+  "poster": "b320-clean-ultravideo_1440p_c1b6dbc6ad7fa8172798d9c0.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-clean-ultravideo_1440p_c1b6dbc6ad7fa8172798d9c0.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-clean-ultravideo_1440p_c1b6dbc6ad7fa8172798d9c0.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-clean-ultravideo_cand_31f316f88ef7c2ea13edadcf",
+  "cat": "g4",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A wide-angle view of a breathtaking landscape dominated by a towering mountai…",
+  "caption": "The video opens with a wide-angle view of a breathtaking landscape dominated by a towering mountain range that stretches across the horizon. The mountains, bathed in sunlight with rays piercing through the clouds, create a stunning interplay of light and shadow. In the foreground, a woman dressed in",
+  "thumb": "b320-clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.thumb.jpg",
+  "poster": "b320-clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-clean-ultravideo_cand_796743359bdf6d25f994491d",
+  "cat": "g4",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "In a cozy, well-lit living room, a man and a woman engage in a warm and livel…",
+  "caption": "In a cozy, well-lit living room, a man and a woman engage in a warm and lively interaction. The man, dressed in a striped shirt and white pants, stands beside the woman, who is comfortably seated in an armchair, holding a drink. He gestures animatedly as he speaks, while the woman, wearing a floral ",
+  "thumb": "b320-clean-ultravideo_cand_796743359bdf6d25f994491d.thumb.jpg",
+  "poster": "b320-clean-ultravideo_cand_796743359bdf6d25f994491d.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-clean-ultravideo_cand_796743359bdf6d25f994491d.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-clean-ultravideo_cand_796743359bdf6d25f994491d.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916",
+  "cat": "g4",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "An aerial view of a vibrant European city, characterized by its dense array o…",
+  "caption": "The video showcases an aerial view of a vibrant European city, characterized by its dense array of historic buildings with red-tiled roofs and narrow streets. The camera pans across the urban landscape, capturing the architectural diversity and intricate layout of the city. The focal point is a live",
+  "thumb": "b320-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.thumb.jpg",
+  "poster": "b320-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0",
+  "cat": "g4",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A serene moment in nature featuring a vibrant green frog perched on a plant s…",
+  "caption": "The video captures a serene moment in nature featuring a vibrant green frog perched on a plant stem. The frog, with its striking emerald hue and large, expressive eyes, is the focal point of the scene. The camera maintains a steady, close-up shot, allowing viewers to observe the intricate details of",
+  "thumb": "b320-clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.thumb.jpg",
+  "poster": "b320-clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81",
+  "cat": "g4",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A man dressed in a bright yellow shirt and a straw hat, crouched beside two l…",
+  "caption": "The video captures a man dressed in a bright yellow shirt and a straw hat, crouched beside two large pots placed on the ground in an outdoor setting. On a sunny day, he methodically transfers what looks like cooked food from one pot to another using a metal strainer. His movements are deliberate and",
+  "thumb": "b320-clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.thumb.jpg",
+  "poster": "b320-clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-clean-ultravideo_cand_f829a5934155dca01a34857c",
+  "cat": "g4",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "An aerial view of a secluded beach, capturing the harmonious blend of natural…",
+  "caption": "The video opens with an aerial view of a secluded beach, capturing the harmonious blend of natural and man-made elements. The camera slowly pans across the scene, revealing a series of weathered beach huts that line the sandy shore. These huts, constructed with simple materials, exhibit signs of age",
+  "thumb": "b320-clean-ultravideo_cand_f829a5934155dca01a34857c.thumb.jpg",
+  "poster": "b320-clean-ultravideo_cand_f829a5934155dca01a34857c.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-clean-ultravideo_cand_f829a5934155dca01a34857c.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-clean-ultravideo_cand_f829a5934155dca01a34857c.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-h3-01-quiet-breathing-portrait",
+  "cat": "g4",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Quiet breathing portrait",
+  "caption": "[Shot 1] Photorealistic medium close-up of an adult woman in a peach cotton blouse seated on a timber bench among tropical ferns. She closes her eyes, takes one relaxed breath and opens her eyes with a small smile. The camera makes a very slow, level push toward her face. Warm morning light reveals ",
+  "thumb": "b320-h3-01-quiet-breathing-portrait.thumb.jpg",
+  "poster": "b320-h3-01-quiet-breathing-portrait.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-h3-01-quiet-breathing-portrait.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-h3-01-quiet-breathing-portrait.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-h3-06-glass-mushroom-audio-timing",
+  "cat": "g4",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Glass mushroom audio timing",
+  "caption": "[Shot 1] Photorealistic locked macro shot of three small translucent glass mushrooms growing from a mossy log. A single adult fingertip enters from the right and gently taps the nearest cap once, then withdraws. The cap rings faintly and releases one clear water droplet from its lower rim. The dropl",
+  "thumb": "b320-h3-06-glass-mushroom-audio-timing.thumb.jpg",
+  "poster": "b320-h3-06-glass-mushroom-audio-timing.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-h3-06-glass-mushroom-audio-timing.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-h3-06-glass-mushroom-audio-timing.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-h3-11-sweater-unravels-into-scarf",
+  "cat": "g4",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Sweater unravels into scarf",
+  "caption": "[Shot 1] Locked live-action tabletop close-up of an ivory knitted sweater lying next to a short matching scarf. One continuous strand of wool gently pulls from the sweater’s lower edge toward the scarf. Several sweater stitches loosen while a small new row forms at the scarf’s end. The camera stays ",
+  "thumb": "b320-h3-11-sweater-unravels-into-scarf.thumb.jpg",
+  "poster": "b320-h3-11-sweater-unravels-into-scarf.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-h3-11-sweater-unravels-into-scarf.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-h3-11-sweater-unravels-into-scarf.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-h3-16-warehouse-fight-impact-speed-ramps",
+  "cat": "g4",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Warehouse fight impact speed ramps",
+  "caption": "[Shot 1] Photorealistic medium-wide shot of two adult trained fighters wearing charcoal and olive sportswear in a spacious empty warehouse. One throws a controlled straight punch and the other blocks with the forearm, with no injury. Motion begins at normal speed, briefly slows as their arms meet, t",
+  "thumb": "b320-h3-16-warehouse-fight-impact-speed-ramps.thumb.jpg",
+  "poster": "b320-h3-16-warehouse-fight-impact-speed-ramps.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-h3-16-warehouse-fight-impact-speed-ramps.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-h3-16-warehouse-fight-impact-speed-ramps.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-h3-21-sky-panel-five-shot-mechanical-reveal",
+  "cat": "g4",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Sky panel five shot mechanical reveal",
+  "caption": "[Shot 1] Photorealistic science-fiction wide shot from a rooftop above a futuristic city. An immense rectangular section of blue sky overhead slowly tilts downward like a rigid maintenance panel, exposing dark industrial machinery behind it. One enormous mechanical arm holds the panel by its upper e",
+  "thumb": "b320-h3-21-sky-panel-five-shot-mechanical-reveal.thumb.jpg",
+  "poster": "b320-h3-21-sky-panel-five-shot-mechanical-reveal.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-h3-21-sky-panel-five-shot-mechanical-reveal.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-h3-21-sky-panel-five-shot-mechanical-reveal.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-h3-hot-01-robot-caliper-muscles",
+  "cat": "g4",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Robot caliper muscles",
+  "caption": "A five-second fictional visual comedy in one steady medium close shot. In a sunlit industrial gym, a slender pearl-white humanoid robot with a black glass face finishes one small dumbbell curl. It proudly bends its elbow, then uses a polished vernier caliper to measure the almost paper-thin aluminum",
+  "thumb": "b320-h3-hot-01-robot-caliper-muscles.thumb.jpg",
+  "poster": "b320-h3-hot-01-robot-caliper-muscles.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-h3-hot-01-robot-caliper-muscles.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-h3-hot-01-robot-caliper-muscles.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-h3-hot-06-thin-robot-huge-shadow",
+  "cat": "g4",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Thin robot huge shadow",
+  "caption": "A five-second stylized cinematic comedy in one fixed wide shot. A very slim humanoid robot stands sideways in a theatrical gym lit by a single amber spotlight, showing an almost ruler-thin torso and delicate mechanical arms. It raises both arms into a proud bodybuilding pose. On the textured concret",
+  "thumb": "b320-h3-hot-06-thin-robot-huge-shadow.thumb.jpg",
+  "poster": "b320-h3-hot-06-thin-robot-huge-shadow.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-h3-hot-06-thin-robot-huge-shadow.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-h3-hot-06-thin-robot-huge-shadow.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-h3-hot-11-roadster-teacup-coaster",
+  "cat": "g4",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Roadster teacup coaster",
+  "caption": "A five-second whimsical macro film in one smooth close tracking shot. A palm-sized red Roadster-inspired electric sports car floats a few centimeters above a dark walnut tea table, passing through a curl of steam from a porcelain teacup. It gently rotates into alignment and lands on a tiny ceramic s",
+  "thumb": "b320-h3-hot-11-roadster-teacup-coaster.thumb.jpg",
+  "poster": "b320-h3-hot-11-roadster-teacup-coaster.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-h3-hot-11-roadster-teacup-coaster.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-h3-hot-11-roadster-teacup-coaster.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-h3-hot-16-robotaxi-cow-commute",
+  "cat": "g4",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Robotaxi cow commute",
+  "caption": "A five-second playful cinematic 3D comedy, one medium curbside shot. A friendly anthropomorphic black-and-white cow in an orange gym-coach jacket stands beside a gold driverless two-seat taxi, carrying a neatly rolled yoga mat. As the upward-opening door rises, the cow leans in and discovers an enor",
+  "thumb": "b320-h3-hot-16-robotaxi-cow-commute.thumb.jpg",
+  "poster": "b320-h3-hot-16-robotaxi-cow-commute.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-h3-hot-16-robotaxi-cow-commute.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-h3-hot-16-robotaxi-cow-commute.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "b320-h3-hot-21-robot-dog-laundry-rescue",
+  "cat": "g4",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Robot dog laundry rescue",
+  "caption": "A five-second fictional home-robot buddy comedy in one low continuous shot. A white humanoid housekeeper robot kneels beside a sofa, reaching unsuccessfully toward one striped sock just beyond its metal fingertips. A small friendly quadruped robot dog trots into view, lowers its body, reaches its li",
+  "thumb": "b320-h3-hot-21-robot-dog-laundry-rescue.thumb.jpg",
+  "poster": "b320-h3-hot-21-robot-dog-laundry-rescue.poster.jpg",
+  "modes": {
+   "in_b8": {
+    "f": "b320-h3-hot-21-robot-dog-laundry-rescue.in_b8.mp4",
+    "l": "输入 320P（放大显示）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   },
+   "gt_b8": {
+    "f": "b320-h3-hot-21-robot-dog-laundry-rescue.gt_b8.mp4",
+    "l": "原视频 768P（GT）",
+    "r": "H3 底模 · 320P→768P · 8 步"
+   }
+  }
+ },
+ {
+  "id": "clean-movie_cand_e78e74c5d471eb6a5cb084a8--fs",
+  "cat": "g5",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "Wide shot of a family gathering on the lawn of a yellow farmhouse.",
+  "caption": "Wide shot of a family gathering on the lawn of a yellow farmhouse.",
+  "thumb": "clean-movie_cand_e78e74c5d471eb6a5cb084a8.thumb.jpg",
+  "poster": "clean-movie_cand_e78e74c5d471eb6a5cb084a8.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "clean-movie_cand_e78e74c5d471eb6a5cb084a8.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "clean-movie_cand_e78e74c5d471eb6a5cb084a8.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "clean-movie_cand_e78e74c5d471eb6a5cb084a8.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "clean-movie_cand_e78e74c5d471eb6a5cb084a8.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "clean-movie_cand_e78e74c5d471eb6a5cb084a8.in_fs8.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_1440p_32b80925f424231894b5b322--fs",
+  "cat": "g5",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A detailed close-up view of a skilled and steady hand performing precise work…",
+  "caption": "The video provides a detailed close-up view of a skilled and steady hand performing precise work on a green circuit board. The hand uses a specialized tool to adjust or secure a small metallic component, with the camera capturing the meticulous movements and the intricate nature of the task. The bac",
+  "thumb": "clean-ultravideo_1440p_32b80925f424231894b5b322.thumb.jpg",
+  "poster": "clean-ultravideo_1440p_32b80925f424231894b5b322.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "clean-ultravideo_1440p_32b80925f424231894b5b322.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "clean-ultravideo_1440p_32b80925f424231894b5b322.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "clean-ultravideo_1440p_32b80925f424231894b5b322.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "clean-ultravideo_1440p_32b80925f424231894b5b322.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "clean-ultravideo_1440p_32b80925f424231894b5b322.in_fs8.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c--fs",
+  "cat": "g5",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A wooden bowl filled with raw chicken pieces placed on a bed of vibrant green…",
+  "caption": "The video shows a wooden bowl filled with raw chicken pieces placed on a bed of vibrant green moss outdoors. The chicken pieces are pale pink and appear fresh, with a smooth texture. Cornstarch is sprinkled over the chicken, creating a cloud of white powder that settles onto the meat. Hands then ent",
+  "thumb": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.thumb.jpg",
+  "poster": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.in_fs8.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf--fs",
+  "cat": "g5",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A wide-angle view of a breathtaking landscape dominated by a towering mountai…",
+  "caption": "The video opens with a wide-angle view of a breathtaking landscape dominated by a towering mountain range that stretches across the horizon. The mountains, bathed in sunlight with rays piercing through the clouds, create a stunning interplay of light and shadow. In the foreground, a woman dressed in",
+  "thumb": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.thumb.jpg",
+  "poster": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "clean-ultravideo_cand_31f316f88ef7c2ea13edadcf.in_fs8.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_796743359bdf6d25f994491d--fs",
+  "cat": "g5",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "In a cozy, well-lit living room, a man and a woman engage in a warm and livel…",
+  "caption": "In a cozy, well-lit living room, a man and a woman engage in a warm and lively interaction. The man, dressed in a striped shirt and white pants, stands beside the woman, who is comfortably seated in an armchair, holding a drink. He gestures animatedly as he speaks, while the woman, wearing a floral ",
+  "thumb": "clean-ultravideo_cand_796743359bdf6d25f994491d.thumb.jpg",
+  "poster": "clean-ultravideo_cand_796743359bdf6d25f994491d.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "clean-ultravideo_cand_796743359bdf6d25f994491d.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "clean-ultravideo_cand_796743359bdf6d25f994491d.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "clean-ultravideo_cand_796743359bdf6d25f994491d.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "clean-ultravideo_cand_796743359bdf6d25f994491d.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "clean-ultravideo_cand_796743359bdf6d25f994491d.in_fs8.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a--fs",
+  "cat": "g5",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "The intense and meticulous process of blacksmithing within a traditional work…",
+  "caption": "The video captures the intense and meticulous process of blacksmithing within a traditional workshop setting. The blacksmith, dressed in a white uniform and a headscarf, is seen actively engaging with the forge. He uses long-handled tongs to manipulate a glowing piece of metal, heated to a bright or",
+  "thumb": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a.thumb.jpg",
+  "poster": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "clean-ultravideo_cand_7a098e417abaa5028c0dd33a.in_fs8.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916--fs",
+  "cat": "g5",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "An aerial view of a vibrant European city, characterized by its dense array o…",
+  "caption": "The video showcases an aerial view of a vibrant European city, characterized by its dense array of historic buildings with red-tiled roofs and narrow streets. The camera pans across the urban landscape, capturing the architectural diversity and intricate layout of the city. The focal point is a live",
+  "thumb": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.thumb.jpg",
+  "poster": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.in_fs8.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0--fs",
+  "cat": "g5",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A serene moment in nature featuring a vibrant green frog perched on a plant s…",
+  "caption": "The video captures a serene moment in nature featuring a vibrant green frog perched on a plant stem. The frog, with its striking emerald hue and large, expressive eyes, is the focal point of the scene. The camera maintains a steady, close-up shot, allowing viewers to observe the intricate details of",
+  "thumb": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.thumb.jpg",
+  "poster": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "clean-ultravideo_cand_abdb8d692ff0ef19f5ee50c0.in_fs8.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81--fs",
+  "cat": "g5",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A man dressed in a bright yellow shirt and a straw hat, crouched beside two l…",
+  "caption": "The video captures a man dressed in a bright yellow shirt and a straw hat, crouched beside two large pots placed on the ground in an outdoor setting. On a sunny day, he methodically transfers what looks like cooked food from one pot to another using a metal strainer. His movements are deliberate and",
+  "thumb": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.thumb.jpg",
+  "poster": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "clean-ultravideo_cand_c2224d69e1ede5d3dcdb2b81.in_fs8.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "clean-ultravideo_cand_f829a5934155dca01a34857c--fs",
+  "cat": "g5",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "An aerial view of a secluded beach, capturing the harmonious blend of natural…",
+  "caption": "The video opens with an aerial view of a secluded beach, capturing the harmonious blend of natural and man-made elements. The camera slowly pans across the scene, revealing a series of weathered beach huts that line the sandy shore. These huts, constructed with simple materials, exhibit signs of age",
+  "thumb": "clean-ultravideo_cand_f829a5934155dca01a34857c.thumb.jpg",
+  "poster": "clean-ultravideo_cand_f829a5934155dca01a34857c.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "clean-ultravideo_cand_f829a5934155dca01a34857c.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "clean-ultravideo_cand_f829a5934155dca01a34857c.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "clean-ultravideo_cand_f829a5934155dca01a34857c.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "clean-ultravideo_cand_f829a5934155dca01a34857c.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "clean-ultravideo_cand_f829a5934155dca01a34857c.in_fs8.mp4",
+    "l": "输入 768P（真实视频缩小）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "h3-01-quiet-breathing-portrait--fs",
+  "cat": "g5",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Quiet breathing portrait",
+  "caption": "[Shot 1] Photorealistic medium close-up of an adult woman in a peach cotton blouse seated on a timber bench among tropical ferns. She closes her eyes, takes one relaxed breath and opens her eyes with a small smile. The camera makes a very slow, level push toward her face. Warm morning light reveals ",
+  "thumb": "h3-01-quiet-breathing-portrait.thumb.jpg",
+  "poster": "h3-01-quiet-breathing-portrait.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "h3-01-quiet-breathing-portrait.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "h3-01-quiet-breathing-portrait.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "h3-01-quiet-breathing-portrait.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "h3-01-quiet-breathing-portrait.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "h3-01-quiet-breathing-portrait.in_fs8.mp4",
+    "l": "输入 H3 768P",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "h3-06-glass-mushroom-audio-timing--fs",
+  "cat": "g5",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Glass mushroom audio timing",
+  "caption": "[Shot 1] Photorealistic locked macro shot of three small translucent glass mushrooms growing from a mossy log. A single adult fingertip enters from the right and gently taps the nearest cap once, then withdraws. The cap rings faintly and releases one clear water droplet from its lower rim. The dropl",
+  "thumb": "h3-06-glass-mushroom-audio-timing.thumb.jpg",
+  "poster": "h3-06-glass-mushroom-audio-timing.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "h3-06-glass-mushroom-audio-timing.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "h3-06-glass-mushroom-audio-timing.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "h3-06-glass-mushroom-audio-timing.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "h3-06-glass-mushroom-audio-timing.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "h3-06-glass-mushroom-audio-timing.in_fs8.mp4",
+    "l": "输入 H3 768P",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "h3-11-sweater-unravels-into-scarf--fs",
+  "cat": "g5",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Sweater unravels into scarf",
+  "caption": "[Shot 1] Locked live-action tabletop close-up of an ivory knitted sweater lying next to a short matching scarf. One continuous strand of wool gently pulls from the sweater’s lower edge toward the scarf. Several sweater stitches loosen while a small new row forms at the scarf’s end. The camera stays ",
+  "thumb": "h3-11-sweater-unravels-into-scarf.thumb.jpg",
+  "poster": "h3-11-sweater-unravels-into-scarf.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "h3-11-sweater-unravels-into-scarf.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "h3-11-sweater-unravels-into-scarf.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "h3-11-sweater-unravels-into-scarf.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "h3-11-sweater-unravels-into-scarf.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "h3-11-sweater-unravels-into-scarf.in_fs8.mp4",
+    "l": "输入 H3 768P",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "h3-16-warehouse-fight-impact-speed-ramps--fs",
+  "cat": "g5",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Warehouse fight impact speed ramps",
+  "caption": "[Shot 1] Photorealistic medium-wide shot of two adult trained fighters wearing charcoal and olive sportswear in a spacious empty warehouse. One throws a controlled straight punch and the other blocks with the forearm, with no injury. Motion begins at normal speed, briefly slows as their arms meet, t",
+  "thumb": "h3-16-warehouse-fight-impact-speed-ramps.thumb.jpg",
+  "poster": "h3-16-warehouse-fight-impact-speed-ramps.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "h3-16-warehouse-fight-impact-speed-ramps.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "h3-16-warehouse-fight-impact-speed-ramps.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "h3-16-warehouse-fight-impact-speed-ramps.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "h3-16-warehouse-fight-impact-speed-ramps.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "h3-16-warehouse-fight-impact-speed-ramps.in_fs8.mp4",
+    "l": "输入 H3 768P",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "h3-fast-01-cliff-speeder--fs",
+  "cat": "g5",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Cliff speeder",
+  "caption": "[Shot 1] A photorealistic silver single-seat hoverbike races left to right along a narrow stone ledge above a deep canyon. Its adult rider wears a cobalt flight suit and orange helmet. During the first two seconds a stone arch starts to crumble ahead; the rider banks sharply under the falling stones",
+  "thumb": "h3-fast-01-cliff-speeder.thumb.jpg",
+  "poster": "h3-fast-01-cliff-speeder.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "h3-fast-01-cliff-speeder.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "h3-fast-01-cliff-speeder.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "h3-fast-01-cliff-speeder.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "h3-fast-01-cliff-speeder.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "h3-fast-01-cliff-speeder.in_fs8.mp4",
+    "l": "输入 H3 768P",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "h3-fast-06-eyewear-crossing--fs",
+  "cat": "g5",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Eyewear crossing",
+  "caption": "[Shot 1] A premium live-action fashion action shot in a white cyclorama. Two adult models wear sharply different outfits: a tall woman in a flowing black trouser suit and a woman with a short auburn bob in a silver pleated dress. Both wear slim mirrored wraparound eyewear. They stride quickly across",
+  "thumb": "h3-fast-06-eyewear-crossing.thumb.jpg",
+  "poster": "h3-fast-06-eyewear-crossing.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "h3-fast-06-eyewear-crossing.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "h3-fast-06-eyewear-crossing.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "h3-fast-06-eyewear-crossing.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "h3-fast-06-eyewear-crossing.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "h3-fast-06-eyewear-crossing.in_fs8.mp4",
+    "l": "输入 H3 768P",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "h3-fast-11-windmill-freeze--fs",
+  "cat": "g5",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Windmill freeze",
+  "caption": "[Shot 1] Live-action breaking performance in a well-lit rehearsal hall with a matte wooden floor. One athletic adult dancer in a fitted green top, loose grey trousers and flat white shoes drops from a crouch onto the upper back, performs two fast windmill rotations with separated extended legs, plan",
+  "thumb": "h3-fast-11-windmill-freeze.thumb.jpg",
+  "poster": "h3-fast-11-windmill-freeze.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "h3-fast-11-windmill-freeze.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "h3-fast-11-windmill-freeze.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "h3-fast-11-windmill-freeze.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "h3-fast-11-windmill-freeze.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "h3-fast-11-windmill-freeze.in_fs8.mp4",
+    "l": "输入 H3 768P",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "h3-hot-01-robot-caliper-muscles--fs",
+  "cat": "g5",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Robot caliper muscles",
+  "caption": "A five-second fictional visual comedy in one steady medium close shot. In a sunlit industrial gym, a slender pearl-white humanoid robot with a black glass face finishes one small dumbbell curl. It proudly bends its elbow, then uses a polished vernier caliper to measure the almost paper-thin aluminum",
+  "thumb": "h3-hot-01-robot-caliper-muscles.thumb.jpg",
+  "poster": "h3-hot-01-robot-caliper-muscles.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "h3-hot-01-robot-caliper-muscles.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "h3-hot-01-robot-caliper-muscles.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "h3-hot-01-robot-caliper-muscles.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "h3-hot-01-robot-caliper-muscles.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "h3-hot-01-robot-caliper-muscles.in_fs8.mp4",
+    "l": "输入 H3 768P",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "h3-hot-06-thin-robot-huge-shadow--fs",
+  "cat": "g5",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Thin robot huge shadow",
+  "caption": "A five-second stylized cinematic comedy in one fixed wide shot. A very slim humanoid robot stands sideways in a theatrical gym lit by a single amber spotlight, showing an almost ruler-thin torso and delicate mechanical arms. It raises both arms into a proud bodybuilding pose. On the textured concret",
+  "thumb": "h3-hot-06-thin-robot-huge-shadow.thumb.jpg",
+  "poster": "h3-hot-06-thin-robot-huge-shadow.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "h3-hot-06-thin-robot-huge-shadow.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "h3-hot-06-thin-robot-huge-shadow.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "h3-hot-06-thin-robot-huge-shadow.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "h3-hot-06-thin-robot-huge-shadow.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "h3-hot-06-thin-robot-huge-shadow.in_fs8.mp4",
+    "l": "输入 H3 768P",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "h3-hot-11-roadster-teacup-coaster--fs",
+  "cat": "g5",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Roadster teacup coaster",
+  "caption": "A five-second whimsical macro film in one smooth close tracking shot. A palm-sized red Roadster-inspired electric sports car floats a few centimeters above a dark walnut tea table, passing through a curl of steam from a porcelain teacup. It gently rotates into alignment and lands on a tiny ceramic s",
+  "thumb": "h3-hot-11-roadster-teacup-coaster.thumb.jpg",
+  "poster": "h3-hot-11-roadster-teacup-coaster.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "h3-hot-11-roadster-teacup-coaster.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "h3-hot-11-roadster-teacup-coaster.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "h3-hot-11-roadster-teacup-coaster.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "h3-hot-11-roadster-teacup-coaster.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "h3-hot-11-roadster-teacup-coaster.in_fs8.mp4",
+    "l": "输入 H3 768P",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "ltx-p003_ltx2_stage1_s0000_768x512_121f_lq15--fs",
+  "cat": "g5",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A young artist stands before a large canvas in a sun-drenched studio, applyin…",
+  "caption": "A young artist stands before a large canvas in a sun-drenched studio, applying thick layers of oil paint with a palette knife. The camera orbits slowly around her, capturing the vibrant texture of the impasto strokes and the messy splashes of color on her denim overalls. She concentrates intensely, ",
+  "thumb": "ltx-p003_ltx2_stage1_s0000_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p003_ltx2_stage1_s0000_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "ltx-p003_ltx2_stage1_s0000_768x512_121f_lq15.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "ltx-p003_ltx2_stage1_s0000_768x512_121f_lq15.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "ltx-p003_ltx2_stage1_s0000_768x512_121f_lq15.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "ltx-p003_ltx2_stage1_s0000_768x512_121f_lq15.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "ltx-p003_ltx2_stage1_s0000_768x512_121f_lq15.in_fs8.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "ltx-p021_ltx2_stage1_s0006_768x512_121f_lq15--fs",
+  "cat": "g5",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A contemporary dancer wearing a flowing linen outfit performs a slow, express…",
+  "caption": "A contemporary dancer wearing a flowing linen outfit performs a slow, expressive routine in a sun-drenched, abandoned warehouse. As they arch their back and reach toward the high ceiling, fine dust motes dance in the thick shafts of light. The camera slowly orbits the dancer, capturing the intricate",
+  "thumb": "ltx-p021_ltx2_stage1_s0006_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p021_ltx2_stage1_s0006_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "ltx-p021_ltx2_stage1_s0006_768x512_121f_lq15.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "ltx-p021_ltx2_stage1_s0006_768x512_121f_lq15.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "ltx-p021_ltx2_stage1_s0006_768x512_121f_lq15.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "ltx-p021_ltx2_stage1_s0006_768x512_121f_lq15.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "ltx-p021_ltx2_stage1_s0006_768x512_121f_lq15.in_fs8.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "ltx-p036_ltx2_stage1_s0011_768x512_121f_lq15--fs",
+  "cat": "g5",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A large green sea turtle glides effortlessly through a vibrant coral reef, it…",
+  "caption": "A large green sea turtle glides effortlessly through a vibrant coral reef, its ancient, patterned shell reflecting the shimmering light rays from the surface. The camera orbits the turtle, showcasing the leathery texture of its flippers and the intricate scales on its neck. Schools of small, colorfu",
+  "thumb": "ltx-p036_ltx2_stage1_s0011_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p036_ltx2_stage1_s0011_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "ltx-p036_ltx2_stage1_s0011_768x512_121f_lq15.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "ltx-p036_ltx2_stage1_s0011_768x512_121f_lq15.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "ltx-p036_ltx2_stage1_s0011_768x512_121f_lq15.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "ltx-p036_ltx2_stage1_s0011_768x512_121f_lq15.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "ltx-p036_ltx2_stage1_s0011_768x512_121f_lq15.in_fs8.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "ltx-p051_ltx2_stage1_s0016_768x512_121f_lq15--fs",
+  "cat": "g5",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A vintage steam locomotive thunders across a stone bridge in a misty valley.",
+  "caption": "A vintage steam locomotive thunders across a stone bridge in a misty valley. Thick, billowing white smoke erupts from the chimney, swirling against the damp, green hills. The camera pans parallel to the train, capturing the rhythmic churning of the heavy steel pistons and the glint of brass pipes. W",
+  "thumb": "ltx-p051_ltx2_stage1_s0016_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p051_ltx2_stage1_s0016_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "ltx-p051_ltx2_stage1_s0016_768x512_121f_lq15.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "ltx-p051_ltx2_stage1_s0016_768x512_121f_lq15.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "ltx-p051_ltx2_stage1_s0016_768x512_121f_lq15.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "ltx-p051_ltx2_stage1_s0016_768x512_121f_lq15.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "ltx-p051_ltx2_stage1_s0016_768x512_121f_lq15.in_fs8.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "ltx-p063_ltx2_stage1_s0020_768x512_121f_lq15--fs",
+  "cat": "g5",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A jagged, snow-capped mountain peak towers above a sea of swirling white clou…",
+  "caption": "A jagged, snow-capped mountain peak towers above a sea of swirling white clouds during the blue hour. The camera executes a slow orbit around the summit, revealing the crystalline texture of the wind-swept ice and the sheer rock faces. Wisps of cirrus clouds drift rapidly past the peak, creating a s",
+  "thumb": "ltx-p063_ltx2_stage1_s0020_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p063_ltx2_stage1_s0020_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "ltx-p063_ltx2_stage1_s0020_768x512_121f_lq15.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "ltx-p063_ltx2_stage1_s0020_768x512_121f_lq15.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "ltx-p063_ltx2_stage1_s0020_768x512_121f_lq15.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "ltx-p063_ltx2_stage1_s0020_768x512_121f_lq15.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "ltx-p063_ltx2_stage1_s0020_768x512_121f_lq15.in_fs8.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "ltx-p078_ltx2_stage1_s0025_768x512_121f_lq15--fs",
+  "cat": "g5",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A pair of hands carefully slices through a freshly baked loaf of sourdough br…",
+  "caption": "A pair of hands carefully slices through a freshly baked loaf of sourdough bread on a wooden cutting board. The camera is at a low angle, focusing on the golden, crackling crust as it shatters into small crumbs under the serrated knife. Inside, the bread reveals a soft, airy crumb with large, irregu",
+  "thumb": "ltx-p078_ltx2_stage1_s0025_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p078_ltx2_stage1_s0025_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "ltx-p078_ltx2_stage1_s0025_768x512_121f_lq15.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "ltx-p078_ltx2_stage1_s0025_768x512_121f_lq15.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "ltx-p078_ltx2_stage1_s0025_768x512_121f_lq15.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "ltx-p078_ltx2_stage1_s0025_768x512_121f_lq15.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "ltx-p078_ltx2_stage1_s0025_768x512_121f_lq15.in_fs8.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "ltx-p087_ltx2_stage1_s0028_768x512_121f_lq15--fs",
+  "cat": "g5",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A dolly shot moves forward through a narrow, winding European cobblestone str…",
+  "caption": "A dolly shot moves forward through a narrow, winding European cobblestone street lined with ancient stone buildings. Potted red geraniums sit on wrought-iron balconies that partially occlude the view of the upper floors. A few pedestrians in casual summer clothing walk away from the camera, their sh",
+  "thumb": "ltx-p087_ltx2_stage1_s0028_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p087_ltx2_stage1_s0028_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "ltx-p087_ltx2_stage1_s0028_768x512_121f_lq15.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "ltx-p087_ltx2_stage1_s0028_768x512_121f_lq15.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "ltx-p087_ltx2_stage1_s0028_768x512_121f_lq15.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "ltx-p087_ltx2_stage1_s0028_768x512_121f_lq15.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "ltx-p087_ltx2_stage1_s0028_768x512_121f_lq15.in_fs8.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "ltx-p099_ltx2_stage1_s0032_768x512_121f_lq15--fs",
+  "cat": "g5",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A young woman stands in the middle of a rain-slicked street, her face decorat…",
+  "caption": "A young woman stands in the middle of a rain-slicked street, her face decorated with subtle, glowing bioluminescent patterns that pulse with a soft amber light. Raindrops cling to her eyelashes and run down her damp skin, catching the vibrant reflections of nearby neon signs. The camera orbits her s",
+  "thumb": "ltx-p099_ltx2_stage1_s0032_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p099_ltx2_stage1_s0032_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "ltx-p099_ltx2_stage1_s0032_768x512_121f_lq15.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "ltx-p099_ltx2_stage1_s0032_768x512_121f_lq15.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "ltx-p099_ltx2_stage1_s0032_768x512_121f_lq15.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "ltx-p099_ltx2_stage1_s0032_768x512_121f_lq15.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "ltx-p099_ltx2_stage1_s0032_768x512_121f_lq15.in_fs8.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "ltx-p111_ltx2_stage1_s0036_768x512_121f_lq15--fs",
+  "cat": "g5",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A macro closeup of a luxury skeleton watch.",
+  "caption": "A macro closeup of a luxury skeleton watch. The intricate gold and silver gears rotate rhythmically behind a clear sapphire crystal. Tiny rubies glint as the balance wheel oscillates rapidly. The camera slowly orbits the watch face, capturing the brushed metal texture and polished edges. Fine dust m",
+  "thumb": "ltx-p111_ltx2_stage1_s0036_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p111_ltx2_stage1_s0036_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "ltx-p111_ltx2_stage1_s0036_768x512_121f_lq15.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "ltx-p111_ltx2_stage1_s0036_768x512_121f_lq15.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "ltx-p111_ltx2_stage1_s0036_768x512_121f_lq15.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "ltx-p111_ltx2_stage1_s0036_768x512_121f_lq15.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "ltx-p111_ltx2_stage1_s0036_768x512_121f_lq15.in_fs8.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "ltx-p120_ltx2_stage1_s0039_768x512_121f_lq15--fs",
+  "cat": "g5",
+  "group": "ltx",
+  "group_zh": "LTX-2 生成",
+  "title": "A cinematic shot of a bioluminescent jellyfish-like creature floating through…",
+  "caption": "A cinematic shot of a bioluminescent jellyfish-like creature floating through a vibrant cosmic nebula. The creature's translucent body pulses with rhythmic waves of neon blue and violet light, revealing delicate, glowing nervous systems within. Long, wispy tentacles trail behind, shimmering with sta",
+  "thumb": "ltx-p120_ltx2_stage1_s0039_768x512_121f_lq15.thumb.jpg",
+  "poster": "ltx-p120_ltx2_stage1_s0039_768x512_121f_lq15.poster.jpg",
+  "modes": {
+   "ic_fs8": {
+    "f": "ltx-p120_ltx2_stage1_s0039_768x512_121f_lq15.ic_fs8.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "d8_fs8": {
+    "f": "ltx-p120_ltx2_stage1_s0039_768x512_121f_lq15.d8_fs8.mp4",
+    "l": "本 refiner · 8 步（无 few-step）",
+    "r": "+ few-step LoRA · 8 步"
+   },
+   "fs8_fs4": {
+    "f": "ltx-p120_ltx2_stage1_s0039_768x512_121f_lq15.fs8_fs4.mp4",
+    "l": "+ few-step LoRA · 8 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "ic_fs4": {
+    "f": "ltx-p120_ltx2_stage1_s0039_768x512_121f_lq15.ic_fs4.mp4",
+    "l": "本 refiner · 30 步",
+    "r": "+ few-step LoRA · 4 步"
+   },
+   "in_fs8": {
+    "f": "ltx-p120_ltx2_stage1_s0039_768x512_121f_lq15.in_fs8.mp4",
+    "l": "输入 LTX-2（裁成 16:9）",
+    "r": "+ few-step LoRA · 8 步"
+   }
+  }
+ },
+ {
+  "id": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322",
+  "cat": "p384",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A detailed close-up view of a skilled and steady hand performing precise work…",
+  "caption": "The video provides a detailed close-up view of a skilled and steady hand performing precise work on a green circuit board. The hand uses a specialized tool to adjust or secure a small metallic component, with the camera capturing the meticulous movements and the intricate nature of the task. The bac",
+  "thumb": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.thumb.jpg",
+  "poster": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.poster.jpg",
+  "modes": {
+   "in_768": {
+    "f": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.in_768.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→768P"
+   },
+   "gt_768": {
+    "f": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.gt_768.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→768P"
+   },
+   "in_2k": {
+    "f": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.in_2k.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→2K"
+   },
+   "768_2k": {
+    "f": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.768_2k.mp4",
+    "l": "384→768P",
+    "r": "384→2K"
+   },
+   "gt_2k": {
+    "f": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.gt_2k.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→2K"
+   }
+  }
+ },
+ {
+  "id": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c",
+  "cat": "p384",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A wooden bowl filled with raw chicken pieces placed on a bed of vibrant green…",
+  "caption": "The video shows a wooden bowl filled with raw chicken pieces placed on a bed of vibrant green moss outdoors. The chicken pieces are pale pink and appear fresh, with a smooth texture. Cornstarch is sprinkled over the chicken, creating a cloud of white powder that settles onto the meat. Hands then ent",
+  "thumb": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.thumb.jpg",
+  "poster": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.poster.jpg",
+  "modes": {
+   "in_768": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.in_768.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→768P"
+   },
+   "gt_768": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.gt_768.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→768P"
+   },
+   "in_2k": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.in_2k.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→2K"
+   },
+   "768_2k": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.768_2k.mp4",
+    "l": "384→768P",
+    "r": "384→2K"
+   },
+   "gt_2k": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.gt_2k.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→2K"
+   },
+   "2k_4k": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.2k_4k.mp4",
+    "l": "384→2K",
+    "r": "384→4K（缩到 2K 显示）"
+   },
+   "2k_4kc": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.2k_4kc.mp4",
+    "l": "384→2K（放大，中心裁切）",
+    "r": "384→4K（原生像素，中心裁切）"
+   }
+  }
+ },
+ {
+  "id": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916",
+  "cat": "p384",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "An aerial view of a vibrant European city, characterized by its dense array o…",
+  "caption": "The video showcases an aerial view of a vibrant European city, characterized by its dense array of historic buildings with red-tiled roofs and narrow streets. The camera pans across the urban landscape, capturing the architectural diversity and intricate layout of the city. The focal point is a live",
+  "thumb": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.thumb.jpg",
+  "poster": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.poster.jpg",
+  "modes": {
+   "in_768": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.in_768.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→768P"
+   },
+   "gt_768": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.gt_768.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→768P"
+   },
+   "in_2k": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.in_2k.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→2K"
+   },
+   "768_2k": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.768_2k.mp4",
+    "l": "384→768P",
+    "r": "384→2K"
+   },
+   "gt_2k": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.gt_2k.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→2K"
+   },
+   "2k_4k": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.2k_4k.mp4",
+    "l": "384→2K",
+    "r": "384→4K（缩到 2K 显示）"
+   },
+   "2k_4kc": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.2k_4kc.mp4",
+    "l": "384→2K（放大，中心裁切）",
+    "r": "384→4K（原生像素，中心裁切）"
+   }
+  }
+ },
+ {
+  "id": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c",
+  "cat": "p384",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "An aerial view of a secluded beach, capturing the harmonious blend of natural…",
+  "caption": "The video opens with an aerial view of a secluded beach, capturing the harmonious blend of natural and man-made elements. The camera slowly pans across the scene, revealing a series of weathered beach huts that line the sandy shore. These huts, constructed with simple materials, exhibit signs of age",
+  "thumb": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.thumb.jpg",
+  "poster": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.poster.jpg",
+  "modes": {
+   "in_768": {
+    "f": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.in_768.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→768P"
+   },
+   "gt_768": {
+    "f": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.gt_768.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→768P"
+   },
+   "in_2k": {
+    "f": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.in_2k.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→2K"
+   },
+   "768_2k": {
+    "f": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.768_2k.mp4",
+    "l": "384→768P",
+    "r": "384→2K"
+   },
+   "gt_2k": {
+    "f": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.gt_2k.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→2K"
+   }
+  }
+ },
+ {
+  "id": "p384-h3-hot-01-robot-caliper-muscles",
+  "cat": "p384",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Robot caliper muscles",
+  "caption": "A five-second fictional visual comedy in one steady medium close shot. In a sunlit industrial gym, a slender pearl-white humanoid robot with a black glass face finishes one small dumbbell curl. It proudly bends its elbow, then uses a polished vernier caliper to measure the almost paper-thin aluminum",
+  "thumb": "p384-h3-hot-01-robot-caliper-muscles.thumb.jpg",
+  "poster": "p384-h3-hot-01-robot-caliper-muscles.poster.jpg",
+  "modes": {
+   "in_768": {
+    "f": "p384-h3-hot-01-robot-caliper-muscles.in_768.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→768P"
+   },
+   "gt_768": {
+    "f": "p384-h3-hot-01-robot-caliper-muscles.gt_768.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→768P"
+   },
+   "in_2k": {
+    "f": "p384-h3-hot-01-robot-caliper-muscles.in_2k.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→2K"
+   },
+   "768_2k": {
+    "f": "p384-h3-hot-01-robot-caliper-muscles.768_2k.mp4",
+    "l": "384→768P",
+    "r": "384→2K"
+   },
+   "gt_2k": {
+    "f": "p384-h3-hot-01-robot-caliper-muscles.gt_2k.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→2K"
+   }
+  }
+ },
+ {
+  "id": "p384-h3-hot-06-thin-robot-huge-shadow",
+  "cat": "p384",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Thin robot huge shadow",
+  "caption": "A five-second stylized cinematic comedy in one fixed wide shot. A very slim humanoid robot stands sideways in a theatrical gym lit by a single amber spotlight, showing an almost ruler-thin torso and delicate mechanical arms. It raises both arms into a proud bodybuilding pose. On the textured concret",
+  "thumb": "p384-h3-hot-06-thin-robot-huge-shadow.thumb.jpg",
+  "poster": "p384-h3-hot-06-thin-robot-huge-shadow.poster.jpg",
+  "modes": {
+   "in_768": {
+    "f": "p384-h3-hot-06-thin-robot-huge-shadow.in_768.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→768P"
+   },
+   "gt_768": {
+    "f": "p384-h3-hot-06-thin-robot-huge-shadow.gt_768.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→768P"
+   },
+   "in_2k": {
+    "f": "p384-h3-hot-06-thin-robot-huge-shadow.in_2k.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→2K"
+   },
+   "768_2k": {
+    "f": "p384-h3-hot-06-thin-robot-huge-shadow.768_2k.mp4",
+    "l": "384→768P",
+    "r": "384→2K"
+   },
+   "gt_2k": {
+    "f": "p384-h3-hot-06-thin-robot-huge-shadow.gt_2k.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→2K"
+   }
+  }
+ },
+ {
+  "id": "p384-h3-hot-11-roadster-teacup-coaster",
+  "cat": "p384",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Roadster teacup coaster",
+  "caption": "A five-second whimsical macro film in one smooth close tracking shot. A palm-sized red Roadster-inspired electric sports car floats a few centimeters above a dark walnut tea table, passing through a curl of steam from a porcelain teacup. It gently rotates into alignment and lands on a tiny ceramic s",
+  "thumb": "p384-h3-hot-11-roadster-teacup-coaster.thumb.jpg",
+  "poster": "p384-h3-hot-11-roadster-teacup-coaster.poster.jpg",
+  "modes": {
+   "in_768": {
+    "f": "p384-h3-hot-11-roadster-teacup-coaster.in_768.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→768P"
+   },
+   "gt_768": {
+    "f": "p384-h3-hot-11-roadster-teacup-coaster.gt_768.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→768P"
+   },
+   "in_2k": {
+    "f": "p384-h3-hot-11-roadster-teacup-coaster.in_2k.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→2K"
+   },
+   "768_2k": {
+    "f": "p384-h3-hot-11-roadster-teacup-coaster.768_2k.mp4",
+    "l": "384→768P",
+    "r": "384→2K"
+   },
+   "gt_2k": {
+    "f": "p384-h3-hot-11-roadster-teacup-coaster.gt_2k.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→2K"
+   }
+  }
+ },
+ {
+  "id": "p384-h3-hot-16-robotaxi-cow-commute",
+  "cat": "p384",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Robotaxi cow commute",
+  "caption": "A five-second playful cinematic 3D comedy, one medium curbside shot. A friendly anthropomorphic black-and-white cow in an orange gym-coach jacket stands beside a gold driverless two-seat taxi, carrying a neatly rolled yoga mat. As the upward-opening door rises, the cow leans in and discovers an enor",
+  "thumb": "p384-h3-hot-16-robotaxi-cow-commute.thumb.jpg",
+  "poster": "p384-h3-hot-16-robotaxi-cow-commute.poster.jpg",
+  "modes": {
+   "in_768": {
+    "f": "p384-h3-hot-16-robotaxi-cow-commute.in_768.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→768P"
+   },
+   "gt_768": {
+    "f": "p384-h3-hot-16-robotaxi-cow-commute.gt_768.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→768P"
+   },
+   "in_2k": {
+    "f": "p384-h3-hot-16-robotaxi-cow-commute.in_2k.mp4",
+    "l": "输入 384P",
+    "r": "本 refiner · 384→2K"
+   },
+   "768_2k": {
+    "f": "p384-h3-hot-16-robotaxi-cow-commute.768_2k.mp4",
+    "l": "384→768P",
+    "r": "384→2K"
+   },
+   "gt_2k": {
+    "f": "p384-h3-hot-16-robotaxi-cow-commute.gt_2k.mp4",
+    "l": "原视频 GT",
+    "r": "本 refiner · 384→2K"
+   }
+  }
+ }
+]
