@@ -2769,6 +2769,36 @@
   "thumb": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.thumb.jpg",
   "poster": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.poster.jpg",
   "modes": {
+   "in_u2k": {
+    "f": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.in_u2k.mp4",
+    "l": "输入 384P",
+    "r": "384P 内容放到 768P 画布 → 2K"
+   },
+   "gt_u2k": {
+    "f": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.gt_u2k.mp4",
+    "l": "原视频 GT",
+    "r": "384P 内容 → 768P 画布 → 2K"
+   },
+   "c2k_u2k": {
+    "f": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.c2k_u2k.mp4",
+    "l": "级联：384→768P→2K",
+    "r": "768P 画布 → 2K"
+   },
+   "gt_c2k": {
+    "f": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.gt_c2k.mp4",
+    "l": "原视频 GT",
+    "r": "级联 384→768P→2K"
+   },
+   "s768_u2k": {
+    "f": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.s768_u2k.mp4",
+    "l": "768P 输入 → 2K",
+    "r": "384P 内容 → 2K"
+   },
+   "d2k_u2k": {
+    "f": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.d2k_u2k.mp4",
+    "l": "384P 画布直出 2K（未训练组合）",
+    "r": "768P 画布 → 2K"
+   },
    "in_768": {
     "f": "p384-clean-ultravideo_1440p_32b80925f424231894b5b322.in_768.mp4",
     "l": "输入 384P",
@@ -2806,6 +2836,36 @@
   "thumb": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.thumb.jpg",
   "poster": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.poster.jpg",
   "modes": {
+   "in_u2k": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.in_u2k.mp4",
+    "l": "输入 384P",
+    "r": "384P 内容放到 768P 画布 → 2K"
+   },
+   "gt_u2k": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.gt_u2k.mp4",
+    "l": "原视频 GT",
+    "r": "384P 内容 → 768P 画布 → 2K"
+   },
+   "c2k_u2k": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.c2k_u2k.mp4",
+    "l": "级联：384→768P→2K",
+    "r": "768P 画布 → 2K"
+   },
+   "gt_c2k": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.gt_c2k.mp4",
+    "l": "原视频 GT",
+    "r": "级联 384→768P→2K"
+   },
+   "s768_u2k": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.s768_u2k.mp4",
+    "l": "768P 输入 → 2K",
+    "r": "384P 内容 → 2K"
+   },
+   "d2k_u2k": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.d2k_u2k.mp4",
+    "l": "384P 画布直出 2K（未训练组合）",
+    "r": "768P 画布 → 2K"
+   },
    "in_768": {
     "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.in_768.mp4",
     "l": "输入 384P",
@@ -2815,6 +2875,16 @@
     "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.gt_768.mp4",
     "l": "原视频 GT",
     "r": "本 refiner · 384→768P"
+   },
+   "u2k_u4k": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.u2k_u4k.mp4",
+    "l": "768P 画布 → 2K（放大裁切）",
+    "r": "768P 画布 → 4K（原生裁切）"
+   },
+   "d4k_u4k": {
+    "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.d4k_u4k.mp4",
+    "l": "384P 画布直出 4K（原生裁切）",
+    "r": "768P 画布 → 4K（原生裁切）"
    },
    "in_2k": {
     "f": "p384-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.in_2k.mp4",
@@ -2853,6 +2923,36 @@
   "thumb": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.thumb.jpg",
   "poster": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.poster.jpg",
   "modes": {
+   "in_u2k": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.in_u2k.mp4",
+    "l": "输入 384P",
+    "r": "384P 内容放到 768P 画布 → 2K"
+   },
+   "gt_u2k": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.gt_u2k.mp4",
+    "l": "原视频 GT",
+    "r": "384P 内容 → 768P 画布 → 2K"
+   },
+   "c2k_u2k": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.c2k_u2k.mp4",
+    "l": "级联：384→768P→2K",
+    "r": "768P 画布 → 2K"
+   },
+   "gt_c2k": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.gt_c2k.mp4",
+    "l": "原视频 GT",
+    "r": "级联 384→768P→2K"
+   },
+   "s768_u2k": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.s768_u2k.mp4",
+    "l": "768P 输入 → 2K",
+    "r": "384P 内容 → 2K"
+   },
+   "d2k_u2k": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.d2k_u2k.mp4",
+    "l": "384P 画布直出 2K（未训练组合）",
+    "r": "768P 画布 → 2K"
+   },
    "in_768": {
     "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.in_768.mp4",
     "l": "输入 384P",
@@ -2862,6 +2962,16 @@
     "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.gt_768.mp4",
     "l": "原视频 GT",
     "r": "本 refiner · 384→768P"
+   },
+   "u2k_u4k": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.u2k_u4k.mp4",
+    "l": "768P 画布 → 2K（放大裁切）",
+    "r": "768P 画布 → 4K（原生裁切）"
+   },
+   "d4k_u4k": {
+    "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.d4k_u4k.mp4",
+    "l": "384P 画布直出 4K（原生裁切）",
+    "r": "768P 画布 → 4K（原生裁切）"
    },
    "in_2k": {
     "f": "p384-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.in_2k.mp4",
@@ -2900,6 +3010,36 @@
   "thumb": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.thumb.jpg",
   "poster": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.poster.jpg",
   "modes": {
+   "in_u2k": {
+    "f": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.in_u2k.mp4",
+    "l": "输入 384P",
+    "r": "384P 内容放到 768P 画布 → 2K"
+   },
+   "gt_u2k": {
+    "f": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.gt_u2k.mp4",
+    "l": "原视频 GT",
+    "r": "384P 内容 → 768P 画布 → 2K"
+   },
+   "c2k_u2k": {
+    "f": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.c2k_u2k.mp4",
+    "l": "级联：384→768P→2K",
+    "r": "768P 画布 → 2K"
+   },
+   "gt_c2k": {
+    "f": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.gt_c2k.mp4",
+    "l": "原视频 GT",
+    "r": "级联 384→768P→2K"
+   },
+   "s768_u2k": {
+    "f": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.s768_u2k.mp4",
+    "l": "768P 输入 → 2K",
+    "r": "384P 内容 → 2K"
+   },
+   "d2k_u2k": {
+    "f": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.d2k_u2k.mp4",
+    "l": "384P 画布直出 2K（未训练组合）",
+    "r": "768P 画布 → 2K"
+   },
    "in_768": {
     "f": "p384-clean-ultravideo_cand_f829a5934155dca01a34857c.in_768.mp4",
     "l": "输入 384P",
@@ -2937,6 +3077,36 @@
   "thumb": "p384-h3-hot-01-robot-caliper-muscles.thumb.jpg",
   "poster": "p384-h3-hot-01-robot-caliper-muscles.poster.jpg",
   "modes": {
+   "in_u2k": {
+    "f": "p384-h3-hot-01-robot-caliper-muscles.in_u2k.mp4",
+    "l": "输入 384P",
+    "r": "384P 内容放到 768P 画布 → 2K"
+   },
+   "gt_u2k": {
+    "f": "p384-h3-hot-01-robot-caliper-muscles.gt_u2k.mp4",
+    "l": "原视频 GT",
+    "r": "384P 内容 → 768P 画布 → 2K"
+   },
+   "c2k_u2k": {
+    "f": "p384-h3-hot-01-robot-caliper-muscles.c2k_u2k.mp4",
+    "l": "级联：384→768P→2K",
+    "r": "768P 画布 → 2K"
+   },
+   "gt_c2k": {
+    "f": "p384-h3-hot-01-robot-caliper-muscles.gt_c2k.mp4",
+    "l": "原视频 GT",
+    "r": "级联 384→768P→2K"
+   },
+   "s768_u2k": {
+    "f": "p384-h3-hot-01-robot-caliper-muscles.s768_u2k.mp4",
+    "l": "768P 输入 → 2K",
+    "r": "384P 内容 → 2K"
+   },
+   "d2k_u2k": {
+    "f": "p384-h3-hot-01-robot-caliper-muscles.d2k_u2k.mp4",
+    "l": "384P 画布直出 2K（未训练组合）",
+    "r": "768P 画布 → 2K"
+   },
    "in_768": {
     "f": "p384-h3-hot-01-robot-caliper-muscles.in_768.mp4",
     "l": "输入 384P",
@@ -2974,6 +3144,36 @@
   "thumb": "p384-h3-hot-06-thin-robot-huge-shadow.thumb.jpg",
   "poster": "p384-h3-hot-06-thin-robot-huge-shadow.poster.jpg",
   "modes": {
+   "in_u2k": {
+    "f": "p384-h3-hot-06-thin-robot-huge-shadow.in_u2k.mp4",
+    "l": "输入 384P",
+    "r": "384P 内容放到 768P 画布 → 2K"
+   },
+   "gt_u2k": {
+    "f": "p384-h3-hot-06-thin-robot-huge-shadow.gt_u2k.mp4",
+    "l": "原视频 GT",
+    "r": "384P 内容 → 768P 画布 → 2K"
+   },
+   "c2k_u2k": {
+    "f": "p384-h3-hot-06-thin-robot-huge-shadow.c2k_u2k.mp4",
+    "l": "级联：384→768P→2K",
+    "r": "768P 画布 → 2K"
+   },
+   "gt_c2k": {
+    "f": "p384-h3-hot-06-thin-robot-huge-shadow.gt_c2k.mp4",
+    "l": "原视频 GT",
+    "r": "级联 384→768P→2K"
+   },
+   "s768_u2k": {
+    "f": "p384-h3-hot-06-thin-robot-huge-shadow.s768_u2k.mp4",
+    "l": "768P 输入 → 2K",
+    "r": "384P 内容 → 2K"
+   },
+   "d2k_u2k": {
+    "f": "p384-h3-hot-06-thin-robot-huge-shadow.d2k_u2k.mp4",
+    "l": "384P 画布直出 2K（未训练组合）",
+    "r": "768P 画布 → 2K"
+   },
    "in_768": {
     "f": "p384-h3-hot-06-thin-robot-huge-shadow.in_768.mp4",
     "l": "输入 384P",
@@ -3011,6 +3211,36 @@
   "thumb": "p384-h3-hot-11-roadster-teacup-coaster.thumb.jpg",
   "poster": "p384-h3-hot-11-roadster-teacup-coaster.poster.jpg",
   "modes": {
+   "in_u2k": {
+    "f": "p384-h3-hot-11-roadster-teacup-coaster.in_u2k.mp4",
+    "l": "输入 384P",
+    "r": "384P 内容放到 768P 画布 → 2K"
+   },
+   "gt_u2k": {
+    "f": "p384-h3-hot-11-roadster-teacup-coaster.gt_u2k.mp4",
+    "l": "原视频 GT",
+    "r": "384P 内容 → 768P 画布 → 2K"
+   },
+   "c2k_u2k": {
+    "f": "p384-h3-hot-11-roadster-teacup-coaster.c2k_u2k.mp4",
+    "l": "级联：384→768P→2K",
+    "r": "768P 画布 → 2K"
+   },
+   "gt_c2k": {
+    "f": "p384-h3-hot-11-roadster-teacup-coaster.gt_c2k.mp4",
+    "l": "原视频 GT",
+    "r": "级联 384→768P→2K"
+   },
+   "s768_u2k": {
+    "f": "p384-h3-hot-11-roadster-teacup-coaster.s768_u2k.mp4",
+    "l": "768P 输入 → 2K",
+    "r": "384P 内容 → 2K"
+   },
+   "d2k_u2k": {
+    "f": "p384-h3-hot-11-roadster-teacup-coaster.d2k_u2k.mp4",
+    "l": "384P 画布直出 2K（未训练组合）",
+    "r": "768P 画布 → 2K"
+   },
    "in_768": {
     "f": "p384-h3-hot-11-roadster-teacup-coaster.in_768.mp4",
     "l": "输入 384P",
@@ -3048,6 +3278,31 @@
   "thumb": "p384-h3-hot-16-robotaxi-cow-commute.thumb.jpg",
   "poster": "p384-h3-hot-16-robotaxi-cow-commute.poster.jpg",
   "modes": {
+   "in_u2k": {
+    "f": "p384-h3-hot-16-robotaxi-cow-commute.in_u2k.mp4",
+    "l": "输入 384P",
+    "r": "384P 内容放到 768P 画布 → 2K"
+   },
+   "gt_u2k": {
+    "f": "p384-h3-hot-16-robotaxi-cow-commute.gt_u2k.mp4",
+    "l": "原视频 GT",
+    "r": "384P 内容 → 768P 画布 → 2K"
+   },
+   "c2k_u2k": {
+    "f": "p384-h3-hot-16-robotaxi-cow-commute.c2k_u2k.mp4",
+    "l": "级联：384→768P→2K",
+    "r": "768P 画布 → 2K"
+   },
+   "gt_c2k": {
+    "f": "p384-h3-hot-16-robotaxi-cow-commute.gt_c2k.mp4",
+    "l": "原视频 GT",
+    "r": "级联 384→768P→2K"
+   },
+   "d2k_u2k": {
+    "f": "p384-h3-hot-16-robotaxi-cow-commute.d2k_u2k.mp4",
+    "l": "384P 画布直出 2K（未训练组合）",
+    "r": "768P 画布 → 2K"
+   },
    "in_768": {
     "f": "p384-h3-hot-16-robotaxi-cow-commute.in_768.mp4",
     "l": "输入 384P",
@@ -3072,6 +3327,114 @@
     "f": "p384-h3-hot-16-robotaxi-cow-commute.gt_2k.mp4",
     "l": "原视频 GT",
     "r": "本 refiner · 384→2K"
+   }
+  }
+ },
+ {
+  "id": "p768k-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c",
+  "cat": "k4",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "A wooden bowl filled with raw chicken pieces placed on a bed of vibrant green…",
+  "caption": "The video shows a wooden bowl filled with raw chicken pieces placed on a bed of vibrant green moss outdoors. The chicken pieces are pale pink and appear fresh, with a smooth texture. Cornstarch is sprinkled over the chicken, creating a cloud of white powder that settles onto the meat. Hands then ent",
+  "thumb": "p768k-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.thumb.jpg",
+  "poster": "p768k-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.poster.jpg",
+  "modes": {
+   "s2k_k4c": {
+    "f": "p768k-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.s2k_k4c.mp4",
+    "l": "768P → 2K（放大，中心裁切）",
+    "r": "768P → 4K（原生像素，中心裁切）"
+   },
+   "gt_k4c": {
+    "f": "p768k-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.gt_k4c.mp4",
+    "l": "原视频 GT（放大，中心裁切）",
+    "r": "768P → 4K（原生像素，中心裁切）"
+   },
+   "in_k4": {
+    "f": "p768k-clean-ultravideo_1440p_4074d1c629cd8ee8bd2aab0c.in_k4.mp4",
+    "l": "输入 768P",
+    "r": "768P → 4K（缩到 2K 显示）"
+   }
+  }
+ },
+ {
+  "id": "p768k-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916",
+  "cat": "k4",
+  "group": "clean",
+  "group_zh": "真实视频",
+  "title": "An aerial view of a vibrant European city, characterized by its dense array o…",
+  "caption": "The video showcases an aerial view of a vibrant European city, characterized by its dense array of historic buildings with red-tiled roofs and narrow streets. The camera pans across the urban landscape, capturing the architectural diversity and intricate layout of the city. The focal point is a live",
+  "thumb": "p768k-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.thumb.jpg",
+  "poster": "p768k-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.poster.jpg",
+  "modes": {
+   "s2k_k4c": {
+    "f": "p768k-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.s2k_k4c.mp4",
+    "l": "768P → 2K（放大，中心裁切）",
+    "r": "768P → 4K（原生像素，中心裁切）"
+   },
+   "gt_k4c": {
+    "f": "p768k-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.gt_k4c.mp4",
+    "l": "原视频 GT（放大，中心裁切）",
+    "r": "768P → 4K（原生像素，中心裁切）"
+   },
+   "in_k4": {
+    "f": "p768k-clean-ultravideo_cand_9eb00d9a064d5ca2dac18916.in_k4.mp4",
+    "l": "输入 768P",
+    "r": "768P → 4K（缩到 2K 显示）"
+   }
+  }
+ },
+ {
+  "id": "p768k-h3-hot-01-robot-caliper-muscles",
+  "cat": "k4",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Robot caliper muscles",
+  "caption": "A five-second fictional visual comedy in one steady medium close shot. In a sunlit industrial gym, a slender pearl-white humanoid robot with a black glass face finishes one small dumbbell curl. It proudly bends its elbow, then uses a polished vernier caliper to measure the almost paper-thin aluminum",
+  "thumb": "p768k-h3-hot-01-robot-caliper-muscles.thumb.jpg",
+  "poster": "p768k-h3-hot-01-robot-caliper-muscles.poster.jpg",
+  "modes": {
+   "s2k_k4c": {
+    "f": "p768k-h3-hot-01-robot-caliper-muscles.s2k_k4c.mp4",
+    "l": "768P → 2K（放大，中心裁切）",
+    "r": "768P → 4K（原生像素，中心裁切）"
+   },
+   "gt_k4c": {
+    "f": "p768k-h3-hot-01-robot-caliper-muscles.gt_k4c.mp4",
+    "l": "原视频 GT（放大，中心裁切）",
+    "r": "768P → 4K（原生像素，中心裁切）"
+   },
+   "in_k4": {
+    "f": "p768k-h3-hot-01-robot-caliper-muscles.in_k4.mp4",
+    "l": "输入 768P",
+    "r": "768P → 4K（缩到 2K 显示）"
+   }
+  }
+ },
+ {
+  "id": "p768k-h3-hot-06-thin-robot-huge-shadow",
+  "cat": "k4",
+  "group": "h3",
+  "group_zh": "H3 生成",
+  "title": "Thin robot huge shadow",
+  "caption": "A five-second stylized cinematic comedy in one fixed wide shot. A very slim humanoid robot stands sideways in a theatrical gym lit by a single amber spotlight, showing an almost ruler-thin torso and delicate mechanical arms. It raises both arms into a proud bodybuilding pose. On the textured concret",
+  "thumb": "p768k-h3-hot-06-thin-robot-huge-shadow.thumb.jpg",
+  "poster": "p768k-h3-hot-06-thin-robot-huge-shadow.poster.jpg",
+  "modes": {
+   "s2k_k4c": {
+    "f": "p768k-h3-hot-06-thin-robot-huge-shadow.s2k_k4c.mp4",
+    "l": "768P → 2K（放大，中心裁切）",
+    "r": "768P → 4K（原生像素，中心裁切）"
+   },
+   "gt_k4c": {
+    "f": "p768k-h3-hot-06-thin-robot-huge-shadow.gt_k4c.mp4",
+    "l": "原视频 GT（放大，中心裁切）",
+    "r": "768P → 4K（原生像素，中心裁切）"
+   },
+   "in_k4": {
+    "f": "p768k-h3-hot-06-thin-robot-huge-shadow.in_k4.mp4",
+    "l": "输入 768P",
+    "r": "768P → 4K（缩到 2K 显示）"
    }
   }
  }
