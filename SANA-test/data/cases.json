@@ -1210,6 +1210,966 @@
   }
  },
  {
+  "id": "sanabase-b001--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "2D-animated, a cute cartoon panda stands on a snowy sidewalk holding a steami…",
+  "caption": "[Shot 1] 2D-animated, a cute cartoon panda stands on a snowy sidewalk holding a steaming cup of coffee. The panda, adorned with a black scarf, looks around curiously as snowflakes gently fall around it. The background features a cozy street scene with warm streetlights casting a golden glow, illumin",
+  "thumb": "sanabase-b001.thumb.jpg",
+  "poster": "sanabase-b001.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b001.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "s2k_k4c": {
+    "f": "sanabase-b001.s2k_k4c.mp4",
+    "l": "768P → 2K（放大，中心裁切）",
+    "r": "768P → 4K（原生像素，中心裁切）"
+   },
+   "in_k4": {
+    "f": "sanabase-b001.in_k4.mp4",
+    "l": "SANA 768P 输入",
+    "r": "768P → 4K（缩到 2K 显示）"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b012--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "3D Pixar style, a close-up underwater perspective frames a cute baby whale sw…",
+  "caption": "[Shot 1] 3D Pixar style, a close-up underwater perspective frames a cute baby whale swimming gracefully through a vibrant underwater world. The baby whale's fins move gently while its tail flaps rhythmically, propelling it forward through the colorful aquatic environment.",
+  "thumb": "sanabase-b012.thumb.jpg",
+  "poster": "sanabase-b012.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b012.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b023--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a medium shot frames a police officer standing confid…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a police officer standing confidently in front of a cityscape featuring modern buildings and greenery, suggesting an urban setting. The officer wears a light blue uniform with a badge and patches on the shoulders, and his name \"BUCS\" is clearly v",
+  "thumb": "sanabase-b023.thumb.jpg",
+  "poster": "sanabase-b023.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b023.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "s2k_k4c": {
+    "f": "sanabase-b023.s2k_k4c.mp4",
+    "l": "768P → 2K（放大，中心裁切）",
+    "r": "768P → 4K（原生像素，中心裁切）"
+   },
+   "in_k4": {
+    "f": "sanabase-b023.in_k4.mp4",
+    "l": "SANA 768P 输入",
+    "r": "768P → 4K（缩到 2K 显示）"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b035--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a steady wide-angle shot frames a futuristic greenhou…",
+  "caption": "[Shot 1] Live-action, cinematic, a steady wide-angle shot frames a futuristic greenhouse bathed in bright sunlight with clear blue skies and verdant trees visible outside the transparent dome. Three astronauts in white spacesuits tend to lush green plants; the central astronaut, equipped with a back",
+  "thumb": "sanabase-b035.thumb.jpg",
+  "poster": "sanabase-b035.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b035.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b046--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a sunny day on a street where a person wearing a vibr…",
+  "caption": "[Shot 1] Live-action, cinematic, a sunny day on a street where a person wearing a vibrant, colorful Hawaiian shirt and a straw hat walks past a white veterinary clinic with blue doors and windows named \"San Monet de Asis\". The person carries a small, fluffy dog wrapped in green fabric over their sho",
+  "thumb": "sanabase-b046.thumb.jpg",
+  "poster": "sanabase-b046.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b046.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "s2k_k4c": {
+    "f": "sanabase-b046.s2k_k4c.mp4",
+    "l": "768P → 2K（放大，中心裁切）",
+    "r": "768P → 4K（原生像素，中心裁切）"
+   },
+   "in_k4": {
+    "f": "sanabase-b046.in_k4.mp4",
+    "l": "SANA 768P 输入",
+    "r": "768P → 4K（缩到 2K 显示）"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b058--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a medium shot frames a green-skinned alien in a golde…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a green-skinned alien in a golden robe gesturing animatedly with fluid hand movements while speaking to three individuals in sleek, metallic uniforms. The alien's expressive hands move as they communicate, while the three humans stand attentively",
+  "thumb": "sanabase-b058.thumb.jpg",
+  "poster": "sanabase-b058.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b058.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b069--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a medium shot frames a young boy with curly brown hai…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a young boy with curly brown hair, wearing a yellow shirt and a party hat with a Swedish flag design, standing in front of a festive backdrop adorned with colorful balloons and banners that spell out \"GRATULERA BÅRDADY.\" He holds a birthday cake ",
+  "thumb": "sanabase-b069.thumb.jpg",
+  "poster": "sanabase-b069.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b069.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b081--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a static shot frames a solitary figure standing on th…",
+  "caption": "[Shot 1] Live-action, cinematic, a static shot frames a solitary figure standing on the edge of a rugged cliff, silhouetted against a vibrant sunset sky painted with shades of orange, pink, and purple. Scattered clouds add depth to the scene while the ocean below displays gentle waves with crests ca",
+  "thumb": "sanabase-b081.thumb.jpg",
+  "poster": "sanabase-b081.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b081.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b092--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a steady tracking shot follows a group of horses grac…",
+  "caption": "[Shot 1] Live-action, cinematic, a steady tracking shot follows a group of horses gracefully trotting across a lush green field. The central horse, a rich chestnut with a glossy coat and a flowing black mane and tail, leads the pack, its legs moving rhythmically and kicking up small clouds of dust b",
+  "thumb": "sanabase-b092.thumb.jpg",
+  "poster": "sanabase-b092.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b092.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b103--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Cinematic, live-action, a medium-wide shot frames a monstrous creature emergi…",
+  "caption": "[Shot 1] Cinematic, live-action, a medium-wide shot frames a monstrous creature emerging from the ocean under a lightning-streaked sky. The creature has glowing eyes, tentacle-like appendages, and a muscular build, standing amidst crashing waves with snow blanketing the rocky cliffs. As the scene pr",
+  "thumb": "sanabase-b103.thumb.jpg",
+  "poster": "sanabase-b103.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b103.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b115--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "2D-animated, a medium-wide steady frontal shot frames two blocky animated cha…",
+  "caption": "[Shot 1] 2D-animated, a medium-wide steady frontal shot frames two blocky animated characters dancing rhythmically in front of the grand Milan Cathedral in a bustling piazza. The character on the left has blonde hair and wears a black hoodie emblazoned with \"MIACED,\" moving their arms and swaying si",
+  "thumb": "sanabase-b115.thumb.jpg",
+  "poster": "sanabase-b115.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b115.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b126--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Cinematic, soft desaturated colors, a medium shot frames a nervous young girl…",
+  "caption": "[Shot 1] Cinematic, soft desaturated colors, a medium shot frames a nervous young girl in a neat uniform standing hunched at a school gate, clutching her bag with her head down. Sunlight filters through clouds, gently glowing on background buildings. Leaves flutter softly in the air as she hesitates",
+  "thumb": "sanabase-b126.thumb.jpg",
+  "poster": "sanabase-b126.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b126.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b138--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a steady frontal shot captures three individuals walk…",
+  "caption": "[Shot 1] Live-action, cinematic, a steady frontal shot captures three individuals walking confidently down a wet street in a moody urban setting. The man on the left, dressed in a long black coat and hat, leads the group, followed by the man in the middle wearing a light blue lab coat over a dark su",
+  "thumb": "sanabase-b138.thumb.jpg",
+  "poster": "sanabase-b138.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b138.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b149--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a wide shot frames a grand medieval army standing in…",
+  "caption": "[Shot 1] Live-action, cinematic, a wide shot frames a grand medieval army standing in formation under a stormy sky, their spears and banners gleaming in the dim light. The ground is blanketed in snow, and distant mountains loom under heavy clouds. In the foreground, a figure clad in ornate armor and",
+  "thumb": "sanabase-b149.thumb.jpg",
+  "poster": "sanabase-b149.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b149.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b161--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a medium shot frames a young man with short brown hai…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a young man with short brown hair wearing a light green button-up shirt standing in a vibrant garden filled with colorful flowers and lush greenery. The sunlight filters through the leaves, casting a warm glow over the scene, with the background ",
+  "thumb": "sanabase-b161.thumb.jpg",
+  "poster": "sanabase-b161.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b161.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b172--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "3D CG, cinematic, a medium-wide shot captures a dynamic space battle between…",
+  "caption": "[Shot 1] 3D CG, cinematic, a medium-wide shot captures a dynamic space battle between two sleek futuristic spacecraft amidst a field of asteroids with a distant planet in the background. The leading ship, emitting bright blue exhaust, maneuvers skillfully and fires blue energy beams at adversaries. ",
+  "thumb": "sanabase-b172.thumb.jpg",
+  "poster": "sanabase-b172.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b172.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b183--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "3D CG, cyberpunk, a close-up shot frames two rabbits with glowing green patte…",
+  "caption": "[Shot 1] 3D CG, cyberpunk, a close-up shot frames two rabbits with glowing green patterns on their fur standing facing each other in a futuristic, neon-lit setting. Their large ears and whiskers are prominently displayed as they interact closely, performing subtle head tilts and eye movements to enh",
+  "thumb": "sanabase-b183.thumb.jpg",
+  "poster": "sanabase-b183.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b183.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b195--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Cinematic, live-action, a close-up shot frames a Tyrannosaurus rex roaring fi…",
+  "caption": "[Shot 1] Cinematic, live-action, a close-up shot frames a Tyrannosaurus rex roaring fiercely against a dramatic sunset backdrop with rolling hills and scattered clouds. The dinosaur's mouth is agape as flames erupt from its jaws, sparks fly, and its eyes glow with intense prehistoric power. The came",
+  "thumb": "sanabase-b195.thumb.jpg",
+  "poster": "sanabase-b195.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b195.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   },
+   "s2k_k4c": {
+    "f": "sanabase-b195.s2k_k4c.mp4",
+    "l": "768P → 2K（放大，中心裁切）",
+    "r": "768P → 4K（原生像素，中心裁切）"
+   },
+   "in_k4": {
+    "f": "sanabase-b195.in_k4.mp4",
+    "l": "SANA 768P 输入",
+    "r": "768P → 4K（缩到 2K 显示）"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b206--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "2D-animated, black-and-white, a static medium shot displays intricate snowfla…",
+  "caption": "[Shot 1] 2D-animated, black-and-white, a static medium shot displays intricate snowflake patterns in various sizes and orientations against a stark black background. The snowflakes are detailed with fine lines, creating a textured appearance. The scene remains completely static throughout, allowing ",
+  "thumb": "sanabase-b206.thumb.jpg",
+  "poster": "sanabase-b206.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b206.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sanabase-b218--r",
+  "cat": "s768",
+  "group": "sana",
+  "group_zh": "SANA 生成",
+  "title": "Live-action, cinematic, a medium shot frames a woman standing confidently in…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a woman standing confidently in an art studio. She is dressed in a professional black blazer over a crisp white shirt, with her hands clasped together in front of her, gazing thoughtfully to the side. The studio is vibrant, filled with colorful a",
+  "thumb": "sanabase-b218.thumb.jpg",
+  "poster": "sanabase-b218.poster.jpg",
+  "modes": {
+   "in_ic": {
+    "f": "sanabase-b218.in_ic.mp4",
+    "l": "输入 SANA 768P",
+    "r": "本 refiner · 30 步 · 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b001",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "2D-animated, a cute cartoon panda stands on a snowy sidewalk holding a steami…",
+  "caption": "[Shot 1] 2D-animated, a cute cartoon panda stands on a snowy sidewalk holding a steaming cup of coffee. The panda, adorned with a black scarf, looks around curiously as snowflakes gently fall around it. The background features a cozy street scene with warm streetlights casting a golden glow, illuminated buildings, and snow-covered trees. The panda's expression shifts slightly, reflecting its interest in the surroundings. The camera remains a static shot, capturing the serene winter night ambiance.",
+  "thumb": "sana384-b001.thumb.jpg",
+  "poster": "sana384-b001.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b001.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b001.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b001.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   },
+   "s2k_s4kc": {
+    "f": "sana384-b001.s2k_s4kc.mp4",
+    "l": "384P → 2K（放大，中心裁切）",
+    "r": "384P → 4K（原生像素，中心裁切）"
+   },
+   "in_s4k": {
+    "f": "sana384-b001.in_s4k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 4K（缩到 2K 显示）"
+   }
+  }
+ },
+ {
+  "id": "sana384-b012",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "3D Pixar style, a close-up underwater perspective frames a cute baby whale sw…",
+  "caption": "[Shot 1] 3D Pixar style, a close-up underwater perspective frames a cute baby whale swimming gracefully through a vibrant underwater world. The baby whale's fins move gently while its tail flaps rhythmically, propelling it forward through the colorful aquatic environment.",
+  "thumb": "sana384-b012.thumb.jpg",
+  "poster": "sana384-b012.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b012.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b012.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b012.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b023",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Live-action, cinematic, a medium shot frames a police officer standing confid…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a police officer standing confidently in front of a cityscape featuring modern buildings and greenery, suggesting an urban setting. The officer wears a light blue uniform with a badge and patches on the shoulders, and his name \"BUCS\" is clearly visible on his chest. The scene is well-lit, indicating late afternoon or early evening. The officer maintains a steady gaze, exuding a sense of authority and professionalism. The camera holds a static shot.",
+  "thumb": "sana384-b023.thumb.jpg",
+  "poster": "sana384-b023.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b023.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b023.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b023.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   },
+   "s2k_s4kc": {
+    "f": "sana384-b023.s2k_s4kc.mp4",
+    "l": "384P → 2K（放大，中心裁切）",
+    "r": "384P → 4K（原生像素，中心裁切）"
+   },
+   "in_s4k": {
+    "f": "sana384-b023.in_s4k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 4K（缩到 2K 显示）"
+   }
+  }
+ },
+ {
+  "id": "sana384-b035",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Live-action, cinematic, a steady wide-angle shot frames a futuristic greenhou…",
+  "caption": "[Shot 1] Live-action, cinematic, a steady wide-angle shot frames a futuristic greenhouse bathed in bright sunlight with clear blue skies and verdant trees visible outside the transparent dome. Three astronauts in white spacesuits tend to lush green plants; the central astronaut, equipped with a backpack, carefully inspects the foliage, while two others monitor advanced control panels in the background.",
+  "thumb": "sana384-b035.thumb.jpg",
+  "poster": "sana384-b035.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b035.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b035.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b035.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b046",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Live-action, cinematic, a sunny day on a street where a person wearing a vibr…",
+  "caption": "[Shot 1] Live-action, cinematic, a sunny day on a street where a person wearing a vibrant, colorful Hawaiian shirt and a straw hat walks past a white veterinary clinic with blue doors and windows named \"San Monet de Asis\". The person carries a small, fluffy dog wrapped in green fabric over their shoulder. The camera tracks the individual as they look around, checking the surroundings, before continuing to walk away from the camera and turning their back to it as they approach the clinic entrance.",
+  "thumb": "sana384-b046.thumb.jpg",
+  "poster": "sana384-b046.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b046.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b046.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b046.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   },
+   "s2k_s4kc": {
+    "f": "sana384-b046.s2k_s4kc.mp4",
+    "l": "384P → 2K（放大，中心裁切）",
+    "r": "384P → 4K（原生像素，中心裁切）"
+   },
+   "in_s4k": {
+    "f": "sana384-b046.in_s4k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 4K（缩到 2K 显示）"
+   }
+  }
+ },
+ {
+  "id": "sana384-b058",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Live-action, cinematic, a medium shot frames a green-skinned alien in a golde…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a green-skinned alien in a golden robe gesturing animatedly with fluid hand movements while speaking to three individuals in sleek, metallic uniforms. The alien's expressive hands move as they communicate, while the three humans stand attentively with postures indicating engagement. The scene is illuminated with cool blue tones, creating a sci-fi ambiance against a backdrop of a starry night sky and rocky formations. The camera remains steady, capturing the interaction to emphasize both the alien's gestures and the attentive expressions of the humans. The alien (S1) says: <d>[English] We must proceed with caution.</d>",
+  "thumb": "sana384-b058.thumb.jpg",
+  "poster": "sana384-b058.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b058.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b058.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b058.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b069",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Live-action, cinematic, a medium shot frames a young boy with curly brown hai…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a young boy with curly brown hair, wearing a yellow shirt and a party hat with a Swedish flag design, standing in front of a festive backdrop adorned with colorful balloons and banners that spell out \"GRATULERA BÅRDADY.\" He holds a birthday cake topped with lit candles shaped like the number \"11,\" smiling brightly. Confetti begins to fall around him, adding to the celebratory atmosphere. The setting appears to be indoors, possibly in a living room, with a couch and a potted plant visible in the background. The camera holds a static shot as the boy's joy and excitement are captured.",
+  "thumb": "sana384-b069.thumb.jpg",
+  "poster": "sana384-b069.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b069.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b069.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b069.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b081",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Live-action, cinematic, a static shot frames a solitary figure standing on th…",
+  "caption": "[Shot 1] Live-action, cinematic, a static shot frames a solitary figure standing on the edge of a rugged cliff, silhouetted against a vibrant sunset sky painted with shades of orange, pink, and purple. Scattered clouds add depth to the scene while the ocean below displays gentle waves with crests catching the last rays of sunlight. Tiny fireflies dance in the air, twinkling like stars. The figure remains still, gazing out at the vast horizon, lost in the serene beauty of nature. The camera maintains a fixed position to emphasize the grandeur of the landscape and the peaceful solitude of the individual.",
+  "thumb": "sana384-b081.thumb.jpg",
+  "poster": "sana384-b081.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b081.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b081.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b081.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b092",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Live-action, cinematic, a steady tracking shot follows a group of horses grac…",
+  "caption": "[Shot 1] Live-action, cinematic, a steady tracking shot follows a group of horses gracefully trotting across a lush green field. The central horse, a rich chestnut with a glossy coat and a flowing black mane and tail, leads the pack, its legs moving rhythmically and kicking up small clouds of dust behind it. To its left, another horse with a lighter brown coat and a white blaze on its face follows closely, while a darker brown horse with a white stripe on its face trails further back. The background is a serene landscape of rolling hills and dense greenery, bathed in soft sunlight. The horses' movements are fluid and harmonious, creating a sense of peaceful freedom.",
+  "thumb": "sana384-b092.thumb.jpg",
+  "poster": "sana384-b092.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b092.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b092.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b092.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b103",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Cinematic, live-action, a medium-wide shot frames a monstrous creature emergi…",
+  "caption": "[Shot 1] Cinematic, live-action, a medium-wide shot frames a monstrous creature emerging from the ocean under a lightning-streaked sky. The creature has glowing eyes, tentacle-like appendages, and a muscular build, standing amidst crashing waves with snow blanketing the rocky cliffs. As the scene progresses, a group of people illuminated by lanterns cautiously approaches the creature from a nearby house, their silhouettes casting long shadows against the snowy landscape. The tension builds as they confront the mysterious entity, their lanterns flickering in the wind.",
+  "thumb": "sana384-b103.thumb.jpg",
+  "poster": "sana384-b103.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b103.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b103.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b103.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b115",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "2D-animated, a medium-wide steady frontal shot frames two blocky animated cha…",
+  "caption": "[Shot 1] 2D-animated, a medium-wide steady frontal shot frames two blocky animated characters dancing rhythmically in front of the grand Milan Cathedral in a bustling piazza. The character on the left has blonde hair and wears a black hoodie emblazoned with \"MIACED,\" moving their arms and swaying side to side. Their companion on the right has brown hair and wears a shirt reading \"REIT,\" mirroring the dance moves with playful energy. The background is alive with people strolling and enjoying the sunny day, while the cathedral's intricate spires and ornate facade provide a majestic backdrop.",
+  "thumb": "sana384-b115.thumb.jpg",
+  "poster": "sana384-b115.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b115.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b115.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b115.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b126",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Cinematic, soft desaturated colors, a medium shot frames a nervous young girl…",
+  "caption": "[Shot 1] Cinematic, soft desaturated colors, a medium shot frames a nervous young girl in a neat uniform standing hunched at a school gate, clutching her bag with her head down. Sunlight filters through clouds, gently glowing on background buildings. Leaves flutter softly in the air as she hesitates to step forward.",
+  "thumb": "sana384-b126.thumb.jpg",
+  "poster": "sana384-b126.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b126.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b126.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b126.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b138",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Live-action, cinematic, a steady frontal shot captures three individuals walk…",
+  "caption": "[Shot 1] Live-action, cinematic, a steady frontal shot captures three individuals walking confidently down a wet street in a moody urban setting. The man on the left, dressed in a long black coat and hat, leads the group, followed by the man in the middle wearing a light blue lab coat over a dark suit, and the woman on the right in a sleek black outfit. They pass beneath a neon sign reading \"Quckr-silver\". The scene is enveloped in a misty atmosphere with reflections on the wet pavement, set against a background of modern buildings and illuminated windows that contrast with the characters' serious expressions.",
+  "thumb": "sana384-b138.thumb.jpg",
+  "poster": "sana384-b138.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b138.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b138.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b138.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b149",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Live-action, cinematic, a wide shot frames a grand medieval army standing in…",
+  "caption": "[Shot 1] Live-action, cinematic, a wide shot frames a grand medieval army standing in formation under a stormy sky, their spears and banners gleaming in the dim light. The ground is blanketed in snow, and distant mountains loom under heavy clouds. In the foreground, a figure clad in ornate armor and a blue helmet walks towards the army, leading them into battle, while soldiers on horses and riders remain ready for action. The camera follows the leader from behind with large amplitude at slow speed, slowly panning across the snowy landscape to capture the vastness of the army and the ominous atmosphere.",
+  "thumb": "sana384-b149.thumb.jpg",
+  "poster": "sana384-b149.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b149.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b149.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b149.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b161",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Live-action, cinematic, a medium shot frames a young man with short brown hai…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a young man with short brown hair wearing a light green button-up shirt standing in a vibrant garden filled with colorful flowers and lush greenery. The sunlight filters through the leaves, casting a warm glow over the scene, with the background softly blurred to emphasize the subject. The young man (S1) smiles warmly, turns his head to the side, and raises his right hand to take a selfie with his smartphone.",
+  "thumb": "sana384-b161.thumb.jpg",
+  "poster": "sana384-b161.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b161.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b161.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b161.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b172",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "3D CG, cinematic, a medium-wide shot captures a dynamic space battle between…",
+  "caption": "[Shot 1] 3D CG, cinematic, a medium-wide shot captures a dynamic space battle between two sleek futuristic spacecraft amidst a field of asteroids with a distant planet in the background. The leading ship, emitting bright blue exhaust, maneuvers skillfully and fires blue energy beams at adversaries. The trailing ship, with red glowing thrusters, retaliates with red laser shots, creating a vivid display of light and motion. Explosions and debris fly as the ships weave through the asteroid field, their engines roaring with power. The camera tracks the action with large amplitude at fast speed to emphasize the high-speed combat.",
+  "thumb": "sana384-b172.thumb.jpg",
+  "poster": "sana384-b172.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b172.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b172.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b172.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b183",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "3D CG, cyberpunk, a close-up shot frames two rabbits with glowing green patte…",
+  "caption": "[Shot 1] 3D CG, cyberpunk, a close-up shot frames two rabbits with glowing green patterns on their fur standing facing each other in a futuristic, neon-lit setting. Their large ears and whiskers are prominently displayed as they interact closely, performing subtle head tilts and eye movements to enhance the sense of connection. The background features vertical green lines resembling falling data streams, and the floor reflects the vibrant green light, creating a shimmering effect. The camera holds a static shot to capture the intricate details and the dynamic interplay of light and shadow.",
+  "thumb": "sana384-b183.thumb.jpg",
+  "poster": "sana384-b183.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b183.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b183.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b183.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b195",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Cinematic, live-action, a close-up shot frames a Tyrannosaurus rex roaring fi…",
+  "caption": "[Shot 1] Cinematic, live-action, a close-up shot frames a Tyrannosaurus rex roaring fiercely against a dramatic sunset backdrop with rolling hills and scattered clouds. The dinosaur's mouth is agape as flames erupt from its jaws, sparks fly, and its eyes glow with intense prehistoric power. The camera holds a static shot to capture the raw energy and epic action of the moment.",
+  "thumb": "sana384-b195.thumb.jpg",
+  "poster": "sana384-b195.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b195.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b195.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b195.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   },
+   "s2k_s4kc": {
+    "f": "sana384-b195.s2k_s4kc.mp4",
+    "l": "384P → 2K（放大，中心裁切）",
+    "r": "384P → 4K（原生像素，中心裁切）"
+   },
+   "in_s4k": {
+    "f": "sana384-b195.in_s4k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 4K（缩到 2K 显示）"
+   }
+  }
+ },
+ {
+  "id": "sana384-b206",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "2D-animated, black-and-white, a static medium shot displays intricate snowfla…",
+  "caption": "[Shot 1] 2D-animated, black-and-white, a static medium shot displays intricate snowflake patterns in various sizes and orientations against a stark black background. The snowflakes are detailed with fine lines, creating a textured appearance. The scene remains completely static throughout, allowing viewers to appreciate the complexity and beauty of each individual snowflake, evoking a sense of tranquility and seasonal charm.",
+  "thumb": "sana384-b206.thumb.jpg",
+  "poster": "sana384-b206.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b206.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b206.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b206.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
+  "id": "sana384-b218",
+  "cat": "s384",
+  "group": "s384",
+  "group_zh": "SANA 384P 生成",
+  "title": "Live-action, cinematic, a medium shot frames a woman standing confidently in…",
+  "caption": "[Shot 1] Live-action, cinematic, a medium shot frames a woman standing confidently in an art studio. She is dressed in a professional black blazer over a crisp white shirt, with her hands clasped together in front of her, gazing thoughtfully to the side. The studio is vibrant, filled with colorful abstract paintings and sculptures of classical busts. The background is lively, with bright hues and dynamic brushstrokes, creating a creative and inspiring atmosphere. The camera remains a static shot, capturing the woman's poised demeanor and the artistic surroundings.",
+  "thumb": "sana384-b218.thumb.jpg",
+  "poster": "sana384-b218.poster.jpg",
+  "modes": {
+   "in_s2k": {
+    "f": "sana384-b218.in_s2k.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 2K（768P 画布）"
+   },
+   "in_s768": {
+    "f": "sana384-b218.in_s768.mp4",
+    "l": "SANA 384P 输入",
+    "r": "384P → 768P"
+   },
+   "s768_s2k": {
+    "f": "sana384-b218.s768_s2k.mp4",
+    "l": "384P → 768P",
+    "r": "384P → 2K"
+   }
+  }
+ },
+ {
   "id": "b320-clean-movie_cand_e78e74c5d471eb6a5cb084a8",
   "cat": "g4",
   "group": "clean",
