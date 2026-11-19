@@ -97,6 +97,7 @@
       if (i < 0 || i >= this.cases.length) return;
       this.cur = i; const c = this.cases[i];
       const ms = this.buttons(c); if (!c.modes[this.mode]) this.mode = ms[0];
+      this.bar.style.display = ms.length > 1 ? '' : 'none';
       this.q('.title').textContent = c.title; this.q('.tag').textContent = c.group_zh || '';
       this.q('.caption').textContent = c.caption || '';
       this.q('.meta .count').textContent = `${this.shown.indexOf(i) + 1 || '–'} / ${this.shown.length}`;
@@ -178,10 +179,12 @@
       sec.innerHTML = head + (S.lede ? `<p class="seclede">${S.lede}</p>` : '') + (S.body_html || '');
       main.appendChild(sec);
       if (!S.appendix) toc.insertAdjacentHTML('beforeend', `<a href="#${S.id}"><b>${S.num}</b>${S.title}</a>`);
-      const list = cases.filter(c => c.sec === S.id);
-      if (list.length) {
+      for (const U of (S.subs || [{ id: S.id }])) {
+        const list = cases.filter(c => c.sec === U.id);
+        if (!list.length) continue;
+        if (U.title) sec.insertAdjacentHTML('beforeend', `<div class="subhead" id="${U.id}"><h3>${U.title}</h3><span>${list.length} 条</span></div>` + (U.lede ? `<p class="sublede">${U.lede}</p>` : ''));
         const host = document.createElement('div'); host.className = 'viewer'; sec.appendChild(host);
-        viewers.push(new Viewer(host, list, S.groups || []));
+        viewers.push(new Viewer(host, list, []));
       }
       if (S.notes_html) sec.insertAdjacentHTML('beforeend', `<div class="notes">${S.notes_html}</div>`);
     }
