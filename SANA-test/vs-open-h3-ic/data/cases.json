@@ -1,0 +1,282 @@
+[
+ {
+  "id": "sanabase-b001",
+  "title": "A cute cartoon panda stands on a snowy sidewalk holding a steaming cup of coffee",
+  "caption": "2D-animated, a cute cartoon panda stands on a snowy sidewalk holding a steaming cup of coffee. The panda, adorned with a black scarf, looks around curiously as snowflakes gently fall around it. The background features a cozy street scene with warm streetlights casting a golden glow, illuminated buildings, and snow-covered trees. The panda's expression shifts slightly, reflecting its interest in the surroundings. The camera remains a static shot, capturing the serene winter night ambiance.",
+  "group": "base",
+  "style": "2D-animated",
+  "modes": {
+   "s10k_h3": "sanabase-b001.s10k_h3.mp4",
+   "in_s10k": "sanabase-b001.in_s10k.mp4",
+   "in_h3": "sanabase-b001.in_h3.mp4"
+  },
+  "thumb": "sanabase-b001.thumb.jpg",
+  "poster": "sanabase-b001.poster.jpg"
+ },
+ {
+  "id": "sanabase-b012",
+  "title": "A close-up underwater perspective frames a cute baby whale swimming gracefully through a vibrant underwater…",
+  "caption": "3D Pixar style, a close-up underwater perspective frames a cute baby whale swimming gracefully through a vibrant underwater world. The baby whale's fins move gently while its tail flaps rhythmically, propelling it forward through the colorful aquatic environment.",
+  "group": "base",
+  "style": "3D Pixar style",
+  "modes": {
+   "s10k_h3": "sanabase-b012.s10k_h3.mp4",
+   "in_s10k": "sanabase-b012.in_s10k.mp4",
+   "in_h3": "sanabase-b012.in_h3.mp4"
+  },
+  "thumb": "sanabase-b012.thumb.jpg",
+  "poster": "sanabase-b012.poster.jpg"
+ },
+ {
+  "id": "sanabase-b023",
+  "title": "Cinematic, a medium shot frames a police officer standing confidently in front of a cityscape featuring mod…",
+  "caption": "Live-action, cinematic, a medium shot frames a police officer standing confidently in front of a cityscape featuring modern buildings and greenery, suggesting an urban setting. The officer wears a light blue uniform with a badge and patches on the shoulders, and his name \"BUCS\" is clearly visible on his chest. The scene is well-lit, indicating late afternoon or early evening. The officer maintains a steady gaze, exuding a sense of authority and professionalism. The camera holds a static shot.",
+  "group": "base",
+  "style": "Live-action",
+  "modes": {
+   "s10k_h3": "sanabase-b023.s10k_h3.mp4",
+   "in_s10k": "sanabase-b023.in_s10k.mp4",
+   "in_h3": "sanabase-b023.in_h3.mp4"
+  },
+  "thumb": "sanabase-b023.thumb.jpg",
+  "poster": "sanabase-b023.poster.jpg"
+ },
+ {
+  "id": "sanabase-b035",
+  "title": "Cinematic, a steady wide-angle shot frames a futuristic greenhouse bathed in bright sunlight with clear blu…",
+  "caption": "Live-action, cinematic, a steady wide-angle shot frames a futuristic greenhouse bathed in bright sunlight with clear blue skies and verdant trees visible outside the transparent dome. Three astronauts in white spacesuits tend to lush green plants; the central astronaut, equipped with a backpack, carefully inspects the foliage, while two others monitor advanced control panels in the background.",
+  "group": "base",
+  "style": "Live-action",
+  "modes": {
+   "s10k_h3": "sanabase-b035.s10k_h3.mp4",
+   "in_s10k": "sanabase-b035.in_s10k.mp4",
+   "in_h3": "sanabase-b035.in_h3.mp4"
+  },
+  "thumb": "sanabase-b035.thumb.jpg",
+  "poster": "sanabase-b035.poster.jpg"
+ },
+ {
+  "id": "sanabase-b046",
+  "title": "Cinematic, a sunny day on a street where a person wearing a vibrant, colorful Hawaiian shirt and a straw ha…",
+  "caption": "Live-action, cinematic, a sunny day on a street where a person wearing a vibrant, colorful Hawaiian shirt and a straw hat walks past a white veterinary clinic with blue doors and windows named \"San Monet de Asis\". The person carries a small, fluffy dog wrapped in green fabric over their shoulder. The camera tracks the individual as they look around, checking the surroundings, before continuing to walk away from the camera and turning their back to it as they approach the clinic entrance.",
+  "group": "base",
+  "style": "Live-action",
+  "modes": {
+   "s10k_h3": "sanabase-b046.s10k_h3.mp4",
+   "in_s10k": "sanabase-b046.in_s10k.mp4",
+   "in_h3": "sanabase-b046.in_h3.mp4"
+  },
+  "thumb": "sanabase-b046.thumb.jpg",
+  "poster": "sanabase-b046.poster.jpg"
+ },
+ {
+  "id": "sanabase-b058",
+  "title": "Cinematic, a medium shot frames a green-skinned alien in a golden robe gesturing animatedly with fluid hand…",
+  "caption": "Live-action, cinematic, a medium shot frames a green-skinned alien in a golden robe gesturing animatedly with fluid hand movements while speaking to three individuals in sleek, metallic uniforms. The alien's expressive hands move as they communicate, while the three humans stand attentively with postures indicating engagement. The scene is illuminated with cool blue tones, creating a sci-fi ambiance against a backdrop of a starry night sky and rocky formations. The camera remains steady, capturing the interaction to emphasize both the alien's gestures and the attentive expressions of the humans. The alien (S1) says: <d>[English] We must proceed with caution.</d>",
+  "group": "base",
+  "style": "Live-action",
+  "modes": {
+   "s10k_h3": "sanabase-b058.s10k_h3.mp4",
+   "in_s10k": "sanabase-b058.in_s10k.mp4",
+   "in_h3": "sanabase-b058.in_h3.mp4"
+  },
+  "thumb": "sanabase-b058.thumb.jpg",
+  "poster": "sanabase-b058.poster.jpg"
+ },
+ {
+  "id": "sanabase-b069",
+  "title": "Cinematic, a medium shot frames a young boy with curly brown hair, wearing a yellow shirt and a party hat w…",
+  "caption": "Live-action, cinematic, a medium shot frames a young boy with curly brown hair, wearing a yellow shirt and a party hat with a Swedish flag design, standing in front of a festive backdrop adorned with colorful balloons and banners that spell out \"GRATULERA BÅRDADY.\" He holds a birthday cake topped with lit candles shaped like the number \"11,\" smiling brightly. Confetti begins to fall around him, adding to the celebratory atmosphere. The setting appears to be indoors, possibly in a living room, with a couch and a potted plant visible in the background. The camera holds a static shot as the boy's joy and excitement are captured.",
+  "group": "base",
+  "style": "Live-action",
+  "modes": {
+   "s10k_h3": "sanabase-b069.s10k_h3.mp4",
+   "in_s10k": "sanabase-b069.in_s10k.mp4",
+   "in_h3": "sanabase-b069.in_h3.mp4"
+  },
+  "thumb": "sanabase-b069.thumb.jpg",
+  "poster": "sanabase-b069.poster.jpg"
+ },
+ {
+  "id": "sanabase-b081",
+  "title": "Cinematic, a static shot frames a solitary figure standing on the edge of a rugged cliff, silhouetted again…",
+  "caption": "Live-action, cinematic, a static shot frames a solitary figure standing on the edge of a rugged cliff, silhouetted against a vibrant sunset sky painted with shades of orange, pink, and purple. Scattered clouds add depth to the scene while the ocean below displays gentle waves with crests catching the last rays of sunlight. Tiny fireflies dance in the air, twinkling like stars. The figure remains still, gazing out at the vast horizon, lost in the serene beauty of nature. The camera maintains a fixed position to emphasize the grandeur of the landscape and the peaceful solitude of the individual.",
+  "group": "base",
+  "style": "Live-action",
+  "modes": {
+   "s10k_h3": "sanabase-b081.s10k_h3.mp4",
+   "in_s10k": "sanabase-b081.in_s10k.mp4",
+   "in_h3": "sanabase-b081.in_h3.mp4"
+  },
+  "thumb": "sanabase-b081.thumb.jpg",
+  "poster": "sanabase-b081.poster.jpg"
+ },
+ {
+  "id": "sanabase-b092",
+  "title": "Cinematic, a steady tracking shot follows a group of horses gracefully trotting across a lush green field",
+  "caption": "Live-action, cinematic, a steady tracking shot follows a group of horses gracefully trotting across a lush green field. The central horse, a rich chestnut with a glossy coat and a flowing black mane and tail, leads the pack, its legs moving rhythmically and kicking up small clouds of dust behind it. To its left, another horse with a lighter brown coat and a white blaze on its face follows closely, while a darker brown horse with a white stripe on its face trails further back. The background is a serene landscape of rolling hills and dense greenery, bathed in soft sunlight. The horses' movements are fluid and harmonious, creating a sense of peaceful freedom.",
+  "group": "base",
+  "style": "Live-action",
+  "modes": {
+   "s10k_h3": "sanabase-b092.s10k_h3.mp4",
+   "in_s10k": "sanabase-b092.in_s10k.mp4",
+   "in_h3": "sanabase-b092.in_h3.mp4"
+  },
+  "thumb": "sanabase-b092.thumb.jpg",
+  "poster": "sanabase-b092.poster.jpg"
+ },
+ {
+  "id": "sanabase-b103",
+  "title": "Live-action, a medium-wide shot frames a monstrous creature emerging from the ocean under a lightning-strea…",
+  "caption": "Cinematic, live-action, a medium-wide shot frames a monstrous creature emerging from the ocean under a lightning-streaked sky. The creature has glowing eyes, tentacle-like appendages, and a muscular build, standing amidst crashing waves with snow blanketing the rocky cliffs. As the scene progresses, a group of people illuminated by lanterns cautiously approaches the creature from a nearby house, their silhouettes casting long shadows against the snowy landscape. The tension builds as they confront the mysterious entity, their lanterns flickering in the wind.",
+  "group": "base",
+  "style": "Cinematic",
+  "modes": {
+   "s10k_h3": "sanabase-b103.s10k_h3.mp4",
+   "in_s10k": "sanabase-b103.in_s10k.mp4",
+   "in_h3": "sanabase-b103.in_h3.mp4"
+  },
+  "thumb": "sanabase-b103.thumb.jpg",
+  "poster": "sanabase-b103.poster.jpg"
+ },
+ {
+  "id": "sanabase-b115",
+  "title": "A medium-wide steady frontal shot frames two blocky animated characters dancing rhythmically in front of th…",
+  "caption": "2D-animated, a medium-wide steady frontal shot frames two blocky animated characters dancing rhythmically in front of the grand Milan Cathedral in a bustling piazza. The character on the left has blonde hair and wears a black hoodie emblazoned with \"MIACED,\" moving their arms and swaying side to side. Their companion on the right has brown hair and wears a shirt reading \"REIT,\" mirroring the dance moves with playful energy. The background is alive with people strolling and enjoying the sunny day, while the cathedral's intricate spires and ornate facade provide a majestic backdrop.",
+  "group": "base",
+  "style": "2D-animated",
+  "modes": {
+   "s10k_h3": "sanabase-b115.s10k_h3.mp4",
+   "in_s10k": "sanabase-b115.in_s10k.mp4",
+   "in_h3": "sanabase-b115.in_h3.mp4"
+  },
+  "thumb": "sanabase-b115.thumb.jpg",
+  "poster": "sanabase-b115.poster.jpg"
+ },
+ {
+  "id": "sanabase-b126",
+  "title": "Soft desaturated colors, a medium shot frames a nervous young girl in a neat uniform standing hunched at a …",
+  "caption": "Cinematic, soft desaturated colors, a medium shot frames a nervous young girl in a neat uniform standing hunched at a school gate, clutching her bag with her head down. Sunlight filters through clouds, gently glowing on background buildings. Leaves flutter softly in the air as she hesitates to step forward.",
+  "group": "base",
+  "style": "Cinematic",
+  "modes": {
+   "s10k_h3": "sanabase-b126.s10k_h3.mp4",
+   "in_s10k": "sanabase-b126.in_s10k.mp4",
+   "in_h3": "sanabase-b126.in_h3.mp4"
+  },
+  "thumb": "sanabase-b126.thumb.jpg",
+  "poster": "sanabase-b126.poster.jpg"
+ },
+ {
+  "id": "sanabase-b138",
+  "title": "Cinematic, a steady frontal shot captures three individuals walking confidently down a wet street in a mood…",
+  "caption": "Live-action, cinematic, a steady frontal shot captures three individuals walking confidently down a wet street in a moody urban setting. The man on the left, dressed in a long black coat and hat, leads the group, followed by the man in the middle wearing a light blue lab coat over a dark suit, and the woman on the right in a sleek black outfit. They pass beneath a neon sign reading \"Quckr-silver\". The scene is enveloped in a misty atmosphere with reflections on the wet pavement, set against a background of modern buildings and illuminated windows that contrast with the characters' serious expressions.",
+  "group": "base",
+  "style": "Live-action",
+  "modes": {
+   "s10k_h3": "sanabase-b138.s10k_h3.mp4",
+   "in_s10k": "sanabase-b138.in_s10k.mp4",
+   "in_h3": "sanabase-b138.in_h3.mp4"
+  },
+  "thumb": "sanabase-b138.thumb.jpg",
+  "poster": "sanabase-b138.poster.jpg"
+ },
+ {
+  "id": "sanabase-b149",
+  "title": "Cinematic, a wide shot frames a grand medieval army standing in formation under a stormy sky, their spears …",
+  "caption": "Live-action, cinematic, a wide shot frames a grand medieval army standing in formation under a stormy sky, their spears and banners gleaming in the dim light. The ground is blanketed in snow, and distant mountains loom under heavy clouds. In the foreground, a figure clad in ornate armor and a blue helmet walks towards the army, leading them into battle, while soldiers on horses and riders remain ready for action. The camera follows the leader from behind with large amplitude at slow speed, slowly panning across the snowy landscape to capture the vastness of the army and the ominous atmosphere.",
+  "group": "base",
+  "style": "Live-action",
+  "modes": {
+   "s10k_h3": "sanabase-b149.s10k_h3.mp4",
+   "in_s10k": "sanabase-b149.in_s10k.mp4",
+   "in_h3": "sanabase-b149.in_h3.mp4"
+  },
+  "thumb": "sanabase-b149.thumb.jpg",
+  "poster": "sanabase-b149.poster.jpg"
+ },
+ {
+  "id": "sanabase-b161",
+  "title": "Cinematic, a medium shot frames a young man with short brown hair wearing a light green button-up shirt sta…",
+  "caption": "Live-action, cinematic, a medium shot frames a young man with short brown hair wearing a light green button-up shirt standing in a vibrant garden filled with colorful flowers and lush greenery. The sunlight filters through the leaves, casting a warm glow over the scene, with the background softly blurred to emphasize the subject. The young man (S1) smiles warmly, turns his head to the side, and raises his right hand to take a selfie with his smartphone.",
+  "group": "base",
+  "style": "Live-action",
+  "modes": {
+   "s10k_h3": "sanabase-b161.s10k_h3.mp4",
+   "in_s10k": "sanabase-b161.in_s10k.mp4",
+   "in_h3": "sanabase-b161.in_h3.mp4"
+  },
+  "thumb": "sanabase-b161.thumb.jpg",
+  "poster": "sanabase-b161.poster.jpg"
+ },
+ {
+  "id": "sanabase-b172",
+  "title": "Cinematic, a medium-wide shot captures a dynamic space battle between two sleek futuristic spacecraft amids…",
+  "caption": "3D CG, cinematic, a medium-wide shot captures a dynamic space battle between two sleek futuristic spacecraft amidst a field of asteroids with a distant planet in the background. The leading ship, emitting bright blue exhaust, maneuvers skillfully and fires blue energy beams at adversaries. The trailing ship, with red glowing thrusters, retaliates with red laser shots, creating a vivid display of light and motion. Explosions and debris fly as the ships weave through the asteroid field, their engines roaring with power. The camera tracks the action with large amplitude at fast speed to emphasize the high-speed combat.",
+  "group": "base",
+  "style": "3D CG",
+  "modes": {
+   "s10k_h3": "sanabase-b172.s10k_h3.mp4",
+   "in_s10k": "sanabase-b172.in_s10k.mp4",
+   "in_h3": "sanabase-b172.in_h3.mp4"
+  },
+  "thumb": "sanabase-b172.thumb.jpg",
+  "poster": "sanabase-b172.poster.jpg"
+ },
+ {
+  "id": "sanabase-b183",
+  "title": "Cyberpunk, a close-up shot frames two rabbits with glowing green patterns on their fur standing facing each…",
+  "caption": "3D CG, cyberpunk, a close-up shot frames two rabbits with glowing green patterns on their fur standing facing each other in a futuristic, neon-lit setting. Their large ears and whiskers are prominently displayed as they interact closely, performing subtle head tilts and eye movements to enhance the sense of connection. The background features vertical green lines resembling falling data streams, and the floor reflects the vibrant green light, creating a shimmering effect. The camera holds a static shot to capture the intricate details and the dynamic interplay of light and shadow.",
+  "group": "base",
+  "style": "3D CG",
+  "modes": {
+   "s10k_h3": "sanabase-b183.s10k_h3.mp4",
+   "in_s10k": "sanabase-b183.in_s10k.mp4",
+   "in_h3": "sanabase-b183.in_h3.mp4"
+  },
+  "thumb": "sanabase-b183.thumb.jpg",
+  "poster": "sanabase-b183.poster.jpg"
+ },
+ {
+  "id": "sanabase-b195",
+  "title": "Live-action, a close-up shot frames a Tyrannosaurus rex roaring fiercely against a dramatic sunset backdrop…",
+  "caption": "Cinematic, live-action, a close-up shot frames a Tyrannosaurus rex roaring fiercely against a dramatic sunset backdrop with rolling hills and scattered clouds. The dinosaur's mouth is agape as flames erupt from its jaws, sparks fly, and its eyes glow with intense prehistoric power. The camera holds a static shot to capture the raw energy and epic action of the moment.",
+  "group": "base",
+  "style": "Cinematic",
+  "modes": {
+   "s10k_h3": "sanabase-b195.s10k_h3.mp4",
+   "in_s10k": "sanabase-b195.in_s10k.mp4",
+   "in_h3": "sanabase-b195.in_h3.mp4"
+  },
+  "thumb": "sanabase-b195.thumb.jpg",
+  "poster": "sanabase-b195.poster.jpg"
+ },
+ {
+  "id": "sanabase-b206",
+  "title": "Black-and-white, a static medium shot displays intricate snowflake patterns in various sizes and orientatio…",
+  "caption": "2D-animated, black-and-white, a static medium shot displays intricate snowflake patterns in various sizes and orientations against a stark black background. The snowflakes are detailed with fine lines, creating a textured appearance. The scene remains completely static throughout, allowing viewers to appreciate the complexity and beauty of each individual snowflake, evoking a sense of tranquility and seasonal charm.",
+  "group": "base",
+  "style": "2D-animated",
+  "modes": {
+   "s10k_h3": "sanabase-b206.s10k_h3.mp4",
+   "in_s10k": "sanabase-b206.in_s10k.mp4",
+   "in_h3": "sanabase-b206.in_h3.mp4"
+  },
+  "thumb": "sanabase-b206.thumb.jpg",
+  "poster": "sanabase-b206.poster.jpg"
+ },
+ {
+  "id": "sanabase-b218",
+  "title": "Cinematic, a medium shot frames a woman standing confidently in an art studio",
+  "caption": "Live-action, cinematic, a medium shot frames a woman standing confidently in an art studio. She is dressed in a professional black blazer over a crisp white shirt, with her hands clasped together in front of her, gazing thoughtfully to the side. The studio is vibrant, filled with colorful abstract paintings and sculptures of classical busts. The background is lively, with bright hues and dynamic brushstrokes, creating a creative and inspiring atmosphere. The camera remains a static shot, capturing the woman's poised demeanor and the artistic surroundings.",
+  "group": "base",
+  "style": "Live-action",
+  "modes": {
+   "s10k_h3": "sanabase-b218.s10k_h3.mp4",
+   "in_s10k": "sanabase-b218.in_s10k.mp4",
+   "in_h3": "sanabase-b218.in_h3.mp4"
+  },
+  "thumb": "sanabase-b218.thumb.jpg",
+  "poster": "sanabase-b218.poster.jpg"
+ }
+]
